@@ -1,5 +1,5 @@
-﻿using System;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
+using OrchardCoreContrib.Infrastructure;
 
 namespace OrchardCoreContrib.Sms
 {
@@ -17,20 +17,9 @@ namespace OrchardCoreContrib.Sms
         /// <returns>A <see cref="SmtpResult"/> that holds information about the sent message, for instance if it has sent successfully or if it has failed.</returns>
         public async static Task<SmsResult> SendAsync(this ISmsService smsService, string phoneNumber, string text)
         {
-            if (smsService is null)
-            {
-                throw new ArgumentNullException(nameof(smsService));
-            }
-
-            if (string.IsNullOrEmpty(phoneNumber))
-            {
-                throw new ArgumentException("The phone number can't be null or empty.", nameof(phoneNumber));
-            }
-
-            if (string.IsNullOrEmpty(text))
-            {
-                throw new ArgumentException("The text can't be null or empty.", nameof(text));
-            }
+            Guard.ArgumentNotNull(nameof(smsService), smsService);
+            Guard.ArgumentNotNullOrEmpty(nameof(phoneNumber), phoneNumber);
+            Guard.ArgumentNotNullOrEmpty(nameof(text), text);
 
             var message = new SmsMessage
             {
