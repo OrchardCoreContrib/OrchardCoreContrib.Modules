@@ -28,7 +28,7 @@ namespace OrchardCoreContrib.Infrastructure
         }
 
         /// <summary>
-        /// Throws an exception if the given string value is <see langword="null" /> or <see cref="string.Empty"/>.
+        /// Throws <see cref="ArgumentNullOrEmptyException"/> if the given string value is <see langword="null" /> or <see cref="string.Empty"/>.
         /// </summary>
         /// <param name="argumentName">The name of the tested value.</param>
         /// <param name="argumentValue">The string value to be tested.</param>
@@ -39,14 +39,14 @@ namespace OrchardCoreContrib.Infrastructure
                 throw new ArgumentException("Value cannot be empty.", nameof(argumentName));
             }
 
-            if (string.IsNullOrEmpty(argumentValue))
+            if (argumentValue is null || argumentValue.Count() == 0)
             {
-                throw new ArgumentException("Value cannot be empty.", argumentName);
+                throw new ArgumentNullOrEmptyException(argumentName);
             }
         }
 
         /// <summary>
-        /// Throws an exception if the given collection is <see langword="null" /> or empty.
+        /// Throws <see cref="ArgumentNullOrEmptyException"/> if the given collection is <see langword="null" /> or empty.
         /// </summary>
         /// <param name="argumentName">The name of the tested collection.</param>
         /// <param name="argumentValue">The collection to be tested.</param>
@@ -57,14 +57,9 @@ namespace OrchardCoreContrib.Infrastructure
                 throw new ArgumentException("Value cannot be empty.", nameof(argumentName));
             }
 
-            if (argumentValue is null)
+            if (argumentValue is null || argumentValue.Count() == 0)
             {
-                throw new ArgumentNullException(argumentName);
-            }
-
-            if (argumentValue.Count() == 0)
-            {
-                throw new ArgumentException("Value cannot be empty.", argumentName);
+                throw new ArgumentNullOrEmptyException(argumentName);
             }
         }
     }

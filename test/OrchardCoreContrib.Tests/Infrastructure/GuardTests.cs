@@ -23,26 +23,26 @@ namespace OrchardCoreContrib.Tests.Infrastructure
         [Theory]
         [InlineData("name", null)]
         [InlineData("name", "")]
-        public void ArgumentNotNullOrEmpty_NullableOrEmptyString_ThrowsArgumentNullException(string name, string value)
+        public void ArgumentNotNullOrEmpty_NullableOrEmptyString_ThrowsArgumentNullOrEmptyException(string name, string value)
         {
             // Arrange
 
             // Act & Assert
-            var exception = Assert.Throws<ArgumentException>(() => Guard.ArgumentNotNullOrEmpty(name, value));
+            var exception = Assert.Throws<ArgumentNullOrEmptyException>(() => Guard.ArgumentNotNullOrEmpty(name, value));
             Assert.Equal(name, exception.ParamName);
-            Assert.Equal($"Value cannot be empty. (Parameter '{name}')", exception.Message);
+            Assert.Equal($"Value cannot be null or empty. (Parameter '{name}')", exception.Message);
         }
 
         [Theory]
-        [InlineData("names", null, typeof(ArgumentNullException), "Value cannot be null. (Parameter 'names')")]
-        [InlineData("names", new string[] {}, typeof(ArgumentException), "Value cannot be empty. (Parameter 'names')")]
-        public void ArgumentNotNullOrEmpty_NullableOrEmptyCollection_ThrowsArgumentNullExceptionOrArgumentException(string name, IEnumerable<string> value, Type expectedException, string expectedExceptionMessage)
+        [InlineData("names", null)]
+        [InlineData("names", new string[] {})]
+        public void ArgumentNotNullOrEmpty_NullableOrEmptyCollection_ThrowsArgumentNullOrEmptyException(string name, IEnumerable<string> value)
         {
             // Arrange
 
             // Act & Assert
-            var exception = Assert.Throws(expectedException, () => Guard.ArgumentNotNullOrEmpty(name, value));
-            Assert.Equal(expectedExceptionMessage, exception.Message);
+            var exception = Assert.Throws<ArgumentNullOrEmptyException>(() => Guard.ArgumentNotNullOrEmpty(name, value));
+            Assert.Equal($"Value cannot be null or empty. (Parameter '{name}')", exception.Message);
         }
     }
 }
