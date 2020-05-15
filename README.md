@@ -33,3 +33,5 @@ This section lists all the modules that we are planned to design and develop:
 ## Supported Features & APIs
 
 This section lists all the supported features & APIs that we are supported:
+
+- SMS Abstractions APIs
