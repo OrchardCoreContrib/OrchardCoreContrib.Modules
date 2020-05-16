@@ -8,7 +8,7 @@ This will encourage all the passionate developers to add and develop the other n
 
 Stable (master):
 
-[![Build status](https://ci.appveyor.com/api/projects/status/ib7vg40ugv0rhs8i?svg=true)](https://ci.appveyor.com/project/hishamco/orchardcorecontrib) [![Build Status](https://travis-ci.org/OrchardCoreContrib/OrchardCoreContrib.svg?branch=master)](https://travis-ci.org/OrchardCoreContrib/OrchardCoreContrib)
+[![Build status](https://ci.appveyor.com/api/projects/status/ib7vg40ugv0rhs8i?svg=true)](https://ci.appveyor.com/project/hishamco/orchardcorecontrib/branch/master) [![Build Status](https://travis-ci.org/OrchardCoreContrib/OrchardCoreContrib.svg?branch=master)](https://travis-ci.org/OrchardCoreContrib/OrchardCoreContrib)
 
 Nightly (dev):
 
