@@ -20,8 +20,6 @@ This section lists all the modules that we are planned to design and develop:
 
 - Localization
 
-    - Support localization from `JSON` files
-
     - Support multiple datetime Gregorian & Hijri
 
 - Customizable Admin Dashboard
@@ -35,3 +33,5 @@ This section lists all the modules that we are planned to design and develop:
 This section lists all the supported features & APIs that we are supported:
 
 - SMS Abstractions APIs
+
+- JSON Localization APIs
