@@ -8,7 +8,7 @@ using OrchardCore.Localization;
 namespace OrchardCoreContrib.Localization.Json
 {
     /// <summary>
-    /// Represents a <see cref="IStringLocalizerFactory"/> for portable objects.
+    /// Represents a <see cref="IStringLocalizerFactory"/> for JSON.
     /// </summary>
     public class JsonStringLocalizerFactory : IStringLocalizerFactory
     {
@@ -17,7 +17,7 @@ namespace OrchardCoreContrib.Localization.Json
         private readonly ILogger _logger;
 
         /// <summary>
-        /// Creates a new instance of <see cref="PortableObjectStringLocalizerFactory"/>.
+        /// Initializes a new instance of the <see cref="JsonStringLocalizerFactory"/> class.
         /// </summary>
         /// <param name="localizationManager"></param>
         /// <param name="requestLocalizationOptions"></param>
