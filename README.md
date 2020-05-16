@@ -4,6 +4,16 @@ This repository contains a set of features and APIs for [Orchard Core CMS](https
 
 This will encourage all the passionate developers to add and develop the other necessary core features that aren't included in Orchard Core. Such feature and APIs may necessary to drive other [modules](https://github.com/OrchardCoreContrib/OrchardCoreContrib.Modules) or [themes](https://github.com/OrchardCoreContrib/OrchardCoreContrib.Themes) for Orchard Core Contrib.
 
+## Build Status
+
+Stable (master):
+
+[![Build status](https://ci.appveyor.com/api/projects/status/ib7vg40ugv0rhs8i?svg=true)](https://ci.appveyor.com/project/hishamco/orchardcorecontrib) [![Build Status](https://travis-ci.org/OrchardCoreContrib/OrchardCoreContrib.svg?branch=master)](https://travis-ci.org/OrchardCoreContrib/OrchardCoreContrib)
+
+Nightly (dev):
+
+[![Build status](https://ci.appveyor.com/api/projects/status/ib7vg40ugv0rhs8i/branch/dev?svg=true)](https://ci.appveyor.com/project/hishamco/orchardcorecontrib/branch/dev) [![Build Status](https://travis-ci.org/OrchardCoreContrib/OrchardCoreContrib.svg?branch=dev)](https://travis-ci.org/OrchardCoreContrib/OrchardCoreContrib)
+
 ## Goals
 
 There are many goals for creating this repository:
