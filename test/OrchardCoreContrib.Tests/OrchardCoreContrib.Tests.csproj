@@ -7,7 +7,22 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Localization\JsonFiles\First.json" />
+    <None Remove="Localization\JsonFiles\Second.json" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Localization\JsonFiles\First.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Localization\JsonFiles\Second.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.5.0" />
+    <PackageReference Include="Moq" Version="4.14.1" />
     <PackageReference Include="xunit" Version="2.4.0" />
     <PackageReference Include="xunit.runner.visualstudio" Version="2.4.0" />
     <PackageReference Include="coverlet.collector" Version="1.2.0" />
