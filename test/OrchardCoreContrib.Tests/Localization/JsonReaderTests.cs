@@ -39,6 +39,21 @@ namespace OrchardCoreContrib.Tests.Localization
             Assert.Equal("JsonReaderException", exception.GetType().Name);
         }
 
+        [Fact]
+        public async Task JsonReader_Parse_ShouldNotReturnRawText()
+        {
+            // Arrange
+            var reader = new JsonReader();
+            var stream = GetJsonStream();
+
+            // Act
+            var records = await reader.ParseAsync(stream);
+
+            // Assert
+            Assert.NotNull(records);
+            Assert.NotEqual("\"Bonjour\"", records.First().Translations[0]);
+        }
+
         private Stream GetJsonStream()
         {
             var json = @"{

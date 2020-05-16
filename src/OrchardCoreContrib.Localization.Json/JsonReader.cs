@@ -20,7 +20,7 @@ namespace OrchardCoreContrib.Localization.Json
             var cultureRecords = new List<CultureDictionaryRecord>();
             foreach (var item in document.RootElement.EnumerateObject())
             {
-                cultureRecords.Add(new CultureDictionaryRecordWrapper(item.Name, item.Value.GetRawText()));
+                cultureRecords.Add(new CultureDictionaryRecordWrapper(item.Name, item.Value.ToString()));
             }
 
             return cultureRecords;
