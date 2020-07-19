@@ -25,5 +25,5 @@ else
 }
 @if (Site.As<ImpersonationSettings>().EnableImpersonation)
 {
-    <a asp-controller="Impersonation" asp-action="ImpersonateUser" asp-route-userId="@user.Id" class="btn btn-success btn-sm @(user.UserName == User.Identity.Name ? "disabled" : string.Empty)">@T["Impersonate"]</a>
+    <a asp-area="OrchardCoreContrib.Users" asp-controller="Impersonation" asp-action="ImpersonateUser" asp-route-userId="@user.Id" class="btn btn-success btn-sm @(user.UserName == User.Identity.Name ? "disabled" : string.Empty)">@T["Impersonate"]</a>
 }
