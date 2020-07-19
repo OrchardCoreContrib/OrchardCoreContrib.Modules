@@ -1,0 +1,10 @@
+﻿@model OrchardCoreContrib.Users.Models.ImpersonationSettings
+
+<div class="form-group" asp-validation-class-for="EnableImpersonation">
+    <div class="custom-control custom-checkbox">
+        <input type="checkbox" class="custom-control-input" asp-for="EnableImpersonation" />
+        <span asp-validation-for="EnableImpersonation"></span>
+        <label class="custom-control-label" asp-for="EnableImpersonation">@T["Allow administrators to sign in with other user identity."]</label>
+        <span class="hint">— @T["You will be sign out immediately, and sign in with the selected user identity."]</span>
+    </div>
+</div>
