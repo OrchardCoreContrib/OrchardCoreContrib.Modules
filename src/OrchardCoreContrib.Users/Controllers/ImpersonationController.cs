@@ -73,5 +73,36 @@ namespace OrchardCoreContrib.Users.Controllers
 
             return Redirect($"~/{_adminOptions.AdminUrlPrefix}");
         }
+
+        public async Task<IActionResult> EndImpersonatation()
+        {
+            var isImpersonatingClaim = HttpContext.User.FindFirst(ClaimTypesExtended.IsImpersonating);
+            if (isImpersonatingClaim == null || isImpersonatingClaim?.Value != "true")
+            {
+                return Forbid();
+            }
+
+            if (!(await _siteService.GetSiteSettingsAsync()).As<ImpersonationSettings>().EnableImpersonation)
+            {
+                return NotFound();
+            }
+
+            var impersonatorUserId = HttpContext.User.Claims.First(c => c.Type == ClaimTypesExtended.ImpersonatorNameIdentifier).Value;
+            
+            var impersonatedUserId = HttpContext.User.Claims.First(c => c.Type == ClaimTypes.NameIdentifier).Value;
+            var impersonatedUser = await _userManager.FindByIdAsync(impersonatedUserId);
+            var impersonatedUserPrincipal = await _signInManager.CreateUserPrincipalAsync(impersonatedUser);
+
+            await _signInManager.SignOutAsync();
+
+            var impersonaterUser = await _userManager.FindByIdAsync(impersonatorUserId);
+            var impersonaterUserPrincipal = await _signInManager.CreateUserPrincipalAsync(impersonaterUser);
+
+            await HttpContext.SignInAsync(IdentityConstants.ApplicationScheme, impersonaterUserPrincipal);
+
+            _logger.LogInformation(1, S["Swicthed back to the '{0}' user.", impersonaterUser.UserName]);
+
+            return Redirect($"~/{_adminOptions.AdminUrlPrefix}");
+        }
     }
 }
