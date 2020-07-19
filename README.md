@@ -16,8 +16,6 @@ This section lists all the modules that we are planned to design and develop:
 
 - Mailing
 
-    - GMail
-
     - SendGrid
 
 - Profile
@@ -35,6 +33,7 @@ This section lists all the modules that we are planned to design and develop:
 This section lists all the supported modules that we are supported:
 
 - Mailing
+    - GMail
 
     - Hotmail
     
