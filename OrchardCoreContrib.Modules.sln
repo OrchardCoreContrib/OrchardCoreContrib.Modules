@@ -11,8 +11,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OrchardCoreContrib.Modules.
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OrchardCoreContrib.Modules.Tests", "test\OrchardCoreContrib.Modules.Tests\OrchardCoreContrib.Modules.Tests.csproj", "{C980A51C-3324-44B2-ADE8-D71D56BB4230}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OrchardCoreContrib.Users", "src\OrchardCoreContrib.Users\OrchardCoreContrib.Users.csproj", "{A1784F02-589D-41E2-9E51-186D14C596D6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OrchardCoreContrib.Users", "src\OrchardCoreContrib.Users\OrchardCoreContrib.Users.csproj", "{A1784F02-589D-41E2-9E51-186D14C596D6}"
+EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OrchardCoreContrib.Email.Hotmail", "src\OrchardCoreContrib.Email.Hotmail\OrchardCoreContrib.Email.Hotmail.csproj", "{505B6516-5ED0-4186-821D-FAB5FABE97F0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OrchardCoreContrib.Email.Yahoo", "src\OrchardCoreContrib.Email.Yahoo\OrchardCoreContrib.Email.Yahoo.csproj", "{A58C4CC2-B080-45D8-9236-52DA9E5C6E3E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -36,6 +39,10 @@ Global
 		{505B6516-5ED0-4186-821D-FAB5FABE97F0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{505B6516-5ED0-4186-821D-FAB5FABE97F0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{505B6516-5ED0-4186-821D-FAB5FABE97F0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A58C4CC2-B080-45D8-9236-52DA9E5C6E3E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A58C4CC2-B080-45D8-9236-52DA9E5C6E3E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A58C4CC2-B080-45D8-9236-52DA9E5C6E3E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A58C4CC2-B080-45D8-9236-52DA9E5C6E3E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -45,6 +52,7 @@ Global
 		{C980A51C-3324-44B2-ADE8-D71D56BB4230} = {A239BFB0-9BA7-467C-AD41-405D0740633F}
 		{A1784F02-589D-41E2-9E51-186D14C596D6} = {C80A325F-F4C4-4C7B-A3CF-FB77CD8C9949}
 		{505B6516-5ED0-4186-821D-FAB5FABE97F0} = {C80A325F-F4C4-4C7B-A3CF-FB77CD8C9949}
+		{A58C4CC2-B080-45D8-9236-52DA9E5C6E3E} = {C80A325F-F4C4-4C7B-A3CF-FB77CD8C9949}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {48F73B05-7D3D-4ACF-81AE-A98B2B4EFDB2}
