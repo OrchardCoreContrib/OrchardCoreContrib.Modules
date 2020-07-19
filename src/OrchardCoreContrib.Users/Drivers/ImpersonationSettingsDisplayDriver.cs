@@ -36,7 +36,7 @@ namespace OrchardCoreContrib.Users.Drivers
         }
 
         /// <inheritdoc/>
-        public override async Task<IDisplayResult> EditAsync(ImpersonationSettings section, BuildEditorContext context)
+        public override async Task<IDisplayResult> EditAsync(ImpersonationSettings settings, BuildEditorContext context)
         {
             var user = _httpContextAccessor.HttpContext?.User;
 
@@ -47,12 +47,13 @@ namespace OrchardCoreContrib.Users.Drivers
 
             return Initialize<ImpersonationSettings>("ImpersonationSettings_Edit", model =>
             {
-                model.EnableImpersonation = section.EnableImpersonation;
+                model.EnableImpersonation = settings.EnableImpersonation;
+                model.EndImpersonation = settings.EndImpersonation;
             }).Location("Content:5").OnGroup(GroupId);
         }
 
         /// <inheritdoc/>
-        public override async Task<IDisplayResult> UpdateAsync(ImpersonationSettings section, BuildEditorContext context)
+        public override async Task<IDisplayResult> UpdateAsync(ImpersonationSettings settings, BuildEditorContext context)
         {
             var user = _httpContextAccessor.HttpContext?.User;
 
@@ -63,10 +64,10 @@ namespace OrchardCoreContrib.Users.Drivers
 
             if (context.GroupId == GroupId)
             {
-                await context.Updater.TryUpdateModelAsync(section, Prefix);
+                await context.Updater.TryUpdateModelAsync(settings, Prefix);
             }
 
-            return await EditAsync(section, context);
+            return await EditAsync(settings, context);
         }
     }
 }
