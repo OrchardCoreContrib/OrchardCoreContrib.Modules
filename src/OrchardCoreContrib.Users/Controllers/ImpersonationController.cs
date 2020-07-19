@@ -10,6 +10,7 @@ using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using OrchardCore.Admin;
 using OrchardCore.Entities;
+using OrchardCore.Modules;
 using OrchardCore.Settings;
 using OrchardCore.Users;
 using OrchardCoreContrib.Users.Models;
@@ -17,6 +18,7 @@ using OrchardCoreContrib.Users.Models;
 namespace OrchardCoreContrib.Users.Controllers
 {
     [Authorize]
+    [Feature("OrchardCore.Users.Impersonation")]
     public class ImpersonationController : Controller
     {
         private readonly SignInManager<IUser> _signInManager;
