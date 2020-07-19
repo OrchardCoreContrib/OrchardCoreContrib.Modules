@@ -6,7 +6,7 @@ using OrchardCore.Security.Permissions;
 namespace OrchardCoreContrib.Email.Hotmail
 {
     /// <summary>
-    /// Represents a permissions that will be applied into Html mailing module.
+    /// Represents a permissions that will be applied into Hotmail mailing module.
     /// </summary>
     public class Permissions : IPermissionProvider
     {

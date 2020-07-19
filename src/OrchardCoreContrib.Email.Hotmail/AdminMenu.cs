@@ -7,7 +7,7 @@ using OrchardCore.Navigation;
 namespace OrchardCoreContrib.Email.Hotmail
 {
     /// <summary>
-    /// Represents an admin menu for Html mailing module.
+    /// Represents an admin menu for Hotmail mailing module.
     /// </summary>
     public class AdminMenu : INavigationProvider
     {
