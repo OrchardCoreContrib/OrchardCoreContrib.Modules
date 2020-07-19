@@ -14,13 +14,9 @@ This section lists all the modules that we are planned to design and develop:
 
     - Single Sign On (SSO)
 
-    - Impersonation
-
 - Mailing
 
     - GMail
-
-    - Hotmail
 
     - Yahoo
 
