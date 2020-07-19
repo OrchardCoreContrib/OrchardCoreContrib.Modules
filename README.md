@@ -18,8 +18,6 @@ This section lists all the modules that we are planned to design and develop:
 
     - GMail
 
-    - Yahoo
-
     - SendGrid
 
 - Profile
@@ -39,6 +37,8 @@ This section lists all the supported modules that we are supported:
 - Mailing
 
     - Hotmail
+    
+    - Yahoo
     
 - Users
 
