@@ -9,11 +9,8 @@ using Microsoft.Extensions.Localization;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using OrchardCore.Admin;
-using OrchardCore.Entities;
 using OrchardCore.Modules;
-using OrchardCore.Settings;
 using OrchardCore.Users;
-using OrchardCoreContrib.Users.Models;
 
 namespace OrchardCoreContrib.Users.Controllers
 {
@@ -24,7 +21,6 @@ namespace OrchardCoreContrib.Users.Controllers
         private readonly SignInManager<IUser> _signInManager;
         private readonly UserManager<IUser> _userManager;
         private readonly IAuthorizationService _authorizationService;
-        private readonly ISiteService _siteService;
         private readonly AdminOptions _adminOptions;
         private readonly ILogger _logger;
         private readonly IStringLocalizer S;
@@ -33,7 +29,6 @@ namespace OrchardCoreContrib.Users.Controllers
             SignInManager<IUser> signInManager,
             UserManager<IUser> userManager,
             IAuthorizationService authorizationService,
-            ISiteService siteService,
             IOptions<AdminOptions> adminOptions,
             ILogger<ImpersonationController> logger,
             IStringLocalizer<ImpersonationController> stringLocalizer)
@@ -41,7 +36,6 @@ namespace OrchardCoreContrib.Users.Controllers
             _signInManager = signInManager;
             _userManager = userManager;
             _authorizationService = authorizationService;
-            _siteService = siteService;
             _adminOptions = adminOptions.Value;
             _logger = logger;
             S = stringLocalizer;
@@ -49,14 +43,9 @@ namespace OrchardCoreContrib.Users.Controllers
 
         public async Task<IActionResult> ImpersonateUser(string userId)
         {
-            if (!await _authorizationService.AuthorizeAsync(User, Permissions.ManageUsers))
+            if (!await _authorizationService.AuthorizeAsync(User, Permissions.ManageImpersonationSettings))
             {
                 return Forbid();
-            }
-
-            if (!(await _siteService.GetSiteSettingsAsync()).As<ImpersonationSettings>().EnableImpersonation)
-            {
-                return NotFound();
             }
 
             var currentUserId = HttpContext.User.Claims.First(c => c.Type == ClaimTypes.NameIdentifier).Value;
@@ -80,11 +69,6 @@ namespace OrchardCoreContrib.Users.Controllers
             if (isImpersonatingClaim == null || isImpersonatingClaim?.Value != "true")
             {
                 return Forbid();
-            }
-
-            if (!(await _siteService.GetSiteSettingsAsync()).As<ImpersonationSettings>().EnableImpersonation)
-            {
-                return NotFound();
             }
 
             var impersonatorUserId = HttpContext.User.Claims.First(c => c.Type == ClaimTypesExtended.ImpersonatorNameIdentifier).Value;
