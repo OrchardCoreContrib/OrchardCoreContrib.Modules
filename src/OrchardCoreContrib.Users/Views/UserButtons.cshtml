@@ -1,7 +1,6 @@
 ﻿@using OrchardCore.Entities
 @using OrchardCore.Users.Models
 @using OrchardCore.Users.ViewModels
-@using OrchardCoreContrib.Users.Models
 @model SummaryAdminUserViewModel
 @{
     var user = Model.User as User;
@@ -23,7 +22,5 @@ else
         <button asp-action="SendVerificationEmail" asp-controller="Registration" class="btn btn-info btn-sm">@T["Send verification email"]</button>
     </form>
 }
-@if (Site.As<ImpersonationSettings>().EnableImpersonation)
-{
-    <a asp-area="OrchardCoreContrib.Users" asp-controller="Impersonation" asp-action="ImpersonateUser" asp-route-userId="@user.Id" class="btn btn-success btn-sm @(user.UserName == User.Identity.Name ? "disabled" : string.Empty)">@T["Impersonate"]</a>
-}
+
+<a asp-area="OrchardCoreContrib.Users" asp-controller="Impersonation" asp-action="ImpersonateUser" asp-route-userId="@user.Id" class="btn btn-success btn-sm @(user.UserName == User.Identity.Name ? "disabled" : string.Empty)">@T["Impersonate"]</a>

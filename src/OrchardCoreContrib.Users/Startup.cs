@@ -13,7 +13,7 @@ using OrchardCore.Mvc.Core.Utilities;
 using OrchardCore.Navigation;
 using OrchardCore.Settings;
 using OrchardCoreContrib.Users.Controllers;
-using OrchardCoreContrib.Users.Drivers;
+
 namespace OrchardCoreContrib.Users
 {
     /// <summary>
@@ -37,7 +37,6 @@ namespace OrchardCoreContrib.Users
         public override void ConfigureServices(IServiceCollection services)
         {
             services.AddScoped<INavigationProvider, AdminMenu>();
-            services.AddScoped<IDisplayDriver<ISite>, ImpersonationSettingsDisplayDriver>();
 
             services.Configure<SecurityStampValidatorOptions>(options =>
             {
