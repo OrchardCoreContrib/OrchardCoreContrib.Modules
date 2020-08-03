@@ -1,8 +1,15 @@
 @using Microsoft.AspNetCore.Http.Features
+@using OrchardCore.Entities
+@using OrchardCore.Settings
+@using OrchardCoreContrib.Gdpr
+@inject ISiteService Site
 
 @{
     var consentFeature = Context.Features.Get<ITrackingConsentFeature>();
     var cookieString = consentFeature?.CreateConsentCookie();
+    var gdprSettings = Site.GetSiteSettingsAsync()
+        .GetAwaiter().GetResult()
+        .As<GdprSettings>();
 }
 
 <style>
@@ -21,7 +28,7 @@
 </style>
 
 <div id="cookieConsent" class="alert alert-info alert-dismissible fade show sticky override-font" role="alert">
-    Use this space to summarize your privacy and cookie use policy. <a asp-area="OrchardCoreContrib.Gdpr" asp-page="/Privacy">Learn More</a>.
+    @gdprSettings.Summary <a asp-area="OrchardCoreContrib.Gdpr" asp-page="/Privacy">Learn More</a>.
     <button type="button" class="accept-policy close override-font" data-dismiss="alert" aria-label="Close" data-cookie-string="@cookieString">
         <span aria-hidden="true">Accept</span>
     </button>
