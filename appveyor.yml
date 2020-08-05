@@ -17,12 +17,6 @@ install:
 build_script:
   - dotnet build -c Release
   - ps: if ($IsMasterBranch -or $IsDevBranch) { dotnet pack -c Release --no-build }
-init:
-  - dotnet --version
-  - node --version
-  - npm --version
-  - git config --global core.autocrlf true
-
 test_script:
   - dotnet test -c Release --no-build .\test\OrchardCoreContrib.Tests\OrchardCoreContrib.Tests.csproj
 clone_depth: 1
