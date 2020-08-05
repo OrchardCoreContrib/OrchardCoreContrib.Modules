@@ -17,11 +17,15 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OrchardCoreContrib.Web", "s
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OrchardCoreContrib.Sms.Abstractions", "src\OrchardCoreContrib.Sms.Abstractions\OrchardCoreContrib.Sms.Abstractions.csproj", "{DFCD9926-BB6C-4D8A-8339-B55C319014A3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OrchardCoreContrib.Infrastructure.Abstractions", "src\OrchardCoreContrib.Infrastructure.Abstractions\OrchardCoreContrib.Infrastructure.Abstractions.csproj", "{073AF713-4220-4033-A8DC-88290068B79D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OrchardCoreContrib.Infrastructure.Abstractions", "src\OrchardCoreContrib.Infrastructure.Abstractions\OrchardCoreContrib.Infrastructure.Abstractions.csproj", "{073AF713-4220-4033-A8DC-88290068B79D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OrchardCoreContrib.Localization.Json", "src\OrchardCoreContrib.Localization.Json\OrchardCoreContrib.Localization.Json.csproj", "{9AD3EB26-7D7F-4D18-8E86-DFB52A16E470}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OrchardCoreContrib.Localization.Json", "src\OrchardCoreContrib.Localization.Json\OrchardCoreContrib.Localization.Json.csproj", "{9AD3EB26-7D7F-4D18-8E86-DFB52A16E470}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OrchardCoreContrib.Localization.Abstractions", "src\OrchardCoreContrib.Localization.Abstractions\OrchardCoreContrib.Localization.Abstractions.csproj", "{54351EF0-098F-439C-AF22-FA9B211C5CCD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OrchardCoreContrib.Localization.Abstractions", "src\OrchardCoreContrib.Localization.Abstractions\OrchardCoreContrib.Localization.Abstractions.csproj", "{54351EF0-098F-439C-AF22-FA9B211C5CCD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OrchardCoreContrib.Shortcodes.Abstractions", "src\OrchardCoreContrib.Shortcodes.Abstractions\OrchardCoreContrib.Shortcodes.Abstractions.csproj", "{1CF070DC-6C90-4B10-9969-9386109722F0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OrchardCoreContrib.Shortcodes.Core", "src\OrchardCoreContrib.Shortcodes.Core\OrchardCoreContrib.Shortcodes.Core.csproj", "{396D4CEA-4978-4891-BC6D-D016897240E2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -61,6 +65,14 @@ Global
 		{54351EF0-098F-439C-AF22-FA9B211C5CCD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{54351EF0-098F-439C-AF22-FA9B211C5CCD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{54351EF0-098F-439C-AF22-FA9B211C5CCD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1CF070DC-6C90-4B10-9969-9386109722F0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1CF070DC-6C90-4B10-9969-9386109722F0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1CF070DC-6C90-4B10-9969-9386109722F0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1CF070DC-6C90-4B10-9969-9386109722F0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{396D4CEA-4978-4891-BC6D-D016897240E2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{396D4CEA-4978-4891-BC6D-D016897240E2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{396D4CEA-4978-4891-BC6D-D016897240E2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{396D4CEA-4978-4891-BC6D-D016897240E2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -74,6 +86,8 @@ Global
 		{073AF713-4220-4033-A8DC-88290068B79D} = {9E0FA124-27DA-447A-9C52-AD92A3AE3679}
 		{9AD3EB26-7D7F-4D18-8E86-DFB52A16E470} = {9E0FA124-27DA-447A-9C52-AD92A3AE3679}
 		{54351EF0-098F-439C-AF22-FA9B211C5CCD} = {9E0FA124-27DA-447A-9C52-AD92A3AE3679}
+		{1CF070DC-6C90-4B10-9969-9386109722F0} = {9E0FA124-27DA-447A-9C52-AD92A3AE3679}
+		{396D4CEA-4978-4891-BC6D-D016897240E2} = {9E0FA124-27DA-447A-9C52-AD92A3AE3679}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {82D49E76-A63E-465D-B527-C20110460A14}

@@ -1,0 +1,32 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <RootNamespace>OrchardCoreContrib.Shortcodes</RootNamespace>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <VersionPrefix>1.0.0</VersionPrefix>
+    <Authors>The Orchard Core Contrib Team</Authors>
+    <Company />
+    <Description>Provides an implementation APIs for Shortcodes.</Description>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageProjectUrl>https://github.com/OrchardCoreContrib/OrchardCoreContrib</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/OrchardCoreContrib/OrchardCoreContrib</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <PublishRepositoryUrl>true</PublishRepositoryUrl>
+    <PackageTags>Orchard Core, Orchard Core Contrib, Shortcodes</PackageTags>
+    <PackageReleaseNotes>https://github.com/OrchardCoreContrib/OrchardCoreContrib/releases</PackageReleaseNotes>
+    <PackageId>OrchardCoreContrib.Shortcodes.Core</PackageId>
+    <Product>Orchard Core Contrib Shortcodes</Product>
+    <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
+    <Copyright>2019 Orchard Core Contrib</Copyright>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Shortcodes" Version="1.0.0-beta-175913881" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\OrchardCoreContrib.Shortcodes.Abstractions\OrchardCoreContrib.Shortcodes.Abstractions.csproj" />
+  </ItemGroup>
+
+</Project>

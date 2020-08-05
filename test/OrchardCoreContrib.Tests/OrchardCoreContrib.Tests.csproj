@@ -30,6 +30,7 @@
   <ItemGroup>
     <ProjectReference Include="..\..\src\OrchardCoreContrib.Infrastructure.Abstractions\OrchardCoreContrib.Infrastructure.Abstractions.csproj" />
     <ProjectReference Include="..\..\src\OrchardCoreContrib.Localization.Json\OrchardCoreContrib.Localization.Json.csproj" />
+    <ProjectReference Include="..\..\src\OrchardCoreContrib.Shortcodes.Core\OrchardCoreContrib.Shortcodes.Core.csproj" />
   </ItemGroup>
 
 </Project>
