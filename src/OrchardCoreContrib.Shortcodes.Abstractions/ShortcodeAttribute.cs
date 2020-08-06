@@ -1,11 +1,14 @@
 ﻿using System;
+using System.IO;
+using System.Text.Encodings.Web;
+using Microsoft.AspNetCore.Html;
 
 namespace OrchardCoreContrib.Shortcodes
 {
     /// <summary>
     /// Represents a shortcode attribute.
     /// </summary>
-    public class ShortcodeAttribute
+    public class ShortcodeAttribute : IHtmlContent
     {
         /// <summary>
         /// Create a new instance of <see cref="ShortcodeAttribute"/>.
@@ -52,5 +55,18 @@ namespace OrchardCoreContrib.Shortcodes
 
         /// <inheritdoc />
         public override int GetHashCode() => HashCode.Combine(Name, Value);
+
+        public void WriteTo(TextWriter writer, HtmlEncoder encoder)
+        {
+            writer.Write(Name);
+            writer.Write("=\"");
+
+            if (Value != null)
+            {
+                encoder.Encode(writer, Value);
+            }
+
+            writer.Write("\"");
+        }
     }
 }

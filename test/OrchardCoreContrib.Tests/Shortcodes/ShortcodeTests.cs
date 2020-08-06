@@ -63,24 +63,8 @@ namespace OrchardCoreContrib.Tests.Shortcodes
                     return;
                 }
 
-                output.Content = "<img";
-
-                if (context.Attributes.Contains("src"))
-                {
-                    output.Content += $" src=\"{context.Attributes.Get("src")}\"";
-                }
-
-                if (context.Attributes.Contains("width"))
-                {
-                    output.Content += $" width=\"{context.Attributes.Get("width")}\"";
-                }
-
-                if (context.Attributes.Contains("height"))
-                {
-                    output.Content += $" height=\"{context.Attributes.Get("height")}\"";
-                }
-
-                output.Content += " />";
+                output.TagName = "img";
+                output.TagMode = TagMode.SelfClosing;
 
                 await Task.CompletedTask;
             }
@@ -91,7 +75,7 @@ namespace OrchardCoreContrib.Tests.Shortcodes
         {
             public override async Task ProcessAsync(ShortcodeContext context, ShortcodeOutput output)
             {
-                output.Content = "<b>" + output.Content + "</b>";
+                output.TagName = "b";
 
                 await Task.CompletedTask;
             }

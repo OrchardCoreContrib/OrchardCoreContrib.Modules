@@ -1,5 +1,8 @@
 ﻿using System;
+using System.IO;
+using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Razor.TagHelpers;
 using Shortcodes;
 
 namespace OrchardCoreContrib.Shortcodes
@@ -14,8 +17,10 @@ namespace OrchardCoreContrib.Shortcodes
         {
             var shortcodeContent = string.Empty;
             var shortcodeContext = new ShortcodeContext(identifier, new ShortcodeAttributes(arguments));
-            var shortcodeOutput = new ShortcodeOutput(identifier, new ShortcodeAttributes(arguments));
-            var shortcodeTargets = Attribute.GetCustomAttributes(GetType(), typeof(ShortcodeTargetAttribute));
+            var shortcodeOutput = new ShortcodeOutput(new ShortcodeAttributes(arguments));
+            var shortcodeTargets = Attribute.GetCustomAttributes(GetType(), typeof(ShortcodeTargetAttribute))
+                .Select(t => t as ShortcodeTargetAttribute)
+                .ToArray();
             if(content == null)
             {
                 shortcodeOutput.Content = "[" + identifier + "]";
@@ -25,17 +30,16 @@ namespace OrchardCoreContrib.Shortcodes
                 shortcodeOutput.Content = content;
             }
 
-            if (shortcodeTargets.Length == 0)
+            if (shortcodeTargets.Length == 0 || shortcodeTargets.All(t => !t.Name.Equals(identifier, StringComparison.OrdinalIgnoreCase)))
             {
-                return default(string);
+                return default;
             }
 
             foreach (var shortcodeTarget in shortcodeTargets)
             {
-                if (!(shortcodeTarget as ShortcodeTargetAttribute).Name.Equals(identifier, System.StringComparison.OrdinalIgnoreCase))
+                if (!(shortcodeTarget.Name.Equals(identifier, StringComparison.OrdinalIgnoreCase)))
                 {
                     continue;
-                    //return default(string);
                 }
 
                 await ProcessAsync(shortcodeContext, shortcodeOutput);
@@ -43,7 +47,10 @@ namespace OrchardCoreContrib.Shortcodes
                 shortcodeContent += shortcodeOutput.Content;
             }
 
-            return shortcodeContent;
+            var stringWriter = new StringWriter();
+            shortcodeOutput.WriteTo(stringWriter, NullHtmlEncoder.Default);
+
+            return stringWriter.GetStringBuilder().ToString();
         }
 
         /// <inheritdoc/>

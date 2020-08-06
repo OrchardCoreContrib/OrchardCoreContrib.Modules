@@ -13,21 +13,14 @@ namespace OrchardCoreContrib.Shortcodes
         /// <summary>
         /// Creates a new instance of <see cref="ShortcodeOutput"/>.
         /// </summary>
-        /// <param name="shortcodeName">The shortcode name.</param>
         /// <param name="attributes">The shortcode attributes.</param>
-        public ShortcodeOutput(string shortcodeName, ShortcodeAttributes attributes)
+        public ShortcodeOutput(ShortcodeAttributes attributes)
         {
-            if (shortcodeName is null)
-            {
-                throw new ArgumentNullException(nameof(shortcodeName));
-            }
-
             if (attributes is null)
             {
                 throw new ArgumentNullException(nameof(attributes));
             }
 
-            ShortcodeName = shortcodeName;
             Attributes = attributes;
         }
 
@@ -37,21 +30,26 @@ namespace OrchardCoreContrib.Shortcodes
         public ShortcodeAttributes Attributes { get; }
 
         /// <summary>
-        /// Gets a shortcode content.
+        /// Gets or sets the shortcode content.
         /// </summary>
         public string Content { get; set; }
 
         /// <summary>
-        /// Gets a shortcode name.
+        /// Gets or sets the tag name that used in the generated HTML.
         /// </summary>
-        public string ShortcodeName { get; set; }
+        public string TagName { get; set; }
+
+        /// <summary>
+        /// Gets or sets the element syntax in the generated HTML.
+        /// </summary>
+        public TagMode TagMode { get; set; }
 
         /// <summary>
         /// Changes the shortcode output to generate nothing.
         /// </summary>
         public void SuppressOutput()
         {
-            ShortcodeName = null;
+            TagName = null;
             Content = null;
         }
 
@@ -68,7 +66,37 @@ namespace OrchardCoreContrib.Shortcodes
                 throw new ArgumentNullException(nameof(encoder));
             }
 
-            writer.Write(Content);
+            var isTagNameNullOrWhitespace = string.IsNullOrWhiteSpace(TagName);
+            if (!isTagNameNullOrWhitespace)
+            {
+                writer.Write("<");
+                writer.Write(TagName);
+
+                foreach (var attribute in Attributes)
+                {
+                    writer.Write(" ");
+                    attribute.WriteTo(writer, encoder);
+                }
+
+                if (TagMode == TagMode.SelfClosing)
+                {
+                    writer.Write(" /");
+                }
+
+                writer.Write(">");
+            }
+
+            if (isTagNameNullOrWhitespace || TagMode == TagMode.StartTagAndEndTag)
+            {
+                encoder.Encode(writer, Content);
+            }
+
+            if (!isTagNameNullOrWhitespace && TagMode == TagMode.StartTagAndEndTag)
+            {
+                writer.Write("</");
+                writer.Write(TagName);
+                writer.Write(">");
+            }
         }
     }
 }
