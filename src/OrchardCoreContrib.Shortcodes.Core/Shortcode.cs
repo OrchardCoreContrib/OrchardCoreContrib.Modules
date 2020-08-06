@@ -13,6 +13,10 @@ namespace OrchardCoreContrib.Shortcodes
         {
             var shortcodeContext = new ShortcodeContext(identifier, new ShortcodeAttributes(arguments));
             var shortcodeOutput = new ShortcodeOutput(identifier, new ShortcodeAttributes(arguments));
+            if (shortcodeContext.Attributes.Count == 0)
+            {
+                shortcodeOutput.Content = "[" +  identifier + "]";
+            }
 
             await ProcessAsync(shortcodeContext, shortcodeOutput);
 

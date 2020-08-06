@@ -1,12 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using OrchardCoreContrib.Shortcodes;
 using OrchardCoreContrib.Shortcodes.Services;
 using Shortcode = OrchardCoreContrib.Shortcodes.Shortcode;
 using Shortcodes;
 using Xunit;
-using OrchardCoreContrib.Shortcodes;
-using System.Linq;
 
 namespace OrchardCoreContrib.Tests.Shortcodes
 {
@@ -50,9 +49,12 @@ namespace OrchardCoreContrib.Tests.Shortcodes
                     return;
                 }
 
-                if (!context.Attributes.Any())
+                if (context.Attributes.Count == 0)
                 {
-                    output.Content = "[image]";
+                    if (context.ShortcodeName == "media")
+                    {
+                        output.Content = "[image]";
+                    }
 
                     return;
                 }
