@@ -1,5 +1,4 @@
 ﻿using Shortcodes;
-using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace OrchardCoreContrib.Shortcodes
@@ -12,8 +11,8 @@ namespace OrchardCoreContrib.Shortcodes
         /// <inheritdoc/>
         public async ValueTask<string> EvaluateAsync(string identifier, Arguments arguments, string content, Context context)
         {
-            var shortcodeContext = new ShortcodeContext(identifier, new Dictionary<string, string>(arguments));
-            var shortcodeOutput = new ShortcodeOutput(identifier, new Dictionary<string, string>(arguments));
+            var shortcodeContext = new ShortcodeContext(identifier, new ShortcodeAttributes(arguments));
+            var shortcodeOutput = new ShortcodeOutput(identifier, new ShortcodeAttributes(arguments));
 
             await ProcessAsync(shortcodeContext, shortcodeOutput);
 

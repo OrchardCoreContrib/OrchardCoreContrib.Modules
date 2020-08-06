@@ -59,19 +59,19 @@ namespace OrchardCoreContrib.Tests.Shortcodes
 
                 output.Content = "<img";
 
-                if (context.Attributes.ContainsKey("src"))
+                if (context.Attributes.Contains("src"))
                 {
-                    output.Content += $" src=\"{context.Attributes["src"]}\"";
+                    output.Content += $" src=\"{context.Attributes.Get("src")}\"";
                 }
 
-                if (context.Attributes.ContainsKey("width"))
+                if (context.Attributes.Contains("width"))
                 {
-                    output.Content += $" width=\"{context.Attributes["width"]}\"";
+                    output.Content += $" width=\"{context.Attributes.Get("width")}\"";
                 }
 
-                if (context.Attributes.ContainsKey("height"))
+                if (context.Attributes.Contains("height"))
                 {
-                    output.Content += $" height=\"{context.Attributes["height"]}\"";
+                    output.Content += $" height=\"{context.Attributes.Get("height")}\"";
                 }
 
                 output.Content += " />";

@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.IO;
 using System.Text.Encodings.Web;
 using Microsoft.AspNetCore.Html;
@@ -16,7 +15,7 @@ namespace OrchardCoreContrib.Shortcodes
         /// </summary>
         /// <param name="shortcodeName">The shortcode name.</param>
         /// <param name="attributes">The shortcode attributes.</param>
-        public ShortcodeOutput(string shortcodeName, IDictionary<string, string> attributes)
+        public ShortcodeOutput(string shortcodeName, ShortcodeAttributes attributes)
         {
             if (shortcodeName is null)
             {
@@ -35,7 +34,7 @@ namespace OrchardCoreContrib.Shortcodes
         /// <summary>
         /// Gets a shortcode attributes list.
         /// </summary>
-        public IDictionary<string, string> Attributes { get; }
+        public ShortcodeAttributes Attributes { get; }
 
         /// <summary>
         /// Gets a shortcode content.

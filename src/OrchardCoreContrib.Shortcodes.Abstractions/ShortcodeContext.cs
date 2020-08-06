@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 
 namespace OrchardCoreContrib.Shortcodes
 {
@@ -13,7 +12,7 @@ namespace OrchardCoreContrib.Shortcodes
         /// </summary>
         /// <param name="shortcodeName">The shortcode name.</param>
         /// <param name="attributes">The shortcode attributes.</param>
-        public ShortcodeContext(string shortcodeName, IDictionary<string, string> attributes)
+        public ShortcodeContext(string shortcodeName, ShortcodeAttributes attributes)
         {
             if (shortcodeName is null)
             {
@@ -32,7 +31,7 @@ namespace OrchardCoreContrib.Shortcodes
         /// <summary>
         /// Gets a shortcode attributes list.
         /// </summary>
-        public IDictionary<string, string> Attributes { get; }
+        public ShortcodeAttributes Attributes { get; }
 
         /// <summary>
         /// Gets a shortcode name.
