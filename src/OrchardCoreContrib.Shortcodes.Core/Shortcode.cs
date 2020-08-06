@@ -12,27 +12,32 @@ namespace OrchardCoreContrib.Shortcodes
         /// <inheritdoc/>
         public async ValueTask<string> EvaluateAsync(string identifier, Arguments arguments, string content, Context context)
         {
-            var shortcodeTarget = Attribute.GetCustomAttribute(GetType(), typeof(ShortcodeTargetAttribute)) as ShortcodeTargetAttribute;
-            if (shortcodeTarget == null)
-            {
-                return default(string);
-            }
-
-            if (!shortcodeTarget.Name.Equals(identifier, System.StringComparison.OrdinalIgnoreCase))
-            {
-                return default(string);
-            }
-
+            var shortcodeContent = string.Empty;
             var shortcodeContext = new ShortcodeContext(identifier, new ShortcodeAttributes(arguments));
             var shortcodeOutput = new ShortcodeOutput(identifier, new ShortcodeAttributes(arguments));
-            if (shortcodeContext.Attributes.Count == 0)
+            var shortcodeTargets = Attribute.GetCustomAttributes(GetType(), typeof(ShortcodeTargetAttribute));
+            
+            shortcodeOutput.Content = "[" + identifier + "]";
+
+            if (shortcodeTargets.Length == 0)
             {
-                shortcodeOutput.Content = "[" +  identifier + "]";
+                return default(string);
             }
 
-            await ProcessAsync(shortcodeContext, shortcodeOutput);
+            foreach (var shortcodeTarget in shortcodeTargets)
+            {
+                if (!(shortcodeTarget as ShortcodeTargetAttribute).Name.Equals(identifier, System.StringComparison.OrdinalIgnoreCase))
+                {
+                    continue;
+                    //return default(string);
+                }
 
-            return shortcodeOutput.Content;
+                await ProcessAsync(shortcodeContext, shortcodeOutput);
+
+                shortcodeContent += shortcodeOutput.Content;
+            }
+
+            return shortcodeContent;
         }
 
         /// <inheritdoc/>

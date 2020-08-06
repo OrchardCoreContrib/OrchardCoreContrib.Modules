@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using OrchardCoreContrib.Shortcodes;
 using OrchardCoreContrib.Shortcodes.Services;
 using Shortcode = OrchardCoreContrib.Shortcodes.Shortcode;
@@ -21,7 +19,7 @@ namespace OrchardCoreContrib.Tests.Shortcodes
         [InlineData("[image src=\"1.jpg\" width=\"40\" height=\"30\"]", "<img src=\"1.jpg\" width=\"40\" height=\"30\" />")]
         [InlineData("[media src=\"1.jpg\" width=\"40\" height=\"30\"]", "<img src=\"1.jpg\" width=\"40\" height=\"30\" />")]
         [InlineData("[image src=\"1.jpg\"] <br/> [media src=\"1.jpg\"]", "<img src=\"1.jpg\" /> <br/> <img src=\"1.jpg\" />")]
-        public async Task ProcessShortcode(string input, string expected)
+        public async Task ProcessImageShortcode(string input, string expected)
         {
             // Arrange
             var imageShortcode = new ImageShortcode();
@@ -34,21 +32,12 @@ namespace OrchardCoreContrib.Tests.Shortcodes
             Assert.Equal(expected, result);
         }
 
+        [ShortcodeTarget("image")]
+        [ShortcodeTarget("media")]
         private class ImageShortcode : Shortcode
         {
-            private static readonly HashSet<string> _shortcodes = new HashSet<string>(StringComparer.OrdinalIgnoreCase)
-            {
-                "image",
-                "media"
-            };
-
             public override async Task ProcessAsync(ShortcodeContext context, ShortcodeOutput output)
             {
-                if (!_shortcodes.Contains(context.ShortcodeName))
-                {
-                    return;
-                }
-
                 if (context.Attributes.Count == 0)
                 {
                     if (context.ShortcodeName == "media")
