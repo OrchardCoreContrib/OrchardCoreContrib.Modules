@@ -16,8 +16,14 @@ namespace OrchardCoreContrib.Shortcodes
             var shortcodeContext = new ShortcodeContext(identifier, new ShortcodeAttributes(arguments));
             var shortcodeOutput = new ShortcodeOutput(identifier, new ShortcodeAttributes(arguments));
             var shortcodeTargets = Attribute.GetCustomAttributes(GetType(), typeof(ShortcodeTargetAttribute));
-            
-            shortcodeOutput.Content = "[" + identifier + "]";
+            if(content == null)
+            {
+                shortcodeOutput.Content = "[" + identifier + "]";
+            }
+            else
+            {
+                shortcodeOutput.Content = content;
+            }
 
             if (shortcodeTargets.Length == 0)
             {

@@ -32,6 +32,21 @@ namespace OrchardCoreContrib.Tests.Shortcodes
             Assert.Equal(expected, result);
         }
 
+        [Theory]
+        [InlineData("[bold]Hello[/bold]", "<b>Hello</b>")]
+        public async Task ProcessBoldShortcode(string input, string expected)
+        {
+            // Arrange
+            var boldShortcode = new BoldShortcode();
+            var shortcodeService = new ShortcodeService(new IShortcodeProvider[] { boldShortcode });
+
+            // Act
+            var result = await shortcodeService.ProcessAsync(input);
+
+            // Assert
+            Assert.Equal(expected, result);
+        }
+
         [ShortcodeTarget("image")]
         [ShortcodeTarget("media")]
         private class ImageShortcode : Shortcode
@@ -66,6 +81,17 @@ namespace OrchardCoreContrib.Tests.Shortcodes
                 }
 
                 output.Content += " />";
+
+                await Task.CompletedTask;
+            }
+        }
+
+        [ShortcodeTarget("bold")]
+        private class BoldShortcode : Shortcode
+        {
+            public override async Task ProcessAsync(ShortcodeContext context, ShortcodeOutput output)
+            {
+                output.Content = "<b>" + output.Content + "</b>";
 
                 await Task.CompletedTask;
             }
