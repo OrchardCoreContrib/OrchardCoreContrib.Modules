@@ -2,12 +2,12 @@
 @using OrchardCore.Entities
 @using OrchardCore.Settings
 @using OrchardCoreContrib.Gdpr
-@inject ISiteService Site
+@inject ISiteService siteService
 
 @{
     var consentFeature = Context.Features.Get<ITrackingConsentFeature>();
     var cookieString = consentFeature?.CreateConsentCookie();
-    var gdprSettings = Site.GetSiteSettingsAsync()
+    var gdprSettings = siteService.GetSiteSettingsAsync()
         .GetAwaiter().GetResult()
         .As<GdprSettings>();
 }
