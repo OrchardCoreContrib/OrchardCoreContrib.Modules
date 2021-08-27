@@ -32,10 +32,10 @@ jobs:
     - name: Pack
       run: |
         dotnet pack --configuration Release --output nupkg -p:RepositoryUrl=${{ github.server_url }}/${{ github.repository }} --version-suffix preview-$(date +%Y%m%d%H%M%S)
-        # dotnet pack src/OrchardCoreContrib.Users/OrchardCoreContrib.Users.csproj --output nupkg --configuration Release -p:RepositoryUrl=${{ github.server_url }}/${{ github.repository }} --version-suffix preview-$(date +%Y%m%d%H%M%S)
-        # dotnet pack src/OrchardCoreContrib.Email.Gmail/OrchardCoreContrib.Email.Gmail.csproj --output nupkg --configuration Release -p:RepositoryUrl=${{ github.server_url }}/${{ github.repository }} --version-suffix preview-$(date +%Y%m%d%H%M%S)
-        # dotnet pack src/OrchardCoreContrib.Email.Hotmail/OrchardCoreContrib.Email.Hotmail.csproj --output nupkg --configuration Release -p:RepositoryUrl=${{ github.server_url }}/${{ github.repository }} --version-suffix preview-$(date +%Y%m%d%H%M%S)
-        # dotnet pack src/OrchardCoreContrib.Email.Yahoo/OrchardCoreContrib.Email.Yahoo.csproj --output nupkg --configuration Release -p:RepositoryUrl=${{ github.server_url }}/${{ github.repository }} --version-suffix preview-$(date +%Y%m%d%H%M%S)
+        # dotnet pack src/OrchardCoreContrib.Users/OrchardCoreContrib.Users.csproj --output nupkg --configuration Release -p:RepositoryUrl=${{ github.server_url }}/${{ github.repository }} --version-suffix beta
+        # dotnet pack src/OrchardCoreContrib.Email.Gmail/OrchardCoreContrib.Email.Gmail.csproj --output nupkg --configuration Release -p:RepositoryUrl=${{ github.server_url }}/${{ github.repository }} --version-suffix beta
+        # dotnet pack src/OrchardCoreContrib.Email.Hotmail/OrchardCoreContrib.Email.Hotmail.csproj --output nupkg --configuration Release -p:RepositoryUrl=${{ github.server_url }}/${{ github.repository }} --version-suffix beta
+        # dotnet pack src/OrchardCoreContrib.Email.Yahoo/OrchardCoreContrib.Email.Yahoo.csproj --output nupkg --configuration Release -p:RepositoryUrl=${{ github.server_url }}/${{ github.repository }} --version-suffix beta
     - name: 'Push GitHub Packages'
       run: |
         dotnet nuget add source https://nuget.pkg.github.com/OrchardCoreContrib/index.json --name GitHub --username hishamco --password ${{secrets.GITHUB_TOKEN}}
