@@ -26,11 +26,11 @@
   </ItemGroup>
   
   <ItemGroup>
-    <PackageReference Include="OrchardCore.Admin.Abstractions" Version="1.0.0-rc2-13799" />
-    <PackageReference Include="OrchardCore.DisplayManagement" Version="1.0.0-rc2-13799" />
-    <PackageReference Include="OrchardCore.Infrastructure.Abstractions" Version="1.0.0-rc2-13799" />
-    <PackageReference Include="OrchardCore.Module.Targets" Version="1.0.0-rc2-13799" />
-    <PackageReference Include="OrchardCore.Navigation.Core" Version="1.0.0-rc2-13799" />
+    <PackageReference Include="OrchardCore.Admin.Abstractions" Version="1.0.0" />
+    <PackageReference Include="OrchardCore.DisplayManagement" Version="1.0.0" />
+    <PackageReference Include="OrchardCore.Infrastructure.Abstractions" Version="1.0.0" />
+    <PackageReference Include="OrchardCore.Module.Targets" Version="1.0.0" />
+    <PackageReference Include="OrchardCore.Navigation.Core" Version="1.0.0" />
   </ItemGroup>
 
 </Project>
