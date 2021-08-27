@@ -36,9 +36,9 @@ namespace OrchardCoreContrib.Tests.Localization
             // Assert
             Assert.NotNull(cultureDictionary.Translations);
             Assert.Equal(3, cultureDictionary.Translations.Count);
-            Assert.Equal("Bonjour", cultureDictionary.Translations["Hello"][0]);
-            Assert.Equal("Oui", cultureDictionary.Translations["Yes"][0]);
-            Assert.Equal("Non", cultureDictionary.Translations["No"][0]);
+            Assert.Equal("Bonjour", cultureDictionary.Translations[new CultureDictionaryRecordKey("Hello")][0]);
+            Assert.Equal("Oui", cultureDictionary.Translations[new CultureDictionaryRecordKey("Yes")][0]);
+            Assert.Equal("Non", cultureDictionary.Translations[new CultureDictionaryRecordKey("No")][0]);
         }
     }
 }

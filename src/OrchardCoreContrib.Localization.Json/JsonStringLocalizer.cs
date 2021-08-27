@@ -151,7 +151,8 @@ namespace OrchardCoreContrib.Localization.Json
                 {
                     if (translation == null)
                     {
-                        translation = dictionary[name];
+                        var key = new CultureDictionaryRecordKey(name);
+                        translation = dictionary[key];
                     }
                 }
 

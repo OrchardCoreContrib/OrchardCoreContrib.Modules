@@ -11,7 +11,7 @@ namespace OrchardCoreContrib.Tests.Shortcodes
     {
         [Theory]
         [InlineData("foo bar baz", "foo bar baz")]
-        [InlineData("[imageX src=\"1.jpg\"]", "")]
+        [InlineData("[imageX src=\"1.jpg\"]", "[imageX src=\"1.jpg\"]")]
         [InlineData("[image]", "[image]")]
         [InlineData("[media]", "[image]")]
         [InlineData("[image src=\"1.jpg\"]", "<img src=\"1.jpg\" />")]
