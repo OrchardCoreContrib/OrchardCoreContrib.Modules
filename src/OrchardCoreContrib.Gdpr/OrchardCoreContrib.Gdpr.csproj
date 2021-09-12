@@ -15,7 +15,7 @@
     <PublishRepositoryUrl>true</PublishRepositoryUrl>
     <PackageTags>Orchard Core, Orchard Core Contrib, GDPR</PackageTags>
     <PackageReleaseNotes>https://github.com/OrchardCoreContrib.Modules/releases</PackageReleaseNotes>
-    <PackageId>OrchardCoreContrib.GDPR</PackageId>
+    <PackageId>OrchardCoreContrib.Gdpr</PackageId>
     <Product>Orchard Core Contrib GDPR Module</Product>
     <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
     <Copyright>2019 Orchard Core Contrib</Copyright>
