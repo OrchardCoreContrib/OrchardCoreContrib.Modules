@@ -1,0 +1,22 @@
+<Project Sdk="Microsoft.NET.Sdk.Razor">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+	<AddRazorSupportForMvc>true</AddRazorSupportForMvc>
+  </PropertyGroup>
+
+  <ItemGroup>
+  	<FrameworkReference Include="Microsoft.AspNetCore.App" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="SendGrid" Version="9.25.1" />
+	  <PackageReference Include="OrchardCore.Admin.Abstractions" Version="1.0.0" />
+	  <PackageReference Include="OrchardCore.DisplayManagement" Version="1.0.0" />
+	  <PackageReference Include="OrchardCore.Email.Abstractions" Version="1.0.0" />
+	  <PackageReference Include="OrchardCore.Infrastructure.Abstractions" Version="1.0.0" />
+	  <PackageReference Include="OrchardCore.Module.Targets" Version="1.0.0" />
+	  <PackageReference Include="OrchardCore.Navigation.Core" Version="1.0.0" />
+  </ItemGroup>
+
+</Project>
