@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.29519.181
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31912.275
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{C80A325F-F4C4-4C7B-A3CF-FB77CD8C9949}"
 EndProject
@@ -19,7 +19,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OrchardCoreContrib.Email.Ya
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OrchardCoreContrib.Email.Gmail", "src\OrchardCoreContrib.Email.Gmail\OrchardCoreContrib.Email.Gmail.csproj", "{C5788C0C-8075-48FA-A606-2FB427F08947}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OrchardCoreContrib.Gdpr", "src\OrchardCoreContrib.Gdpr\OrchardCoreContrib.Gdpr.csproj", "{A9948471-9E64-49AF-BAE4-ABF60291E6F4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OrchardCoreContrib.Gdpr", "src\OrchardCoreContrib.Gdpr\OrchardCoreContrib.Gdpr.csproj", "{A9948471-9E64-49AF-BAE4-ABF60291E6F4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OrchardCoreContrib.Email.SendGrid", "src\OrchardCoreContrib.Email.SendGrid\OrchardCoreContrib.Email.SendGrid.csproj", "{27C64A57-7593-44B8-BA8C-D8B5A2748D36}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -55,6 +57,10 @@ Global
 		{A9948471-9E64-49AF-BAE4-ABF60291E6F4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A9948471-9E64-49AF-BAE4-ABF60291E6F4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A9948471-9E64-49AF-BAE4-ABF60291E6F4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{27C64A57-7593-44B8-BA8C-D8B5A2748D36}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{27C64A57-7593-44B8-BA8C-D8B5A2748D36}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{27C64A57-7593-44B8-BA8C-D8B5A2748D36}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{27C64A57-7593-44B8-BA8C-D8B5A2748D36}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -67,6 +73,7 @@ Global
 		{A58C4CC2-B080-45D8-9236-52DA9E5C6E3E} = {C80A325F-F4C4-4C7B-A3CF-FB77CD8C9949}
 		{C5788C0C-8075-48FA-A606-2FB427F08947} = {C80A325F-F4C4-4C7B-A3CF-FB77CD8C9949}
 		{A9948471-9E64-49AF-BAE4-ABF60291E6F4} = {C80A325F-F4C4-4C7B-A3CF-FB77CD8C9949}
+		{27C64A57-7593-44B8-BA8C-D8B5A2748D36} = {C80A325F-F4C4-4C7B-A3CF-FB77CD8C9949}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {48F73B05-7D3D-4ACF-81AE-A98B2B4EFDB2}

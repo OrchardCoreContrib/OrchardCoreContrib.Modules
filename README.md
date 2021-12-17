@@ -14,10 +14,6 @@ This section lists all the modules that we are planned to design and develop:
 
     - Single Sign On (SSO)
 
-- Mailing
-
-    - SendGrid
-
 - Profile
 
     - Gravatar
@@ -39,6 +35,8 @@ This section lists all the supported modules that we are supported:
     - Hotmail
     
     - Yahoo
+
+    - SendGrid
     
 - Users
 

@@ -1,0 +1,19 @@
+@using OrchardCore.Email
+@using OrchardCoreContrib.Email.SendGrid
+@model SendGridSettings
+
+<p class="alert alert-warning">@T["The current tenant will be reloaded when the settings are saved."]</p>
+
+<div class="form-group" asp-validation-class-for="DefaultSender">
+    <label asp-for="DefaultSender">@T["Sender email address"]</label>
+    <input asp-for="DefaultSender" class="form-control" type="text" />
+    <span asp-validation-for="DefaultSender"></span>
+    <span class="hint">@T["The default email address to use as a sender, unless the email sender is set."]</span>
+</div>
+
+<div class="form-group" asp-validation-class-for="ApiKey">
+    <label asp-for="ApiKey">@T["API Key"]</label>
+    <input asp-for="ApiKey" class="form-control" type="password" />
+    <span asp-validation-for="ApiKey"></span>
+    <span class="hint">@T["The API key for authentication."]</span>
+</div>
