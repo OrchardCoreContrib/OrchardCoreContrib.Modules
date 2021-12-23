@@ -1,4 +1,4 @@
-name: Orchard Core Contribe Modules
+name: Orchard Core Contrib Modules
 
 on:
   push:
@@ -21,10 +21,6 @@ jobs:
       uses: actions/setup-dotnet@v1
       with:
         dotnet-version: 3.1.301
-    - name: Install Dependencies
-      run: |
-        dotnet nuget add source https://nuget.cloudsmith.io/orchardcore/preview/v3/index.json -n cloudsmith.io
-        dotnet restore
     - name: Build
       run: dotnet build --configuration Release --no-restore
     - name: Test
