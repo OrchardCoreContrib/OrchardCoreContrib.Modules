@@ -1,6 +1,4 @@
-﻿using System.Collections.Generic;
-
-namespace OrchardCoreContrib.Localization.Diacritics
+﻿namespace OrchardCoreContrib.Localization.Diacritics
 {
     public interface IDiacriticsLookup
     {
