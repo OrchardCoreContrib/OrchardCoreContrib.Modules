@@ -1,16 +1,16 @@
 ﻿using System.Collections.Generic;
 using System.Globalization;
 
-namespace OrchardCoreContrib.Localization.Diacritics.Tests
+namespace OrchardCoreContrib.Localization.Diacritics.Accents.Tests
 {
-    public class ArabicYaAccentMapper : IAccentMapper
+    public class FrenchAccentMapper : IAccentMapper
     {
         public CultureInfo Culture => CultureInfo.GetCultureInfo("ar");
 
         public IDictionary<char, string> Mapping => new Dictionary<char, string>
         {
-            { 'ئ', "ي" },
-            { 'ى', "ي" }
+            { 'æ', "ae" },
+            { 'œ', "oe" }
         };
     }
 }

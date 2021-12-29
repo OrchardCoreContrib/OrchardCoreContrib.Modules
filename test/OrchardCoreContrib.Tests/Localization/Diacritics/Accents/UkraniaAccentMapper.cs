@@ -7,12 +7,12 @@ namespace OrchardCoreContrib.Localization.Diacritics.Tests
     {
         public CultureInfo Culture => CultureInfo.GetCultureInfo("uk");
 
-        public IDictionary<char, char> Mapping => new Dictionary<char, char>
+        public IDictionary<char, string> Mapping => new Dictionary<char, string>
             {
-                { 'Ї','І' },
-                { 'Й','И' },
-                { 'й','и' },
-                { 'ї','і' }
+                { 'Ї',"І" },
+                { 'Й',"И" },
+                { 'й',"и" },
+                { 'ї',"і" }
             };
     }
 }

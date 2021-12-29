@@ -7,6 +7,6 @@ namespace OrchardCoreContrib.Localization.Diacritics
     {
         CultureInfo Culture { get; }
 
-        IDictionary<char, char> Mapping { get; }
+        IDictionary<char, string> Mapping { get; }
     }
 }
