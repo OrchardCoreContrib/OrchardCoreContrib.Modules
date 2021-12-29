@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using System.Globalization;
+﻿using System.Globalization;
 
 namespace OrchardCoreContrib.Localization.Diacritics
 {
@@ -7,6 +6,6 @@ namespace OrchardCoreContrib.Localization.Diacritics
     {
         CultureInfo Culture { get; }
 
-        IDictionary<char, string> Mapping { get; }
+        AccentDictionary Mapping { get; }
     }
 }

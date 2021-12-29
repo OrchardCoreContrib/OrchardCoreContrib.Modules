@@ -1,16 +1,15 @@
-﻿using System.Collections.Generic;
-using System.Globalization;
+﻿using System.Globalization;
 
 namespace OrchardCoreContrib.Localization.Diacritics.Accents.Tests
 {
-    public class FrenchAccentMapper : IAccentMapper
+    public class FrenchAccentMapper : AccentMapperBase
     {
-        public CultureInfo Culture => CultureInfo.GetCultureInfo("ar");
-
-        public IDictionary<char, string> Mapping => new Dictionary<char, string>
+        public FrenchAccentMapper()
         {
-            { 'æ', "ae" },
-            { 'œ', "oe" }
-        };
+            Mapping.Add(new AccentDictionaryRecord('æ', "ae"));
+            Mapping.Add(new AccentDictionaryRecord('œ', "oe"));
+        }
+
+        public override CultureInfo Culture => CultureInfo.GetCultureInfo("fr");
     }
 }

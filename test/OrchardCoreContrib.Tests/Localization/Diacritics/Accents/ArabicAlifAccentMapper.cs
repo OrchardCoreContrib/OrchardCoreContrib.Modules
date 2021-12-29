@@ -1,18 +1,17 @@
-﻿using System.Collections.Generic;
-using System.Globalization;
+﻿using System.Globalization;
 
 namespace OrchardCoreContrib.Localization.Diacritics.Tests
 {
-    public class ArabicAlifAccentMapper : IAccentMapper
+    public class ArabicAlifAccentMapper : AccentMapperBase
     {
-        public CultureInfo Culture => CultureInfo.GetCultureInfo("ar");
-
-        public IDictionary<char, string> Mapping => new Dictionary<char, string>
+        public ArabicAlifAccentMapper()
         {
-            { 'آ', "ا" },
-            { 'أ', "ا" },
-            { 'إ', "ا" },
-            { 'ٱ', "ا" }
-        };
+            Mapping.Add(new AccentDictionaryRecord('آ', "ا"));
+            Mapping.Add(new AccentDictionaryRecord('أ', "ا"));
+            Mapping.Add(new AccentDictionaryRecord('إ', "ا"));
+            Mapping.Add(new AccentDictionaryRecord('ٱ', "ا"));
+        }
+
+        public override CultureInfo Culture => CultureInfo.GetCultureInfo("ar");
     }
 }

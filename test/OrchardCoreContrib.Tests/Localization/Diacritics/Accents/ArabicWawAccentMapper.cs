@@ -1,15 +1,14 @@
-﻿using System.Collections.Generic;
-using System.Globalization;
+﻿using System.Globalization;
 
 namespace OrchardCoreContrib.Localization.Diacritics.Tests
 {
-    public class ArabicWawAccentMapper : IAccentMapper
+    public class ArabicWawAccentMapper : AccentMapperBase
     {
-        public CultureInfo Culture => CultureInfo.GetCultureInfo("ar");
-
-        public IDictionary<char, string> Mapping => new Dictionary<char, string>
+        public ArabicWawAccentMapper()
         {
-            { 'ؤ', "و" }
-        };
+            Mapping.Add(new AccentDictionaryRecord('ؤ', "و"));
+        }
+
+        public override CultureInfo Culture => CultureInfo.GetCultureInfo("ar");
     }
 }
