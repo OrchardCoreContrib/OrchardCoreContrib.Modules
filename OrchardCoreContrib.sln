@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.29519.181
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31912.275
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{9E0FA124-27DA-447A-9C52-AD92A3AE3679}"
 EndProject
@@ -27,7 +27,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OrchardCoreContrib.Shortcod
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OrchardCoreContrib.Shortcodes.Core", "src\OrchardCoreContrib.Shortcodes.Core\OrchardCoreContrib.Shortcodes.Core.csproj", "{396D4CEA-4978-4891-BC6D-D016897240E2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OrchardCoreContrib.Linq", "src\OrchardCoreContrib.Linq\OrchardCoreContrib.Linq.csproj", "{CE387146-3419-42B2-9F40-3E20010E5A17}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OrchardCoreContrib.Linq", "src\OrchardCoreContrib.Linq\OrchardCoreContrib.Linq.csproj", "{CE387146-3419-42B2-9F40-3E20010E5A17}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OrchardCoreContrib.Localization", "src\OrchardCoreContrib.Localization\OrchardCoreContrib.Localization.csproj", "{ACFB6121-CFA9-4FB6-B8A8-B303A0409E9D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -79,6 +81,10 @@ Global
 		{CE387146-3419-42B2-9F40-3E20010E5A17}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CE387146-3419-42B2-9F40-3E20010E5A17}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CE387146-3419-42B2-9F40-3E20010E5A17}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ACFB6121-CFA9-4FB6-B8A8-B303A0409E9D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ACFB6121-CFA9-4FB6-B8A8-B303A0409E9D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ACFB6121-CFA9-4FB6-B8A8-B303A0409E9D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ACFB6121-CFA9-4FB6-B8A8-B303A0409E9D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -95,6 +101,7 @@ Global
 		{1CF070DC-6C90-4B10-9969-9386109722F0} = {9E0FA124-27DA-447A-9C52-AD92A3AE3679}
 		{396D4CEA-4978-4891-BC6D-D016897240E2} = {9E0FA124-27DA-447A-9C52-AD92A3AE3679}
 		{CE387146-3419-42B2-9F40-3E20010E5A17} = {9E0FA124-27DA-447A-9C52-AD92A3AE3679}
+		{ACFB6121-CFA9-4FB6-B8A8-B303A0409E9D} = {9E0FA124-27DA-447A-9C52-AD92A3AE3679}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {82D49E76-A63E-465D-B527-C20110460A14}
