@@ -1,6 +1,6 @@
 ﻿using System.Globalization;
 
-namespace OrchardCoreContrib.Localization.Diacritics.Accents.Tests
+namespace OrchardCoreContrib.Localization.Diacritics.Tests
 {
     public class FrenchAccentMapper : AccentMapperBase
     {

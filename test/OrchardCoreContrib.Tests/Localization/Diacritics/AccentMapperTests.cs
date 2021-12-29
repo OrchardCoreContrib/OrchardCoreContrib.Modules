@@ -1,7 +1,7 @@
 ﻿using System.Linq;
 using Xunit;
 
-namespace OrchardCoreContrib.Localization.Diacritics.Accents.Tests
+namespace OrchardCoreContrib.Localization.Diacritics.Tests
 {
     public class AccentMapperTests
     {
