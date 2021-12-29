@@ -15,6 +15,8 @@ namespace OrchardCoreContrib.Localization.Diacritics
 
         public string Culture { get; }
 
+        public string this[char key] => _mapping.SingleOrDefault(m => m.Key == key).Value ?? null;
+
         public int Count => _mapping.Count;
 
         public void Add(char key, string value)
