@@ -3,15 +3,23 @@ using System.Text;
 
 namespace OrchardCoreContrib.Localization.Diacritics
 {
+    /// <summary>
+    /// Represents a utility to remove a diacritics.
+    /// </summary>
     public class DiacriticsRemover : IDiacriticsRemover
     {
         private readonly IDiacriticsLookup _diacriticsLookup;
 
+        /// <summary>
+        /// Initializes a new instance of a <see cref="DiacriticsRemover"/>.
+        /// </summary>
+        /// <param name="diacriticsLookup">The <see cref="IDiacriticsRemover"/>.</param>
         public DiacriticsRemover(IDiacriticsLookup diacriticsLookup)
         {
             _diacriticsLookup = diacriticsLookup;
         }
 
+        /// <inheritdoc/>
         public string Remove(string source)
         {
             var normalizedText = source.Normalize(NormalizationForm.FormKD);
