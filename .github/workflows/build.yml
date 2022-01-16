@@ -1,4 +1,4 @@
-name: Orchard Core Contribe
+name: Orchard Core Contrib
 
 on:
   push:
@@ -20,17 +20,10 @@ jobs:
     - name: Setup .NET Core
       uses: actions/setup-dotnet@v1
       with:
-        dotnet-version: 3.1.301
+        dotnet-version: 3.1.*
     - name: Install Dependencies
       run: dotnet restore
     - name: Build
       run: dotnet build --configuration Release --no-restore
     - name: Test
       run: dotnet test --no-restore --verbosity normal
-    - name: Pack
-      run: dotnet pack --configuration Release --output nupkg -p:RepositoryUrl=${{ github.server_url }}/${{ github.repository }} --version-suffix beta
-    - name: 'Push GitHub Packages'
-      run: |
-        dotnet nuget add source https://nuget.pkg.github.com/OrchardCoreContrib/index.json --name GitHub --username hishamco --password ${{secrets.GITHUB_TOKEN}}
-        dotnet tool update gpr -g
-        gpr push .\nupkg\*.nupkg -k ${{secrets.GITHUB_TOKEN}}
