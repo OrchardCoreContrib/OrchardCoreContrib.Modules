@@ -1,25 +1,41 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
-  <PropertyGroup>
-    <TargetFramework>netcoreapp3.1</TargetFramework>
-  </PropertyGroup>
+	<PropertyGroup>
+		<TargetFramework>netcoreapp3.1</TargetFramework>
+		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+		<VersionPrefix>1.0.0-beta1</VersionPrefix>
+		<Authors>The Orchard Core Contrib Team</Authors>
+		<Company />
+		<Description>Provides ability to query using LINQ in Orchard Core data source.</Description>
+		<PackageLicenseExpression>MIT</PackageLicenseExpression>
+		<PackageProjectUrl>https://github.com/OrchardCoreContrib/OrchardCoreContrib</PackageProjectUrl>
+		<RepositoryUrl>https://github.com/OrchardCoreContrib/OrchardCoreContrib</RepositoryUrl>
+		<RepositoryType>git</RepositoryType>
+		<PublishRepositoryUrl>true</PublishRepositoryUrl>
+		<PackageTags>Orchard Core, Orchard Core Contrib, LINQ</PackageTags>
+		<PackageReleaseNotes>https://github.com/OrchardCoreContrib/OrchardCoreContrib/releases</PackageReleaseNotes>
+		<PackageId>OrchardCoreContrib.Linq</PackageId>
+		<Product>Orchard Core Contrib LINQ</Product>
+		<PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
+		<Copyright>2019 Orchard Core Contrib</Copyright>
+	</PropertyGroup>
 
-  <ItemGroup>
-  	<PackageReference Include="YesSql" Version="3.0.7" />
-  	<PackageReference Include="OrchardCore.Autoroute" Version="1.0.0" />
-  	<PackageReference Include="OrchardCore.Alias" Version="1.0.0" />
-  	<PackageReference Include="OrchardCore.Users.Core" Version="1.0.0" />
-  	<PackageReference Include="OrchardCore.AdminDashboard" Version="1.0.0" />
-  	<PackageReference Include="OrchardCore.AuditTrail.Abstractions" Version="1.0.0" />
-  	<PackageReference Include="OrchardCore.Deployment" Version="1.0.0" />
-  	<PackageReference Include="OrchardCore.Layers" Version="1.0.0" />
-  	<PackageReference Include="OrchardCore.Lists" Version="1.0.0" />
-  	<PackageReference Include="OrchardCore.PublishLater" Version="1.0.0" />
-  	<PackageReference Include="OrchardCore.Taxonomies" Version="1.0.0" />
-  	<PackageReference Include="OrchardCore.Workflows" Version="1.0.0" />
-  	<PackageReference Include="OrchardCore.OpenId.Core" Version="1.0.0" />
-  	<PackageReference Include="OrchardCore.ContentManagement" Version="1.0.0" />
-  	<PackageReference Include="OrchardCore.ContentLocalization.Abstractions" Version="1.0.0" />
-  </ItemGroup>
+	<ItemGroup>
+		<PackageReference Include="YesSql" Version="3.0.7" />
+		<PackageReference Include="OrchardCore.Autoroute" Version="1.0.0" />
+		<PackageReference Include="OrchardCore.Alias" Version="1.0.0" />
+		<PackageReference Include="OrchardCore.Users.Core" Version="1.0.0" />
+		<PackageReference Include="OrchardCore.AdminDashboard" Version="1.0.0" />
+		<PackageReference Include="OrchardCore.AuditTrail.Abstractions" Version="1.0.0" />
+		<PackageReference Include="OrchardCore.Deployment" Version="1.0.0" />
+		<PackageReference Include="OrchardCore.Layers" Version="1.0.0" />
+		<PackageReference Include="OrchardCore.Lists" Version="1.0.0" />
+		<PackageReference Include="OrchardCore.PublishLater" Version="1.0.0" />
+		<PackageReference Include="OrchardCore.Taxonomies" Version="1.0.0" />
+		<PackageReference Include="OrchardCore.Workflows" Version="1.0.0" />
+		<PackageReference Include="OrchardCore.OpenId.Core" Version="1.0.0" />
+		<PackageReference Include="OrchardCore.ContentManagement" Version="1.0.0" />
+		<PackageReference Include="OrchardCore.ContentLocalization.Abstractions" Version="1.0.0" />
+	</ItemGroup>
 
 </Project>
