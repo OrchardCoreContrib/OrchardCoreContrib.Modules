@@ -11,7 +11,7 @@
 )]
 
 [assembly: Feature(
-    Id = "OrchardCoreContrib.SendGrid.Gmail",
+    Id = "OrchardCoreContrib.Email.SendGrid",
     Name = "SendGrid",
     Description = "Allow you to send email(s) via SendGrid service.",
     Category = "Messaging"
