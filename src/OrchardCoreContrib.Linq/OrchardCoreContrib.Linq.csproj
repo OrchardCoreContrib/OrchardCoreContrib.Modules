@@ -20,22 +20,23 @@
 		<Copyright>2019 Orchard Core Contrib</Copyright>
 	</PropertyGroup>
 
-	<ItemGroup>
-		<PackageReference Include="YesSql" Version="3.0.7" />
-		<PackageReference Include="OrchardCore.Autoroute" Version="1.0.0" />
-		<PackageReference Include="OrchardCore.Alias" Version="1.0.0" />
-		<PackageReference Include="OrchardCore.Users.Core" Version="1.0.0" />
-		<PackageReference Include="OrchardCore.AdminDashboard" Version="1.0.0" />
-		<PackageReference Include="OrchardCore.AuditTrail.Abstractions" Version="1.0.0" />
-		<PackageReference Include="OrchardCore.Deployment" Version="1.0.0" />
-		<PackageReference Include="OrchardCore.Layers" Version="1.0.0" />
-		<PackageReference Include="OrchardCore.Lists" Version="1.0.0" />
-		<PackageReference Include="OrchardCore.PublishLater" Version="1.0.0" />
-		<PackageReference Include="OrchardCore.Taxonomies" Version="1.0.0" />
-		<PackageReference Include="OrchardCore.Workflows" Version="1.0.0" />
-		<PackageReference Include="OrchardCore.OpenId.Core" Version="1.0.0" />
-		<PackageReference Include="OrchardCore.ContentManagement" Version="1.0.0" />
-		<PackageReference Include="OrchardCore.ContentLocalization.Abstractions" Version="1.0.0" />
-	</ItemGroup>
+  <ItemGroup>
+  	<PackageReference Include="YesSql" Version="3.0.7" />
+  	<PackageReference Include="OrchardCore.Autoroute" Version="1.0.0" />
+  	<PackageReference Include="OrchardCore.Alias" Version="1.0.0" />
+  	<PackageReference Include="OrchardCore.Users.Core" Version="1.0.0" />
+  	<PackageReference Include="OrchardCore.AdminDashboard" Version="1.0.0" />
+  	<PackageReference Include="OrchardCore.AuditTrail.Abstractions" Version="1.0.0" />
+  	<PackageReference Include="OrchardCore.Deployment" Version="1.0.0" />
+  	<PackageReference Include="OrchardCore.Layers" Version="1.0.0" />
+  	<PackageReference Include="OrchardCore.Lists" Version="1.0.0" />
+  	<PackageReference Include="OrchardCore.PublishLater" Version="1.0.0" />
+  	<PackageReference Include="OrchardCore.Taxonomies" Version="1.0.0" />
+  	<PackageReference Include="OrchardCore.Workflows" Version="1.0.0" />
+  	<PackageReference Include="OrchardCore.OpenId.Core" Version="1.0.0" />
+  	<PackageReference Include="OrchardCore.ContentManagement" Version="1.0.0" />
+  	<PackageReference Include="OrchardCore.ContentLocalization.Abstractions" Version="1.0.0" />
+	<PackageReference Include="linq2db" Version="3.6.0" />
+  </ItemGroup>
 
 </Project>

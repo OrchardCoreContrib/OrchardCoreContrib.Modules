@@ -1,4 +1,6 @@
-﻿using OrchardCore.AdminDashboard.Indexes;
+﻿using LinqToDB;
+using LinqToDB.Data;
+using OrchardCore.AdminDashboard.Indexes;
 using OrchardCore.Alias.Indexes;
 using OrchardCore.AuditTrail.Indexes;
 using OrchardCore.ContentLocalization.Records;
@@ -12,17 +14,14 @@ using OrchardCore.Taxonomies.Indexing;
 using OrchardCore.Users.Indexes;
 using OrchardCore.Workflows.Indexes;
 using System;
-using System.Collections.Generic;
-using System.Threading.Tasks;
 using YesSql;
-using YesSql.Indexes;
 
 namespace OrchardCoreContrib.Linq
 {
     /// <summary>
     /// Represents a data context for Orchard Core index tables.
     /// </summary>
-    public class OrchardCoreDataContext : IDisposable
+    public class OrchardCoreDataContext : IDataContext, IDisposable
     {
         private readonly IStore _store;
 
@@ -33,129 +32,124 @@ namespace OrchardCoreContrib.Linq
         public OrchardCoreDataContext(IStore store)
         {
             _store = store;
+
+            Connection = OrchardCoreDataConnectionFactory.Create(_store);
         }
 
         /// <summary>
         /// Gets a list of dashboards widgets metadata.
         /// </summary>
-        public IEnumerable<DashboardPartIndex> Dashboards => QueryAsync<DashboardPartIndex>().Result;
+        public ITable<DashboardPartIndex> Dashboards => Connection.GetTable<DashboardPartIndex>();
 
         /// <summary>
         /// Gets a list of auditing events.
         /// </summary>
-        public IEnumerable<AuditTrailEventIndex> AuditEvents => QueryAsync<AuditTrailEventIndex>().Result;
+        public ITable<AuditTrailEventIndex> AuditEvents => Connection.GetTable<AuditTrailEventIndex>();
 
         /// <summary>
         /// Gets a list of deployment plans.
         /// </summary>
-        public IEnumerable<DeploymentPlanIndex> DeploymentPlans => QueryAsync<DeploymentPlanIndex>().Result;
+        public ITable<DeploymentPlanIndex> DeploymentPlans => Connection.GetTable<DeploymentPlanIndex>();
 
         /// <summary>
         /// Gets a list of layers metadata.
         /// </summary>
-        public IEnumerable<LayerMetadataIndex> Layers => QueryAsync<LayerMetadataIndex>().Result;
+        public ITable<LayerMetadataIndex> Layers => Connection.GetTable<LayerMetadataIndex>();
 
         /// <summary>
         /// Gets a list of contained content items.
         /// </summary>
-        public IEnumerable<ContainedPartIndex> Containers => QueryAsync<ContainedPartIndex>().Result;
+        public ITable<ContainedPartIndex> Containers => Connection.GetTable<ContainedPartIndex>();
 
         /// <summary>
         /// Gets a list of schedules content items.
         /// </summary>
-        public IEnumerable<PublishLaterPartIndex> Publishes => QueryAsync<PublishLaterPartIndex>().Result;
+        public ITable<PublishLaterPartIndex> Publishes => Connection.GetTable<PublishLaterPartIndex>();
 
         /// <summary>
         /// Gets a list of tags / categories of content items.
         /// </summary>
-        public IEnumerable<TaxonomyIndex> Taxonomies => QueryAsync<TaxonomyIndex>().Result;
+        public ITable<TaxonomyIndex> Taxonomies => Connection.GetTable<TaxonomyIndex>();
 
         /// <summary>
         /// Gets a list of workflows.
         /// </summary>
-        public IEnumerable<WorkflowIndex> Workflows => QueryAsync<WorkflowIndex>().Result;
+        public ITable<WorkflowIndex> Workflows => Connection.GetTable<WorkflowIndex>();
 
         /// <summary>
         /// Gets a list of workflow activities.
         /// </summary>
-        public IEnumerable<WorkflowBlockingActivitiesIndex> WorkflowBlockingActivities => QueryAsync<WorkflowBlockingActivitiesIndex>().Result;
+        public ITable<WorkflowBlockingActivitiesIndex> WorkflowBlockingActivities => Connection.GetTable<WorkflowBlockingActivitiesIndex>();
 
         /// <summary>
         /// Gets a list of workflow types.
         /// </summary>
-        public IEnumerable<WorkflowTypeIndex> WorkflowTypes => QueryAsync<WorkflowTypeIndex>().Result;
+        public ITable<WorkflowTypeIndex> WorkflowTypes => Connection.GetTable<WorkflowTypeIndex>();
 
         /// <summary>
         /// Gets a list of workflow types start activities.
         /// </summary>
-        public IEnumerable<WorkflowTypeStartActivitiesIndex> WorkflowTypeStartActivities => QueryAsync<WorkflowTypeStartActivitiesIndex>().Result;
+        public ITable<WorkflowTypeStartActivitiesIndex> WorkflowTypeStartActivities => Connection.GetTable<WorkflowTypeStartActivitiesIndex>();
 
         /// <summary>
         /// Gets a list of content items route.
         /// </summary>
-        public IEnumerable<AutoroutePartIndex> Routes => QueryAsync<AutoroutePartIndex>().Result;
+        public ITable<AutoroutePartIndex> Routes => Connection.GetTable<AutoroutePartIndex>();
 
         /// <summary>
         /// Gets a list of content item aliases.
         /// </summary>
-        public IEnumerable<AliasPartIndex> Aliases => QueryAsync<AliasPartIndex>().Result;
+        public ITable<AliasPartIndex> Aliases => Connection.GetTable<AliasPartIndex>();
 
         /// <summary>
         /// Gets a list of users.
         /// </summary>
-        public IEnumerable<UserIndex> Users => QueryAsync<UserIndex>().Result;
+        public ITable<UserIndex> Users => Connection.GetTable<UserIndex>();
 
         /// <summary>
         /// Gets a list of user login provider.
         /// </summary>
-        public IEnumerable<UserByLoginInfoIndex> LoginProviders => QueryAsync<UserByLoginInfoIndex>().Result;
+        public ITable<UserByLoginInfoIndex> LoginProviders => Connection.GetTable<UserByLoginInfoIndex>();
 
         /// <summary>
         /// Gets a list of user claims.
         /// </summary>
-        public IEnumerable<UserByClaimIndex> UserClaims => QueryAsync<UserByClaimIndex>().Result;
+        public ITable<UserByClaimIndex> UserClaims => Connection.GetTable<UserByClaimIndex>();
 
         /// <summary>
         /// Gets a list of OpenID tokens.
         /// </summary>
-        public IEnumerable<OpenIdTokenIndex> OpenIdTokens => QueryAsync<OpenIdTokenIndex>().Result;
+        public ITable<OpenIdTokenIndex> OpenIdTokens => Connection.GetTable<OpenIdTokenIndex>();
 
         /// <summary>
         /// Gets a list of OpenID scopes.
         /// </summary>
-        public IEnumerable<OpenIdScopeIndex> OpenIdScopes => QueryAsync<OpenIdScopeIndex>().Result;
+        public ITable<OpenIdScopeIndex> OpenIdScopes => Connection.GetTable<OpenIdScopeIndex>();
 
         /// <summary>
         /// Gets a list of OpenID authorizations.
         /// </summary>
-        public IEnumerable<OpenIdAuthorizationIndex> OpenIdAuthorizations => QueryAsync<OpenIdAuthorizationIndex>().Result;
+        public ITable<OpenIdAuthorizationIndex> OpenIdAuthorizations => Connection.GetTable<OpenIdAuthorizationIndex>();
 
         /// <summary>
         /// Gets a list of OpenID applications.
         /// </summary>
-        public IEnumerable<OpenIdApplicationIndex> OpenIdApplications => QueryAsync<OpenIdApplicationIndex>().Result;
+        public ITable<OpenIdApplicationIndex> OpenIdApplications => Connection.GetTable<OpenIdApplicationIndex>();
 
         /// <summary>
         /// Gets a list of content items.
         /// </summary>
-        public IEnumerable<ContentItemIndex> ContentItems => QueryAsync<ContentItemIndex>().Result;
+        public ITable<ContentItemIndex> ContentItems => Connection.GetTable<ContentItemIndex>();
 
         /// <summary>
         /// Gets a list of localized content items.
         /// </summary>
-        public IEnumerable<LocalizedContentItemIndex> LocalizedContentItems => QueryAsync<LocalizedContentItemIndex>().Result;
+        public ITable<LocalizedContentItemIndex> LocalizedContentItems => Connection.GetTable<LocalizedContentItemIndex>();
 
-        private async Task<IEnumerable<TIndex>> QueryAsync<TIndex>() where TIndex : class, IIndex
-        {
-            IEnumerable<TIndex> result = null;
-            using (var session = _store.CreateSession())
-            {
-                result = await session.QueryIndex<TIndex>().ListAsync();
-            }
+        /// <inheritdoc/>
+        public DataConnection Connection { get; }
 
-            return result;
-        }
-
+        /// <inheritdoc/>
         public void Dispose() => _store.Dispose();
     }
 }

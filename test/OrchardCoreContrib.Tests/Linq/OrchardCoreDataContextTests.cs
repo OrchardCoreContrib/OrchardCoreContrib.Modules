@@ -1,5 +1,7 @@
-﻿using System;
+﻿using LinqToDB;
+using System;
 using System.Linq;
+using System.Threading.Tasks;
 using Xunit;
 using YesSql;
 using YesSql.Provider.Sqlite;
@@ -41,6 +43,19 @@ namespace OrchardCoreContrib.Linq.Tests
                          select ci.DisplayText;
 
             Assert.NotEmpty(result);
+        }
+
+        [Fact]
+        public async Task AsyncQuery()
+        {
+            // Arrange
+            var dbContext = new OrchardCoreDataContext(_store);
+
+            // Act
+            var result = await dbContext.Aliases.ToListAsync();
+
+            // Assert
+            Assert.Equal(3, result.Count);
         }
     }
 }
