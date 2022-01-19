@@ -57,5 +57,19 @@ namespace OrchardCoreContrib.Linq.Tests
             // Assert
             Assert.Equal(3, result.Count);
         }
+
+        [Fact]
+        public async Task QueryFromCustomTable()
+        {
+            // Arrange
+            var dbContext = new CustomOrchardCoreDataContext(_store);
+
+            // Act
+            var result = await dbContext.Document.ToListAsync();
+
+            // Assert
+            Assert.NotNull(result);
+            Assert.NotEmpty(result);
+        }
     }
 }
