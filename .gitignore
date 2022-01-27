@@ -350,3 +350,4 @@ MigrationBackup/
 .ionide/
 src/OrchardCoreContrib.Modules.Web/App_Data
 src/OrchardCoreContrib.Modules.Web/Localization
+src/OrchardCoreContrib.Modules.Web/wwwroot
