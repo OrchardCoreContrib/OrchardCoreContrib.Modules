@@ -19,7 +19,7 @@ namespace OrchardCoreContrib.Users
     /// <summary>
     /// Represents an entry point to register the impersonation required services.
     /// </summary>
-    [Feature("OrchardCore.Users.Impersonation")]
+    [Feature("OrchardCoreContrib.Users.Impersonation")]
     public class Startup : StartupBase
     {
         private readonly AdminOptions _adminOptions;

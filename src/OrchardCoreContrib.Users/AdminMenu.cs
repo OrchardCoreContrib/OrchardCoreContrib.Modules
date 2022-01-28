@@ -12,7 +12,7 @@ namespace OrchardCoreContrib.Users
     /// <summary>
     /// Represents an admin menu for the impersonation feature.
     /// </summary>
-    [Feature("OrchardCore.Users.Impersonation")]
+    [Feature("OrchardCoreContrib.Users.Impersonation")]
     public class AdminMenu : INavigationProvider
     {
         private readonly HttpContext _httpContext;

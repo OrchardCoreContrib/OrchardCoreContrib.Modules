@@ -10,7 +10,7 @@ namespace OrchardCoreContrib.Users
     /// <summary>
     /// Represents a permissions that will be applied into users module.
     /// </summary>
-    [Feature("OrchardCore.Users.Impersonation")]
+    [Feature("OrchardCoreContrib.Users.Impersonation")]
     public class Permissions : IPermissionProvider
     {
         /// <summary>

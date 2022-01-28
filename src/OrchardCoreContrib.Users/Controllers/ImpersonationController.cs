@@ -15,7 +15,7 @@ using OrchardCore.Users;
 namespace OrchardCoreContrib.Users.Controllers
 {
     [Authorize]
-    [Feature("OrchardCore.Users.Impersonation")]
+    [Feature("OrchardCoreContrib.Users.Impersonation")]
     public class ImpersonationController : Controller
     {
         private readonly SignInManager<IUser> _signInManager;
