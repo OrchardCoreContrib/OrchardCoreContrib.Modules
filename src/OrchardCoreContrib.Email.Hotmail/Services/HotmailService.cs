@@ -131,41 +131,14 @@ namespace OrchardCoreContrib.Email.Hotmail.Services
 
         private async Task SendMessage(MimeMessage message)
         {
-            var secureSocketOptions = SecureSocketOptions.Auto;
-
-            if (!_hotmailSetting.AutoSelectEncryption)
-            {
-                switch (_hotmailSetting.EncryptionMethod)
-                {
-                    case SmtpEncryptionMethod.None:
-                        secureSocketOptions = SecureSocketOptions.None;
-                        break;
-                    case SmtpEncryptionMethod.SSLTLS:
-                        secureSocketOptions = SecureSocketOptions.SslOnConnect;
-                        break;
-                    case SmtpEncryptionMethod.STARTTLS:
-                        secureSocketOptions = SecureSocketOptions.StartTls;
-                        break;
-                    default:
-                        break;
-                }
-            }
-
             using (var client = new SmtpClient())
             {
                 client.ServerCertificateValidationCallback = CertificateValidationCallback;
-                await client.ConnectAsync(_hotmailSetting.Host, _hotmailSetting.Port, secureSocketOptions);
+                await client.ConnectAsync(_hotmailSetting.Host, _hotmailSetting.Port, SecureSocketOptions.StartTls);
 
-                if (_hotmailSetting.RequireCredentials)
+                if (!string.IsNullOrWhiteSpace(_hotmailSetting.UserName))
                 {
-                    if (_hotmailSetting.UseDefaultCredentials)
-                    {
-                        await client.AuthenticateAsync(string.Empty, string.Empty);
-                    }
-                    else if (!string.IsNullOrWhiteSpace(_hotmailSetting.UserName))
-                    {
-                        await client.AuthenticateAsync(_hotmailSetting.UserName, _hotmailSetting.Password);
-                    }
+                    await client.AuthenticateAsync(_hotmailSetting.UserName, _hotmailSetting.Password);
                 }
 
                 await client.SendAsync(message);

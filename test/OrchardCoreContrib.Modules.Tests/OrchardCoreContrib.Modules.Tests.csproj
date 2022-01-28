@@ -16,6 +16,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\src\OrchardCoreContrib.Email.Hotmail\OrchardCoreContrib.Email.Hotmail.csproj" />
     <ProjectReference Include="..\..\src\OrchardCoreContrib.Email.SendGrid\OrchardCoreContrib.Email.SendGrid.csproj" />
   </ItemGroup>
 
