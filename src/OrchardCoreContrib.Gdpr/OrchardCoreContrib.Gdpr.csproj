@@ -9,12 +9,12 @@
 		<Company />
 		<Description>Supports EU General Data Protection Regulation (GDPR).</Description>
 		<PackageLicenseExpression>MIT</PackageLicenseExpression>
-		<PackageProjectUrl>https://github.com/OrchardCoreContrib.Modules</PackageProjectUrl>
-		<RepositoryUrl>https://github.com/OrchardCoreContrib.Modules</RepositoryUrl>
+		<PackageProjectUrl>https://github.com/OrchardCoreContrib/OrchardCoreContrib.Modules</PackageProjectUrl>
+		<RepositoryUrl>https://github.com/OrchardCoreContrib/OrchardCoreContrib.Modules</RepositoryUrl>
 		<RepositoryType>git</RepositoryType>
 		<PublishRepositoryUrl>true</PublishRepositoryUrl>
 		<PackageTags>Orchard Core, Orchard Core Contrib, GDPR</PackageTags>
-		<PackageReleaseNotes>https://github.com/OrchardCoreContrib.Modules/releases</PackageReleaseNotes>
+		<PackageReleaseNotes>https://github.com/OrchardCoreContrib/OrchardCoreContrib.Modules/releases</PackageReleaseNotes>
 		<PackageId>OrchardCoreContrib.Gdpr</PackageId>
 		<Product>Orchard Core Contrib GDPR Module</Product>
 		<PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
