@@ -2,6 +2,7 @@
 using Microsoft.Extensions.Options;
 using OrchardCore.Admin;
 using OrchardCore.Environment.Shell;
+using OrchardCore.Users;
 using System;
 using System.Linq;
 using System.Threading.Tasks;
@@ -14,6 +15,7 @@ namespace OrchardCoreContrib.ContentPreview
     public class PagePreviewMiddleware
     {
         private readonly AdminOptions _adminOptions;
+        private readonly UserOptions _userOptions;
         private readonly IShellFeaturesManager _shellFeaturesManager;
         private readonly ShellSettings _shellSettings;
         private readonly RequestDelegate _next;
@@ -28,11 +30,13 @@ namespace OrchardCoreContrib.ContentPreview
         public PagePreviewMiddleware(
             RequestDelegate next,
             IOptions<AdminOptions> adminOptions,
+            IOptions<UserOptions> userOptions,
             IShellFeaturesManager shellFeaturesManager,
             ShellSettings shellSettings)
         {
             _next = next;
             _adminOptions = adminOptions.Value;
+            _userOptions = userOptions.Value;
             _shellFeaturesManager = shellFeaturesManager;
             _shellSettings = shellSettings;
         }
@@ -41,12 +45,17 @@ namespace OrchardCoreContrib.ContentPreview
         /// Invokes the logic of the middleware.
         /// </summary>
         /// <param name="context">The <see cref="HttpContext"/>.</param>
-        public async Task Invoke(HttpContext context)
+        public Task Invoke(HttpContext context)
         {
             var path = context.Request.Path.Value;
+            if (path.StartsWith($"/{_userOptions.LoginPath}", StringComparison.OrdinalIgnoreCase))
+            {
+                return _next(context);
+            }
+
             if (path.StartsWith($"/{_adminOptions.AdminUrlPrefix}", StringComparison.OrdinalIgnoreCase))
             {
-                await _next(context);
+                return _next(context);
             }
 
             var featureEnabled = _shellFeaturesManager
@@ -55,7 +64,7 @@ namespace OrchardCoreContrib.ContentPreview
 
             if (!featureEnabled)
             {
-                await _next(context);
+                return _next(context);
             }
 
             var isPreview = context.Request.Query.ContainsKey("preview");
@@ -65,7 +74,7 @@ namespace OrchardCoreContrib.ContentPreview
                 context.Response.Redirect($"/{_shellSettings.RequestUrlPrefix}/preview{path}");
             }
 
-            await _next(context);
+            return _next(context);
         }
     }
 }

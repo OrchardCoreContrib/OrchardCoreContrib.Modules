@@ -2,6 +2,7 @@
 using Microsoft.Extensions.Options;
 using OrchardCore.Admin;
 using OrchardCore.Environment.Shell;
+using OrchardCore.Users;
 using OrchardCoreContrib.ContentPreview;
 using System;
 
@@ -24,10 +25,11 @@ namespace Microsoft.AspNetCore.Builder
             }
 
             var adminOptions = app.ApplicationServices.GetService<IOptions<AdminOptions>>();
+            var userOptions = app.ApplicationServices.GetService<IOptions<UserOptions>>();
             var shellFeaturesManager = app.ApplicationServices.CreateScope().ServiceProvider.GetService<IShellFeaturesManager>();
             var shellSettings = app.ApplicationServices.GetService<ShellSettings>();
 
-            app.UseMiddleware<PagePreviewMiddleware>(adminOptions, shellFeaturesManager, shellSettings);
+            app.UseMiddleware<PagePreviewMiddleware>(adminOptions, userOptions, shellFeaturesManager, shellSettings);
 
             return app;
         }

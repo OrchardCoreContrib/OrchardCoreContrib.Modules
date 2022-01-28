@@ -30,6 +30,7 @@
 		<PackageReference Include="OrchardCore.DisplayManagement" Version="1.0.0" />
 		<PackageReference Include="OrchardCore.Module.Targets" Version="1.0.0" />
 		<PackageReference Include="OrchardCore.ResourceManagement" Version="1.0.0" />
+		<PackageReference Include="OrchardCore.Users.Abstractions" Version="1.0.0" />
 	</ItemGroup>
 
 </Project>
