@@ -131,41 +131,16 @@ namespace OrchardCoreContrib.Email.Gmail.Services
 
         private async Task SendMessage(MimeMessage message)
         {
-            var secureSocketOptions = SecureSocketOptions.Auto;
-
-            if (!_gmailSetting.AutoSelectEncryption)
-            {
-                switch (_gmailSetting.EncryptionMethod)
-                {
-                    case SmtpEncryptionMethod.None:
-                        secureSocketOptions = SecureSocketOptions.None;
-                        break;
-                    case SmtpEncryptionMethod.SSLTLS:
-                        secureSocketOptions = SecureSocketOptions.SslOnConnect;
-                        break;
-                    case SmtpEncryptionMethod.STARTTLS:
-                        secureSocketOptions = SecureSocketOptions.StartTls;
-                        break;
-                    default:
-                        break;
-                }
-            }
-
             using (var client = new SmtpClient())
             {
                 client.ServerCertificateValidationCallback = CertificateValidationCallback;
-                await client.ConnectAsync(_gmailSetting.Host, _gmailSetting.Port, secureSocketOptions);
+                await client.ConnectAsync(_gmailSetting.Host, _gmailSetting.Port, SecureSocketOptions.StartTls);
 
-                if (_gmailSetting.RequireCredentials)
+                client.AuthenticationMechanisms.Remove("XOAUTH2");
+
+                if (!string.IsNullOrWhiteSpace(_gmailSetting.UserName))
                 {
-                    if (_gmailSetting.UseDefaultCredentials)
-                    {
-                        await client.AuthenticateAsync(string.Empty, string.Empty);
-                    }
-                    else if (!string.IsNullOrWhiteSpace(_gmailSetting.UserName))
-                    {
-                        await client.AuthenticateAsync(_gmailSetting.UserName, _gmailSetting.Password);
-                    }
+                    await client.AuthenticateAsync(_gmailSetting.UserName, _gmailSetting.Password);
                 }
 
                 await client.SendAsync(message);
