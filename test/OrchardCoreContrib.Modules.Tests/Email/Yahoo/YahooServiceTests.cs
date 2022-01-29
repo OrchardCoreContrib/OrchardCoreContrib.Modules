@@ -13,7 +13,7 @@ namespace OrchardCoreContrib.Modules.Email.Yahoo.Tests
 {
     public class YahooServiceTests
     {
-        [Fact(Skip = "Set Yahoo user credentials and default sender before run this test.")]
+        [Fact(Skip = "Set Yahoo user credentials and default sender before run this test. Also you might use Yahoo App password for authentication to make test pass.")]
         public async Task Send()
         {
             // Arrange
