@@ -13,7 +13,7 @@ namespace OrchardCoreContrib.Modules.Email.Gmail.Tests
 {
     public class GmailServiceTests
     {
-        [Fact(Skip = "Set Gmail user credentials and default sender before run this test.")]
+        [Fact(Skip = "Set Gmail user credentials and default sender before run this test. Also you might need to enable less secure apps to make test pass")]
         public async Task Send()
         {
             // Arrange
