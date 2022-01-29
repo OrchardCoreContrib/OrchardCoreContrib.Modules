@@ -131,41 +131,14 @@ namespace OrchardCoreContrib.Email.Yahoo.Services
 
         private async Task SendMessage(MimeMessage message)
         {
-            var secureSocketOptions = SecureSocketOptions.Auto;
-
-            if (!_yahooSetting.AutoSelectEncryption)
-            {
-                switch (_yahooSetting.EncryptionMethod)
-                {
-                    case SmtpEncryptionMethod.None:
-                        secureSocketOptions = SecureSocketOptions.None;
-                        break;
-                    case SmtpEncryptionMethod.SSLTLS:
-                        secureSocketOptions = SecureSocketOptions.SslOnConnect;
-                        break;
-                    case SmtpEncryptionMethod.STARTTLS:
-                        secureSocketOptions = SecureSocketOptions.StartTls;
-                        break;
-                    default:
-                        break;
-                }
-            }
-
             using (var client = new SmtpClient())
             {
                 client.ServerCertificateValidationCallback = CertificateValidationCallback;
-                await client.ConnectAsync(_yahooSetting.Host, _yahooSetting.Port, secureSocketOptions);
+                await client.ConnectAsync(_yahooSetting.Host, _yahooSetting.Port, SecureSocketOptions.Auto);
 
-                if (_yahooSetting.RequireCredentials)
+                if (!string.IsNullOrWhiteSpace(_yahooSetting.UserName))
                 {
-                    if (_yahooSetting.UseDefaultCredentials)
-                    {
-                        await client.AuthenticateAsync(string.Empty, string.Empty);
-                    }
-                    else if (!string.IsNullOrWhiteSpace(_yahooSetting.UserName))
-                    {
-                        await client.AuthenticateAsync(_yahooSetting.UserName, _yahooSetting.Password);
-                    }
+                    await client.AuthenticateAsync(_yahooSetting.UserName, _yahooSetting.Password);
                 }
 
                 await client.SendAsync(message);
