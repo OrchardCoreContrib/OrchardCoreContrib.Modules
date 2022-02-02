@@ -1,10 +1,10 @@
-﻿using System;
-using Microsoft.AspNetCore.Builder;
+﻿using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Routing;
 using Microsoft.Extensions.DependencyInjection;
 using OrchardCore.Environment.Shell;
 using OrchardCore.Modules;
 using OrchardCoreContrib.OpenApi.Abstractions;
+using System;
 
 namespace OrchardCoreContrib.Apis.Swagger
 {

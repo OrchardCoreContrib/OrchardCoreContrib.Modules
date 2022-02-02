@@ -1,11 +1,11 @@
-﻿using System;
-using System.Text.RegularExpressions;
-using System.Threading.Tasks;
-using Microsoft.Extensions.Localization;
+﻿using Microsoft.Extensions.Localization;
 using Microsoft.Extensions.Options;
 using OrchardCore.Email;
 using SendGrid;
 using SendGrid.Helpers.Mail;
+using System;
+using System.Text.RegularExpressions;
+using System.Threading.Tasks;
 
 namespace OrchardCoreContrib.Email.SendGrid.Services
 {
@@ -51,7 +51,7 @@ namespace OrchardCoreContrib.Email.SendGrid.Services
                 var sendGridMessage = FromMailMessage(message);
 
                 var client = new SendGridClient(_sendGridSetting.ApiKey);
-                
+
                 await client.SendEmailAsync(sendGridMessage);
 
                 return SmtpResult.Success;

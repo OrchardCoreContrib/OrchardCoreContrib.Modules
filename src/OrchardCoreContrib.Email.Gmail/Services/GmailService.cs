@@ -1,14 +1,14 @@
-﻿using System;
-using System.Net.Security;
-using System.Security.Cryptography.X509Certificates;
-using System.Threading.Tasks;
+﻿using MailKit.Net.Smtp;
+using MailKit.Security;
 using Microsoft.Extensions.Localization;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
-using MailKit.Net.Smtp;
-using MailKit.Security;
 using MimeKit;
 using OrchardCore.Email;
+using System;
+using System.Net.Security;
+using System.Security.Cryptography.X509Certificates;
+using System.Threading.Tasks;
 
 namespace OrchardCoreContrib.Email.Gmail.Services
 {

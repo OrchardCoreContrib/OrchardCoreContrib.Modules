@@ -1,8 +1,8 @@
-﻿using System;
-using System.Threading.Tasks;
-using Microsoft.Extensions.Localization;
-using OrchardCoreContrib.Gdpr.Drivers;
+﻿using Microsoft.Extensions.Localization;
 using OrchardCore.Navigation;
+using OrchardCoreContrib.Gdpr.Drivers;
+using System;
+using System.Threading.Tasks;
 
 namespace OrchardCoreContrib.Gdpr
 {

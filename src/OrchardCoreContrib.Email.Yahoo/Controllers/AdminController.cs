@@ -1,11 +1,11 @@
-﻿using System.Threading.Tasks;
-using Microsoft.AspNetCore.Authorization;
+﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Localization;
-using OrchardCoreContrib.Email.Yahoo.Drivers;
-using OrchardCoreContrib.Email.Yahoo.ViewModels;
 using OrchardCore.DisplayManagement.Notify;
 using OrchardCore.Email;
+using OrchardCoreContrib.Email.Yahoo.Drivers;
+using OrchardCoreContrib.Email.Yahoo.ViewModels;
+using System.Threading.Tasks;
 
 namespace OrchardCoreContrib.Email.Yahoo.Controllers
 {

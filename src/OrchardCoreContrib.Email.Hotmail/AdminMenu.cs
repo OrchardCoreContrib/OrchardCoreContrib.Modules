@@ -1,8 +1,8 @@
-﻿using System;
-using System.Threading.Tasks;
-using Microsoft.Extensions.Localization;
-using OrchardCoreContrib.Email.Hotmail.Drivers;
+﻿using Microsoft.Extensions.Localization;
 using OrchardCore.Navigation;
+using OrchardCoreContrib.Email.Hotmail.Drivers;
+using System;
+using System.Threading.Tasks;
 
 namespace OrchardCoreContrib.Email.Hotmail
 {

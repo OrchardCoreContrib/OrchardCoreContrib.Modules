@@ -1,11 +1,11 @@
-﻿using System.Threading.Tasks;
-using Microsoft.AspNetCore.Authorization;
+﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Localization;
-using OrchardCoreContrib.Email.Hotmail.Drivers;
-using OrchardCoreContrib.Email.Hotmail.ViewModels;
 using OrchardCore.DisplayManagement.Notify;
 using OrchardCore.Email;
+using OrchardCoreContrib.Email.Hotmail.Drivers;
+using OrchardCoreContrib.Email.Hotmail.ViewModels;
+using System.Threading.Tasks;
 
 namespace OrchardCoreContrib.Email.Hotmail.Controllers
 {

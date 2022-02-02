@@ -1,6 +1,4 @@
-﻿using System.Collections.Generic;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Authorization;
+﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.DataProtection;
 using Microsoft.AspNetCore.Http;
 using OrchardCore.DisplayManagement.Entities;
@@ -9,6 +7,8 @@ using OrchardCore.DisplayManagement.Views;
 using OrchardCore.Environment.Shell;
 using OrchardCore.Settings;
 using OrchardCoreContrib.Email.SendGrid.Services;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace OrchardCoreContrib.Email.SendGrid.Drivers
 {

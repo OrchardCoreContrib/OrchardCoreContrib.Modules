@@ -1,9 +1,9 @@
-﻿using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using OrchardCore.Modules;
+﻿using OrchardCore.Modules;
 using OrchardCore.Security;
 using OrchardCore.Security.Permissions;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 
 namespace OrchardCoreContrib.Users
 {

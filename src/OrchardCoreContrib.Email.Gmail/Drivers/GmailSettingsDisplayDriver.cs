@@ -1,14 +1,14 @@
-﻿using System.Collections.Generic;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Authorization;
+﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.DataProtection;
 using Microsoft.AspNetCore.Http;
-using OrchardCoreContrib.Email.Gmail.Services;
 using OrchardCore.DisplayManagement.Entities;
 using OrchardCore.DisplayManagement.Handlers;
 using OrchardCore.DisplayManagement.Views;
 using OrchardCore.Environment.Shell;
 using OrchardCore.Settings;
+using OrchardCoreContrib.Email.Gmail.Services;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace OrchardCoreContrib.Email.Gmail.Drivers
 {

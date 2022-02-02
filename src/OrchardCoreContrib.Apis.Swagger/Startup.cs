@@ -1,9 +1,9 @@
-﻿using System;
-using Microsoft.AspNetCore.Builder;
+﻿using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Routing;
 using Microsoft.Extensions.DependencyInjection;
 using OrchardCore.Modules;
 using OrchardCoreContrib.OpenApi.Abstractions;
+using System;
 
 namespace OrchardCoreContrib.Apis.Swagger
 {
@@ -16,7 +16,7 @@ namespace OrchardCoreContrib.Apis.Swagger
         public override void ConfigureServices(IServiceCollection services)
         {
             var swaggerApiDefinition = new SwaggerApiDefinition();
-            
+
             services.AddTransient<IOpenApiDefinition>(sp => swaggerApiDefinition);
 
             services.AddSwaggerGen(options =>

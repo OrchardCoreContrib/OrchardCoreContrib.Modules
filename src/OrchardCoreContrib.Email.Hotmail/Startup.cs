@@ -1,19 +1,19 @@
-﻿using System;
-using Microsoft.AspNetCore.Builder;
+﻿using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Routing;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Options;
 using OrchardCore.Admin;
 using OrchardCore.DisplayManagement.Handlers;
-using OrchardCoreContrib.Email.Hotmail.Controllers;
-using OrchardCoreContrib.Email.Hotmail.Drivers;
-using OrchardCoreContrib.Email.Hotmail.Services;
 using OrchardCore.Email;
 using OrchardCore.Modules;
 using OrchardCore.Mvc.Core.Utilities;
 using OrchardCore.Navigation;
 using OrchardCore.Security.Permissions;
 using OrchardCore.Settings;
+using OrchardCoreContrib.Email.Hotmail.Controllers;
+using OrchardCoreContrib.Email.Hotmail.Drivers;
+using OrchardCoreContrib.Email.Hotmail.Services;
+using System;
 
 namespace OrchardCoreContrib.Email.Hotmail
 {

@@ -1,5 +1,4 @@
-﻿using System;
-using Microsoft.AspNetCore.Builder;
+﻿using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Routing;
@@ -12,6 +11,7 @@ using OrchardCore.Security.Permissions;
 using OrchardCore.Settings;
 using OrchardCoreContrib.Gdpr.Controllers;
 using OrchardCoreContrib.Gdpr.Drivers;
+using System;
 
 namespace OrchardCoreContrib.Gdpr
 {
@@ -32,7 +32,7 @@ namespace OrchardCoreContrib.Gdpr
                 options.CheckConsentNeeded = context => true;
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
-            
+
             services.Configure<MvcOptions>((options) =>
             {
                 options.Filters.Add(typeof(CookieConsentFilter));

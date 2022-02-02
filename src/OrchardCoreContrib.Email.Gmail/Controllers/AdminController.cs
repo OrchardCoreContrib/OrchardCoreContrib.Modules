@@ -1,11 +1,11 @@
-﻿using System.Threading.Tasks;
-using Microsoft.AspNetCore.Authorization;
+﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Localization;
-using OrchardCoreContrib.Email.Gmail.Drivers;
-using OrchardCoreContrib.Email.Gmail.ViewModels;
 using OrchardCore.DisplayManagement.Notify;
 using OrchardCore.Email;
+using OrchardCoreContrib.Email.Gmail.Drivers;
+using OrchardCoreContrib.Email.Gmail.ViewModels;
+using System.Threading.Tasks;
 
 namespace OrchardCoreContrib.Email.Gmail.Controllers
 {

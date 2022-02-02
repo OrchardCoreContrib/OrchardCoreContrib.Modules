@@ -1,7 +1,4 @@
-﻿using System.Linq;
-using System.Security.Claims;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Authentication;
+﻿using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
@@ -11,6 +8,9 @@ using Microsoft.Extensions.Options;
 using OrchardCore.Admin;
 using OrchardCore.Modules;
 using OrchardCore.Users;
+using System.Linq;
+using System.Security.Claims;
+using System.Threading.Tasks;
 
 namespace OrchardCoreContrib.Users.Controllers
 {
@@ -72,7 +72,7 @@ namespace OrchardCoreContrib.Users.Controllers
             }
 
             var impersonatorUserId = HttpContext.User.Claims.First(c => c.Type == ClaimTypesExtended.ImpersonatorNameIdentifier).Value;
-            
+
             var impersonatedUserId = HttpContext.User.Claims.First(c => c.Type == ClaimTypes.NameIdentifier).Value;
             var impersonatedUser = await _userManager.FindByIdAsync(impersonatedUserId);
             var impersonatedUserPrincipal = await _signInManager.CreateUserPrincipalAsync(impersonatedUser);

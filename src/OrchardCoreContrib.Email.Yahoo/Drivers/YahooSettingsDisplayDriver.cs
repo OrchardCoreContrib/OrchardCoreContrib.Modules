@@ -1,15 +1,14 @@
-﻿using System.Collections.Generic;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Authorization;
+﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.DataProtection;
 using Microsoft.AspNetCore.Http;
-using OrchardCoreContrib.Email.Yahoo.Services;
 using OrchardCore.DisplayManagement.Entities;
 using OrchardCore.DisplayManagement.Handlers;
 using OrchardCore.DisplayManagement.Views;
-using OrchardCore.Email;
 using OrchardCore.Environment.Shell;
 using OrchardCore.Settings;
+using OrchardCoreContrib.Email.Yahoo.Services;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace OrchardCoreContrib.Email.Yahoo.Drivers
 {
