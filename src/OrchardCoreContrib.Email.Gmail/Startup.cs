@@ -27,7 +27,7 @@ namespace OrchardCoreContrib.Email.Gmail
         /// <summary>
         /// Initializes a new instance of <see cref="Startup"/>.
         /// </summary>
-        /// <param name="adminOptions">The <see cref="IOptions<AdminOptions>"/>.</param>
+        /// <param name="adminOptions">The <see cref="IOptions{AdminOptions}>.</param>
         public Startup(IOptions<AdminOptions> adminOptions)
         {
             _adminOptions = adminOptions.Value;

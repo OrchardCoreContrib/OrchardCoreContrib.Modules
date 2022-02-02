@@ -18,7 +18,7 @@ using OrchardCore.Settings;
 namespace OrchardCoreContrib.Email.SendGrid
 {
     /// <summary>
-    /// Represensts a startup point to register the required services by Gmail mailing module.
+    /// Represensts a startup point to register the required services by SendGrid mailing module.
     /// </summary>
     public class Startup : StartupBase
     {
@@ -27,7 +27,7 @@ namespace OrchardCoreContrib.Email.SendGrid
         /// <summary>
         /// Initializes a new instance of <see cref="Startup"/>.
         /// </summary>
-        /// <param name="adminOptions">The <see cref="IOptions<AdminOptions>"/>.</param>
+        /// <param name="adminOptions">The <see cref="IOptions{AdminOptions}>.</param>
         public Startup(IOptions<AdminOptions> adminOptions)
         {
             _adminOptions = adminOptions.Value;
