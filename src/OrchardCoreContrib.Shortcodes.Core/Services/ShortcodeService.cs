@@ -1,6 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using Shortcodes;
+using System.Collections.Generic;
 using System.Threading.Tasks;
-using Shortcodes;
 
 namespace OrchardCoreContrib.Shortcodes.Services
 {

@@ -17,7 +17,7 @@ namespace OrchardCoreContrib.Localization.Diacritics.Extensions.Tests
 
             // Assert
             var serviceProvider = services.BuildServiceProvider();
-            
+
             Assert.NotNull(serviceProvider.GetService<IDiacriticsLookup>());
         }
 

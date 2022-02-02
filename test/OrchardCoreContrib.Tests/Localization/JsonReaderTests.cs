@@ -1,9 +1,8 @@
-﻿using System;
+﻿using OrchardCoreContrib.Localization.Json;
 using System.IO;
 using System.Linq;
 using System.Text.Json;
 using System.Threading.Tasks;
-using OrchardCoreContrib.Localization.Json;
 using Xunit;
 
 namespace OrchardCoreContrib.Tests.Localization

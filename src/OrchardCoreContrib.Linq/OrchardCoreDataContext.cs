@@ -1,5 +1,4 @@
 ﻿using LinqToDB;
-using LinqToDB.Data;
 using OrchardCore.AdminDashboard.Indexes;
 using OrchardCore.Alias.Indexes;
 using OrchardCore.AuditTrail.Indexes;

@@ -1,9 +1,9 @@
-﻿using System;
+﻿using OrchardCore.Localization;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Text.Json;
 using System.Threading.Tasks;
-using OrchardCore.Localization;
 
 namespace OrchardCoreContrib.Localization.Json
 {

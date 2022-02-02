@@ -1,7 +1,7 @@
 ﻿using Microsoft.Extensions.FileProviders;
+using Moq;
 using OrchardCore.Localization;
 using OrchardCoreContrib.Localization.Json;
-using Moq;
 using Xunit;
 
 namespace OrchardCoreContrib.Tests.Localization

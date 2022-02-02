@@ -28,10 +28,10 @@ namespace OrchardCoreContrib.Localization.Diacritics
         /// </summary>
         public string Value { get; }
 
-        public static bool operator == (AccentDictionaryRecord l, AccentDictionaryRecord r)
+        public static bool operator ==(AccentDictionaryRecord l, AccentDictionaryRecord r)
             => l.Key == r.Key && l.Value == r.Value;
 
-        public static bool operator != (AccentDictionaryRecord l, AccentDictionaryRecord r)
+        public static bool operator !=(AccentDictionaryRecord l, AccentDictionaryRecord r)
             => !(l == r);
 
         /// <inheritdoc/>

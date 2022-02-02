@@ -1,9 +1,9 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Razor.TagHelpers;
+using Shortcodes;
+using System;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.Razor.TagHelpers;
-using Shortcodes;
 
 namespace OrchardCoreContrib.Shortcodes
 {
@@ -21,7 +21,7 @@ namespace OrchardCoreContrib.Shortcodes
             var shortcodeTargets = Attribute.GetCustomAttributes(GetType(), typeof(ShortcodeTargetAttribute))
                 .Select(t => t as ShortcodeTargetAttribute)
                 .ToArray();
-            if(content == null)
+            if (content == null)
             {
                 shortcodeOutput.Content = "[" + identifier + "]";
             }

@@ -1,9 +1,9 @@
-﻿using System.Threading.Tasks;
-using OrchardCoreContrib.Shortcodes;
+﻿using OrchardCoreContrib.Shortcodes;
 using OrchardCoreContrib.Shortcodes.Services;
-using Shortcode = OrchardCoreContrib.Shortcodes.Shortcode;
 using Shortcodes;
+using System.Threading.Tasks;
 using Xunit;
+using Shortcode = OrchardCoreContrib.Shortcodes.Shortcode;
 
 namespace OrchardCoreContrib.Tests.Shortcodes
 {

@@ -52,7 +52,7 @@ namespace OrchardCoreContrib.Shortcodes
 
         /// <inheritdoc />
         public ShortcodeAttribute this[int index]
-        { 
+        {
             get => _shortcodeAttributes[index];
             set => _shortcodeAttributes[index] = value;
         }

@@ -1,10 +1,10 @@
-﻿using System;
+﻿using Microsoft.Extensions.Localization;
+using Microsoft.Extensions.Logging;
+using OrchardCore.Localization;
+using System;
 using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
-using Microsoft.Extensions.Localization;
-using Microsoft.Extensions.Logging;
-using OrchardCore.Localization;
 
 namespace OrchardCoreContrib.Localization.Json
 {

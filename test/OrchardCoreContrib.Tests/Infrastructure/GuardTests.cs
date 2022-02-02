@@ -1,6 +1,6 @@
-﻿using System;
+﻿using OrchardCoreContrib.Infrastructure;
+using System;
 using System.Collections.Generic;
-using OrchardCoreContrib.Infrastructure;
 using Xunit;
 
 namespace OrchardCoreContrib.Tests.Infrastructure
@@ -35,7 +35,7 @@ namespace OrchardCoreContrib.Tests.Infrastructure
 
         [Theory]
         [InlineData("names", null)]
-        [InlineData("names", new string[] {})]
+        [InlineData("names", new string[] { })]
         public void ArgumentNotNullOrEmpty_NullableOrEmptyCollection_ThrowsArgumentNullOrEmptyException(string name, IEnumerable<string> value)
         {
             // Arrange

@@ -1,5 +1,5 @@
-﻿using System.Threading.Tasks;
-using OrchardCoreContrib.Infrastructure;
+﻿using OrchardCoreContrib.Infrastructure;
+using System.Threading.Tasks;
 
 namespace OrchardCoreContrib.Sms
 {

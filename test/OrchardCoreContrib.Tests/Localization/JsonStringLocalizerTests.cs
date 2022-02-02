@@ -1,12 +1,12 @@
-﻿using System;
-using System.Globalization;
-using System.Collections.Generic;
-using System.Linq;
-using Microsoft.Extensions.Logging;
+﻿using Microsoft.Extensions.Logging;
+using Moq;
 using OrchardCore.Localization;
 using OrchardCoreContrib.Localization;
 using OrchardCoreContrib.Localization.Json;
-using Moq;
+using System;
+using System.Collections.Generic;
+using System.Globalization;
+using System.Linq;
 using Xunit;
 
 namespace OrchardCoreContrib.Tests.Localization
@@ -140,7 +140,7 @@ namespace OrchardCoreContrib.Tests.Localization
             SetupDictionary(culture, Array.Empty<CultureDictionaryRecord>(), _arPluralizationRule);
             var localizer = new JsonStringLocalizer(_localizationManager.Object, fallBackToParentCulture, _logger.Object);
             CultureInfo.CurrentUICulture = new CultureInfo(culture);
-            
+
             // Act
             var translation = localizer[resourceKey];
 
@@ -168,7 +168,7 @@ namespace OrchardCoreContrib.Tests.Localization
 
             var localizer = new JsonStringLocalizer(_localizationManager.Object, false, _logger.Object);
             CultureInfo.CurrentUICulture = new CultureInfo(culture);
-            
+
             // Act
             var translations = localizer.GetAllStrings(includeParentCultures).Select(l => l.Value).ToArray();
 

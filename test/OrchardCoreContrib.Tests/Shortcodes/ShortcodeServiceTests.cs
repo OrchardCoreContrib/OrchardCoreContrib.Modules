@@ -1,7 +1,7 @@
-﻿using System.Collections.Generic;
-using System.Threading.Tasks;
-using OrchardCoreContrib.Shortcodes.Services;
+﻿using OrchardCoreContrib.Shortcodes.Services;
 using Shortcodes;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 using Xunit;
 
 namespace OrchardCoreContrib.Tests.Shortcodes
