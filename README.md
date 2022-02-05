@@ -50,15 +50,13 @@ This section lists all the supported modules that we are supported:
 
 - The `OrchardCoreContrib.Modules` repository consists of the following modules:
 
-- [`Swagger Module`](src/OrchardCoreContrib.Apis.Swagger/README.md)
-- [`Content Preview Module`](src/OrchardCoreContrib.ContentPreview/README.md)
-- [`Elm Diagnostics Module`](src/OrchardCoreContrib.Diagnostics.Elm/README.md)
-- [`Gmail Module`](src/OrchardCoreContrib.Email.Gmail/README.md)
-- [`Hotmail Module`](src/OrchardCoreContrib.Email.Hotmail/README.md)
-- [`SendGrid Module`](src/OrchardCoreContrib.Email.SendGrid/README.md)
-- [`Yahoo Module`](src/OrchardCoreContrib.Email.Yahoo/README.md)
-- [`Users Module`](src/OrchardCoreContrib.Users/README.md)
-
-**Notes:**
-
-We should have at least variation of modules designed and developed using different technologies and templating languages such as Razor, Liquid, VueJs .. etc.
+| Name | Namespace |
+| --- | --- |
+| [Swagger Module](src/OrchardCoreContrib.Apis.Swagger/README.md) | `OrchardCoreContrib.Apis.Swagger` |
+| [`Content Preview Module`](src/OrchardCoreContrib.ContentPreview/README.md) | `OrchardCoreContrib.ContentPreview` |
+| [`Elm Diagnostics Module`](src/OrchardCoreContrib.Diagnostics.Elm/README.md) | `OrchardCoreContrib.Diagnostics.Elm` |
+| [`Gmail Module`](src/OrchardCoreContrib.Email.Gmail/README.md) | `OrchardCoreContrib.Email.Gmail` |
+| [`Hotmail Module`](src/OrchardCoreContrib.Email.Hotmail/README.md) | `OrchardCoreContrib.Email.Hotmail` |
+| [`SendGrid Module`](src/OrchardCoreContrib.Email.SendGrid/README.md) | `OrchardCoreContrib.Email.SendGrid` |
+| [`Yahoo Module`](src/OrchardCoreContrib.Email.Yahoo/README.md) | `OrchardCoreContrib.Email.Yahoo` |
+| [`Users Module`](src/OrchardCoreContrib.Users/README.md) | `OrchardCoreContrib.Users` |
