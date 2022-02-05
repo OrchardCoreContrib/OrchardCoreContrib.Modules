@@ -14,8 +14,8 @@
 )]
 
 [assembly: Feature(
-    Id = "OrchardCore.Apis.Swagger.UI",
-    Name = "Swagger API documentation",
+    Id = "OrchardCoreContrib.Apis.Swagger.UI",
+    Name = "Swagger UI",
     Category = "Api",
     Description = "Enables Swagger UI for OrchardCore APIs.",
     Dependencies = new[] { "OrchardCoreContrib.Apis.Swagger" }
