@@ -28,3 +28,7 @@ Security
 | Name | Version |
 | --- | --- |
 | [`OrchardCoreContrib.Users`](https://www.nuget.org/packages/OrchardCoreContrib.Users/) | 1.0.0 |
+
+## Video
+
+<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/gXC3mDPy7LA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
