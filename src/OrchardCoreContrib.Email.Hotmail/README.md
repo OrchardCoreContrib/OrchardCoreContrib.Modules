@@ -28,3 +28,12 @@ Messaging
 | Name | Version |
 | --- | --- |
 | [`OrchardCoreContrib.Email.Hotmail`](https://www.nuget.org/packages/OrchardCoreContrib.Email.Hotmail/) | 1.0.0 |
+
+
+## Get Started
+
+1. Install the [`OrchardCoreContrib.Email.Hotmail`](https://www.nuget.org/packages/OrchardCoreContrib.Email.Hotmail/) NuGet package to your Orchard Core host project.
+2. Go to the admin site
+3. Select **Configuration -> Features** menu.
+4. Enable the `Hotmail` feature.
+5. Configure the Hotmail settings by selecting **Configuration -> Settings -> Hotmail** menu.

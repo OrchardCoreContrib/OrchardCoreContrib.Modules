@@ -28,3 +28,11 @@ Messaging
 | Name | Version |
 | --- | --- |
 | [`OrchardCoreContrib.Email.Yahoo`](https://www.nuget.org/packages/OrchardCoreContrib.Email.Yahoo/) | 1.0.0 |
+
+## Get Started
+
+1. Install the [`OrchardCoreContrib.Email.Yahoo`](https://www.nuget.org/packages/OrchardCoreContrib.Email.Yahoo/) NuGet package to your Orchard Core host project.
+2. Go to the admin site
+3. Select **Configuration -> Features** menu.
+4. Enable the `Yahoo` feature.
+5. Configure the Yahoo settings by selecting **Configuration -> Settings -> Yahoo** menu.

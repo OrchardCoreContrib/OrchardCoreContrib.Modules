@@ -28,3 +28,11 @@ Messaging
 | Name | Version |
 | --- | --- |
 | [`OrchardCoreContrib.Email.SendGrid`](https://www.nuget.org/packages/OrchardCoreContrib.Email.SendGrid/) | 1.0.0 |
+
+## Get Started
+
+1. Install the [`OrchardCoreContrib.Email.SendGrid`](https://www.nuget.org/packages/OrchardCoreContrib.Email.SendGrid/) NuGet package to your Orchard Core host project.
+2. Go to the admin site
+3. Select **Configuration -> Features** menu.
+4. Enable the `SendGrid` feature.
+5. Configure the SendGrid settings by selecting **Configuration -> Settings -> SendGrid** menu.
