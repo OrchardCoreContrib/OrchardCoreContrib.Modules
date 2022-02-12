@@ -11,7 +11,7 @@ namespace OrchardCoreContrib.Apis.Swagger
     /// <summary>
     /// Represensts a startup point to register the required services by Swagger UI feature.
     /// </summary>
-    [Feature("OrchardCore.Apis.Swagger.UI")]
+    [Feature("OrchardCoreContrib.Apis.Swagger.UI")]
     public class SwaggerUIStratup : StartupBase
     {
         /// <inheritdoc/>
