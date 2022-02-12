@@ -28,3 +28,7 @@ Security
 | Name | Version |
 | --- | --- |
 | [`OrchardCoreContrib.Users`](https://www.nuget.org/packages/OrchardCoreContrib.Users/) | 1.0.0 |
+
+## Video
+
+[![Watch the video](https://img.youtube.com/vi/gXC3mDPy7LA/maxresdefault.jpg)](https://youtu.be/gXC3mDPy7LA)
