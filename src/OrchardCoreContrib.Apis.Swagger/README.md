@@ -25,4 +25,5 @@ This module has no dependencies.
 
 | Name | Version |
 | --- | --- |
-| [`OrchardCoreContrib.Apis.Swagger`](https://www.nuget.org/packages/OrchardCoreContrib.Apis.Swagger/) | 1.0.0 |
+| [`OrchardCoreContrib.Apis.Swagger`](https://www.nuget.org/packages/OrchardCoreContrib.Apis.Swagger/1.0.0) | 1.0.0 |
+| [`OrchardCoreContrib.Apis.Swagger`](https://www.nuget.org/packages/OrchardCoreContrib.Apis.Swagger/1.0.1) | 1.0.1 |
