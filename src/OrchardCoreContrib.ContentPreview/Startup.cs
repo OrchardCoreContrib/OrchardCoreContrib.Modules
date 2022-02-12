@@ -22,14 +22,14 @@ namespace OrchardCoreContrib.ContentPreview
         /// <inheritdoc/>
         public override void Configure(IApplicationBuilder app, IEndpointRouteBuilder routes, IServiceProvider serviceProvider)
         {
-            app.UsePagePreview();
-
             routes.MapAreaControllerRoute(
                 name: "PreviewContent",
                 areaName: "OrchardCoreContrib.ContentPreview",
                 pattern: "/Preview/{*page}",
                 defaults: new { controller = typeof(PreviewController).ControllerName(), action = nameof(PreviewController.Index) }
             );
+
+            app.UsePagePreview();
         }
     }
 }
