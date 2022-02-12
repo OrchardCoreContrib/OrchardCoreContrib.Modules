@@ -28,3 +28,13 @@ Content Management
 | Name | Version |
 | --- | --- |
 | [`OrchardCoreContrib.ContentPreview`](https://www.nuget.org/packages/OrchardCoreContrib.ContentPreview/1.0.0-beta1/) | 1.0.0-beta1 |
+| [`OrchardCoreContrib.ContentPreview`](https://www.nuget.org/packages/OrchardCoreContrib.ContentPreview/1.0.0-beta2/) | 1.0.0-beta2 |
+
+## Get Started
+
+1. Install the [`OrchardCoreContrib.ContentPreview`](https://www.nuget.org/packages/OrchardCoreContrib.ContentPreview/) NuGet package to your Orchard Core host project.
+2. Go to the admin site
+3. Select **Configuration -> Features** menu.
+4. Enable the `Page Preview Bar` feature.
+5. Go to the site.
+6. Now you will be able to preview the current visited page in desktop, tablet and mobile from within the top page previw bar
