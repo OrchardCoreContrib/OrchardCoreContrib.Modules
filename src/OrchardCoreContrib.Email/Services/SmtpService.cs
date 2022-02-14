@@ -226,7 +226,7 @@ namespace OrchardCoreContrib.Email.Services
             await message.WriteToAsync(mailPath, CancellationToken.None);
         }
 
-        private bool CertificateValidationCallback(object sender, X509Certificate certificate, X509Chain chain, SslPolicyErrors sslPolicyErrors)
+        protected bool CertificateValidationCallback(object sender, X509Certificate certificate, X509Chain chain, SslPolicyErrors sslPolicyErrors)
         {
             if (sslPolicyErrors == SslPolicyErrors.None)
                 return true;
