@@ -1,4 +1,5 @@
-﻿using MailKit.Net.Smtp;
+﻿using MailKit.Net.Proxy;
+using MailKit.Net.Smtp;
 using MailKit.Security;
 using Microsoft.Extensions.Localization;
 using Microsoft.Extensions.Logging;
@@ -199,6 +200,11 @@ namespace OrchardCoreContrib.Email.Services
 
             using (var client = new SmtpClient())
             {
+                if (_options.Proxy != null)
+                {
+                    client.ProxyClient = new Socks5Client(_options.Proxy.Host, _options.Proxy.Port);
+                }
+
                 client.ServerCertificateValidationCallback = CertificateValidationCallback;
                 
                 await client.ConnectAsync(_options.Host, _options.Port, secureSocketOptions);
