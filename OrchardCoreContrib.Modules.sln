@@ -33,6 +33,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OrchardCoreContrib.Diagnost
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OrchardCoreContrib.DataLocalization", "src\OrchardCoreContrib.DataLocalization\OrchardCoreContrib.DataLocalization.csproj", "{F72E675A-6084-476B-8B38-5419877E256E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OrchardCoreContrib.Html", "src\OrchardCoreContrib.Html\OrchardCoreContrib.Html.csproj", "{1591CBCD-5BA1-4D6D-8202-CB19473CE57C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
