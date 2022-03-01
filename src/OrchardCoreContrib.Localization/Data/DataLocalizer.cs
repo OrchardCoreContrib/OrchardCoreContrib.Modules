@@ -13,22 +13,22 @@ namespace OrchardCoreContrib.Localization.Data
     /// </summary>
     public class DataLocalizer : IDataLocalizer
     {
-        private readonly ILocalizationManager _localizationManager;
+        private readonly DataResourceManager _dataResourceManager;
         private readonly bool _fallBackToParentCulture;
         private readonly ILogger _logger;
 
         /// <summary>
         /// Initializes a new instance of <see cref="DataLocalizer"/>.
         /// </summary>
-        /// <param name="localizationManager">The <see cref="ILocalizationManager"/>.</param>
+        /// <param name="_dataResourceManager">The <see cref="DataResourceManager"/>.</param>
         /// <param name="fallBackToParentCulture">Whether able to fallback to the parent culture.</param>
         /// <param name="logger">The <see cref="Ilogger"/>.</param>
         public DataLocalizer(
-            ILocalizationManager localizationManager,
+            DataResourceManager dataResourceManager,
             bool fallBackToParentCulture,
             ILogger logger)
         {
-            _localizationManager = localizationManager;
+            _dataResourceManager = dataResourceManager;
             _fallBackToParentCulture = fallBackToParentCulture;
             _logger = logger;
         }
@@ -43,7 +43,7 @@ namespace OrchardCoreContrib.Localization.Data
                     throw new ArgumentNullException(nameof(name));
                 }
 
-                var translation = GetTranslation(name, CultureInfo.CurrentUICulture, null);
+                var translation = GetTranslation(name, CultureInfo.CurrentUICulture);
 
                 return new LocalizedString(name, translation ?? name, translation == null);
             }
@@ -82,34 +82,9 @@ namespace OrchardCoreContrib.Localization.Data
                 throw new ArgumentNullException(nameof(name));
             }
 
-            if (arguments.Length == 1 && arguments[0] is PluralizationArgument pluralArgument)
-            {
-                var translation = GetTranslation(name, CultureInfo.CurrentUICulture, pluralArgument.Count);
+            var translation = this[name];
 
-                object[] argumentsWithCount;
-
-                if (pluralArgument.Arguments.Length > 0)
-                {
-                    argumentsWithCount = new object[pluralArgument.Arguments.Length + 1];
-                    argumentsWithCount[0] = pluralArgument.Count;
-                    
-                    Array.Copy(pluralArgument.Arguments, 0, argumentsWithCount, 1, pluralArgument.Arguments.Length);
-                }
-                else
-                {
-                    argumentsWithCount = new object[] { pluralArgument.Count };
-                }
-
-                translation ??= GetTranslation(pluralArgument.Forms, CultureInfo.CurrentUICulture, pluralArgument.Count);
-
-                return (new LocalizedString(name, translation, translation == null), argumentsWithCount);
-            }
-            else
-            {
-                var translation = this[name];
-                
-                return (new LocalizedString(name, translation, translation.ResourceNotFound), arguments);
-            }
+            return (new LocalizedString(name, translation, translation.ResourceNotFound), arguments);
         }
 
         private IEnumerable<LocalizedString> GetAllStringsFromCultureHierarchy(CultureInfo culture)
@@ -140,33 +115,15 @@ namespace OrchardCoreContrib.Localization.Data
 
         private IEnumerable<LocalizedString> GetAllStrings(CultureInfo culture)
         {
-            var dictionary = _localizationManager.GetDictionary(culture);
+            var translations = _dataResourceManager.GetResources(culture);
 
-            foreach (var translation in dictionary.Translations)
+            foreach (var translation in translations)
             {
                 yield return new LocalizedString(translation.Key, translation.Value.FirstOrDefault());
             }
         }
 
-        private string GetTranslation(string[] pluralForms, CultureInfo culture, int? count)
-        {
-            var dictionary = _localizationManager.GetDictionary(culture);
-            var pluralForm = count.HasValue ? dictionary.PluralRule(count.Value) : 0;
-
-            if (pluralForm >= pluralForms.Length)
-            {
-                if (_logger.IsEnabled(LogLevel.Warning))
-                {
-                    _logger.LogWarning("Plural form '{PluralForm}' doesn't exist in values provided by the 'IStringLocalizer.Plural' method. Provided values: {PluralForms}", pluralForm, String.Join(", ", pluralForms));
-                }
-
-                return pluralForms[^1];
-            }
-
-            return pluralForms[pluralForm];
-        }
-
-        private string GetTranslation(string name, CultureInfo culture, int? count)
+        private string GetTranslation(string name, CultureInfo culture)
         {
             string translation = null;
             try
@@ -175,7 +132,9 @@ namespace OrchardCoreContrib.Localization.Data
                 {
                     do
                     {
-                        if (ExtractTranslation() != null)
+                        translation = _dataResourceManager.GetString(name, culture);
+
+                        if (translation != null)
                         {
                             break;
                         }
@@ -186,20 +145,7 @@ namespace OrchardCoreContrib.Localization.Data
                 }
                 else
                 {
-                    ExtractTranslation();
-                }
-
-                string ExtractTranslation()
-                {
-                    var dictionary = _localizationManager.GetDictionary(culture);
-
-                    if (dictionary != null)
-                    {
-                        var key = new CultureDictionaryRecordKey(name);
-                        translation = dictionary[key, count];
-                    }
-
-                    return translation;
+                    translation = _dataResourceManager.GetString(name);
                 }
             }
             catch (PluralFormNotFoundException ex)

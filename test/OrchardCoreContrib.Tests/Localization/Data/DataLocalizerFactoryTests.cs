@@ -1,25 +1,25 @@
 ﻿using Microsoft.AspNetCore.Builder;
+using Microsoft.Extensions.Caching.Memory;
 using Microsoft.Extensions.Localization;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using Moq;
 using OrchardCore.Localization;
-using OrchardCoreContrib.Localization.Data;
 using System.Collections.Generic;
 using System.Globalization;
 using Xunit;
 
-namespace OrchardCoreContrib.Tests.Localization
+namespace OrchardCoreContrib.Localization.Data.Tests
 {
     public class DataLocalizerFactoryTests
     {
         private static readonly PluralizationRuleDelegate _noPluralRule = n => 0;
 
-        private readonly Mock<ILocalizationManager> _localizationManagerMock;
+        private readonly Mock<DataResourceManager> _dataResourceManagerMock;
 
         public DataLocalizerFactoryTests()
         {
-            _localizationManagerMock = new Mock<ILocalizationManager>();
+            _dataResourceManagerMock = new Mock<DataResourceManager>(Mock.Of<IDataTranslationProvider>(), Mock.Of<IMemoryCache>());
         }
 
         [Fact]
@@ -30,7 +30,7 @@ namespace OrchardCoreContrib.Tests.Localization
 
             var requestlocalizationOptions = Options.Create(new RequestLocalizationOptions { FallBackToParentUICultures = true });
             var loggerMock = new Mock<ILogger<DataLocalizerFactory>>();
-            var localizerFactory = new DataLocalizerFactory(_localizationManagerMock.Object, requestlocalizationOptions, loggerMock.Object);
+            var localizerFactory = new DataLocalizerFactory(_dataResourceManagerMock.Object, requestlocalizationOptions, loggerMock.Object);
 
             // Act
             var localizer = localizerFactory.Create();
@@ -47,7 +47,9 @@ namespace OrchardCoreContrib.Tests.Localization
             var dictionary = new CultureDictionary(cultureName, _noPluralRule);
             dictionary.MergeTranslations(records);
 
-            _localizationManagerMock.Setup(o => o.GetDictionary(It.Is<CultureInfo>(c => c.Name == cultureName))).Returns(dictionary);
+            _dataResourceManagerMock
+                .Setup(rm => rm.GetResources(It.Is<CultureInfo>(c => c.Name == cultureName)))
+                .Returns(dictionary.Translations);
         }
     }
 }

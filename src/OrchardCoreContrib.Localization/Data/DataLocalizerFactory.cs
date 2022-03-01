@@ -10,27 +10,27 @@ namespace OrchardCoreContrib.Localization.Data
     /// </summary>
     public class DataLocalizerFactory : IDataLocalizerFactory
     {
-        private readonly ILocalizationManager _localizationManager;
+        private readonly DataResourceManager _dataResourceManager;
         private readonly bool _fallBackToParentCulture;
         private readonly ILogger _logger;
 
         /// <summary>
         /// Initializes a new instance of <see cref="DataLocalizerFactory"/>.
         /// </summary>
-        /// <param name="localizationManager">The <see cref="ILocalizationManager"/>.</param>
+        /// <param name="dataResourceManager">The <see cref="DataResourceManager"/>.</param>
         /// <param name="requestLocalizationOptions">The <see cref="IOptions{RequestLocalizationOptions}"/>.</param>
         /// <param name="logger">The <see cref="ILogger{DataLocalizerFactory}"/>.</param>
         public DataLocalizerFactory(
-            ILocalizationManager localizationManager,
+            DataResourceManager dataResourceManager,
             IOptions<RequestLocalizationOptions> requestLocalizationOptions,
             ILogger<DataLocalizerFactory> logger)
         {
-            _localizationManager = localizationManager;
+            _dataResourceManager = dataResourceManager;
             _fallBackToParentCulture = requestLocalizationOptions.Value.FallBackToParentUICultures;
             _logger = logger;
         }
 
         /// <inheritdoc/>
-        public IDataLocalizer Create() => new DataLocalizer(_localizationManager, _fallBackToParentCulture, _logger);
+        public IDataLocalizer Create() => new DataLocalizer(_dataResourceManager, _fallBackToParentCulture, _logger);
     }
 }
