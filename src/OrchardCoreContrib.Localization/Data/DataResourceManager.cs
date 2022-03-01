@@ -14,7 +14,7 @@ namespace OrchardCoreContrib.Localization.Data
     {
         private const string CacheKeyPrefix = "CultureDictionary-";
 
-        private static readonly PluralizationRuleDelegate DefaultPluralRule = n => (n != 1 ? 1 : 0);
+        private static readonly PluralizationRuleDelegate NoPluralRule = n => 0;
 
         private readonly IDataTranslationProvider _translationProvider;
         private readonly IMemoryCache _cache;
@@ -70,7 +70,8 @@ namespace OrchardCoreContrib.Localization.Data
         /// Gets the localization resources from underlying store with a given culture.
         /// </summary>
         /// <param name="culture">The culture that has been used to retrieve the resources.</param>
-        public virtual IDictionary<CultureDictionaryRecordKey, string[]> GetResources(CultureInfo culture)
+        /// <param name="tryParents">Whether to use resource fallback if the resources can't be found.</param>
+        public virtual IDictionary<CultureDictionaryRecordKey, string[]> GetResources(CultureInfo culture, bool tryParents)
         {
             if (culture == null)
             {
@@ -79,6 +80,20 @@ namespace OrchardCoreContrib.Localization.Data
 
             var dictionary = GetCultureDictionary(culture);
 
+            if (tryParents)
+            {
+                var currentCulture = culture;
+
+                do
+                {
+                    currentCulture = currentCulture.Parent;
+                    
+                    var currentDictionary = GetCultureDictionary(currentCulture);
+
+                    dictionary.MergeTranslations(currentDictionary);
+                } while (currentCulture != CultureInfo.InvariantCulture);
+            }
+
             return dictionary.Translations;
         }
 
@@ -86,7 +101,7 @@ namespace OrchardCoreContrib.Localization.Data
         {
             var cachedDictionary = _cache.GetOrCreate(CacheKeyPrefix + culture.Name, k => new Lazy<CultureDictionary>(() =>
             {
-                var dictionary = new CultureDictionary(culture.Name, DefaultPluralRule);
+                var dictionary = new CultureDictionary(culture.Name, NoPluralRule);
 
                 _translationProvider.LoadTranslations(culture.Name, dictionary);
 

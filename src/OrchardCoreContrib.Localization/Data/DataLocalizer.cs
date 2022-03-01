@@ -66,9 +66,12 @@ namespace OrchardCoreContrib.Localization.Data
         {
             var culture = CultureInfo.CurrentUICulture;
 
-            return includeParentCultures
-                ? GetAllStringsFromCultureHierarchy(culture)
-                : GetAllStrings(culture);
+            var translations = _dataResourceManager.GetResources(culture, includeParentCultures);
+
+            foreach (var translation in translations)
+            {
+                yield return new LocalizedString(translation.Key, translation.Value.FirstOrDefault());
+            }
         }
 
         /// <inheritdoc/>
@@ -85,42 +88,6 @@ namespace OrchardCoreContrib.Localization.Data
             var translation = this[name];
 
             return (new LocalizedString(name, translation, translation.ResourceNotFound), arguments);
-        }
-
-        private IEnumerable<LocalizedString> GetAllStringsFromCultureHierarchy(CultureInfo culture)
-        {
-            var currentCulture = culture;
-            var allLocalizedStrings = new List<LocalizedString>();
-
-            do
-            {
-                var localizedStrings = GetAllStrings(currentCulture);
-
-                if (localizedStrings != null)
-                {
-                    foreach (var localizedString in localizedStrings)
-                    {
-                        if (!allLocalizedStrings.Any(ls => ls.Name == localizedString.Name))
-                        {
-                            allLocalizedStrings.Add(localizedString);
-                        }
-                    }
-                }
-
-                currentCulture = currentCulture.Parent;
-            } while (currentCulture != currentCulture.Parent);
-
-            return allLocalizedStrings;
-        }
-
-        private IEnumerable<LocalizedString> GetAllStrings(CultureInfo culture)
-        {
-            var translations = _dataResourceManager.GetResources(culture);
-
-            foreach (var translation in translations)
-            {
-                yield return new LocalizedString(translation.Key, translation.Value.FirstOrDefault());
-            }
         }
 
         private string GetTranslation(string name, CultureInfo culture)

@@ -48,7 +48,7 @@ namespace OrchardCoreContrib.Localization.Data.Tests
             dictionary.MergeTranslations(records);
 
             _dataResourceManagerMock
-                .Setup(rm => rm.GetResources(It.Is<CultureInfo>(c => c.Name == cultureName)))
+                .Setup(rm => rm.GetResources(It.Is<CultureInfo>(c => c.Name == cultureName), It.IsAny<bool>()))
                 .Returns(dictionary.Translations);
         }
     }
