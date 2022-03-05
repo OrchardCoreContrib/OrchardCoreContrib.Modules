@@ -4,7 +4,7 @@
     Name = "Hotmail",
     Author = "Orchard Core Contrib",
     Website = "",
-    Version = "1.0.0",
+    Version = "1.1.0",
     Description = "Provides email settings configuration and a default email service based on Hotmail service.",
     Dependencies = new string[] { "OrchardCore.Email" },
     Category = "Messaging"
