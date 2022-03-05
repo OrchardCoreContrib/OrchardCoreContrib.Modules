@@ -206,9 +206,9 @@ namespace OrchardCoreContrib.Email.Services
                 }
 
                 client.ServerCertificateValidationCallback = CertificateValidationCallback;
-                
+
                 await client.ConnectAsync(_options.Host, _options.Port, secureSocketOptions);
-                
+
                 if (_options.RequireCredentials)
                 {
                     if (_options.UseDefaultCredentials)
@@ -228,7 +228,7 @@ namespace OrchardCoreContrib.Email.Services
         protected virtual async Task SendOfflineMessageAsync(MimeMessage message, string pickupDirectory)
         {
             var mailPath = Path.Combine(pickupDirectory, Guid.NewGuid().ToString() + EmailExtension);
-            
+
             await message.WriteToAsync(mailPath, CancellationToken.None);
         }
 
