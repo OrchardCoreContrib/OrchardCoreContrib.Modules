@@ -6,13 +6,7 @@ This will encourage all the passionate developers to add and develop the other n
 
 ## Build Status
 
-Stable (master):
-
-[![Build status](https://ci.appveyor.com/api/projects/status/ib7vg40ugv0rhs8i?svg=true)](https://ci.appveyor.com/project/hishamco/orchardcorecontrib/branch/master) [![Build Status](https://travis-ci.org/OrchardCoreContrib/OrchardCoreContrib.svg?branch=master)](https://travis-ci.org/OrchardCoreContrib/OrchardCoreContrib)
-
-Nightly (dev):
-
-[![Build status](https://ci.appveyor.com/api/projects/status/ib7vg40ugv0rhs8i/branch/dev?svg=true)](https://ci.appveyor.com/project/hishamco/orchardcorecontrib/branch/dev) [![Build Status](https://travis-ci.org/OrchardCoreContrib/OrchardCoreContrib.svg?branch=dev)](https://travis-ci.org/OrchardCoreContrib/OrchardCoreContrib)
+[![Orchard Core Contrib](https://github.com/OrchardCoreContrib/OrchardCoreContrib/actions/workflows/build.yml/badge.svg?branch=dev)](https://github.com/OrchardCoreContrib/OrchardCoreContrib/actions/workflows/build.yml)
 
 ## Goals
 
