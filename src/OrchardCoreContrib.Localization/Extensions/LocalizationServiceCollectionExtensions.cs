@@ -1,5 +1,5 @@
-﻿using OrchardCoreContrib.Localization.Diacritics;
-using System;
+﻿using OrchardCoreContrib.Infrastructure;
+using OrchardCoreContrib.Localization.Diacritics;
 
 namespace Microsoft.Extensions.DependencyInjection
 {
@@ -14,10 +14,7 @@ namespace Microsoft.Extensions.DependencyInjection
         /// <param name="services">The <see cref="IServiceCollection"/>.</param>
         public static IServiceCollection AddDiacritics(this IServiceCollection services)
         {
-            if (services is null)
-            {
-                throw new ArgumentNullException(nameof(services));
-            }
+            Guard.ArgumentNotNull(nameof(services), services);
 
             services.AddSingleton<IDiacriticsLookup, DiacriticsLookup>();
 
