@@ -3,7 +3,7 @@
 [assembly: Module(
     Author = "Orchard Core Contrib",
     Website = "",
-    Version = "1.0.0"
+    Version = "1.1.0"
 )]
 
 [assembly: Feature(
