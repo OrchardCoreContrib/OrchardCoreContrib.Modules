@@ -71,21 +71,6 @@ namespace OrchardCoreContrib.Localization.Json
                 : GetAllStrings(culture);
         }
 
-        [Obsolete("This method will be removed in the upcoming ASP.NET Core major release.")]
-        public IStringLocalizer WithCulture(CultureInfo culture) => this;
-
-        //private LocalizedString GetTranslation(string name, params object[] arguments)
-        //{
-        //    if (name == null)
-        //    {
-        //        throw new ArgumentNullException(nameof(name));
-        //    }
-
-        //    var translation = this[name];
-
-        //    return new LocalizedString(name, translation, translation.ResourceNotFound);
-        //}
-
         private IEnumerable<LocalizedString> GetAllStrings(CultureInfo culture)
         {
             var dictionary = _localizationManager.GetDictionary(culture);
