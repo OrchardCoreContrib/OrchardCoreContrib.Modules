@@ -13,8 +13,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OrchardCoreContrib", "src\O
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OrchardCoreContrib.Tests", "test\OrchardCoreContrib.Tests\OrchardCoreContrib.Tests.csproj", "{95EF2553-0058-4645-89D3-57A1B23746EF}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OrchardCoreContrib.Web", "src\OrchardCoreContrib.Web\OrchardCoreContrib.Web.csproj", "{FF8BE49B-9030-414A-B938-A72C727B674E}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OrchardCoreContrib.Sms.Abstractions", "src\OrchardCoreContrib.Sms.Abstractions\OrchardCoreContrib.Sms.Abstractions.csproj", "{DFCD9926-BB6C-4D8A-8339-B55C319014A3}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OrchardCoreContrib.Infrastructure.Abstractions", "src\OrchardCoreContrib.Infrastructure.Abstractions\OrchardCoreContrib.Infrastructure.Abstractions.csproj", "{073AF713-4220-4033-A8DC-88290068B79D}"
@@ -33,9 +31,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OrchardCoreContrib.Localiza
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OrchardCoreContrib.OpenApi.Abstractions", "src\OrchardCoreContrib.OpenApi.Abstractions\OrchardCoreContrib.OpenApi.Abstractions.csproj", "{6E64D8CA-C65F-445C-9DB6-26FD2A426C8C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OrchardCoreContrib.Email", "src\OrchardCoreContrib.Email\OrchardCoreContrib.Email.csproj", "{98762D71-6D09-499B-A7DF-7B5CDE9DA97E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OrchardCoreContrib.Email", "src\OrchardCoreContrib.Email\OrchardCoreContrib.Email.csproj", "{98762D71-6D09-499B-A7DF-7B5CDE9DA97E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OrchardCoreContrib.Email.Abstractions", "src\OrchardCoreContrib.Email.Abstractions\OrchardCoreContrib.Email.Abstractions.csproj", "{1A1EDA9F-DE5E-405F-9166-7D22F32B4AE5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OrchardCoreContrib.Email.Abstractions", "src\OrchardCoreContrib.Email.Abstractions\OrchardCoreContrib.Email.Abstractions.csproj", "{1A1EDA9F-DE5E-405F-9166-7D22F32B4AE5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -55,10 +53,6 @@ Global
 		{95EF2553-0058-4645-89D3-57A1B23746EF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{95EF2553-0058-4645-89D3-57A1B23746EF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{95EF2553-0058-4645-89D3-57A1B23746EF}.Release|Any CPU.Build.0 = Release|Any CPU
-		{FF8BE49B-9030-414A-B938-A72C727B674E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{FF8BE49B-9030-414A-B938-A72C727B674E}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{FF8BE49B-9030-414A-B938-A72C727B674E}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{FF8BE49B-9030-414A-B938-A72C727B674E}.Release|Any CPU.Build.0 = Release|Any CPU
 		{DFCD9926-BB6C-4D8A-8339-B55C319014A3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{DFCD9926-BB6C-4D8A-8339-B55C319014A3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DFCD9926-BB6C-4D8A-8339-B55C319014A3}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -111,7 +105,6 @@ Global
 		{53BF3101-B18E-4E8A-9F9B-809527D38340} = {9E0FA124-27DA-447A-9C52-AD92A3AE3679}
 		{6E2B2B63-51A6-4BBC-B5E3-BE3E242AF0AC} = {9E0FA124-27DA-447A-9C52-AD92A3AE3679}
 		{95EF2553-0058-4645-89D3-57A1B23746EF} = {5A96E9D7-10C5-4947-BE3D-3275A28C371D}
-		{FF8BE49B-9030-414A-B938-A72C727B674E} = {9E0FA124-27DA-447A-9C52-AD92A3AE3679}
 		{DFCD9926-BB6C-4D8A-8339-B55C319014A3} = {9E0FA124-27DA-447A-9C52-AD92A3AE3679}
 		{073AF713-4220-4033-A8DC-88290068B79D} = {9E0FA124-27DA-447A-9C52-AD92A3AE3679}
 		{9AD3EB26-7D7F-4D18-8E86-DFB52A16E470} = {9E0FA124-27DA-447A-9C52-AD92A3AE3679}
