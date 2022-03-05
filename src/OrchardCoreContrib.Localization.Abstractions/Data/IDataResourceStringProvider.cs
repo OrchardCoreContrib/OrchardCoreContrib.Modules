@@ -1,7 +1,7 @@
 ﻿using OrchardCore.Localization;
 using System.Collections.Generic;
 
-namespace OrchardCoreContrib.Localization
+namespace OrchardCoreContrib.Localization.Data
 {
     /// <summary>
     /// Represents a contract for providing resources from the data store.
