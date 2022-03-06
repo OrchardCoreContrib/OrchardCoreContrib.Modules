@@ -59,8 +59,8 @@ namespace OrchardCoreContrib.ContentPreview
             }
 
             var featureEnabled = _shellFeaturesManager
-                .GetEnabledExtensionsAsync().Result
-                .Any(f => f.Id == "OrchardCoreContrib.ContentPreview");
+                .GetEnabledFeaturesAsync().Result
+                .Any(f => f.Id == "OrchardCoreContrib.ContentPreview.PagePreviewBar");
 
             if (!featureEnabled)
             {
