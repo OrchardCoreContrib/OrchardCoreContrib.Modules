@@ -4,6 +4,10 @@ This repository contains a set of modules for [Orchard Core CMS](https://github.
 
 This will encourage all the passionate developers to build the modules that aren't included in Orchard Core. Such modules may necessary for the community or essential for any sort of CMS.
 
+## Build Status
+
+[![Orchard Core Contrib Modules](https://github.com/OrchardCoreContrib/OrchardCoreContrib.Modules/actions/workflows/build.yml/badge.svg?branch=dev)](https://github.com/OrchardCoreContrib/OrchardCoreContrib.Modules/actions/workflows/build.yml)
+
 ## Documentations
 
 - The `OrchardCoreContrib.Modules` repository consists of the following modules:
