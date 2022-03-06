@@ -11,6 +11,7 @@ namespace OrchardCoreContrib.ContentPreview
     /// <summary>
     /// Represents an entry point to register the page preview bar required services.
     /// </summary>
+    [Feature("OrchardCoreContrib.ContentPreview.PagePreviewBar")]
     public class Startup : StartupBase
     {
         /// <inheritdoc/>
