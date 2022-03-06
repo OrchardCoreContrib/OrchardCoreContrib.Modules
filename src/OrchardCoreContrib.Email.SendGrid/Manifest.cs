@@ -2,17 +2,8 @@
 
 [assembly: Module(
     Name = "SendGrid",
-    Author = "Orchard Core Contrib",
-    Website = "",
+    Author = "The Orchard Core Contrib Team",
     Version = "1.1.0",
-    Description = "Provides email settings configuration and a default email service based on SendGrid service.",
-    Dependencies = new string[] { "OrchardCore.Email" },
-    Category = "Messaging"
-)]
-
-[assembly: Feature(
-    Id = "OrchardCoreContrib.Email.SendGrid",
-    Name = "SendGrid",
-    Description = "Allow you to send email(s) via SendGrid service.",
+    Description = "Provides email settings configuration for SendGrid service.",
     Category = "Messaging"
 )]
