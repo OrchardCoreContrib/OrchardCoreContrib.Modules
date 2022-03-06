@@ -4,7 +4,7 @@ This module provides features for users management.
 
 ## Version
 
-1.0.0
+1.1.0
 
 ## Category
 
@@ -20,14 +20,14 @@ Security
 
 | Name | Description |
 | --- | --- |
-| Impersonation (`OrchardCoreContrib.Users.Impersonation`) | Allows the administrators to sign in with other user identity. |
-
+| Users Impersonation (`OrchardCoreContrib.Users.Impersonation`) | Allows the administrators to sign in with other user identity. |
 
 ## NuGet Packages
 
 | Name | Version |
 | --- | --- |
-| [`OrchardCoreContrib.Users`](https://www.nuget.org/packages/OrchardCoreContrib.Users/) | 1.0.0 |
+| [`OrchardCoreContrib.Users`](https://www.nuget.org/packages/OrchardCoreContrib.Users/1.1.0) | 1.1.0 |
+| [`OrchardCoreContrib.Users`](https://www.nuget.org/packages/OrchardCoreContrib.Users/1.0.0) | 1.0.0 |
 
 ## Get Started
 
