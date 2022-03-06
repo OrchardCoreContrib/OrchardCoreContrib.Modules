@@ -1,16 +1,10 @@
-﻿using System.ComponentModel.DataAnnotations;
-
-namespace OrchardCoreContrib.Email.SendGrid
+﻿namespace OrchardCoreContrib.Email.SendGrid
 {
     /// <summary>
     /// Represents a settings for SendGrid.
     /// </summary>
-    public class SendGridSettings
+    public class SendGridSettings : SmtpSettings
     {
-        [Required(AllowEmptyStrings = false)]
-        [EmailAddress]
-        public string DefaultSender { get; set; }
-
         /// <summary>
         /// Gets or sets the API key.
         /// </summary>
