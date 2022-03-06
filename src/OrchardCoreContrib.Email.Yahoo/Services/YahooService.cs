@@ -4,10 +4,7 @@ using Microsoft.Extensions.Localization;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using MimeKit;
-using OrchardCore.Email;
-using System;
-using System.Net.Security;
-using System.Security.Cryptography.X509Certificates;
+using OrchardCoreContrib.Email.Services;
 using System.Threading.Tasks;
 
 namespace OrchardCoreContrib.Email.Yahoo.Services
@@ -15,13 +12,9 @@ namespace OrchardCoreContrib.Email.Yahoo.Services
     /// <summary>
     /// Represents a service for sending emails using Yahoo emailing service.
     /// </summary>
-    public class YahooService : ISmtpService
+    public class YahooService : SmtpService
     {
-        private static readonly char[] EmailsSeparator = new char[] { ',', ';', ' ' };
-
         private readonly YahooSettings _yahooSetting;
-        private readonly ILogger _logger;
-        private readonly IStringLocalizer S;
 
         /// <summary>
         /// Initializes a new instance of <see cref="YahooService"/>.
@@ -33,107 +26,18 @@ namespace OrchardCoreContrib.Email.Yahoo.Services
             IOptions<YahooSettings> yahooSetting,
             ILogger<YahooService> logger,
             IStringLocalizer<YahooService> stringLocalizer
-            )
+            ) : base(yahooSetting, logger, stringLocalizer)
         {
             _yahooSetting = yahooSetting.Value;
-            _logger = logger;
-            S = stringLocalizer;
         }
 
         /// <inheritdoc/>
-        public async Task<SmtpResult> SendAsync(MailMessage message)
-        {
-            if (_yahooSetting?.DefaultSender == null)
-            {
-                return SmtpResult.Failed(S["Yahoo settings must be configured before an email can be sent."]);
-            }
-
-            try
-            {
-                message.From = string.IsNullOrWhiteSpace(message.From)
-                    ? _yahooSetting.DefaultSender
-                    : message.From;
-
-                var mimeMessage = FromMailMessage(message);
-
-                await SendMessage(mimeMessage);
-
-                return SmtpResult.Success;
-            }
-            catch (Exception ex)
-            {
-                return SmtpResult.Failed(S["An error occurred while sending an email: '{0}'", ex.Message]);
-            }
-        }
-
-        private MimeMessage FromMailMessage(MailMessage message)
-        {
-            var senderAddress = string.IsNullOrWhiteSpace(message.Sender)
-                ? _yahooSetting.DefaultSender
-                : message.Sender;
-
-            var mimeMessage = new MimeMessage
-            {
-                Sender = MailboxAddress.Parse(senderAddress)
-            };
-
-            mimeMessage.From.Add(MailboxAddress.Parse(message.From));
-
-            if (!string.IsNullOrWhiteSpace(message.To))
-            {
-                foreach (var address in message.To.Split(EmailsSeparator, StringSplitOptions.RemoveEmptyEntries))
-                {
-                    mimeMessage.To.Add(MailboxAddress.Parse(address));
-                }
-            }
-
-            if (!string.IsNullOrWhiteSpace(message.Cc))
-            {
-                foreach (var address in message.Cc.Split(EmailsSeparator, StringSplitOptions.RemoveEmptyEntries))
-                {
-                    mimeMessage.Cc.Add(MailboxAddress.Parse(address));
-                }
-            }
-
-            if (!string.IsNullOrWhiteSpace(message.Bcc))
-            {
-                foreach (var address in message.Bcc.Split(EmailsSeparator, StringSplitOptions.RemoveEmptyEntries))
-                {
-                    mimeMessage.Bcc.Add(MailboxAddress.Parse(address));
-                }
-            }
-
-            if (!string.IsNullOrWhiteSpace(message.ReplyTo))
-            {
-                foreach (var address in message.ReplyTo.Split(EmailsSeparator, StringSplitOptions.RemoveEmptyEntries))
-                {
-                    mimeMessage.ReplyTo.Add(MailboxAddress.Parse(address));
-                }
-            }
-
-            mimeMessage.Subject = message.Subject;
-
-            var body = new BodyBuilder();
-
-            if (message.IsBodyHtml)
-            {
-                body.HtmlBody = message.Body;
-            }
-            else
-            {
-                body.TextBody = message.Body;
-            }
-
-            mimeMessage.Body = body.ToMessageBody();
-
-            return mimeMessage;
-        }
-
-        private async Task SendMessage(MimeMessage message)
+        protected async override Task SendOnlineMessageAsync(MimeMessage message)
         {
             using (var client = new SmtpClient())
             {
                 client.ServerCertificateValidationCallback = CertificateValidationCallback;
+                
                 await client.ConnectAsync(_yahooSetting.Host, _yahooSetting.Port, SecureSocketOptions.Auto);
 
                 if (!string.IsNullOrWhiteSpace(_yahooSetting.UserName))
@@ -144,30 +48,6 @@ namespace OrchardCoreContrib.Email.Yahoo.Services
                 await client.SendAsync(message);
                 await client.DisconnectAsync(true);
             }
-        }
-
-        private bool CertificateValidationCallback(object sender, X509Certificate certificate, X509Chain chain, SslPolicyErrors sslPolicyErrors)
-        {
-            if (sslPolicyErrors == SslPolicyErrors.None)
-            {
-                return true;
-            }
-
-            _logger.LogError(string.Concat("Yahoo Server's certificate {CertificateSubject} issued by {CertificateIssuer} ",
-                "with thumbprint {CertificateThumbprint} and expiration date {CertificateExpirationDate} ",
-                "is considered invalid with {SslPolicyErrors} policy errors"),
-                certificate.Subject, certificate.Issuer, certificate.GetCertHashString(),
-                certificate.GetExpirationDateString(), sslPolicyErrors);
-
-            if (sslPolicyErrors.HasFlag(SslPolicyErrors.RemoteCertificateChainErrors) && chain?.ChainStatus != null)
-            {
-                foreach (var chainStatus in chain.ChainStatus)
-                {
-                    _logger.LogError("Status: {Status} - {StatusInformation}", chainStatus.Status, chainStatus.StatusInformation);
-                }
-            }
-
-            return false;
         }
     }
 }

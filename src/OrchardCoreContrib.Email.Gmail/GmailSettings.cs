@@ -1,6 +1,4 @@
-﻿using OrchardCore.Email;
-
-namespace OrchardCoreContrib.Email.Gmail
+﻿namespace OrchardCoreContrib.Email.Gmail
 {
     /// <summary>
     /// Represents a settings for Gmail.
