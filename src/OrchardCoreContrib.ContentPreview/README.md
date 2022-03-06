@@ -22,13 +22,13 @@ Content Management
 | --- | --- |
 | Page Preview Bar (`OrchardCoreContrib.ContentPreview`) | Shows a top bar that allows you to preview the current page in desktop, tablet and mobile. |
 
-
 ## NuGet Packages
 
 | Name | Version |
 | --- | --- |
-| [`OrchardCoreContrib.ContentPreview`](https://www.nuget.org/packages/OrchardCoreContrib.ContentPreview/1.0.0-beta1/) | 1.0.0-beta1 |
-| [`OrchardCoreContrib.ContentPreview`](https://www.nuget.org/packages/OrchardCoreContrib.ContentPreview/1.0.0-beta2/) | 1.0.0-beta2 |
+| [`OrchardCoreContrib.ContentPreview`](https://www.nuget.org/packages/OrchardCoreContrib.ContentPreview/1.0.0) | 1.0.0 |
+| [`OrchardCoreContrib.ContentPreview`](https://www.nuget.org/packages/OrchardCoreContrib.ContentPreview/1.0.0-beta2) | 1.0.0-beta2 |
+| [`OrchardCoreContrib.ContentPreview`](https://www.nuget.org/packages/OrchardCoreContrib.ContentPreview/1.0.0-beta1) | 1.0.0-beta1 |
 
 ## Get Started
 
