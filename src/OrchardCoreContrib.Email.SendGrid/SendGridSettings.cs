@@ -1,4 +1,6 @@
-﻿namespace OrchardCoreContrib.Email.SendGrid
+﻿using OrchardCore.Email;
+
+namespace OrchardCoreContrib.Email.SendGrid
 {
     /// <summary>
     /// Represents a settings for SendGrid.
