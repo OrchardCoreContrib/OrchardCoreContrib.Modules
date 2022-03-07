@@ -1,11 +1,8 @@
 name: Orchard Core Contrib
 
 on:
-  push:
-    branches: dev
-  release:
-    types:
-      - published
+  pull_request:
+    branches: [ dev ]
 
 env:
   DOTNET_SKIP_FIRST_TIME_EXPERIENCE: true
