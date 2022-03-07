@@ -1,4 +1,5 @@
-﻿using OrchardCoreContrib.Localization.Data;
+﻿using OrchardCoreContrib.Infrastructure;
+using OrchardCoreContrib.Localization.Data;
 using OrchardCoreContrib.Localization.Diacritics;
 using System;
 
