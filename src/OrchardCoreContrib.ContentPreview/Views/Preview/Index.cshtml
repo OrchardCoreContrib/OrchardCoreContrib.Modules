@@ -6,8 +6,6 @@
 
 @functions
 {
-    public bool IframeRequest => Context.Request.Headers["sec-fetch-dest"] == RequestDestination.Iframe;
-
     public string PreviewPagePath
     {
         get
@@ -68,23 +66,7 @@
     </style>
 </head>
 <body>
-    @if (!IframeRequest)
-    {
-        <nav class="navbar sticky-top navbar-light bg-light border-primary border-3">
-            <div class="container-fluid">
-                <div class="btn-group" role="group">
-                    <input type="radio" class="btn-check" name="btnDevicePreview" id="btnDesktopPreview" autocomplete="off" checked>
-                    <label class="btn btn-outline-primary" for="btnDesktopPreview" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Desktop Preview"><i class="fa fa-desktop"></i></label>
-    
-                    <input type="radio" class="btn-check" name="btnDevicePreview" id="btnTabletPreview" autocomplete="off">
-                    <label class="btn btn-outline-primary" for="btnTabletPreview" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Tablet Preview"><i class="fa fa-tablet"></i></label>
-    
-                    <input type="radio" class="btn-check" name="btnDevicePreview" id="btnMobilePreview" autocomplete="off">
-                    <label class="btn btn-outline-primary" for="btnMobilePreview" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Mobile Preview"><i class="fa fa-mobile"></i></label>
-                </div>
-            </div>
-        </nav>
-    }
+    <partial name="_PagePreviewBar" />
     <iframe src="@(PreviewPagePath)?preview=true"></iframe>
     <resources type="Footer" />
     <script>
