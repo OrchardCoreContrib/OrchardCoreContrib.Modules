@@ -3,13 +3,17 @@
 <style asp-name="grapesjs" asp-src="~/OrchardCoreContrib.Html/Styles/grapes.min.css" debug-src="~/OrchardCoreContrib.Html/Styles/grapes.min.css"></style>
 <script asp-name="grapesjs" asp-src="~/OrchardCoreContrib.Html/Scripts/grapes.min.js" debug-src="~/OrchardCoreContrib.Html/Scripts/grapes.min.js" at="Foot"></script>
 
+@{Html.Partial("_Greeting.cshtml");}
+@{Html.RenderPartial("_Greeting.cshtml");}
+@*<partial name="_Editor.cshtml" />*@
+@*<iframe src="@{Html.Partial("_Editor.cshtml");}"></iframe>*@
 <div class="form-group">
     <label asp-for="Html">@Model.TypePartDefinition.DisplayName()</label>
     <input asp-for="Html" type="hidden" class="form-control" />
 
-    <div id="@Html.IdFor(m => m.Html)-editor">
+@*    <div id="@Html.IdFor(m => m.Html)-editor">
         @Html.Raw(@Model.Html)
-    </div>
+    </div>*@
     
     <span class="hint">@T["The body of the content item."]</span>
 </div>

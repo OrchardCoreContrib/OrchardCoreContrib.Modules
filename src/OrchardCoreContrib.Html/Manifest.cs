@@ -11,6 +11,6 @@ using OrchardCore.Modules.Manifest;
     Id = "OrchardCoreContrib.Html.GrapesJS",
     Name = "GrapesJS HTML Editor",
     Description = "Enables GrapesJS editor for HtmlBody content.",
-    Dependencies = new[] { "OrchardCore.Html" },
+    Dependencies = new[] { "OrchardCore.Html", "OrchardCore.Resources" },
     Category = "Content Management"
 )]
