@@ -10,8 +10,6 @@ namespace OrchardCoreContrib.Localization.Data
     /// </summary>
     public static class DataResourceStringProviderExtensions
     {
-        private const char RecordKeySeparator = '|';
-
         /// <summary>
         /// Gets the resource strings.
         /// </summary>
@@ -31,7 +29,7 @@ namespace OrchardCoreContrib.Localization.Data
 
             return resourceStringProvider
                 .GetAllResourceStrings()
-                .Where(s => s.ToString().StartsWith(context.ToLower() + RecordKeySeparator));
+                .Where(s => s.GetContext().Equals(context, StringComparison.OrdinalIgnoreCase));
         }
     }
 }
