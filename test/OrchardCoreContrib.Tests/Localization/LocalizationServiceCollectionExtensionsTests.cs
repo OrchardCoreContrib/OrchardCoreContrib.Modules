@@ -20,12 +20,9 @@ namespace OrchardCoreContrib.Localization.Tests
 
             // Assert
             var serviceProvider = services.BuildServiceProvider();
-            var translationProvider = serviceProvider.GetService<IDataTranslationProvider>();
             var dataLocalizerFactory = serviceProvider.GetService<IDataLocalizerFactory>();
             var dataLocalizer = serviceProvider.GetService<IDataLocalizer>();
 
-            Assert.NotNull(translationProvider);
-            Assert.IsType<DataTranslationProvider>(translationProvider);
             Assert.NotNull(dataLocalizerFactory);
             Assert.IsType<DataLocalizerFactory>(dataLocalizerFactory);
             Assert.NotNull(dataLocalizer);
