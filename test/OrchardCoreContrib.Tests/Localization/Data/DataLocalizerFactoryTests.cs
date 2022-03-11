@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.Caching.Memory;
-using Microsoft.Extensions.Localization;
+using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using Moq;
@@ -13,24 +13,30 @@ namespace OrchardCoreContrib.Localization.Data.Tests
 {
     public class DataLocalizerFactoryTests
     {
-        private static readonly PluralizationRuleDelegate _noPluralRule = n => 0;
-
-        private readonly Mock<DataResourceManager> _dataResourceManagerMock;
+        private readonly Mock<IDataTranslationProvider> _dataTranslationProviderMock;
 
         public DataLocalizerFactoryTests()
         {
-            _dataResourceManagerMock = new Mock<DataResourceManager>(Mock.Of<IDataTranslationProvider>(), Mock.Of<IMemoryCache>());
+            _dataTranslationProviderMock = new Mock<IDataTranslationProvider>();
         }
 
         [Fact]
         public void CreateDataLocalizer()
         {
             // Arrange
-            SetupDictionary("fr", new[] { new CultureDictionaryRecord("Hello", null, new[] { "Bonjour" }) });
+            var context = "context";
 
+            SetupDictionary("fr", new[] { new CultureDictionaryRecord("Hello", context, new[] { "Bonjour" }) });
+
+            var memoryCache = new ServiceCollection()
+                .AddMemoryCache()
+                .BuildServiceProvider()
+                .GetService<IMemoryCache>();
+
+            var dataResourceManager = new DataResourceManager(_dataTranslationProviderMock.Object, memoryCache);
             var requestlocalizationOptions = Options.Create(new RequestLocalizationOptions { FallBackToParentUICultures = true });
-            var loggerMock = new Mock<ILogger<DataLocalizerFactory>>();
-            var localizerFactory = new DataLocalizerFactory(_dataResourceManagerMock.Object, requestlocalizationOptions, loggerMock.Object);
+            var logger = Mock.Of<ILogger<DataLocalizerFactory>>();
+            var localizerFactory = new DataLocalizerFactory(dataResourceManager, requestlocalizationOptions, logger);
 
             // Act
             var localizer = localizerFactory.Create();
@@ -39,17 +45,17 @@ namespace OrchardCoreContrib.Localization.Data.Tests
 
             // Assert
             Assert.NotNull(localizer);
-            Assert.Single(localizer.GetAllStrings());
+            Assert.Single(localizer.GetAllStrings(context));
         }
 
         private void SetupDictionary(string cultureName, IEnumerable<CultureDictionaryRecord> records)
         {
-            var dictionary = new CultureDictionary(cultureName, _noPluralRule);
-            dictionary.MergeTranslations(records);
-
-            _dataResourceManagerMock
-                .Setup(rm => rm.GetResources(It.Is<CultureInfo>(c => c.Name == cultureName), It.IsAny<bool>()))
-                .Returns(dictionary.Translations);
+            _dataTranslationProviderMock
+                .Setup(tp => tp.LoadTranslations(It.Is<string>(c => c == cultureName), It.IsAny<CultureDictionary>()))
+                .Callback<string, CultureDictionary>((c, d) =>
+                {
+                    d.MergeTranslations(records);
+                });
         }
     }
 }

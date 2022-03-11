@@ -1,10 +1,9 @@
-﻿using Microsoft.Extensions.Localization;
-using Microsoft.Extensions.Logging;
+﻿using Microsoft.Extensions.Logging;
 using OrchardCore.Localization;
+using OrchardCoreContrib.Infrastructure;
 using System;
 using System.Collections.Generic;
 using System.Globalization;
-using System.Linq;
 
 namespace OrchardCoreContrib.Localization.Data
 {
@@ -23,10 +22,7 @@ namespace OrchardCoreContrib.Localization.Data
         /// <param name="_dataResourceManager">The <see cref="DataResourceManager"/>.</param>
         /// <param name="fallBackToParentCulture">Whether able to fallback to the parent culture.</param>
         /// <param name="logger">The <see cref="Ilogger"/>.</param>
-        public DataLocalizer(
-            DataResourceManager dataResourceManager,
-            bool fallBackToParentCulture,
-            ILogger logger)
+        public DataLocalizer(DataResourceManager dataResourceManager, bool fallBackToParentCulture, ILogger logger)
         {
             _dataResourceManager = dataResourceManager;
             _fallBackToParentCulture = fallBackToParentCulture;
@@ -34,35 +30,34 @@ namespace OrchardCoreContrib.Localization.Data
         }
 
         /// <inheritdoc/>
-        public LocalizedString this[string name]
+        public DataLocalizedString this[string name, string context]
         {
             get
             {
-                if (name == null)
-                {
-                    throw new ArgumentNullException(nameof(name));
-                }
+                Guard.ArgumentNotNullOrEmpty(nameof(name), name);
+                Guard.ArgumentNotNullOrEmpty(nameof(context), context);
 
-                var translation = GetTranslation(name, CultureInfo.CurrentUICulture);
+                var translation = GetTranslation(name, context, CultureInfo.CurrentUICulture);
 
-                return new LocalizedString(name, translation ?? name, translation == null);
+                return new DataLocalizedString(name, context, translation ?? name, translation == null);
             }
         }
 
         /// <inheritdoc/>
-        public LocalizedString this[string name, params object[] arguments]
+        public DataLocalizedString this[string name, string context, params object[] arguments]
         {
             get
             {
-                var (translation, argumentsWithCount) = GetTranslation(name, arguments);
-                var formatted = String.Format(translation.Value, argumentsWithCount);
+                var translation = this[name, context];
+                var localizedString = new DataLocalizedString(name, context, translation, translation.ResourceNotFound);
+                var formatted = String.Format(localizedString.Value, arguments);
 
-                return new LocalizedString(name, formatted, translation.ResourceNotFound);
+                return new DataLocalizedString(name, context, formatted, translation.ResourceNotFound);
             }
         }
 
         /// <inheritdoc/>
-        public IEnumerable<LocalizedString> GetAllStrings(bool includeParentCultures)
+        public IEnumerable<DataLocalizedString> GetAllStrings(string context, bool includeParentCultures)
         {
             var culture = CultureInfo.CurrentUICulture;
 
@@ -70,27 +65,11 @@ namespace OrchardCoreContrib.Localization.Data
 
             foreach (var translation in translations)
             {
-                yield return new LocalizedString(translation.Key, translation.Value.FirstOrDefault());
+                yield return new DataLocalizedString(translation.Key, context, translation.Value);
             }
         }
 
-        /// <inheritdoc/>
-        public IStringLocalizer WithCulture(CultureInfo culture) => this;
-
-        /// <inheritdoc/>
-        public (LocalizedString, object[]) GetTranslation(string name, params object[] arguments)
-        {
-            if (name == null)
-            {
-                throw new ArgumentNullException(nameof(name));
-            }
-
-            var translation = this[name];
-
-            return (new LocalizedString(name, translation, translation.ResourceNotFound), arguments);
-        }
-
-        private string GetTranslation(string name, CultureInfo culture)
+        private string GetTranslation(string name, string context, CultureInfo culture)
         {
             string translation = null;
             try
@@ -99,7 +78,7 @@ namespace OrchardCoreContrib.Localization.Data
                 {
                     do
                     {
-                        translation = _dataResourceManager.GetString(name, culture);
+                        translation = _dataResourceManager.GetString(name, context, culture);
 
                         if (translation != null)
                         {
@@ -112,7 +91,7 @@ namespace OrchardCoreContrib.Localization.Data
                 }
                 else
                 {
-                    translation = _dataResourceManager.GetString(name);
+                    translation = _dataResourceManager.GetString(name, context);
                 }
             }
             catch (PluralFormNotFoundException ex)

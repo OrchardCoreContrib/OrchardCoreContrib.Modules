@@ -1,4 +1,5 @@
 ﻿using OrchardCore.Localization;
+using OrchardCoreContrib.Infrastructure;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,15 +18,8 @@ namespace OrchardCoreContrib.Localization.Data
         /// <param name="context">The resource context.</param>
         public static IEnumerable<CultureDictionaryRecordKey> GetAllResourceStrings(this IDataResourceStringProvider resourceStringProvider, string context)
         {
-            if (resourceStringProvider is null)
-            {
-                throw new ArgumentNullException(nameof(resourceStringProvider));
-            }
-
-            if (string.IsNullOrEmpty(context))
-            {
-                throw new ArgumentException($"'{nameof(context)}' cannot be null or empty.", nameof(context));
-            }
+            Guard.ArgumentNotNull(nameof(resourceStringProvider), resourceStringProvider);
+            Guard.ArgumentNotNullOrEmpty(nameof(context), context);
 
             return resourceStringProvider
                 .GetAllResourceStrings()

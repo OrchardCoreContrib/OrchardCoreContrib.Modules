@@ -24,4 +24,8 @@
 		<PackageReference Include="OrchardCore.Localization.Abstractions" Version="1.2.2" />
 	</ItemGroup>
 
+	<ItemGroup>
+	  <ProjectReference Include="..\OrchardCoreContrib.Infrastructure.Abstractions\OrchardCoreContrib.Infrastructure.Abstractions.csproj" />
+	</ItemGroup>
+
 </Project>

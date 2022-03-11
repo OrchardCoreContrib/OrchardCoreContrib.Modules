@@ -1,8 +1,10 @@
 ﻿using Microsoft.Extensions.Caching.Memory;
 using OrchardCore.Localization;
+using OrchardCoreContrib.Infrastructure;
 using System;
 using System.Collections.Generic;
 using System.Globalization;
+using System.Linq;
 using System.Threading;
 
 namespace OrchardCoreContrib.Localization.Data
@@ -12,7 +14,7 @@ namespace OrchardCoreContrib.Localization.Data
     /// </summary>
     public class DataResourceManager
     {
-        private const string CacheKeyPrefix = "CultureDictionary-";
+        private const string CacheKeyPrefix = "OCC-CultureDictionary-";
 
         private static readonly PluralizationRuleDelegate NoPluralRule = n => 0;
 
@@ -34,19 +36,18 @@ namespace OrchardCoreContrib.Localization.Data
         /// Gets the resource value from a given name.
         /// </summary>
         /// <param name="name">The resource name to be retrieved.</param>
-        public string GetString(string name) => GetString(name, null);
+        /// <param name="context">The resource context to be retrieved.</param>
+        public string GetString(string name, string context) => GetString(name, context, null);
 
         /// <summary>
         /// Gets the resource value from a given name and culture.
         /// </summary>
         /// <param name="name">The resource name to be retrieved.</param>
         /// <param name="culture">The culture that has been used to retrieve the resource.</param>
-        public string GetString(string name, CultureInfo culture)
+        public string GetString(string name, string context, CultureInfo culture)
         {
-            if (name == null)
-            {
-                throw new ArgumentNullException(nameof(name));
-            }
+            Guard.ArgumentNotNullOrEmpty(nameof(name), name);
+            Guard.ArgumentNotNullOrEmpty(nameof(context), context);
 
             if (culture == null)
             {
@@ -56,9 +57,10 @@ namespace OrchardCoreContrib.Localization.Data
             string value = null;
             var dictionary = GetCultureDictionary(culture);
 
+
             if (dictionary != null)
             {
-                var key = new CultureDictionaryRecordKey(name);
+                var key = CultureDictionaryRecord.GetKey(name, context);
 
                 value = dictionary[key];
             }
@@ -71,30 +73,35 @@ namespace OrchardCoreContrib.Localization.Data
         /// </summary>
         /// <param name="culture">The culture that has been used to retrieve the resources.</param>
         /// <param name="tryParents">Whether to use resource fallback if the resources can't be found.</param>
-        public virtual IDictionary<CultureDictionaryRecordKey, string[]> GetResources(CultureInfo culture, bool tryParents)
+        public IDictionary<string, string> GetResources(CultureInfo culture, bool tryParents)
         {
-            if (culture == null)
-            {
-                throw new ArgumentNullException(nameof(culture));
-            }
+            Guard.ArgumentNotNull(nameof(culture), culture);
 
-            var dictionary = GetCultureDictionary(culture);
+            var currentCulture = culture;
+
+            var resources = GetCultureDictionary(culture).Translations
+                .ToDictionary(t => t.Key.ToString(), t => t.Value[0]);
 
             if (tryParents)
             {
-                var currentCulture = culture;
-
                 do
                 {
                     currentCulture = currentCulture.Parent;
-                    
-                    var currentDictionary = GetCultureDictionary(currentCulture);
 
-                    dictionary.MergeTranslations(currentDictionary);
+                    var currentResources = GetCultureDictionary(currentCulture).Translations
+                        .ToDictionary(t => t.Key.ToString(), t => t.Value[0]);
+
+                    foreach (var translation in currentResources)
+                    {
+                        if (!resources.Any(r => r.Key == translation.Key))
+                        {
+                            resources.Add(translation.Key, translation.Value);
+                        }
+                    }
                 } while (currentCulture != CultureInfo.InvariantCulture);
             }
 
-            return dictionary.Translations;
+            return resources;
         }
 
         private CultureDictionary GetCultureDictionary(CultureInfo culture)
