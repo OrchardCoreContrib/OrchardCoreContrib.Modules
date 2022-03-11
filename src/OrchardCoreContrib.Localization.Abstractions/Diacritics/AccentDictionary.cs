@@ -76,10 +76,10 @@ namespace OrchardCoreContrib.Localization.Diacritics
         /// <param name="key">The key of the record to be removed.</param>
         public void Remove(char key)
         {
-            var record = _mapping.SingleOrDefault(m => m.Key == key);
-
-            if (record != null)
+            if (Contains(key))
             {
+                var record = _mapping.Single(m => m.Key == key);
+
                 _mapping.Remove(record);
             }
         }
