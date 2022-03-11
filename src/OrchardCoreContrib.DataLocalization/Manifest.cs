@@ -2,7 +2,7 @@
 
 [assembly: Module(
     Name = "Data Localization",
-    Author = "Orchard Core Contrib",
+    Author = "The Orchard Core Contrib Team",
     Version = "1.0.0",
     Category = "Internationalization",
     Dependencies = new[] { "OrchardCore.Localization" }
