@@ -21,6 +21,7 @@ namespace Microsoft.Extensions.DependencyInjection
                 throw new ArgumentNullException(nameof(services));
             }
 
+            services.AddSingleton<IDataTranslationProvider, NullDataTranslationProvider>();
             services.AddTransient<DataResourceManager>();
             services.AddSingleton<IDataLocalizerFactory, DataLocalizerFactory>();
             
