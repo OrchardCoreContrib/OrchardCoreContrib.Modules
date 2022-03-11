@@ -18,24 +18,22 @@ There are many goals for creating this repository:
 
 3. Implement features that may not included in the official release, which may help the community in the way or other.
 
-## Planned Features & APIs
+## Documentations
 
-This section lists all the modules that we are planned to design and develop:
+The `OrchardCoreContrib` repository consists of the following projects:
 
-- Localization
-
-    - Support multiple datetime Gregorian & Hijri
-
-- Customizable Admin Dashboard
-
-- Additional Content Fields
-
-    - GoogleMap location field
-
-## Supported Features & APIs
-
-This section lists all the supported features & APIs that we are supported:
-
-- SMS Abstractions APIs
-
-- JSON Localization APIs
+| Name | Namespace |
+| --- | --- |
+| [Orchard Core Contrib Implementation APIs](src/OrchardCoreContrib/README.md) | `OrchardCoreContrib` |
+| [Orchard Core Contrib Abstractions APIs](src/OrchardCoreContrib.Abstractions/README.md) | `OrchardCoreContrib.Abstractions` |
+| [Email APIs](src/OrchardCoreContrib.Email/README.md) | `OrchardCoreContrib.Email` |
+| [Email Abstractions](src/OrchardCoreContrib.Email.Abstractions/README.md) | `OrchardCoreContrib.Email.Abstractions` |
+| [Infrastructure Abstractions APIs](src/OrchardCoreContrib.Infrastructure.Abstractions/README.md) | `OrchardCoreContrib.Infrastructure.Abstractions` |
+| [LINQ to Orchard Core](src/OrchardCoreContrib.Linq/README.md) | `OrchardCoreContrib.Linq` |
+| [Localization Implementation APIs](src/OrchardCoreContrib.Localization/README.md) | `OrchardCoreContrib.Localization` |
+| [Localization Abstractions APIs](src/OrchardCoreContrib.Localization.Abstractions/README.md) | `OrchardCoreContrib.Localization.Abstractions` |
+| [Json Localization APIs](src/OrchardCoreContrib.Localization.Json/README.md) | `OrchardCoreContrib.Localization.Json` |
+| [OpenApi Abstractions APIs](src/OrchardCoreContrib.OpenApi.Abstractions/README.md) | `OrchardCoreContrib.OpenApi.Abstractions` |
+| [Shortcodes Abstractions APIs](src/OrchardCoreContrib.Shortcodes.Abstractions/README.md) | `OrchardCoreContrib.Shortcodes.Abstractions` |
+| [Shortcode Implementation APIs](src/OrchardCoreContrib.Shortcode.Core/README.md) | `OrchardCoreContrib.Shortcode.Core` |
+| [SMS Abstractions APIs](src/OrchardCoreContrib.Sms.Abstractions/README.md) | `OrchardCoreContrib.Sms.Abstractions` |
