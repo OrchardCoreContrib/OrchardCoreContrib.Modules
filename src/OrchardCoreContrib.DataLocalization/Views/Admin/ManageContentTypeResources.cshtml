@@ -1,0 +1,73 @@
+﻿@using System.Globalization
+@using OrchardCore.Localization
+@using OrchardCoreContrib.DataLocalization.ViewModels
+@model ContentTypeResourcesViewModel
+@inject ILocalizationService LocalizationService
+@{
+    var defaultCulture = await LocalizationService.GetDefaultCultureAsync();
+    var supportedCultures = (await LocalizationService.GetSupportedCulturesAsync()).Except(new[] { defaultCulture });
+}
+@functions
+{
+    public bool HasCulture => Context.Request.Query.ContainsKey("selectedCulture");
+
+    public string SelectedCulture => Context.Request.Query["selectedCulture"];
+
+    public string IsCultureSelected(string culture) => SelectedCulture == culture
+        ? "selected"
+        : null;
+}
+
+<h1>@T["Content Types Localization Resources"]</h1>
+
+@if (supportedCultures.Any())
+{
+    <p class="alert alert-warning">@T["The resources cache will be purged when they are saved."]</p>
+
+    if (!HasCulture)
+    {
+        <p class="alert alert-info">@T["Please select a culture to start managing the localization resources."]</p>
+    }
+
+    <form method="get">
+        <div class="form-group col-md-3">
+            <label>@T["Culture"]</label>
+            <select name="selectedCulture" class="form-control" onchange="this.closest('form').submit();">
+                <option disabled selected>@T["Choose the culture"]</option>
+                @foreach (var culture in supportedCultures)
+                {
+                    <option value="@culture" selected="@IsCultureSelected(culture)">@CultureInfo.GetCultureInfo(culture).DisplayName</option>
+                }
+            </select>
+        </div>
+    </form>
+}
+else
+{
+    <p class="alert alert-warning">@T["There are no cultures supported except the default one. Please add more cultures to start managing the localization resources."]</p>
+}
+
+@if (HasCulture)
+{
+    <form method="post">
+        <table class="table table-striped table-hover">
+            <thead>
+                <tr>
+                    <th>@T["Name"]</th>
+                    <th>@T["Value"]</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var resourceName in Model.ResourcesNames)
+                {
+                    var value = Model.Translations.SingleOrDefault(t => t.Key == resourceName)?.Value ?? String.Empty;
+                    <tr>
+                        <td>@resourceName</td>
+                        <td><input name="@resourceName" class="form-control" type="text" value="@value"></td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+        <input type="submit" class="btn btn-primary" value="@T["Save"]" />
+    </form>
+}
