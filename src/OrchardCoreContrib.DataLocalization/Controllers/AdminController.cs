@@ -45,25 +45,15 @@ namespace OrchardCoreContrib.DataLocalization.Controllers
 
         public async Task<ActionResult> ManageContentTypeResources([FromQuery] string selectedCulture)
         {
-            IEnumerable<string> resourcesNames = null;
-            foreach (var dataResourceStringProvider in _dataResourceStringProviders)
-            {
-                resourcesNames = dataResourceStringProvider
-                    .GetAllResourceStrings(ContentTypeResourceStringProvider.Context)
-                    .Select(r => r.GetMessageId());
-
-                if (resourcesNames.Any())
-                {
-                    break;
-                }
-            }
+            var resourcesNames = GetResourcesNames(ContentTypeResourceStringProvider.Context);
 
             var translationsDocument = await _translationsManager.GetTranslationsDocumentAsync();
 
             var viewModel = new ContentTypeResourcesViewModel
             {
                 ResourcesNames = resourcesNames,
-                Translations = Enumerable.Empty<Translation>()
+                Translations = Enumerable.Empty<Translation>(),
+                SelectedCulture = selectedCulture
             };
 
             if (!String.IsNullOrEmpty(selectedCulture) && translationsDocument.Translations.ContainsKey(selectedCulture))
@@ -78,56 +68,15 @@ namespace OrchardCoreContrib.DataLocalization.Controllers
         [ActionName(nameof(ManageContentTypeResources))]
         public async Task<ActionResult> ManageContentTypeResourcesPost([FromQuery] string selectedCulture)
         {
-            var translations = new List<Translation>();
-
-            var translationsDocument = await _translationsManager.GetTranslationsDocumentAsync();
-
-            translations = translationsDocument.Translations[selectedCulture].ToList();
-
-            foreach (var key in Request.Form.Keys.Where(k => !k.Equals(AntiForgeryTokenKey)))
-            {
-                var value = Request.Form[key].ToString();
-                var index = translations.FindIndex(t => t.Context == ContentTypeResourceStringProvider.Context && t.Key == key);
-                
-                if (index > -1)
-                {
-                    translations[index].Value = value;
-                }
-                else
-                {
-                    translations.Add(new Translation
-                    {
-                        Context = ContentTypeResourceStringProvider.Context,
-                        Key = key,
-                        Value = value
-                    });
-                }
-            }
-
-            await _translationsManager.UpdateTranslationAsync(selectedCulture, translations);
-
-            // Purge the resource cache
-            _memoryCache.Remove(ResourcesCachePrefix + selectedCulture);
-
-            await _notifier.SuccessAsync(H["The resource has been saved successfully."]);
+            await UpdateResourcesAsync(ContentTypeResourceStringProvider.Context, selectedCulture);
 
             return RedirectToAction(nameof(ManageContentTypeResources), new { selectedCulture });
         }
 
         public async Task<ActionResult> ManageContentFieldResources([FromQuery] string selectedCulture, [FromQuery] string contentType)
         {
-            IEnumerable<string> resourcesNames = null;
-            foreach (var dataResourceStringProvider in _dataResourceStringProviders)
-            {
-                resourcesNames = dataResourceStringProvider
-                    .GetAllResourceStrings($"{contentType}-{ContentFieldResourceStringProvider.Context}")
-                    .Select(r => r.GetMessageId());
-
-                if (resourcesNames.Any())
-                {
-                    break;
-                }
-            }
+            var context = $"{contentType}-{ContentFieldResourceStringProvider.Context}";
+            var resourcesNames = GetResourcesNames(context);
 
             var translationsDocument = await _translationsManager.GetTranslationsDocumentAsync();
 
@@ -135,7 +84,9 @@ namespace OrchardCoreContrib.DataLocalization.Controllers
             {
                 ContentTypes = _contentDefinitionService.GetTypes().Select(t => t.Name),
                 ResourcesNames = resourcesNames,
-                Translations = Enumerable.Empty<Translation>()
+                Translations = Enumerable.Empty<Translation>(),
+                SelectedContentType = contentType,
+                SelectedCulture = selectedCulture
             };
 
             if (!String.IsNullOrEmpty(selectedCulture) && translationsDocument.Translations.ContainsKey(selectedCulture))
@@ -151,17 +102,43 @@ namespace OrchardCoreContrib.DataLocalization.Controllers
         public async Task<ActionResult> ManageContentFieldResourcesPost([FromQuery] string selectedCulture, [FromQuery] string contentType)
         {
             var context = $"{contentType}-{ContentFieldResourceStringProvider.Context}";
+            
+            await UpdateResourcesAsync(context, selectedCulture);
+
+            return RedirectToAction(nameof(ManageContentFieldResources), new { selectedCulture, contentType });
+        }
+
+        private IEnumerable<string> GetResourcesNames(string context)
+        {
+            IEnumerable<string> resourcesNames = null;
+            foreach (var dataResourceStringProvider in _dataResourceStringProviders)
+            {
+                resourcesNames = dataResourceStringProvider
+                    .GetAllResourceStrings(context)
+                    .Select(r => r.GetMessageId());
+
+                if (resourcesNames.Any())
+                {
+                    break;
+                }
+            }
+
+            return resourcesNames;
+        }
+
+        private async Task UpdateResourcesAsync(string context, string culture)
+        {
             var translations = new List<Translation>();
 
             var translationsDocument = await _translationsManager.GetTranslationsDocumentAsync();
 
-            translations = translationsDocument.Translations[selectedCulture].ToList();
+            translations = translationsDocument.Translations[culture].ToList();
 
             foreach (var key in Request.Form.Keys.Where(k => !k.Equals(AntiForgeryTokenKey)))
             {
                 var value = Request.Form[key].ToString();
                 var index = translations.FindIndex(t => t.Context == context && t.Key == key);
-                
+
                 if (index > -1)
                 {
                     translations[index].Value = value;
@@ -177,14 +154,12 @@ namespace OrchardCoreContrib.DataLocalization.Controllers
                 }
             }
 
-            await _translationsManager.UpdateTranslationAsync(selectedCulture, translations);
+            await _translationsManager.UpdateTranslationAsync(culture, translations);
 
             // Purge the resource cache
-            _memoryCache.Remove(ResourcesCachePrefix + selectedCulture);
+            _memoryCache.Remove(ResourcesCachePrefix + culture);
 
             await _notifier.SuccessAsync(H["The resource has been saved successfully."]);
-
-            return RedirectToAction(nameof(ManageContentFieldResources), new { selectedCulture, contentType });
         }
     }
 }
