@@ -9,11 +9,7 @@
 }
 @functions
 {
-    public bool HasCulture => Context.Request.Query.ContainsKey("selectedCulture");
-
-    public string SelectedCulture => Context.Request.Query["selectedCulture"];
-
-    public string IsCultureSelected(string culture) => SelectedCulture == culture
+    public string IsCultureSelected(string culture) => Model.SelectedCulture == culture
         ? "selected"
         : null;
 }
@@ -24,7 +20,7 @@
 {
     <p class="alert alert-warning">@T["The resources cache will be purged when they are saved."]</p>
 
-    if (!HasCulture)
+    if (!Model.HasCulture)
     {
         <p class="alert alert-info">@T["Please select a culture to start managing the localization resources."]</p>
     }
@@ -47,7 +43,7 @@ else
     <p class="alert alert-warning">@T["There are no cultures supported except the default one. Please add more cultures to start managing the localization resources."]</p>
 }
 
-@if (HasCulture)
+@if (Model.HasCulture)
 {
     <form method="post">
         <table class="table table-striped table-hover">
