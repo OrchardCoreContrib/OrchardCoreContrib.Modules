@@ -37,6 +37,10 @@ namespace OrchardCore.DataLocalization
                                         .Action("ManageContentTypeResources", "Admin", new { area = "OrchardCoreContrib.DataLocalization"})
                                         .LocalNav()
                                     )
+                                    .Add(S["Content Fields"], S["Content Fields"].PrefixPosition(), type => type
+                                        .Action("ManageContentFieldResources", "Admin", new { area = "OrchardCoreContrib.DataLocalization" })
+                                        .LocalNav()
+                                    )
                                 )
                             )
                         )
