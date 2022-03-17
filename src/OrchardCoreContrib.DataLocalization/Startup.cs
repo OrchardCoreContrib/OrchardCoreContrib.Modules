@@ -33,6 +33,7 @@ namespace OrchardCoreContrib.DataLocalization
             services.AddScoped<INavigationProvider, AdminMenu>();
             services.AddScoped<TranslationsManager>();
             services.AddScoped<IDataResourceStringProvider, ContentTypeResourceStringProvider>();
+            services.AddScoped<IDataResourceStringProvider, ContentFieldResourceStringProvider>();
 
             services.AddDataLocalization();
 
