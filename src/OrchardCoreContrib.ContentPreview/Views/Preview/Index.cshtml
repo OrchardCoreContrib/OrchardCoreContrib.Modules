@@ -10,11 +10,12 @@
     {
         get
         {
-            var previewPage = Context.Request.RouteValues.ContainsKey("page")
-                ? Context.Request.RouteValues["page"]
-                : String.Empty;
+            var previewPage = Context.Request.RouteValues["page"]?.ToString() ?? "/";
+            var path = ShellSettings.Name == "Default"
+                ? previewPage
+                : $"/{ShellSettings.RequestUrlPrefix}/{previewPage}";
 
-            return $"/{ShellSettings.RequestUrlPrefix}/{previewPage}";
+            return path;
         }
     }
 }
