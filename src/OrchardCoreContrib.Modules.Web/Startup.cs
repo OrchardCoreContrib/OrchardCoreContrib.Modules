@@ -9,7 +9,9 @@ namespace OrchardCoreContrib.Modules.Web
     {
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddOrchardCms();
+            services
+                .AddOrchardCms()
+                .AddSetupFeatures("OrchardCore.AutoSetup");
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)

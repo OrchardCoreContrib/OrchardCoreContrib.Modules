@@ -2,16 +2,15 @@
 
 [assembly: Module(
     Name = "Content Preview",
-    Author = "Orchard Core Contrib",
+    Author = "The Orchard Core Contrib Team",
     Website = "",
-    Version = "1.0.0",
+    Version = "1.0.1",
     Category = "Content Management"
 )]
 
 [assembly: Feature(
-    Id = "OrchardCoreContrib.ContentPreview",
+    Id = "OrchardCoreContrib.ContentPreview.PagePreviewBar",
     Name = "Page Preview Bar",
     Description = "Shows a top bar that allows you to preview the current page in desktop, tablet and mobile.",
-    Category = "Content Management",
     Dependencies = new[] { "OrchardCore.Resources" }
 )]

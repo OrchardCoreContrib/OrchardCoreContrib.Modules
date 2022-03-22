@@ -1,6 +1,4 @@
-﻿using OrchardCore.Email;
-
-namespace OrchardCoreContrib.Email.Yahoo
+﻿namespace OrchardCoreContrib.Email.Yahoo
 {
     /// <summary>
     /// Represents a settings for Yahoo.

@@ -1,25 +1,27 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
-    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <TargetFramework>net6.0</TargetFramework>
     <IsPackable>false</IsPackable>
   </PropertyGroup>
 
 
   <ItemGroup>
-    <PackageReference Include="OrchardCore.Application.Cms.Targets" Version="1.0.0" />
+    <PackageReference Include="OrchardCore.Application.Cms.Targets" Version="1.2.2" />
   </ItemGroup>
 
 
   <ItemGroup>
     <ProjectReference Include="..\OrchardCoreContrib.Apis.Swagger\OrchardCoreContrib.Apis.Swagger.csproj" />
     <ProjectReference Include="..\OrchardCoreContrib.ContentPreview\OrchardCoreContrib.ContentPreview.csproj" />
+    <ProjectReference Include="..\OrchardCoreContrib.DataLocalization\OrchardCoreContrib.DataLocalization.csproj" />
     <ProjectReference Include="..\OrchardCoreContrib.Diagnostics.Elm\OrchardCoreContrib.Diagnostics.Elm.csproj" />
     <ProjectReference Include="..\OrchardCoreContrib.Email.Gmail\OrchardCoreContrib.Email.Gmail.csproj" />
     <ProjectReference Include="..\OrchardCoreContrib.Email.Hotmail\OrchardCoreContrib.Email.Hotmail.csproj" />
     <ProjectReference Include="..\OrchardCoreContrib.Email.SendGrid\OrchardCoreContrib.Email.SendGrid.csproj" />
     <ProjectReference Include="..\OrchardCoreContrib.Email.Yahoo\OrchardCoreContrib.Email.Yahoo.csproj" />
     <ProjectReference Include="..\OrchardCoreContrib.Gdpr\OrchardCoreContrib.Gdpr.csproj" />
+    <ProjectReference Include="..\OrchardCoreContrib.Html\OrchardCoreContrib.Html.csproj" />
     <ProjectReference Include="..\OrchardCoreContrib.Users\OrchardCoreContrib.Users.csproj" />
   </ItemGroup>
 

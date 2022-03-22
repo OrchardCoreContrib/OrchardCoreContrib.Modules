@@ -2,7 +2,7 @@
 
 [assembly: Module(
     Name = "GDPR",
-    Author = "Orchard Core Contrib",
+    Author = "The Orchard Core Contrib Team",
     Website = "",
     Version = "1.0.0",
     Description = "Supports EU General Data Protection Regulation (GDPR).",

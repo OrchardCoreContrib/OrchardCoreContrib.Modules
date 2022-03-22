@@ -1,0 +1,27 @@
+﻿nav {
+    border-bottom-style: solid;
+    padding-left: calc(50% - 88px);
+}
+
+label {
+    width: 44px;
+}
+
+iframe {
+    position: absolute;
+    width: 100%;
+    height: 94%;
+    border: none;
+}
+
+.tablet-preview {
+    width: 768px;
+    left: 50%;
+    transform: translate(-50%);
+}
+
+.mobile-preview {
+    width: 375px;
+    left: 50%;
+    transform: translate(-50%);
+}

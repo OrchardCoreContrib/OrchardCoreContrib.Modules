@@ -4,7 +4,7 @@ This module handle and logs errors using Elm.
 
 ## Version
 
-1.0.0
+1.1.0
 
 ## Category
 
@@ -24,7 +24,8 @@ This module has no dependencies.
 
 | Name | Version |
 | --- | --- |
-| [`OrchardCoreContrib.Diagnostics.Elm`](https://www.nuget.org/packages/OrchardCoreContrib.Diagnostics.Elm/) | 1.0.0 |
+| [`OrchardCoreContrib.Diagnostics.Elm`](https://www.nuget.org/packages/OrchardCoreContrib.Diagnostics.Elm/1.1.0) | 1.1.0 |
+| [`OrchardCoreContrib.Diagnostics.Elm`](https://www.nuget.org/packages/OrchardCoreContrib.Diagnostics.Elm/1.0.0) | 1.0.0 |
 
 ## Get Started
 

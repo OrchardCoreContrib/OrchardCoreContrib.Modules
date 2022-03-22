@@ -1,6 +1,4 @@
-﻿using OrchardCore.Email;
-
-namespace OrchardCoreContrib.Email.Hotmail
+﻿namespace OrchardCoreContrib.Email.Hotmail
 {
     /// <summary>
     /// Represents a settings for Hotmail.

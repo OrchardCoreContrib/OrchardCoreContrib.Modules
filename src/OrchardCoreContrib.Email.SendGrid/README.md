@@ -4,7 +4,7 @@ This module allows you to send emails using SendGrid service.
 
 ## Version
 
-1.0.0
+1.1.0
 
 ## Category
 
@@ -22,12 +22,12 @@ Messaging
 | --- | --- |
 | SendGrid (`OrchardCoreContrib.Email.SendGrid`) | Allow you to send email(s) via SendGrid service. |
 
-
 ## NuGet Packages
 
 | Name | Version |
 | --- | --- |
-| [`OrchardCoreContrib.Email.SendGrid`](https://www.nuget.org/packages/OrchardCoreContrib.Email.SendGrid/) | 1.0.0 |
+| [`OrchardCoreContrib.Email.SendGrid`](https://www.nuget.org/packages/OrchardCoreContrib.Email.SendGrid/1.1.0) | 1.1.0 |
+| [`OrchardCoreContrib.Email.SendGrid`](https://www.nuget.org/packages/OrchardCoreContrib.Email.SendGrid/1.0.0) | 1.0.0 |
 
 ## Get Started
 
