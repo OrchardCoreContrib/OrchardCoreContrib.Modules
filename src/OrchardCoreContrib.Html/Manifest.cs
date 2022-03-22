@@ -8,9 +8,9 @@ using OrchardCore.Modules.Manifest;
 )]
 
 [assembly: Feature(
-    Id = "OrchardCoreContrib.Html.GrapesJS",
+    Id = "OrchardCoreContrib.Html",
     Name = "GrapesJS HTML Editor",
     Description = "Enables GrapesJS editor for HtmlBody content.",
-    Dependencies = new[] { "OrchardCore.Html", "OrchardCore.Resources" },
+    Dependencies = new[] { "OrchardCore.Html" },
     Category = "Content Management"
 )]
