@@ -80,7 +80,11 @@ namespace OrchardCoreContrib.ContentPreview
 
             if (!path.Contains("preview") && !isPreview)
             {
-                context.Response.Redirect($"/{_shellSettings.RequestUrlPrefix}/preview{path}");
+                var url = _shellSettings.Name == "Default"
+                    ? "preview" + path
+                    : $"/{_shellSettings.RequestUrlPrefix}/preview{path}";
+                
+                context.Response.Redirect(url);
             }
 
             return _next(context);
