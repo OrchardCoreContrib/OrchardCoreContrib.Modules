@@ -10,12 +10,13 @@ This will encourage all the passionate developers to build the modules that aren
 
 ## Documentations
 
-- The `OrchardCoreContrib.Modules` repository consists of the following modules:
+The `OrchardCoreContrib.Modules` repository consists of the following modules:
 
 | Name | Namespace |
 | --- | --- |
 | [Swagger Module](src/OrchardCoreContrib.Apis.Swagger/README.md) | `OrchardCoreContrib.Apis.Swagger` |
 | [Content Preview Module](src/OrchardCoreContrib.ContentPreview/README.md) | `OrchardCoreContrib.ContentPreview` |
+| [Data Localization Module](src/OrchardCoreContrib.DataLocalization/README.md) | `OrchardCoreContrib.DataLocalization` |
 | [Elm Diagnostics Module](src/OrchardCoreContrib.Diagnostics.Elm/README.md) | `OrchardCoreContrib.Diagnostics.Elm` |
 | [Gmail Module](src/OrchardCoreContrib.Email.Gmail/README.md) | `OrchardCoreContrib.Email.Gmail` |
 | [Hotmail Module](src/OrchardCoreContrib.Email.Hotmail/README.md) | `OrchardCoreContrib.Email.Hotmail` |

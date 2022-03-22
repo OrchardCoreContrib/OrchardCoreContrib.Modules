@@ -48,11 +48,20 @@ namespace OrchardCoreContrib.ContentPreview
         public Task Invoke(HttpContext context)
         {
             var path = context.Request.Path.Value;
+
+            // Skip if the user is not authenticated
+            if (!context.User.Identity.IsAuthenticated)
+            {
+                return _next(context);
+            }
+
+            // Skip if the current request for a login page
             if (path.StartsWith($"/{_userOptions.LoginPath}", StringComparison.OrdinalIgnoreCase))
             {
                 return _next(context);
             }
 
+            // Skip if the current request for an admin page
             if (path.StartsWith($"/{_adminOptions.AdminUrlPrefix}", StringComparison.OrdinalIgnoreCase))
             {
                 return _next(context);

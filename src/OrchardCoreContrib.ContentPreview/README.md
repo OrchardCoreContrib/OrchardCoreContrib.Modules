@@ -26,6 +26,7 @@ Content Management
 
 | Name | Version |
 | --- | --- |
+| [`OrchardCoreContrib.ContentPreview`](https://www.nuget.org/packages/OrchardCoreContrib.ContentPreview/1.0.1) | 1.0.1 |
 | [`OrchardCoreContrib.ContentPreview`](https://www.nuget.org/packages/OrchardCoreContrib.ContentPreview/1.0.0) | 1.0.0 |
 | [`OrchardCoreContrib.ContentPreview`](https://www.nuget.org/packages/OrchardCoreContrib.ContentPreview/1.0.0-beta2) | 1.0.0-beta2 |
 | [`OrchardCoreContrib.ContentPreview`](https://www.nuget.org/packages/OrchardCoreContrib.ContentPreview/1.0.0-beta1) | 1.0.0-beta1 |
