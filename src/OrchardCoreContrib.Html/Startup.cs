@@ -1,25 +1,21 @@
 using System;
-using Fluid;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Routing;
-using Microsoft.Extensions.DependencyInjection;
 using OrchardCore.Modules;
+using OrchardCore.Mvc.Core.Utilities;
+using OrchardCoreContrib.Html.Controllers;
 
 namespace OrchardCoreContrib.Html
 {
     public class Startup : StartupBase
     {
-        public override void ConfigureServices(IServiceCollection services)
-        {
-        }
-
         public override void Configure(IApplicationBuilder builder, IEndpointRouteBuilder routes, IServiceProvider serviceProvider)
         {
             routes.MapAreaControllerRoute(
-                name: "OrchardCoreContrib.Html.Home",
+                name: "GrapesJSEditor",
                 areaName: "OrchardCoreContrib.Html",
-                pattern: "GrapesJS/Index",
-                defaults: new { controller = "GrapesJS", action = "Index" }
+                pattern: "GrapesJSEditor",
+                defaults: new { controller = typeof(AdminController).ControllerName(), action = nameof(AdminController.Index) }
             );
         }
     }
