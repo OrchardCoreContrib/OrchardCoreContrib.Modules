@@ -1,0 +1,11 @@
+﻿.grapes-editor {
+    border: 3px solid #444;
+}
+
+.gjs_override * {
+    box-sizing: content-box !important;
+}
+
+.gjs-mdl-content pre {
+    color: white !important;
+}
