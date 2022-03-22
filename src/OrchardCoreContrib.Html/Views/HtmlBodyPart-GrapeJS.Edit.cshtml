@@ -1,0 +1,10 @@
+@model HtmlBodyPartViewModel
+
+<div class="form-group">
+    <label asp-for="Html">@Model.TypePartDefinition.DisplayName()</label>
+    <input asp-for="Html" type="hidden" class="form-control" />
+
+    <iframe src="~/GrapesJSEditor" style="width: 100%; height: 900px;">
+    </iframe>
+    <span class="hint">@T["The body of the content item."]</span>
+</div>
