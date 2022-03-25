@@ -11,7 +11,7 @@
       "name": "feature",
       "disable": [],
       "enable": [
-        "OrchardCoreContrib.Apis.Swagger",
+        "OrchardCoreContrib.Apis.Swagger.UI",
         "OrchardCoreContrib.ContentPreview.PagePreviewBar",
         "OrchardCoreContrib.DataLocalization",
         "OrchardCoreContrib.Diagnostics.Elm",
