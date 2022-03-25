@@ -20,6 +20,7 @@ The `OrchardCoreContrib.Modules` repository consists of the following modules:
 | [Elm Diagnostics Module](src/OrchardCoreContrib.Diagnostics.Elm/README.md) | `OrchardCoreContrib.Diagnostics.Elm` |
 | [Gmail Module](src/OrchardCoreContrib.Email.Gmail/README.md) | `OrchardCoreContrib.Email.Gmail` |
 | [Hotmail Module](src/OrchardCoreContrib.Email.Hotmail/README.md) | `OrchardCoreContrib.Email.Hotmail` |
+| [Html Module](src/OrchardCoreContrib.Html/README.md) | `OrchardCoreContrib.Html` |
 | [SendGrid Module](src/OrchardCoreContrib.Email.SendGrid/README.md) | `OrchardCoreContrib.Email.SendGrid` |
 | [Yahoo Module](src/OrchardCoreContrib.Email.Yahoo/README.md) | `OrchardCoreContrib.Email.Yahoo` |
 | [Users Module](src/OrchardCoreContrib.Users/README.md) | `OrchardCoreContrib.Users` |
