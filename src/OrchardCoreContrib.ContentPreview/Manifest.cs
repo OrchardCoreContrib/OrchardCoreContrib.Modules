@@ -1,4 +1,5 @@
 ﻿using OrchardCore.Modules.Manifest;
+using OrchardCoreContrib.ContentPreview;
 
 [assembly: Module(
     Name = "Content Preview",
@@ -9,7 +10,7 @@
 )]
 
 [assembly: Feature(
-    Id = "OrchardCoreContrib.ContentPreview.PagePreviewBar",
+    Id = Constants.PagePreviewBarFeatureId,
     Name = "Page Preview Bar",
     Description = "Shows a top bar that allows you to preview the current page in desktop, tablet and mobile.",
     Dependencies = new[] { "OrchardCore.Resources" }
