@@ -1,6 +1,4 @@
-﻿@using OrchardCore.Environment.Shell
-@inject ShellSettings ShellSettings
-@{
+﻿@{
     Layout = null;
 }
 
@@ -10,10 +8,9 @@
     {
         get
         {
-            var previewPage = Context.Request.RouteValues["page"]?.ToString() ?? "/";
-            var path = ShellSettings.Name == "Default"
-                ? previewPage
-                : $"/{ShellSettings.RequestUrlPrefix}/{previewPage}";
+            var requestPath = Context.Request.Path.Value;
+            var previewPage = requestPath.Substring(requestPath.IndexOf($"/{Constants.PreviewSlug}") + Constants.PreviewSlug.Length + 1);
+            var path = String.Concat(Context.Request.PathBase.Value, previewPage);
 
             return path;
         }
