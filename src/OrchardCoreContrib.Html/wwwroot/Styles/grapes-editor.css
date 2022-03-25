@@ -9,3 +9,7 @@
 .gjs-mdl-content pre {
     color: white !important;
 }
+
+body {
+    margin: 0;
+}
