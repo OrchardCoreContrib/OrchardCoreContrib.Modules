@@ -12,7 +12,7 @@
       "disable": [],
       "enable": [
         "OrchardCoreContrib.Apis.Swagger.UI",
-        "OrchardCoreContrib.ContentPreview.PagePreviewBar",
+        //"OrchardCoreContrib.ContentPreview.PagePreviewBar", // Disable this feature by default
         "OrchardCoreContrib.DataLocalization",
         "OrchardCoreContrib.Diagnostics.Elm",
         "OrchardCoreContrib.Email.Gmail",
