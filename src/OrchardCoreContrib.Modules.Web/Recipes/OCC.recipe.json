@@ -1,0 +1,44 @@
+﻿{
+  "name": "OCC",
+  "displayName": "Orchard Core Contrib",
+  "description": "",
+  "author": "The Orchard Core Contrib Team",
+  "website": "",
+  "version": "1.0",
+  "issetuprecipe": true,
+  "steps": [
+    {
+      "name": "feature",
+      "disable": [],
+      "enable": [
+        "OrchardCoreContrib.Apis.Swagger",
+        "OrchardCoreContrib.ContentPreview.PagePreviewBar",
+        "OrchardCoreContrib.DataLocalization",
+        "OrchardCoreContrib.Diagnostics.Elm",
+        "OrchardCoreContrib.Email.Gmail",
+        "OrchardCoreContrib.Email.Hotmail",
+        "OrchardCoreContrib.Email.SendGrid",
+        "OrchardCoreContrib.Email.Yahoo",
+        "OrchardCoreContrib.Html",
+        "OrchardCoreContrib.Users.Impersonation",
+        "OrchardCore.Roles",
+        "OrchardCore.Users",
+        "TheTheme"
+      ]
+    },
+    {
+      "name": "recipes",
+      "Values": [
+        {
+          "executionid": "Blog",
+          "name": "Blog"
+        }
+      ]
+    },
+    {
+      "name": "themes",
+      "admin": "TheAdmin",
+      "site": "TheBlogTheme"
+    }
+  ]
+}
