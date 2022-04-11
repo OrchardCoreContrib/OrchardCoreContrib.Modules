@@ -132,7 +132,10 @@ namespace OrchardCoreContrib.DataLocalization.Controllers
 
             var translationsDocument = await _translationsManager.GetTranslationsDocumentAsync();
 
-            translations = translationsDocument.Translations[culture].ToList();
+            if (translationsDocument.Translations.ContainsKey(culture))
+            {
+                translations = translationsDocument.Translations[culture].ToList();
+            }
 
             foreach (var key in Request.Form.Keys.Where(k => !k.Equals(AntiForgeryTokenKey)))
             {
