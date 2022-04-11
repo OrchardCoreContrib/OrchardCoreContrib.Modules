@@ -12,7 +12,7 @@ namespace OrchardCoreContrib.DataLocalization.Services
     /// </summary>
     public class ContentFieldResourceStringProvider : IDataResourceStringProvider
     {
-        internal static readonly string Context = "Content Field";
+        internal static readonly string Context = "ContentField";
 
         private readonly IContentDefinitionService _contentDefinitionService;
 

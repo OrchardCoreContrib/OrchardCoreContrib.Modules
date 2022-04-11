@@ -11,7 +11,7 @@ namespace OrchardCoreContrib.DataLocalization.Services
     /// </summary>
     public class ContentTypeResourceStringProvider : IDataResourceStringProvider
     {
-        internal static readonly string Context = "Content Type";
+        internal static readonly string Context = "ContentType";
 
         private readonly IContentDefinitionService _contentDefinitionService;
 
