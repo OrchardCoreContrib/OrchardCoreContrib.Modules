@@ -58,3 +58,7 @@ Adding your APIs is not swagger docs is not a difficult task, simply you need:
 So, If you tried toenable `Lucene` or `Queries` modules for instance, their APIs will show up immediately in the swagger docs. That's because every module defined an `ApiController` in the same way that mentioned above.
 
 For more information about swagger, please refer to [ASP.NET Core web API documentation with Swagger / OpenAPI](https://docs.microsoft.com/en-us/aspnet/core/tutorials/web-api-help-pages-using-swagger).
+
+## Video
+
+[![Watch the video](https://img.youtube.com/vi/Sa6qy_YnGSU/maxresdefault.jpg)](https://youtu.be/Sa6qy_YnGSU)
