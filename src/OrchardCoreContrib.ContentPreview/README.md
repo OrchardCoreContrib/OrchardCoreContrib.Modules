@@ -40,3 +40,7 @@ Content Management
 4. Enable the `Page Preview Bar` feature.
 5. Go to the site.
 6. Now you will be able to preview the current visited page in desktop, tablet and mobile from within the top page previw bar
+
+## Video
+
+[![Watch the video](https://img.youtube.com/vi/HGy2QjdrJoI/maxresdefault.jpg)](https://youtu.be/HGy2QjdrJoI)
