@@ -15,6 +15,7 @@ The `OrchardCoreContrib.Modules` repository consists of the following modules:
 | Name | Namespace |
 | --- | --- |
 | [Swagger Module](src/OrchardCoreContrib.Apis.Swagger/README.md) | `OrchardCoreContrib.Apis.Swagger` |
+| [Content Localization Module](src/OrchardCoreContrib.ContentLocalization/README.md) | `OrchardCoreContrib.ContentLocalization` |
 | [Content Preview Module](src/OrchardCoreContrib.ContentPreview/README.md) | `OrchardCoreContrib.ContentPreview` |
 | [Data Localization Module](src/OrchardCoreContrib.DataLocalization/README.md) | `OrchardCoreContrib.DataLocalization` |
 | [Elm Diagnostics Module](src/OrchardCoreContrib.Diagnostics.Elm/README.md) | `OrchardCoreContrib.Diagnostics.Elm` |
