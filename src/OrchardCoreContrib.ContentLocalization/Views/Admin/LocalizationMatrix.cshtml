@@ -1,0 +1,56 @@
+﻿@using OrchardCore.ContentLocalization
+@using OrchardCoreContrib.ContentLocalization.ViewModels
+
+@model LocalizationMatrixViewModel
+
+@inject IContentLocalizationManager ContentLocalizationManager
+
+<zone Name="Title"><h1>@RenderTitleSegments(T["Localization Matrix"])</h1></zone>
+
+@if (Model.LocalizationSets.Any())
+{
+    <table class="table table-striped table-hover">
+        <thead>
+            <tr>
+                <th class="w-50">Content Item</th>
+                @foreach (var culture in Model.Cultures)
+                {
+                    <th>@culture</th>
+                }
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var set in Model.LocalizationSets)
+            {
+                var localizedContents = await ContentLocalizationManager.GetItemsForSetAsync(set);
+
+                var cultures = localizedContents.Select(l => l.Content.LocalizationPart.Culture.ToString());
+
+                var contentItem = localizedContents?.First();
+                if (contentItem == null)
+                {
+                    continue;
+                }
+                <tr>
+                    <td>
+                        <a edit-for="@contentItem" target="_blank">@(contentItem.Content.TitlePart?.Title ?? contentItem.ContentType)</a> <span class="badge bg-success text-white">@contentItem.ContentType</span>
+                    </td>
+                    @foreach (var culture in Model.Cultures)
+                    {
+                        <th>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" disabled checked="@(cultures.Contains(culture) ? "checked" : null)">
+                            </div>
+                        </th>
+                    }
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <div class="alert alert-info">
+        There's no content localized yet.
+    </div>
+}
