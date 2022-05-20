@@ -26,6 +26,7 @@ The `OrchardCoreContrib` repository consists of the following projects:
 | --- | --- |
 | [Orchard Core Contrib Implementation APIs](src/OrchardCoreContrib/README.md) | `OrchardCoreContrib` |
 | [Orchard Core Contrib Abstractions APIs](src/OrchardCoreContrib.Abstractions/README.md) | `OrchardCoreContrib.Abstractions` |
+| [Content Localization Abstractions APIs](src/OrchardCoreContrib.ContentLocalization.Abstractions/README.md) | `OrchardCoreContrib.ContentLocalization.Abstractions` |
 | [Email APIs](src/OrchardCoreContrib.Email/README.md) | `OrchardCoreContrib.Email` |
 | [Email Abstractions](src/OrchardCoreContrib.Email.Abstractions/README.md) | `OrchardCoreContrib.Email.Abstractions` |
 | [Infrastructure Abstractions APIs](src/OrchardCoreContrib.Infrastructure.Abstractions/README.md) | `OrchardCoreContrib.Infrastructure.Abstractions` |
