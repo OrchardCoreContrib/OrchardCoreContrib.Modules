@@ -35,6 +35,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OrchardCoreContrib.Html", "
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OrchardCoreContrib.ContentLocalization", "src\OrchardCoreContrib.ContentLocalization\OrchardCoreContrib.ContentLocalization.csproj", "{7FB305D4-E3A7-4C7D-923A-80208B1442AF}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OrchardCoreContrib.GoogleMaps", "src\OrchardCoreContrib.GoogleMaps\OrchardCoreContrib.GoogleMaps.csproj", "{B024D62D-F553-47E4-97AB-49BD8366105E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -97,6 +99,10 @@ Global
 		{7FB305D4-E3A7-4C7D-923A-80208B1442AF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7FB305D4-E3A7-4C7D-923A-80208B1442AF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7FB305D4-E3A7-4C7D-923A-80208B1442AF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B024D62D-F553-47E4-97AB-49BD8366105E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B024D62D-F553-47E4-97AB-49BD8366105E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B024D62D-F553-47E4-97AB-49BD8366105E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B024D62D-F553-47E4-97AB-49BD8366105E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -116,6 +122,7 @@ Global
 		{F72E675A-6084-476B-8B38-5419877E256E} = {C80A325F-F4C4-4C7B-A3CF-FB77CD8C9949}
 		{1591CBCD-5BA1-4D6D-8202-CB19473CE57C} = {C80A325F-F4C4-4C7B-A3CF-FB77CD8C9949}
 		{7FB305D4-E3A7-4C7D-923A-80208B1442AF} = {C80A325F-F4C4-4C7B-A3CF-FB77CD8C9949}
+		{B024D62D-F553-47E4-97AB-49BD8366105E} = {C80A325F-F4C4-4C7B-A3CF-FB77CD8C9949}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {48F73B05-7D3D-4ACF-81AE-A98B2B4EFDB2}
