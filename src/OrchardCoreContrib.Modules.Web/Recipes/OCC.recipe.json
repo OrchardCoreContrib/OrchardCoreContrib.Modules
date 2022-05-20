@@ -19,6 +19,7 @@
         "OrchardCoreContrib.Email.Hotmail",
         "OrchardCoreContrib.Email.SendGrid",
         "OrchardCoreContrib.Email.Yahoo",
+        "OrchardCoreContrib.GoogleMaps",
         "OrchardCoreContrib.Html",
         "OrchardCoreContrib.Users.Impersonation",
         "OrchardCore.Roles",
