@@ -1,0 +1,20 @@
+@using OrchardCoreContrib.GoogleMaps.ViewModels
+@model GoogleMapsSettingsViewModel
+
+<div class="form-group" asp-validation-class-for="ApiKey">
+    <label asp-for="ApiKey">@T["API Key"]</label>
+    <input asp-for="ApiKey" class="form-control" type="password" />
+    <span class="hint">@T["The API key for authentication. If you left the API key empty, the map will be for development purposes only."]</span>
+</div>
+
+<div class="form-group">
+    <label asp-for="Latitude">@T["Latitude"]</label>
+    <input asp-for="Latitude" class="form-control" />
+    <span asp-validation-for="Latitude"></span>
+</div>
+
+<div class="form-group">
+    <label asp-for="Longitude">@T["Longitude"]</label>
+    <input asp-for="Longitude" class="form-control" />
+    <span asp-validation-for="Longitude"></span>
+</div>
