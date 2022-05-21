@@ -12,6 +12,7 @@
       "disable": [],
       "enable": [
         "OrchardCoreContrib.Apis.Swagger.UI",
+        "OrchardCoreContrib.ContentLocalization",
         //"OrchardCoreContrib.ContentPreview.PagePreviewBar", // Disable this feature by default
         "OrchardCoreContrib.DataLocalization",
         "OrchardCoreContrib.Diagnostics.Elm",
