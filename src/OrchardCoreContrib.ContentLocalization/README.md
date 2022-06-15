@@ -37,3 +37,7 @@ Internationalization
 4. Enable the `Localization Matrix` feature.
 5. Select **Configuration -> Settings -> Localization -> Localization Matrix** menu.
 6. Then you can check the localized content per culture, also you can edit the missing localized content from there.
+
+## Video
+
+[![Watch the video](https://img.youtube.com/vi/14X8fmmnOL8/maxresdefault.jpg)](https://youtu.be/14X8fmmnOL8)
