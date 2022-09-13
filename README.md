@@ -33,7 +33,8 @@ The `OrchardCoreContrib` repository consists of the following projects:
 | [LINQ to Orchard Core](src/OrchardCoreContrib.Linq/README.md) | `OrchardCoreContrib.Linq` |
 | [Localization Implementation APIs](src/OrchardCoreContrib.Localization/README.md) | `OrchardCoreContrib.Localization` |
 | [Localization Abstractions APIs](src/OrchardCoreContrib.Localization.Abstractions/README.md) | `OrchardCoreContrib.Localization.Abstractions` |
-| [Json Localization APIs](src/OrchardCoreContrib.Localization.Json/README.md) | `OrchardCoreContrib.Localization.Json` |
+| [JSON Localization APIs](src/OrchardCoreContrib.Localization.Json/README.md) | `OrchardCoreContrib.Localization.Json` |
+| [XLIFF Localization APIs](src/OrchardCoreContrib.Localization.Xliff/README.md) | `OrchardCoreContrib.Localization.Xliff` |
 | [OpenApi Abstractions APIs](src/OrchardCoreContrib.OpenApi.Abstractions/README.md) | `OrchardCoreContrib.OpenApi.Abstractions` |
 | [Shortcodes Abstractions APIs](src/OrchardCoreContrib.Shortcodes.Abstractions/README.md) | `OrchardCoreContrib.Shortcodes.Abstractions` |
 | [Shortcode Implementation APIs](src/OrchardCoreContrib.Shortcode.Core/README.md) | `OrchardCoreContrib.Shortcode.Core` |
