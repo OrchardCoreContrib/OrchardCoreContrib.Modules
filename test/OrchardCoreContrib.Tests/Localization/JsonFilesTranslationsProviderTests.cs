@@ -2,7 +2,6 @@
 using Moq;
 using OrchardCore.Localization;
 using OrchardCoreContrib.Localization.Json;
-using OrchardCoreContrib.Tests.Common;
 using System.Collections.Generic;
 using Xunit;
 
@@ -16,15 +15,15 @@ namespace OrchardCoreContrib.Tests.Localization
 
         public JsonFilesTranslationsProviderTests()
         {
-            var embeddedProvider = new EmbeddedResourceReader().FileProvider;
+            var embeddedFileProvider = new EmbeddedFileProvider(typeof(JsonFilesTranslationsProviderTests).Assembly);
 
             _localizationFileLocationProvider = new Mock<ILocalizationFileLocationProvider>();
             _localizationFileLocationProvider
             .Setup(l => l.GetLocations(It.IsAny<string>()))
             .Returns(() => new List<IFileInfo>
             {
-                embeddedProvider.GetFileInfo("Localization.JsonFiles.First.json"),
-                embeddedProvider.GetFileInfo("Localization.JsonFiles.Second.json")
+                embeddedFileProvider.GetFileInfo("Localization.JsonFiles.First.json"),
+                embeddedFileProvider.GetFileInfo("Localization.JsonFiles.Second.json")
             });
         }
 

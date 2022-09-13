@@ -7,7 +7,6 @@
 
 	<ItemGroup>
 		<EmbeddedResource Include="Localization\JsonFiles\*.json" />
-		<EmbeddedResource Include="Localization\Xliff\Files\*.xliff" />
 	</ItemGroup>
 
 	<ItemGroup>
@@ -23,7 +22,6 @@
 		<ProjectReference Include="..\..\src\OrchardCoreContrib.Infrastructure.Abstractions\OrchardCoreContrib.Infrastructure.Abstractions.csproj" />
 		<ProjectReference Include="..\..\src\OrchardCoreContrib.Linq\OrchardCoreContrib.Linq.csproj" />
 		<ProjectReference Include="..\..\src\OrchardCoreContrib.Localization.Json\OrchardCoreContrib.Localization.Json.csproj" />
-		<ProjectReference Include="..\..\src\OrchardCoreContrib.Localization.Xliff\OrchardCoreContrib.Localization.Xliff.csproj" />
 		<ProjectReference Include="..\..\src\OrchardCoreContrib.Localization\OrchardCoreContrib.Localization.csproj" />
 		<ProjectReference Include="..\..\src\OrchardCoreContrib.Shortcodes.Core\OrchardCoreContrib.Shortcodes.Core.csproj" />
 	</ItemGroup>
