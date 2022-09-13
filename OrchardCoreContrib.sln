@@ -41,6 +41,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OrchardCoreContrib.Localiza
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OrchardCoreContrib.Localization.Xliff.Tests", "test\OrchardCoreContrib.Localization.Xliff.Tests\OrchardCoreContrib.Localization.Xliff.Tests.csproj", "{C8A8B31F-AFB5-490F-AAA1-020A162BE710}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "images", "images", "{8A98775E-7FCE-4FCE-BF14-1EE3B6917184}"
+	ProjectSection(SolutionItems) = preProject
+		images\icon.png = images\icon.png
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU

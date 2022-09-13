@@ -15,10 +15,15 @@
 		<PackageTags>Orchard Core, Orchard Core Contrib, Localization, XLIFF</PackageTags>
 		<PackageReleaseNotes>https://github.com/OrchardCoreContrib/OrchardCoreContrib/releases</PackageReleaseNotes>
 		<PackageId>OrchardCoreContrib.Localization.Xliff</PackageId>
+		<PackageIcon>icon.png</PackageIcon>
 		<Product>Orchard Core Contrib XLIFF Localization</Product>
 		<PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
 		<Copyright>2019 Orchard Core Contrib</Copyright>
 	</PropertyGroup>
+
+	<ItemGroup>
+		<None Include="../../images/icon.png" Pack="true" PackagePath="icon.png" />
+	</ItemGroup>
 
 	<ItemGroup>
 		<ProjectReference Include="..\OrchardCoreContrib.Localization.Abstractions\OrchardCoreContrib.Localization.Abstractions.csproj" />
