@@ -11,8 +11,8 @@ namespace OrchardCoreContrib.Localization.Json.Tests;
 
 public class JsonStringLocalizerTests
 {
-    private static readonly PluralizationRuleDelegate _arPluralizationRule = n => (n == 0 ? 0 : n == 1 ? 1 : n == 2 ? 2 : n % 100 >= 3 && n % 100 <= 10 ? 3 : n % 100 >= 11 ? 4 : 5);
-    private static readonly PluralizationRuleDelegate _frPluralizationRule = n => n > 1 ? 1 : 0;
+    private static readonly PluralizationRuleDelegate _defaultPluralizationRule = n => n != 1 ? 1 : 0;
+
     private readonly Mock<ILocalizationManager> _localizationManager;
     private readonly Mock<ILogger> _logger;
 
@@ -27,9 +27,10 @@ public class JsonStringLocalizerTests
     {
         // Arrange
         var culture = "fr-FR";
-        SetupDictionary(culture, new[] {
-                new CultureDictionaryRecordWrapper("Hello", "Bonjour")
-            }, _frPluralizationRule);
+        SetupDictionary(culture, new[]
+        {
+            new CultureDictionaryRecordWrapper("Hello", "Bonjour")
+        });
 
         var localizer = new JsonStringLocalizer(_localizationManager.Object, true, _logger.Object);
 
@@ -47,9 +48,10 @@ public class JsonStringLocalizerTests
     {
         // Arrange
         var culture = "fr-FR";
-        SetupDictionary(culture, new[] {
-                new CultureDictionaryRecordWrapper("Hello", "Bonjour")
-            }, _frPluralizationRule);
+        SetupDictionary(culture, new[]
+        {
+            new CultureDictionaryRecordWrapper("Hello", "Bonjour")
+        });
 
         var localizer = new JsonStringLocalizer(_localizationManager.Object, true, _logger.Object);
 
@@ -67,7 +69,7 @@ public class JsonStringLocalizerTests
     {
         // Arrange
         var culture = "fr-FR";
-        SetupDictionary(culture, Array.Empty<CultureDictionaryRecord>(), _frPluralizationRule);
+        SetupDictionary(culture, Array.Empty<CultureDictionaryRecord>());
 
         var localizer = new JsonStringLocalizer(_localizationManager.Object, true, _logger.Object);
 
@@ -86,11 +88,11 @@ public class JsonStringLocalizerTests
         // Arrange
         var culture = "fr-FR";
         SetupDictionary("fr", new[] {
-                new CultureDictionaryRecordWrapper("Hello", "Bonjour")
-            }, _frPluralizationRule);
+            new CultureDictionaryRecordWrapper("Hello", "Bonjour")
+        });
         SetupDictionary(culture, new[] {
-                new CultureDictionaryRecordWrapper("Bye", "au revoir")
-            }, _frPluralizationRule);
+            new CultureDictionaryRecordWrapper("Bye", "au revoir")
+        });
 
         var localizer = new JsonStringLocalizer(_localizationManager.Object, true, _logger.Object);
 
@@ -108,12 +110,14 @@ public class JsonStringLocalizerTests
     {
         // Arrange
         var culture = "fr-FR";
-        SetupDictionary("fr", new[] {
-                new CultureDictionaryRecordWrapper("Hello", "Bonjour (fr)")
-            }, _frPluralizationRule);
-        SetupDictionary(culture, new[] {
-                new CultureDictionaryRecordWrapper("Hello", "Bonjour (fr-FR)")
-            }, _frPluralizationRule);
+        SetupDictionary("fr", new[]
+        {
+            new CultureDictionaryRecordWrapper("Hello", "Bonjour (fr)")
+        });
+        SetupDictionary(culture, new[]
+        {
+            new CultureDictionaryRecordWrapper("Hello", "Bonjour (fr-FR)")
+        });
         var localizer = new JsonStringLocalizer(_localizationManager.Object, true, _logger.Object);
 
         CultureInfo.CurrentUICulture = new CultureInfo(culture);
@@ -133,9 +137,9 @@ public class JsonStringLocalizerTests
         // Arrange
         var culture = "ar-YE";
         SetupDictionary("ar", new CultureDictionaryRecord[] {
-                new CultureDictionaryRecordWrapper("Hello", "مرحبا" )
-            }, _arPluralizationRule);
-        SetupDictionary(culture, Array.Empty<CultureDictionaryRecord>(), _arPluralizationRule);
+            new CultureDictionaryRecordWrapper("Hello", "مرحبا" )
+        });
+        SetupDictionary(culture, Array.Empty<CultureDictionaryRecord>());
         var localizer = new JsonStringLocalizer(_localizationManager.Object, fallBackToParentCulture, _logger.Object);
         CultureInfo.CurrentUICulture = new CultureInfo(culture);
 
@@ -153,16 +157,18 @@ public class JsonStringLocalizerTests
     {
         // Arrange
         var culture = "ar-YE";
-        SetupDictionary("ar", new CultureDictionaryRecord[] {
-                new CultureDictionaryRecordWrapper("Blog", "مدونة" ),
-                new CultureDictionaryRecordWrapper("Menu", "قائمة"),
-                new CultureDictionaryRecordWrapper("Page", "صفحة"),
-                new CultureDictionaryRecordWrapper("Article", "مقالة")
-            }, _arPluralizationRule);
-        SetupDictionary(culture, new CultureDictionaryRecord[] {
-                new CultureDictionaryRecordWrapper("Blog", "مدونة" ),
-                new CultureDictionaryRecordWrapper("Product", "منتج" )
-            }, _arPluralizationRule);
+        SetupDictionary("ar", new CultureDictionaryRecord[]
+        {
+            new CultureDictionaryRecordWrapper("Blog", "مدونة" ),
+            new CultureDictionaryRecordWrapper("Menu", "قائمة"),
+            new CultureDictionaryRecordWrapper("Page", "صفحة"),
+            new CultureDictionaryRecordWrapper("Article", "مقالة")
+        });
+        SetupDictionary(culture, new CultureDictionaryRecord[]
+        {
+            new CultureDictionaryRecordWrapper("Blog", "مدونة" ),
+            new CultureDictionaryRecordWrapper("Product", "منتج" )
+        });
 
         var localizer = new JsonStringLocalizer(_localizationManager.Object, false, _logger.Object);
         CultureInfo.CurrentUICulture = new CultureInfo(culture);
@@ -171,12 +177,12 @@ public class JsonStringLocalizerTests
         var translations = localizer.GetAllStrings(includeParentCultures).Select(l => l.Value).ToArray();
 
         // Assert
-        Assert.Equal(expected.Count(), translations.Count());
+        Assert.Equal(expected.Length, translations.Length);
     }
 
-    private void SetupDictionary(string cultureName, IEnumerable<CultureDictionaryRecord> records, PluralizationRuleDelegate pluralRule)
+    private void SetupDictionary(string cultureName, IEnumerable<CultureDictionaryRecord> records)
     {
-        var dictionary = new CultureDictionary(cultureName, pluralRule);
+        var dictionary = new CultureDictionary(cultureName, _defaultPluralizationRule);
         dictionary.MergeTranslations(records);
 
         _localizationManager.Setup(o => o.GetDictionary(It.Is<CultureInfo>(c => c.Name == cultureName))).Returns(dictionary);

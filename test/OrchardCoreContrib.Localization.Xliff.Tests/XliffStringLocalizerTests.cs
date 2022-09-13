@@ -11,6 +11,7 @@ namespace OrchardCoreContrib.Localization.Xliff.Tests;
 public class XliffStringLocalizerTests
 {
     private static readonly PluralizationRuleDelegate _defaultPluralizationRule = n => n != 1 ? 1 : 0;
+    
     private readonly Mock<ILocalizationManager> _localizationManager;
 
     public XliffStringLocalizerTests()
@@ -98,6 +99,7 @@ public class XliffStringLocalizerTests
         var culture = "fr-FR";
         SetupDictionary("fr", new[] { new CultureDictionaryRecordWrapper("Hello", "Bonjour (fr)") });
         SetupDictionary(culture, new[] { new CultureDictionaryRecordWrapper("Hello", "Bonjour (fr-FR)") });
+        
         var localizer = new XliffStringLocalizer(_localizationManager.Object, false);
 
         CultureInfo.CurrentUICulture = new CultureInfo(culture);
@@ -118,6 +120,7 @@ public class XliffStringLocalizerTests
         var culture = "ar-YE";
         SetupDictionary("ar", new CultureDictionaryRecord[] { new CultureDictionaryRecordWrapper("Hello", "مرحبا") });
         SetupDictionary(culture, Array.Empty<CultureDictionaryRecord>());
+        
         var localizer = new XliffStringLocalizer(_localizationManager.Object, fallBackToParentCulture);
         CultureInfo.CurrentUICulture = new CultureInfo(culture);
 
@@ -135,16 +138,18 @@ public class XliffStringLocalizerTests
     {
         // Arrange
         var culture = "ar-YE";
-        SetupDictionary("ar", new CultureDictionaryRecord[] {
-                new CultureDictionaryRecordWrapper("Blog", "مدونة" ),
-                new CultureDictionaryRecordWrapper("Menu", "قائمة"),
-                new CultureDictionaryRecordWrapper("Page", "صفحة"),
-                new CultureDictionaryRecordWrapper("Article", "مقالة")
-            });
-        SetupDictionary(culture, new CultureDictionaryRecord[] {
-                new CultureDictionaryRecordWrapper("Blog", "مدونة" ),
-                new CultureDictionaryRecordWrapper("Product", "منتج" )
-            });
+        SetupDictionary("ar", new CultureDictionaryRecord[]
+        {
+            new CultureDictionaryRecordWrapper("Blog", "مدونة" ),
+            new CultureDictionaryRecordWrapper("Menu", "قائمة"),
+            new CultureDictionaryRecordWrapper("Page", "صفحة"),
+            new CultureDictionaryRecordWrapper("Article", "مقالة")
+        });
+        SetupDictionary(culture, new CultureDictionaryRecord[]
+        {
+            new CultureDictionaryRecordWrapper("Blog", "مدونة" ),
+            new CultureDictionaryRecordWrapper("Product", "منتج" )
+        });
 
         var localizer = new XliffStringLocalizer(_localizationManager.Object, false);
         CultureInfo.CurrentUICulture = new CultureInfo(culture);

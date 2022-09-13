@@ -8,7 +8,7 @@ namespace OrchardCoreContrib.Localization.Json.Tests;
 
 public class JsonFilesTranslationsProviderTests
 {
-    private static readonly PluralizationRuleDelegate _frPluralizationRule = n => n > 1 ? 1 : 0;
+    private static readonly PluralizationRuleDelegate _defaultPluralizationRule = n => n != 1 ? 1 : 0;
 
     private readonly Mock<ILocalizationFileLocationProvider> _localizationFileLocationProvider;
 
@@ -32,7 +32,7 @@ public class JsonFilesTranslationsProviderTests
         // Arrange
         var culture = "fr-FR";
         var translationProvider = new JsonFilesTranslationsProvider(_localizationFileLocationProvider.Object);
-        var cultureDictionary = new CultureDictionary(culture, _frPluralizationRule);
+        var cultureDictionary = new CultureDictionary(culture, _defaultPluralizationRule);
 
         // Act
         translationProvider.LoadTranslations(culture, cultureDictionary);
