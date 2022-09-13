@@ -37,7 +37,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OrchardCoreContrib.Email.Ab
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OrchardCoreContrib.ContentLocalization.Abstractions", "src\OrchardCoreContrib.ContentLocalization.Abstractions\OrchardCoreContrib.ContentLocalization.Abstractions.csproj", "{1BD05C60-D023-49D4-85E8-F76E22E61DC2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OrchardCoreContrib.Localization.Xliff", "src\OrchardCoreContrib.Localization.Xliff\OrchardCoreContrib.Localization.Xliff.csproj", "{581B2C7C-305A-459F-B2E2-D45A78E1B1E0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OrchardCoreContrib.Localization.Xliff", "src\OrchardCoreContrib.Localization.Xliff\OrchardCoreContrib.Localization.Xliff.csproj", "{581B2C7C-305A-459F-B2E2-D45A78E1B1E0}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OrchardCoreContrib.Localization.Xliff.Tests", "test\OrchardCoreContrib.Localization.Xliff.Tests\OrchardCoreContrib.Localization.Xliff.Tests.csproj", "{C8A8B31F-AFB5-490F-AAA1-020A162BE710}"
 EndProject
@@ -45,6 +45,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "images", "images", "{8A9877
 	ProjectSection(SolutionItems) = preProject
 		images\icon.png = images\icon.png
 	EndProjectSection
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OrchardCoreContrib.Localization.Json.Tests", "test\OrchardCoreContrib.Localization.Json.Tests\OrchardCoreContrib.Localization.Json.Tests.csproj", "{5F6D74D5-11DF-41A2-824B-75F38F3C6810}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -120,6 +122,10 @@ Global
 		{C8A8B31F-AFB5-490F-AAA1-020A162BE710}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C8A8B31F-AFB5-490F-AAA1-020A162BE710}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C8A8B31F-AFB5-490F-AAA1-020A162BE710}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5F6D74D5-11DF-41A2-824B-75F38F3C6810}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5F6D74D5-11DF-41A2-824B-75F38F3C6810}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5F6D74D5-11DF-41A2-824B-75F38F3C6810}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5F6D74D5-11DF-41A2-824B-75F38F3C6810}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -142,6 +148,7 @@ Global
 		{1BD05C60-D023-49D4-85E8-F76E22E61DC2} = {9E0FA124-27DA-447A-9C52-AD92A3AE3679}
 		{581B2C7C-305A-459F-B2E2-D45A78E1B1E0} = {9E0FA124-27DA-447A-9C52-AD92A3AE3679}
 		{C8A8B31F-AFB5-490F-AAA1-020A162BE710} = {5A96E9D7-10C5-4947-BE3D-3275A28C371D}
+		{5F6D74D5-11DF-41A2-824B-75F38F3C6810} = {5A96E9D7-10C5-4947-BE3D-3275A28C371D}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {82D49E76-A63E-465D-B527-C20110460A14}

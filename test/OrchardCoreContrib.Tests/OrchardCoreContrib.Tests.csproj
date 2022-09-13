@@ -6,10 +6,6 @@
 	</PropertyGroup>
 
 	<ItemGroup>
-		<EmbeddedResource Include="Localization\JsonFiles\*.json" />
-	</ItemGroup>
-
-	<ItemGroup>
 		<PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.5.0" />
 		<PackageReference Include="Moq" Version="4.14.1" />
 		<PackageReference Include="xunit" Version="2.4.0" />
@@ -21,7 +17,6 @@
 		<ProjectReference Include="..\..\src\OrchardCoreContrib.Email\OrchardCoreContrib.Email.csproj" />
 		<ProjectReference Include="..\..\src\OrchardCoreContrib.Infrastructure.Abstractions\OrchardCoreContrib.Infrastructure.Abstractions.csproj" />
 		<ProjectReference Include="..\..\src\OrchardCoreContrib.Linq\OrchardCoreContrib.Linq.csproj" />
-		<ProjectReference Include="..\..\src\OrchardCoreContrib.Localization.Json\OrchardCoreContrib.Localization.Json.csproj" />
 		<ProjectReference Include="..\..\src\OrchardCoreContrib.Localization\OrchardCoreContrib.Localization.csproj" />
 		<ProjectReference Include="..\..\src\OrchardCoreContrib.Shortcodes.Core\OrchardCoreContrib.Shortcodes.Core.csproj" />
 	</ItemGroup>
