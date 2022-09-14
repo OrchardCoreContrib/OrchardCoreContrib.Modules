@@ -37,5 +37,5 @@ The `OrchardCoreContrib` repository consists of the following projects:
 | [XLIFF Localization APIs](src/OrchardCoreContrib.Localization.Xliff/README.md) | `OrchardCoreContrib.Localization.Xliff` |
 | [OpenApi Abstractions APIs](src/OrchardCoreContrib.OpenApi.Abstractions/README.md) | `OrchardCoreContrib.OpenApi.Abstractions` |
 | [Shortcodes Abstractions APIs](src/OrchardCoreContrib.Shortcodes.Abstractions/README.md) | `OrchardCoreContrib.Shortcodes.Abstractions` |
-| [Shortcode Implementation APIs](src/OrchardCoreContrib.Shortcode.Core/README.md) | `OrchardCoreContrib.Shortcode.Core` |
+| [Shortcodes Implementation APIs](src/OrchardCoreContrib.Shortcodes.Core/README.md) | `OrchardCoreContrib.Shortcodes.Core` |
 | [SMS Abstractions APIs](src/OrchardCoreContrib.Sms.Abstractions/README.md) | `OrchardCoreContrib.Sms.Abstractions` |
