@@ -18,7 +18,7 @@
 	</ItemGroup>
 
 	<Target Name="CopyDLLs" AfterTargets="Build">
-		<Copy SourceFiles="$(MSBuildProjectDirectory)\Linq\occ.db" DestinationFiles="$(TargetDir)\occ.db" />
+		<Copy SourceFiles="$(MSBuildProjectDirectory)\occ.db" DestinationFiles="$(TargetDir)\occ.db" />
 	</Target>
 
 </Project>
