@@ -4,7 +4,7 @@ This module allows you to preview your page in different devices.
 
 ## Version
 
-1.0.2
+1.1.0
 
 ## Category
 
@@ -26,6 +26,7 @@ Content Management
 
 | Name | Version |
 | --- | --- |
+| [`OrchardCoreContrib.ContentPreview`](https://www.nuget.org/packages/OrchardCoreContrib.ContentPreview/1.1.0) | 1.1.0 |
 | [`OrchardCoreContrib.ContentPreview`](https://www.nuget.org/packages/OrchardCoreContrib.ContentPreview/1.0.2) | 1.0.2 |
 | [`OrchardCoreContrib.ContentPreview`](https://www.nuget.org/packages/OrchardCoreContrib.ContentPreview/1.0.1) | 1.0.1 |
 | [`OrchardCoreContrib.ContentPreview`](https://www.nuget.org/packages/OrchardCoreContrib.ContentPreview/1.0.0) | 1.0.0 |
