@@ -15,10 +15,15 @@
 		<PackageTags>Orchard Core, Orchard Core Contrib, Diagnostics, Elm</PackageTags>
 		<PackageReleaseNotes>https://github.com/OrchardCoreContrib/OrchardCoreContrib.Modules/releases</PackageReleaseNotes>
 		<PackageId>OrchardCoreContrib.Diagnostics.Elm</PackageId>
+		<PackageIcon>icon.png</PackageIcon>
 		<Product>Orchard Core Contrib Elm Diagnostics Module</Product>
 		<PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
 		<Copyright>2019 Orchard Core Contrib</Copyright>
 	</PropertyGroup>
+
+	<ItemGroup>
+		<None Include="../../images/icon.png" Pack="true" PackagePath="icon.png" />
+	</ItemGroup>
 
 	<ItemGroup>
 		<PackageReference Include="Microsoft.AspNetCore.Diagnostics.Elm" Version="0.2.2" />

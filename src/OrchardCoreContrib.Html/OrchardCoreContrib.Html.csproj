@@ -16,6 +16,7 @@
 		<PackageTags>Orchard Core, Orchard Core Contrib, HTML, Grapes JS</PackageTags>
 		<PackageReleaseNotes>https://github.com/OrchardCoreContrib/OrchardCoreContrib.Modules/releases</PackageReleaseNotes>
 		<PackageId>OrchardCoreContrib.Html</PackageId>
+		<PackageIcon>icon.png</PackageIcon>
 		<Product>Orchard Core Contrib Html Module</Product>
 		<PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
 		<Copyright>2019 Orchard Core Contrib</Copyright>
@@ -23,6 +24,10 @@
 
 	<ItemGroup>
 		<FrameworkReference Include="Microsoft.AspNetCore.App" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<None Include="../../images/icon.png" Pack="true" PackagePath="icon.png" />
 	</ItemGroup>
 
 	<ItemGroup>

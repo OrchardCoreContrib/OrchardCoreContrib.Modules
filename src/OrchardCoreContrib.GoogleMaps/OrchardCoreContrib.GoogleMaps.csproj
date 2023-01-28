@@ -16,12 +16,17 @@
 		<PackageTags>Orchard Core, Orchard Core Contrib, Google Maps</PackageTags>
 		<PackageReleaseNotes>https://github.com/OrchardCoreContrib/OrchardCoreContrib.Modules/releases</PackageReleaseNotes>
 		<PackageId>OrchardCoreContrib.GoogleMaps</PackageId>
+		<PackageIcon>icon.png</PackageIcon>
 		<Product>Orchard Core Contrib Google Maps Module</Product>
 		<PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
 	</PropertyGroup>
 
 	<ItemGroup>
 		<FrameworkReference Include="Microsoft.AspNetCore.App" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<None Include="../../images/icon.png" Pack="true" PackagePath="icon.png" />
 	</ItemGroup>
 
 	<ItemGroup>
