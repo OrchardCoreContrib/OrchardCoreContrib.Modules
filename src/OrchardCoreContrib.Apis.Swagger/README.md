@@ -4,7 +4,7 @@ This module allows you to create APIs documentations using Swagger.
 
 ## Version
 
-1.1.0
+1.2.0
 
 ## Category
 
@@ -25,6 +25,7 @@ This module has no dependencies.
 
 | Name | Version |
 | --- | --- |
+| [`OrchardCoreContrib.Apis.Swagger`](https://www.nuget.org/packages/OrchardCoreContrib.Apis.Swagger/1.2.0) | 1.2.0 |
 | [`OrchardCoreContrib.Apis.Swagger`](https://www.nuget.org/packages/OrchardCoreContrib.Apis.Swagger/1.1.0) | 1.1.0 |
 | [`OrchardCoreContrib.Apis.Swagger`](https://www.nuget.org/packages/OrchardCoreContrib.Apis.Swagger/1.0.1) | 1.0.1 |
 | [`OrchardCoreContrib.Apis.Swagger`](https://www.nuget.org/packages/OrchardCoreContrib.Apis.Swagger/1.0.0) | 1.0.0 |
