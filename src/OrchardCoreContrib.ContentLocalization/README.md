@@ -4,7 +4,7 @@ This module provides features for localizing content.
 
 ## Version
 
-1.0.0
+1.1.0
 
 ## Category
 
@@ -27,6 +27,7 @@ Internationalization
 
 | Name | Version |
 | --- | --- |
+| [`OrchardCoreContrib.ContentLocalization`](https://www.nuget.org/packages/OrchardCoreContrib.ContentLocalization/1.1.0) | 1.1.0 |
 | [`OrchardCoreContrib.ContentLocalization`](https://www.nuget.org/packages/OrchardCoreContrib.ContentLocalization/1.0.0) | 1.0.0 |
 
 ## Get Started
