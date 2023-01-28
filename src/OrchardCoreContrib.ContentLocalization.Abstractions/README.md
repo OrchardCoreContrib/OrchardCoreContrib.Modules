@@ -6,4 +6,5 @@ This project provides content localization abstractions APIs.
 
 | Name | Version |
 | --- | --- |
+| [`OrchardCoreContrib.ContentLocalization.Abstractions`](https://www.nuget.org/packages/OrchardCoreContrib.ContentLocalization.Abstractions/1.1.0) | 1.1.0 |
 | [`OrchardCoreContrib.ContentLocalization.Abstractions`](https://www.nuget.org/packages/OrchardCoreContrib.ContentLocalization.Abstractions/1.0.0) | 1.0.0 |
