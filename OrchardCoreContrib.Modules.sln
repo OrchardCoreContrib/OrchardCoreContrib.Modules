@@ -33,9 +33,14 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OrchardCoreContrib.DataLoca
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OrchardCoreContrib.Html", "src\OrchardCoreContrib.Html\OrchardCoreContrib.Html.csproj", "{1591CBCD-5BA1-4D6D-8202-CB19473CE57C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OrchardCoreContrib.ContentLocalization", "src\OrchardCoreContrib.ContentLocalization\OrchardCoreContrib.ContentLocalization.csproj", "{7FB305D4-E3A7-4C7D-923A-80208B1442AF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OrchardCoreContrib.ContentLocalization", "src\OrchardCoreContrib.ContentLocalization\OrchardCoreContrib.ContentLocalization.csproj", "{7FB305D4-E3A7-4C7D-923A-80208B1442AF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OrchardCoreContrib.GoogleMaps", "src\OrchardCoreContrib.GoogleMaps\OrchardCoreContrib.GoogleMaps.csproj", "{B024D62D-F553-47E4-97AB-49BD8366105E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OrchardCoreContrib.GoogleMaps", "src\OrchardCoreContrib.GoogleMaps\OrchardCoreContrib.GoogleMaps.csproj", "{B024D62D-F553-47E4-97AB-49BD8366105E}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "images", "images", "{D5CF1329-5ED3-436D-8DC1-FD341826C715}"
+	ProjectSection(SolutionItems) = preProject
+		images\icon.png = images\icon.png
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
