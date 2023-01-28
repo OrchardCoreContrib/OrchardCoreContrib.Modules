@@ -2,6 +2,7 @@
 using OrchardCore.AdminDashboard.Indexes;
 using OrchardCore.Alias.Indexes;
 using OrchardCore.AuditTrail.Indexes;
+using OrchardCore.Autoroute.Core.Indexes;
 using OrchardCore.ContentLocalization.Records;
 using OrchardCore.ContentManagement.Records;
 using OrchardCore.Deployment.Indexes;
