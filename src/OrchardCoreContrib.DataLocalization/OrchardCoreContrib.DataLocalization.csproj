@@ -26,12 +26,12 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<PackageReference Include="OrchardCore.Module.Targets" Version="1.2.2" />
-		<PackageReference Include="OrchardCore" Version="1.2.2" />
-		<PackageReference Include="OrchardCore.ContentTypes" Version="1.2.2" />
-		<PackageReference Include="OrchardCore.Data.Abstractions" Version="1.2.2" />
-		<PackageReference Include="OrchardCoreContrib.Localization.Abstractions" Version="1.1.0-beta1" />
-		<PackageReference Include="OrchardCoreContrib.Localization" Version="1.1.0-beta1" />
+		<PackageReference Include="OrchardCore.Module.Targets" Version="1.5.0" />
+		<PackageReference Include="OrchardCore" Version="1.5.0" />
+		<PackageReference Include="OrchardCore.ContentTypes" Version="1.5.0" />
+		<PackageReference Include="OrchardCore.Data.Abstractions" Version="1.5.0" />
+		<PackageReference Include="OrchardCoreContrib.Localization.Abstractions" Version="1.1.0" />
+		<PackageReference Include="OrchardCoreContrib.Localization" Version="1.1.0" />
 	</ItemGroup>
 
 </Project>

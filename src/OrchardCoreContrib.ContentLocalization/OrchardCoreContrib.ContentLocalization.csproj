@@ -26,10 +26,10 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<PackageReference Include="OrchardCore.Contents.TagHelpers" Version="1.2.2" />
-		<PackageReference Include="OrchardCore.ContentLocalization" Version="1.2.2" />
-		<PackageReference Include="OrchardCore.Module.Targets" Version="1.2.2" />
-		<PackageReference Include="OrchardCoreContrib.ContentLocalization.Abstractions" Version="1.0.0" />
+		<PackageReference Include="OrchardCore.Contents.TagHelpers" Version="1.5.0" />
+		<PackageReference Include="OrchardCore.ContentLocalization" Version="1.5.0" />
+		<PackageReference Include="OrchardCore.Module.Targets" Version="1.5.0" />
+		<PackageReference Include="OrchardCoreContrib.ContentLocalization.Abstractions" Version="1.1.0" />
 	</ItemGroup>
 
 </Project>

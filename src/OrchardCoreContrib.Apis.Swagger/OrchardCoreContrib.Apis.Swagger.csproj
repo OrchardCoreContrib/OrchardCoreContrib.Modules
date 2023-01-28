@@ -25,10 +25,10 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<PackageReference Include="OrchardCore.Module.Targets" Version="1.2.2" />
-		<PackageReference Include="OrchardCoreContrib.OpenApi.Abstractions" Version="1.0.0" />
-		<PackageReference Include="Swashbuckle.AspNetCore" Version="6.2.3" />
-		<PackageReference Include="Swashbuckle.AspNetCore.Swagger" Version="6.2.3" />
+		<PackageReference Include="OrchardCore.Module.Targets" Version="1.5.0" />
+		<PackageReference Include="OrchardCoreContrib.OpenApi.Abstractions" Version="1.1.0" />
+		<PackageReference Include="Swashbuckle.AspNetCore" Version="6.5.0" />
+		<PackageReference Include="Swashbuckle.AspNetCore.Swagger" Version="6.5.0" />
 	</ItemGroup>
 
 </Project>
