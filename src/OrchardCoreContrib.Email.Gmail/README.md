@@ -4,7 +4,7 @@ This module allows you to send emails using Gmail.
 
 ## Version
 
-1.1.0
+1.2.0
 
 ## Category
 
@@ -26,6 +26,7 @@ Messaging
 
 | Name | Version |
 | --- | --- |
+| [`OrchardCoreContrib.Email.Gmail`](https://www.nuget.org/packages/OrchardCoreContrib.Email.Gmail/1.2.0) | 1.2.0 |
 | [`OrchardCoreContrib.Email.Gmail`](https://www.nuget.org/packages/OrchardCoreContrib.Email.Gmail/1.1.0) | 1.1.0 |
 | [`OrchardCoreContrib.Email.Gmail`](https://www.nuget.org/packages/OrchardCoreContrib.Email.Gmail/1.0.0) | 1.0.0 |
 
