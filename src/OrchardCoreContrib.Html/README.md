@@ -26,7 +26,7 @@ Content Management
 
 | Name | Version |
 | --- | --- |
-| [`OrchardCoreContrib.Html`](https://www.nuget.org/packages/OrchardCoreContrib.Html/1.0.0-beta1) | 1.0.0-beta1 |
+| [`OrchardCoreContrib.Html`](https://www.nuget.org/packages/OrchardCoreContrib.Html/1.0.0) | 1.0.0 |
 
 ## Get Started
 
