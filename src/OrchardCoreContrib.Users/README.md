@@ -21,6 +21,7 @@ Security
 | Name | Description |
 | --- | --- |
 | Users Impersonation (`OrchardCoreContrib.Users.Impersonation`) | Allows the administrators to sign in with other user identity. |
+| User Avatar (`OrchardCoreContrib.Users.Avatar`) | Displays the user avatar on the admin menu. |
 
 ## NuGet Packages
 
@@ -35,11 +36,19 @@ Security
 1. Install the [`OrchardCoreContrib.Users`](https://www.nuget.org/packages/OrchardCoreContrib.Users/) NuGet package to your Orchard Core host project.
 2. Go to the admin site
 3. Select **Configuration -> Features** menu.
+
+### Impersonation
+
 4. Enable the `Impersonation` feature.
 5. Select **Security -> Users** menu.
 6. `Impersonate` button will show up for every user in the list.
 7. Click the `Impersonate` button for the user that you want to log with his account. After that you will be redirected to the admin site with newly credentials. 
 8. Select **Security -> End Impersonation** menu to end the current session.
+
+### User Avatar
+
+4. Enable the `User Avatar` feature.
+5. User avatar should be displayed on the user menu.
 
 ## Video
 
