@@ -5,6 +5,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Options;
 using OrchardCore.Admin;
 using OrchardCore.DisplayManagement.Handlers;
+using OrchardCore.Environment.Shell.Configuration;
 using OrchardCore.Modules;
 using OrchardCore.Mvc.Core.Utilities;
 using OrchardCore.Navigation;
@@ -77,10 +78,19 @@ namespace OrchardCoreContrib.Users
     [Feature("OrchardCoreContrib.Users.Avatar")]
     public class UserAvatarStartup : StartupBase
     {
+        private readonly IShellConfiguration _shellConfiguration;
+        
+        public UserAvatarStartup(IShellConfiguration shellConfiguration)
+        {
+            _shellConfiguration = shellConfiguration;
+        }
+
         /// <inheritdoc/>
         public override void ConfigureServices(IServiceCollection services)
         {
             services.AddScoped<IAvatarService, AvatarService>();
+            
+            services.Configure<AvatarOptions>(_shellConfiguration.GetSection("OrchardCoreContrib_Users_AvatarOptions"));
         }
     }
 }
