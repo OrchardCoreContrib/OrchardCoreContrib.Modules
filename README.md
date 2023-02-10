@@ -6,7 +6,7 @@ This will encourage all the passionate developers to add and develop the other n
 
 ## Build Status
 
-[![Orchard Core Contrib](https://github.com/OrchardCoreContrib/OrchardCoreContrib/actions/workflows/build.yml/badge.svg?branch=dev)](https://github.com/OrchardCoreContrib/OrchardCoreContrib/actions/workflows/build.yml)
+[![Orchard Core Contrib](https://github.com/OrchardCoreContrib/OrchardCoreContrib/actions/workflows/build.yml/badge.svg?branch=main)](https://github.com/OrchardCoreContrib/OrchardCoreContrib/actions/workflows/build.yml)
 
 ## Goals
 
