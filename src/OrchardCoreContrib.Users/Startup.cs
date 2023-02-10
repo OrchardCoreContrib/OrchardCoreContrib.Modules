@@ -8,6 +8,7 @@ using OrchardCore.Modules;
 using OrchardCore.Mvc.Core.Utilities;
 using OrchardCore.Navigation;
 using OrchardCoreContrib.Users.Controllers;
+using OrchardCoreContrib.Users.Services;
 using System;
 using System.Linq;
 using System.Threading.Tasks;
@@ -18,15 +19,15 @@ namespace OrchardCoreContrib.Users
     /// Represents an entry point to register the impersonation required services.
     /// </summary>
     [Feature("OrchardCoreContrib.Users.Impersonation")]
-    public class Startup : StartupBase
+    public class ImpersonationStartup : StartupBase
     {
         private readonly AdminOptions _adminOptions;
 
         /// <summary>
-        /// Initializes a new instance of <see cref="Startup"/>.
+        /// Initializes a new instance of <see cref="ImpersonationStartup"/>.
         /// </summary>
         /// <param name="adminOptions">The <see cref="IOptions{AdminOptions}>.</param>
-        public Startup(IOptions<AdminOptions> adminOptions)
+        public ImpersonationStartup(IOptions<AdminOptions> adminOptions)
         {
             _adminOptions = adminOptions.Value;
         }
@@ -63,6 +64,19 @@ namespace OrchardCoreContrib.Users
                 pattern: _adminOptions.AdminUrlPrefix + "/Users/Impersonate",
                 defaults: new { controller = typeof(ImpersonationController).ControllerName(), action = nameof(ImpersonationController.ImpersonateUser) }
             );
+        }
+    }
+
+    /// <summary>
+    /// Represents an entry point to register the user avatar required services.
+    /// </summary>
+    [Feature("OrchardCoreContrib.Users.Avatar")]
+    public class UserAvatarStartup : StartupBase
+    {
+        /// <inheritdoc/>
+        public override void ConfigureServices(IServiceCollection services)
+        {
+            services.AddScoped<IAvatarService, AvatarService>();
         }
     }
 }
