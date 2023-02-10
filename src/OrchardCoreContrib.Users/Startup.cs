@@ -4,10 +4,13 @@ using Microsoft.AspNetCore.Routing;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Options;
 using OrchardCore.Admin;
+using OrchardCore.DisplayManagement.Handlers;
 using OrchardCore.Modules;
 using OrchardCore.Mvc.Core.Utilities;
 using OrchardCore.Navigation;
+using OrchardCore.Users.Models;
 using OrchardCoreContrib.Users.Controllers;
+using OrchardCoreContrib.Users.Drivers;
 using OrchardCoreContrib.Users.Services;
 using System;
 using System.Linq;
@@ -36,6 +39,7 @@ namespace OrchardCoreContrib.Users
         public override void ConfigureServices(IServiceCollection services)
         {
             services.AddScoped<INavigationProvider, AdminMenu>();
+            services.AddScoped<IDisplayDriver<User>, ImpersonationDisplayDriver>();
 
             services.Configure<SecurityStampValidatorOptions>(options =>
             {

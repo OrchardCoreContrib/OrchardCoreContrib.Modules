@@ -1,0 +1,10 @@
+﻿@using OrchardCore.Modules
+@using OrchardCore.Users.Models
+@using OrchardCore.Users.ViewModels
+@model SummaryAdminUserViewModel
+@attribute [Feature("OrchardCoreContrib.Users.Impersonation")]
+@{
+    var user = Model.User as User;
+}
+
+<a asp-area="OrchardCoreContrib.Users" asp-controller="Impersonation" asp-action="ImpersonateUser" asp-route-userId="@user.UserId" class="btn btn-success btn-sm @(user.UserName == User.Identity.Name ? "disabled" : string.Empty)">@T["Impersonate"]</a>
