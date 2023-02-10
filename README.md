@@ -6,7 +6,7 @@ This will encourage all the passionate developers to build the modules that aren
 
 ## Build Status
 
-[![Orchard Core Contrib Modules](https://github.com/OrchardCoreContrib/OrchardCoreContrib.Modules/actions/workflows/build.yml/badge.svg?branch=dev)](https://github.com/OrchardCoreContrib/OrchardCoreContrib.Modules/actions/workflows/build.yml)
+[![Orchard Core Contrib Modules](https://github.com/OrchardCoreContrib/OrchardCoreContrib.Modules/actions/workflows/build.yml/badge.svg?branch=main)](https://github.com/OrchardCoreContrib/OrchardCoreContrib.Modules/actions/workflows/build.yml)
 
 ## Documentations
 
