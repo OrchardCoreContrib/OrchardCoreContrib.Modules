@@ -42,6 +42,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "images", "images", "{D5CF13
 		images\icon.png = images\icon.png
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OrchardCoreContrib.Gravatar", "src\OrchardCoreContrib.Gravatar\OrchardCoreContrib.Gravatar.csproj", "{214BDD88-2D5A-4841-B309-1B0FC847D4D8}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -108,6 +110,10 @@ Global
 		{B024D62D-F553-47E4-97AB-49BD8366105E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B024D62D-F553-47E4-97AB-49BD8366105E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B024D62D-F553-47E4-97AB-49BD8366105E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{214BDD88-2D5A-4841-B309-1B0FC847D4D8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{214BDD88-2D5A-4841-B309-1B0FC847D4D8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{214BDD88-2D5A-4841-B309-1B0FC847D4D8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{214BDD88-2D5A-4841-B309-1B0FC847D4D8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -128,6 +134,7 @@ Global
 		{1591CBCD-5BA1-4D6D-8202-CB19473CE57C} = {C80A325F-F4C4-4C7B-A3CF-FB77CD8C9949}
 		{7FB305D4-E3A7-4C7D-923A-80208B1442AF} = {C80A325F-F4C4-4C7B-A3CF-FB77CD8C9949}
 		{B024D62D-F553-47E4-97AB-49BD8366105E} = {C80A325F-F4C4-4C7B-A3CF-FB77CD8C9949}
+		{214BDD88-2D5A-4841-B309-1B0FC847D4D8} = {C80A325F-F4C4-4C7B-A3CF-FB77CD8C9949}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {48F73B05-7D3D-4ACF-81AE-A98B2B4EFDB2}
