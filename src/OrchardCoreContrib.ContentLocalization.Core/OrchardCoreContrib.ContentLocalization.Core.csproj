@@ -1,13 +1,13 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
 
 	<PropertyGroup>
 		<TargetFramework>net6.0</TargetFramework>
 		<RootNamespace>OrchardCoreContrib.ContentLocalization</RootNamespace>
 		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-		<VersionPrefix>1.2.0-beta1</VersionPrefix>
+		<VersionPrefix>1.0.0-beta1</VersionPrefix>
 		<Authors>The Orchard Core Contrib Team</Authors>
 		<Company />
-		<Description>Provides an abstractions APIs for content localization.</Description>
+		<Description>Provides an implementations APIs for content localization.</Description>
 		<PackageLicenseExpression>MIT</PackageLicenseExpression>
 		<PackageProjectUrl>https://github.com/OrchardCoreContrib/OrchardCoreContrib</PackageProjectUrl>
 		<RepositoryUrl>https://github.com/OrchardCoreContrib/OrchardCoreContrib</RepositoryUrl>
@@ -15,9 +15,9 @@
 		<PublishRepositoryUrl>true</PublishRepositoryUrl>
 		<PackageTags>Orchard Core, Orchard Core Contrib, Localization, Content Localization</PackageTags>
 		<PackageReleaseNotes>https://github.com/OrchardCoreContrib/OrchardCoreContrib/releases</PackageReleaseNotes>
-		<PackageId>OrchardCoreContrib.ContentLocalization.Abstractions</PackageId>
+		<PackageId>OrchardCoreContrib.ContentLocalization.Core</PackageId>
 		<PackageIcon>icon.png</PackageIcon>
-		<Product>Orchard Core Contrib Content Localization Abstractions</Product>
+		<Product>Orchard Core Contrib Content Localization</Product>
 		<PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
 		<Copyright>2019 Orchard Core Contrib</Copyright>
 	</PropertyGroup>
@@ -27,7 +27,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<PackageReference Include="OrchardCore.ContentLocalization.Abstractions" Version="1.5.0" />
+	  <ProjectReference Include="..\OrchardCoreContrib.ContentLocalization.Abstractions\OrchardCoreContrib.ContentLocalization.Abstractions.csproj" />
 	</ItemGroup>
 
 </Project>
