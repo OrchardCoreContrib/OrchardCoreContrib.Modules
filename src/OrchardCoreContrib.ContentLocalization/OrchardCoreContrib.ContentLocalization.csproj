@@ -34,7 +34,11 @@
 		<PackageReference Include="OrchardCore.Contents.TagHelpers" Version="1.5.0" />
 		<PackageReference Include="OrchardCore.ContentLocalization" Version="1.5.0" />
 		<PackageReference Include="OrchardCore.Module.Targets" Version="1.5.0" />
-		<PackageReference Include="OrchardCoreContrib.ContentLocalization.Abstractions" Version="1.1.0" />
+		<!--<PackageReference Include="OrchardCoreContrib.ContentLocalization.Abstractions" Version="1.1.0" />-->
+	</ItemGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\..\OrchardCoreContrib\src\OrchardCoreContrib.ContentLocalization.Core\OrchardCoreContrib.ContentLocalization.Core.csproj" />
 	</ItemGroup>
 
 </Project>

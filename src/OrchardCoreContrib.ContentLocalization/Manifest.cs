@@ -14,3 +14,11 @@ using OrchardCore.Modules.Manifest;
     Dependencies = new[] { "OrchardCoreContrib.ContentLocalization", "OrchardCore.ContentLocalization" },
     Category = "Internationalization"
 )]
+
+[assembly: Feature(
+    Id = "OrchardCoreContrib.ContentLocalization.Transliteration",
+    Name = "Transliteration",
+    Description = "Provides a type of conversion of a text from one script to another that involves swapping letters.",
+    Dependencies = new[] { "OrchardCoreContrib.ContentLocalization" },
+    Category = "Internationalization"
+)]
