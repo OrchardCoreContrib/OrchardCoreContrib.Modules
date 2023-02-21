@@ -38,6 +38,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
+		<ProjectReference Include="..\..\OrchardCoreContrib\src\OrchardCoreContrib.ContentLocalization.Abstractions\OrchardCoreContrib.ContentLocalization.Abstractions.csproj" />
 		<ProjectReference Include="..\..\OrchardCoreContrib\src\OrchardCoreContrib.ContentLocalization.Core\OrchardCoreContrib.ContentLocalization.Core.csproj" />
 	</ItemGroup>
 
