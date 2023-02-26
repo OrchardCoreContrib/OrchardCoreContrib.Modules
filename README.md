@@ -26,4 +26,5 @@ The `OrchardCoreContrib.Modules` repository consists of the following modules:
 | [Html Module](src/OrchardCoreContrib.Html/README.md) | `OrchardCoreContrib.Html` |
 | [SendGrid Module](src/OrchardCoreContrib.Email.SendGrid/README.md) | `OrchardCoreContrib.Email.SendGrid` |
 | [Yahoo Module](src/OrchardCoreContrib.Email.Yahoo/README.md) | `OrchardCoreContrib.Email.Yahoo` |
+| [YARP Module](src/OrchardCoreContrib.ReverseProxy.Yarp/README.md) | `OrchardCoreContrib.ReverseProxy.Yarp` |
 | [Users Module](src/OrchardCoreContrib.Users/README.md) | `OrchardCoreContrib.Users` |
