@@ -24,6 +24,7 @@
     <ProjectReference Include="..\OrchardCoreContrib.GoogleMaps\OrchardCoreContrib.GoogleMaps.csproj" />
     <ProjectReference Include="..\OrchardCoreContrib.Gravatar\OrchardCoreContrib.Gravatar.csproj" />
     <ProjectReference Include="..\OrchardCoreContrib.Html\OrchardCoreContrib.Html.csproj" />
+    <ProjectReference Include="..\OrchardCoreContrib.ReverseProxy.Yarp\OrchardCoreContrib.ReverseProxy.Yarp.csproj" />
     <ProjectReference Include="..\OrchardCoreContrib.Users\OrchardCoreContrib.Users.csproj" />
   </ItemGroup>
 
