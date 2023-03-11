@@ -23,6 +23,7 @@
         "OrchardCoreContrib.GoogleMaps",
         "OrchardCoreContrib.Gravatar",
         "OrchardCoreContrib.Html",
+        "OrchardCoreContrib.HealthChecks",
         "OrchardCoreContrib.Users.Impersonation",
         "OrchardCore.Roles",
         "OrchardCore.Users",
