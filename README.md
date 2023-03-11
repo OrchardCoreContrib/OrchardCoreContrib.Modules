@@ -30,6 +30,7 @@ The `OrchardCoreContrib` repository consists of the following projects:
 | [Content Localization Implementations APIs](src/OrchardCoreContrib.ContentLocalization.Core/README.md) | `OrchardCoreContrib.ContentLocalization.Core` |
 | [Email APIs](src/OrchardCoreContrib.Email/README.md) | `OrchardCoreContrib.Email` |
 | [Email Abstractions](src/OrchardCoreContrib.Email.Abstractions/README.md) | `OrchardCoreContrib.Email.Abstractions` |
+| [Health Checks Abstractions](src/OrchardCoreContrib.HealthChecks.Abstractions/README.md) | `OrchardCoreContrib.HealthChecks.Abstractions` |
 | [Infrastructure Abstractions APIs](src/OrchardCoreContrib.Infrastructure.Abstractions/README.md) | `OrchardCoreContrib.Infrastructure.Abstractions` |
 | [LINQ to Orchard Core](src/OrchardCoreContrib.Linq/README.md) | `OrchardCoreContrib.Linq` |
 | [Localization Implementation APIs](src/OrchardCoreContrib.Localization/README.md) | `OrchardCoreContrib.Localization` |
