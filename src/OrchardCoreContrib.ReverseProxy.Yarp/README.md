@@ -12,10 +12,6 @@ Infrastructure
 
 ## Dependencies
 
-| Product | Module |
-| --- | --- |
-| OrchardCoreContrib | YARP (`OrchardCoreContrib.ReverseProxy.Yarp`) |
-
 ## Features
 
 | Name | Description |
@@ -30,7 +26,7 @@ Infrastructure
 
 ## Get Started
 
-1. Install the [`OrchardCoreContrib.Gravatar`](https://www.nuget.org/packages/OrchardCoreContrib.ReverseProxy.Yarp/) NuGet package to your Orchard Core host project.
+1. Install the [`OrchardCoreContrib.ReverseProxy.Yarp`](https://www.nuget.org/packages/OrchardCoreContrib.ReverseProxy.Yarp/) NuGet package to your Orchard Core host project.
 2. Go to the admin site
 3. Select **Configuration -> Features** menu.
 4. Enable the `Yet Another Reverse Proxy (YARP)` feature.
