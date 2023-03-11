@@ -46,6 +46,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OrchardCoreContrib.Gravatar
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OrchardCoreContrib.ReverseProxy.Yarp", "src\OrchardCoreContrib.ReverseProxy.Yarp\OrchardCoreContrib.ReverseProxy.Yarp.csproj", "{D978523F-91E2-427B-AD83-2712AE27514A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OrchardCoreContrib.HealthChecks", "src\OrchardCoreContrib.HealthChecks\OrchardCoreContrib.HealthChecks.csproj", "{3F423B68-3A2E-4DF5-B82A-53C9B1E509A0}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -120,6 +122,10 @@ Global
 		{D978523F-91E2-427B-AD83-2712AE27514A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D978523F-91E2-427B-AD83-2712AE27514A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D978523F-91E2-427B-AD83-2712AE27514A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3F423B68-3A2E-4DF5-B82A-53C9B1E509A0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3F423B68-3A2E-4DF5-B82A-53C9B1E509A0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3F423B68-3A2E-4DF5-B82A-53C9B1E509A0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3F423B68-3A2E-4DF5-B82A-53C9B1E509A0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -142,6 +148,7 @@ Global
 		{B024D62D-F553-47E4-97AB-49BD8366105E} = {C80A325F-F4C4-4C7B-A3CF-FB77CD8C9949}
 		{214BDD88-2D5A-4841-B309-1B0FC847D4D8} = {C80A325F-F4C4-4C7B-A3CF-FB77CD8C9949}
 		{D978523F-91E2-427B-AD83-2712AE27514A} = {C80A325F-F4C4-4C7B-A3CF-FB77CD8C9949}
+		{3F423B68-3A2E-4DF5-B82A-53C9B1E509A0} = {C80A325F-F4C4-4C7B-A3CF-FB77CD8C9949}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {48F73B05-7D3D-4ACF-81AE-A98B2B4EFDB2}
