@@ -11,7 +11,7 @@ namespace OrchardCoreContrib.Modules.Web
         {
             services
                 .AddOrchardCms()
-                .AddSetupFeatures("OrchardCore.AutoSetup");
+                .AddSetupFeatures("OrchardCore.AutoSetup", "OrchardCoreContrib.Tenants");
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
