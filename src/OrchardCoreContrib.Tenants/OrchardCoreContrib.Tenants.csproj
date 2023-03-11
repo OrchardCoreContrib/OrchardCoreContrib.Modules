@@ -13,7 +13,7 @@
 		<RepositoryUrl>https://github.com/OrchardCoreContrib/OrchardCoreContrib.Modules</RepositoryUrl>
 		<RepositoryType>git</RepositoryType>
 		<PublishRepositoryUrl>true</PublishRepositoryUrl>
-		<PackageTags>Orchard Core, Orchard Core Contrib, YARP, Multitenancy</PackageTags>
+		<PackageTags>Orchard Core, Orchard Core Contrib, Multitenancy</PackageTags>
 		<PackageReleaseNotes>https://github.com/OrchardCoreContrib/OrchardCoreContrib.Modules/releases</PackageReleaseNotes>
 		<PackageId>OrchardCoreContrib.Tenants</PackageId>
 		<PackageIcon>icon.png</PackageIcon>
