@@ -22,6 +22,7 @@ The `OrchardCoreContrib.Modules` repository consists of the following modules:
 | [Gmail Module](src/OrchardCoreContrib.Email.Gmail/README.md) | `OrchardCoreContrib.Email.Gmail` |
 | [Google Maps Module](src/OrchardCoreContrib.GoogleMaps/README.md) | `OrchardCoreContrib.GoogleMaps` |
 | [Gravatar Module](src/OrchardCoreContrib.Gravatar/README.md) | `OrchardCoreContrib.Gravatar` |
+| [Health Checks Module](src/OrchardCoreContrib.HealthChecks/README.md) | `OrchardCoreContrib.HealthChecks` |
 | [Hotmail Module](src/OrchardCoreContrib.Email.Hotmail/README.md) | `OrchardCoreContrib.Email.Hotmail` |
 | [Html Module](src/OrchardCoreContrib.Html/README.md) | `OrchardCoreContrib.Html` |
 | [SendGrid Module](src/OrchardCoreContrib.Email.SendGrid/README.md) | `OrchardCoreContrib.Email.SendGrid` |
