@@ -14,7 +14,7 @@ public class DefaultTransliterationRuleProviderTests
         // Assert
         var arabicAlphabet = rule().Keys;
 
-        Assert.Equal(28, arabicAlphabet.Count);
+        Assert.Equal(33, arabicAlphabet.Count);
         Assert.True(arabicAlphabet.Contains("ه"));
         Assert.True(arabicAlphabet.Contains("ش"));
         Assert.True(arabicAlphabet.Contains("ا"));
