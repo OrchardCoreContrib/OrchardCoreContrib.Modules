@@ -26,6 +26,7 @@ Messaging
 
 | Name | Version |
 | --- | --- |
+| [`OrchardCoreContrib.Email.SendGrid`](https://www.nuget.org/packages/OrchardCoreContrib.Email.SendGrid/1.3.0) | 1.3.0 |
 | [`OrchardCoreContrib.Email.SendGrid`](https://www.nuget.org/packages/OrchardCoreContrib.Email.SendGrid/1.2.0) | 1.2.0 |
 | [`OrchardCoreContrib.Email.SendGrid`](https://www.nuget.org/packages/OrchardCoreContrib.Email.SendGrid/1.1.0) | 1.1.0 |
 | [`OrchardCoreContrib.Email.SendGrid`](https://www.nuget.org/packages/OrchardCoreContrib.Email.SendGrid/1.0.0) | 1.0.0 |
@@ -37,3 +38,10 @@ Messaging
 3. Select **Configuration -> Features** menu.
 4. Enable the `SendGrid` feature.
 5. Configure the SendGrid settings by selecting **Configuration -> Settings -> SendGrid** menu.
+
+### Health Checks
+
+1. Go to the admin site
+2. Select **Configuration -> Features** menu.
+3. Enable the `HealthChecks` feature.
+4. Navigate to `/{tenant}/health/sendgrid`, now you will be able to check whether the SendGrid service with the supplied settings is healthy or not.
