@@ -26,6 +26,7 @@ Profile
 
 | Name | Version |
 | --- | --- |
+| [`OrchardCoreContrib.Gravatar`](https://www.nuget.org/packages/OrchardCoreContrib.Gravatar/1.1.0) | 1.1.0 |
 | [`OrchardCoreContrib.Gravatar`](https://www.nuget.org/packages/OrchardCoreContrib.Gravatar/1.0.0) | 1.0.0 |
 
 ## Get Started
