@@ -3,7 +3,7 @@
 [assembly: Module(
     Name = "Gravatar",
     Author = "The Orchard Core Contrib Team",
-    Version = "1.0.0",
+    Version = "1.1.0",
     Category = "Profile"
 )]
 
