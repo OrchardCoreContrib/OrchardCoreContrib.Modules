@@ -1,4 +1,4 @@
-﻿namespace OrchardCoreContrib.Gravatar.TagHelpers;
+﻿namespace OrchardCoreContrib.Gravatar;
 
 public enum GravatarRating
 {
