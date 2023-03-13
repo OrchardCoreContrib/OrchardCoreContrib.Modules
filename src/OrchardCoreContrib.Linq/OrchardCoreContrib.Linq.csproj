@@ -26,7 +26,6 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<PackageReference Include="YesSql" Version="3.2.0" />
 		<PackageReference Include="OrchardCore.Autoroute" Version="1.5.0" />
 		<PackageReference Include="OrchardCore.Alias" Version="1.5.0" />
 		<PackageReference Include="OrchardCore.Users.Core" Version="1.5.0" />
