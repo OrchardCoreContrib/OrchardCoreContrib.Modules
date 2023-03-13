@@ -2,6 +2,7 @@
 
 	<PropertyGroup>
 		<TargetFramework>net6.0</TargetFramework>
+		<RootNamespace>OrchardCoreContrib.Localization</RootNamespace>
 		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
 		<VersionPrefix>1.1.0</VersionPrefix>
 		<Authors>The Orchard Core Contrib Team</Authors>

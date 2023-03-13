@@ -1,7 +1,8 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
 	<PropertyGroup>
 		<TargetFramework>net6.0</TargetFramework>
+		<RootNamespace>OrchardCoreContrib.Infrastructure</RootNamespace>
 		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
 		<VersionPrefix>2.0.0</VersionPrefix>
 		<Authors>The Orchard Core Contrib Team</Authors>
