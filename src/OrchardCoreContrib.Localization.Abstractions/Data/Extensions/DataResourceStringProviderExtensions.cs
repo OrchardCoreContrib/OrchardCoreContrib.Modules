@@ -18,8 +18,8 @@ namespace OrchardCoreContrib.Localization.Data
         /// <param name="context">The resource context.</param>
         public static IEnumerable<CultureDictionaryRecordKey> GetAllResourceStrings(this IDataResourceStringProvider resourceStringProvider, string context)
         {
-            Guard.ArgumentNotNull(nameof(resourceStringProvider), resourceStringProvider);
-            Guard.ArgumentNotNullOrEmpty(nameof(context), context);
+            Guard.ArgumentNotNull(resourceStringProvider, nameof(resourceStringProvider));
+            Guard.ArgumentNotNullOrEmpty(context, nameof(context));
 
             return resourceStringProvider
                 .GetAllResourceStrings()

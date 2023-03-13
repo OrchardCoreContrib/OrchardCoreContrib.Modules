@@ -16,9 +16,9 @@ namespace OrchardCoreContrib.Localization.Data
         /// <param name="name">The context of the string resource.</param>
         public static DataLocalizedString GetString(this IDataLocalizer dataLocalizer, string name, string context)
         {
-            Guard.ArgumentNotNull(nameof(dataLocalizer), dataLocalizer);
-            Guard.ArgumentNotNullOrEmpty(nameof(name), name);
-            Guard.ArgumentNotNullOrEmpty(nameof(context), context);
+            Guard.ArgumentNotNull(dataLocalizer, nameof(dataLocalizer));
+            Guard.ArgumentNotNullOrEmpty(name, nameof(name));
+            Guard.ArgumentNotNullOrEmpty(context, nameof(context));
 
             return dataLocalizer[name, context];
         }
@@ -32,9 +32,9 @@ namespace OrchardCoreContrib.Localization.Data
         /// <param name="arguments">The values to format the string with.</param>
         public static DataLocalizedString GetString(this IDataLocalizer dataLocalizer, string name, string context, params object[] arguments)
         {
-            Guard.ArgumentNotNull(nameof(dataLocalizer), dataLocalizer);
-            Guard.ArgumentNotNullOrEmpty(nameof(name), name);
-            Guard.ArgumentNotNullOrEmpty(nameof(context), context);
+            Guard.ArgumentNotNull(dataLocalizer, nameof(dataLocalizer));
+            Guard.ArgumentNotNullOrEmpty(name, nameof(name));
+            Guard.ArgumentNotNullOrEmpty(context, nameof(context));
 
             return dataLocalizer[name, context, arguments];
         }
@@ -47,8 +47,8 @@ namespace OrchardCoreContrib.Localization.Data
         /// <returns>The string resources.</returns>
         public static IEnumerable<DataLocalizedString> GetAllStrings(this IDataLocalizer dataLocalizer, string context)
         {
-            Guard.ArgumentNotNull(nameof(dataLocalizer), dataLocalizer);
-            Guard.ArgumentNotNullOrEmpty(nameof(context), context);
+            Guard.ArgumentNotNull(dataLocalizer, nameof(dataLocalizer));
+            Guard.ArgumentNotNullOrEmpty(context, nameof(context));
 
             return dataLocalizer.GetAllStrings(context, includeParentCultures: true);
         }

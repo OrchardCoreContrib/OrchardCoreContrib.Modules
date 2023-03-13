@@ -28,9 +28,9 @@ namespace OrchardCoreContrib.Localization.Data
         /// <param name="resourceNotFound">Whether the resource is found or not.</param>
         public DataLocalizedString(string name, string context, string value, bool resourceNotFound)
         {
-            Guard.ArgumentNotNull(nameof(name), name);
-            Guard.ArgumentNotNull(nameof(context), context);
-            Guard.ArgumentNotNull(nameof(value), value);
+            Guard.ArgumentNotNull(name, nameof(name));
+            Guard.ArgumentNotNull(context, nameof(context));
+            Guard.ArgumentNotNull(value, nameof(value));
 
             Name = name;
             Context = context;

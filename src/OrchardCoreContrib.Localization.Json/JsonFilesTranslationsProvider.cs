@@ -1,5 +1,6 @@
 ﻿using Microsoft.Extensions.FileProviders;
 using OrchardCore.Localization;
+using OrchardCoreContrib.Infrastructure;
 using System.IO;
 using System.Threading.Tasks;
 
@@ -26,6 +27,9 @@ namespace OrchardCoreContrib.Localization.Json
         /// <inheritdocs />
         public void LoadTranslations(string cultureName, CultureDictionary dictionary)
         {
+            Guard.ArgumentNotNullOrEmpty(cultureName, nameof(cultureName));
+            Guard.ArgumentNotNull(dictionary, nameof(dictionary));
+            
             foreach (var fileInfo in _localizationFilesLocationProvider.GetLocations(cultureName))
             {
                 LoadFileToDictionaryAsync(fileInfo, dictionary).GetAwaiter().GetResult();

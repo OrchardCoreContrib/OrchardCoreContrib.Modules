@@ -34,8 +34,8 @@ namespace OrchardCoreContrib.Localization.Data
         {
             get
             {
-                Guard.ArgumentNotNullOrEmpty(nameof(name), name);
-                Guard.ArgumentNotNullOrEmpty(nameof(context), context);
+                Guard.ArgumentNotNullOrEmpty(name, nameof(name));
+                Guard.ArgumentNotNullOrEmpty(context, nameof(context));
 
                 var translation = GetTranslation(name, context, CultureInfo.CurrentUICulture);
 

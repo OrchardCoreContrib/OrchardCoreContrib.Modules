@@ -12,15 +12,10 @@ namespace OrchardCoreContrib.Infrastructure
         /// <summary>
         /// Throws <see cref="ArgumentNullException"/> if the given value is <see langword="null" />.
         /// </summary>
-        /// <param name="argumentName">The name of the tested value.</param>
         /// <param name="argumentValue">The value to be tested.</param>
-        public static void ArgumentNotNull(string argumentName, object argumentValue)
+        /// <param name="argumentName">The name of the tested value.</param>
+        public static void ArgumentNotNull(object argumentValue, string argumentName)
         {
-            if (string.IsNullOrEmpty(argumentName))
-            {
-                throw new ArgumentException("Value cannot be empty.", nameof(argumentName));
-            }
-
             if (argumentValue is null)
             {
                 throw new ArgumentNullException(argumentName);
@@ -30,16 +25,11 @@ namespace OrchardCoreContrib.Infrastructure
         /// <summary>
         /// Throws <see cref="ArgumentNullOrEmptyException"/> if the given string value is <see langword="null" /> or <see cref="string.Empty"/>.
         /// </summary>
-        /// <param name="argumentName">The name of the tested value.</param>
         /// <param name="argumentValue">The string value to be tested.</param>
-        public static void ArgumentNotNullOrEmpty(string argumentName, string argumentValue)
+        /// <param name="argumentName">The name of the tested value.</param>
+        public static void ArgumentNotNullOrEmpty(string argumentValue, string argumentName)
         {
-            if (string.IsNullOrEmpty(argumentName))
-            {
-                throw new ArgumentException("Value cannot be empty.", nameof(argumentName));
-            }
-
-            if (argumentValue is null || argumentValue.Count() == 0)
+            if (String.IsNullOrEmpty(argumentValue))
             {
                 throw new ArgumentNullOrEmptyException(argumentName);
             }
@@ -48,16 +38,11 @@ namespace OrchardCoreContrib.Infrastructure
         /// <summary>
         /// Throws <see cref="ArgumentNullOrEmptyException"/> if the given collection is <see langword="null" /> or empty.
         /// </summary>
-        /// <param name="argumentName">The name of the tested collection.</param>
         /// <param name="argumentValue">The collection to be tested.</param>
-        public static void ArgumentNotNullOrEmpty(string argumentName, IEnumerable<object> argumentValue)
+        /// <param name="argumentName">The name of the tested collection.</param>
+        public static void ArgumentNotNullOrEmpty(IEnumerable<object> argumentValue, string argumentName)
         {
-            if (string.IsNullOrEmpty(argumentName))
-            {
-                throw new ArgumentException("Value cannot be empty.", nameof(argumentName));
-            }
-
-            if (argumentValue is null || argumentValue.Count() == 0)
+            if (argumentValue is null || !argumentValue.Any())
             {
                 throw new ArgumentNullOrEmptyException(argumentName);
             }

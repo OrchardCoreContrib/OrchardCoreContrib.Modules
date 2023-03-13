@@ -17,9 +17,9 @@ namespace OrchardCoreContrib.Sms
         /// <returns>A <see cref="SmtpResult"/> that holds information about the sent message, for instance if it has sent successfully or if it has failed.</returns>
         public async static Task<SmsResult> SendAsync(this ISmsService smsService, string phoneNumber, string text)
         {
-            Guard.ArgumentNotNull(nameof(smsService), smsService);
-            Guard.ArgumentNotNullOrEmpty(nameof(phoneNumber), phoneNumber);
-            Guard.ArgumentNotNullOrEmpty(nameof(text), text);
+            Guard.ArgumentNotNull(smsService, nameof(smsService));
+            Guard.ArgumentNotNullOrEmpty(phoneNumber, nameof(phoneNumber));
+            Guard.ArgumentNotNullOrEmpty(text, nameof(text));
 
             var message = new SmsMessage
             {

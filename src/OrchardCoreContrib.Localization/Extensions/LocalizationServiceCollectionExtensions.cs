@@ -40,7 +40,7 @@ namespace Microsoft.Extensions.DependencyInjection
         /// <param name="services">The <see cref="IServiceCollection"/>.</param>
         public static IServiceCollection AddDiacritics(this IServiceCollection services)
         {
-            Guard.ArgumentNotNull(nameof(services), services);
+            Guard.ArgumentNotNull(services, nameof(services));
 
             services.AddSingleton<IDiacriticsLookup, DiacriticsLookup>();
 

@@ -46,8 +46,8 @@ namespace OrchardCoreContrib.Localization.Data
         /// <param name="culture">The culture that has been used to retrieve the resource.</param>
         public string GetString(string name, string context, CultureInfo culture)
         {
-            Guard.ArgumentNotNullOrEmpty(nameof(name), name);
-            Guard.ArgumentNotNullOrEmpty(nameof(context), context);
+            Guard.ArgumentNotNullOrEmpty(name, nameof(name));
+            Guard.ArgumentNotNullOrEmpty(context, nameof(context));
 
             if (culture == null)
             {
@@ -75,7 +75,7 @@ namespace OrchardCoreContrib.Localization.Data
         /// <param name="tryParents">Whether to use resource fallback if the resources can't be found.</param>
         public IDictionary<string, string> GetResources(CultureInfo culture, bool tryParents)
         {
-            Guard.ArgumentNotNull(nameof(culture), culture);
+            Guard.ArgumentNotNull(culture, nameof(culture));
 
             var currentCulture = culture;
 
