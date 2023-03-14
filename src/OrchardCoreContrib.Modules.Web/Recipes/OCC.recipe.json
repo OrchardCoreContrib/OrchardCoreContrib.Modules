@@ -27,6 +27,7 @@
         "OrchardCoreContrib.Users.Impersonation",
         "OrchardCore.Roles",
         "OrchardCore.Users",
+        "OrchardCoreContrib.System",
         "TheTheme"
       ]
     },

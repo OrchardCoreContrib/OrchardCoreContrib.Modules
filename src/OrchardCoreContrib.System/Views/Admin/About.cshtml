@@ -1,0 +1,72 @@
+﻿@using OrchardCore.Environment.Shell;
+@using OrchardCoreContrib.System.ViewModels;
+@model AboutViewModel
+@functions
+{
+    public string BaseUrl => $"{Context.Request.Scheme}//{Context.Request.Host}/";
+}
+
+<zone Name="Title"><h1>@RenderTitleSegments(T["System Report"])</h1></zone>
+<h4 class="mt-3">@T["Application Info"]</h4>
+<table class="table table-striped table-hover mt-4">
+    <tr>
+        <th>@T["Application Name"]</th>
+        <td class="w-75">@Model.SystemInformation.ApplicationName</td>
+    </tr>
+    <tr>
+        <th>@T["Application Version"]</th>
+        <td>@Model.SystemInformation.ApplicationVersion.ToString(3)</td>
+    </tr>
+    <tr>
+        <th>@T["Orchard Core Version"]</th>
+        <td>@Model.SystemInformation.OrchardCoreVersion.ToString(3)</td>
+    </tr>
+    <tr>
+        <th>@T["ASP.NET Core Version"]</th>
+        <td>@Model.SystemInformation.AspNetCoreVersion</td>
+    </tr>
+    <tr>
+        <th>@T["OS Version"]</th>
+        <td>@Model.SystemInformation.OSVersion</td>
+    </tr>
+    <tr>
+        <th>@T["Database Provider"]</th>
+        <td>@Model.SystemInformation.DatabaseProvider</td>
+    </tr>
+</table>
+<h4>@T["Tenants"]</h4>
+<table class="table table-striped table-hover mt-4">
+    <tr>
+        <th>@ShellHelper.DefaultShellName</th>
+        <td class="w-75">@BaseUrl</td>
+    </tr>
+    @foreach (var tenant in Model.Tenants.Where(t => !t.IsDefaultShell()))
+    {
+        var url = tenant.RequestUrlHost ?? BaseUrl;
+
+        if (!String.IsNullOrEmpty(tenant.RequestUrlPrefix))
+        {
+            url += tenant.RequestUrlPrefix;
+        }
+        <tr>
+            <th>@tenant.Name</th>
+            <td>@url</td>
+        </tr>
+    }
+</table>
+<h4>@T["Features"]</h4>
+<table class="table table-striped table-hover mt-4">
+    @foreach (var groupedFeature in Model.Features.GroupBy(f => f.Category).OrderBy(f => f.Key))
+    {
+        <tr>
+            <th colspan="2">@groupedFeature.Key</th>
+        </tr>
+        @foreach (var feature in groupedFeature)
+        {
+            <tr>
+                <th></th>
+                <td class="w-75">@feature.Id (@feature.Name)</td>
+            </tr>
+        }
+    }
+</table>
