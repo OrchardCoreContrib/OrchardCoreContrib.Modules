@@ -28,3 +28,22 @@ public class Startup : StartupBase
         );
     }
 }
+
+[Feature("OrchardCoreContrib.System.Updates")]
+public class UpdatesStartup : StartupBase
+{
+    public override void ConfigureServices(IServiceCollection services)
+    {
+        services.AddScoped<INavigationProvider, UpdatesAdminMenu>();
+    }
+
+    public override void Configure(IApplicationBuilder builder, IEndpointRouteBuilder routes, IServiceProvider serviceProvider)
+    {
+        routes.MapAreaControllerRoute(
+            name: "SystemUpdates",
+            areaName: "OrchardCoreContrib.System",
+            pattern: "Admin/Updates",
+            defaults: new { controller = typeof(AdminController).ControllerName(), action = nameof(AdminController.Updates) }
+        );
+    }
+}
