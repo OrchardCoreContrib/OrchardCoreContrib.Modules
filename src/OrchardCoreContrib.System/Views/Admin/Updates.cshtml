@@ -1,0 +1,44 @@
+﻿@using NuGet.Versioning;
+@using OrchardCore.Environment.Shell;
+@using OrchardCoreContrib.System
+@using OrchardCoreContrib.System.ViewModels;
+@using System.Reflection;
+@model UpdatesViewModel
+@{
+    var hasUpdates = Model.Versions.Any(v => v.Version > Model.SystemInformation.OrchardCoreVersion);
+}
+@functions
+{
+    public static IEnumerable<AssemblyName> OrchardCoreAssemblies => Assembly.GetEntryAssembly()
+        .GetReferencedAssemblies()
+        .Where(a => a.Name.StartsWith("OrchardCore") && !a.Name.StartsWith("OrchardCoreContrib"));
+}
+<zone Name="Title"><h1>@RenderTitleSegments(T["System Updates"])</h1></zone>
+
+@if (hasUpdates)
+{
+    <table class="table table-striped table-hover mt-4">
+        @foreach (var version in Model.Versions)
+        {
+            if (version.Version > Model.SystemInformation.OrchardCoreVersion)
+            {
+                <tr>
+                    <th>@version.ToFullString()</th>
+                    <td class="w-75">
+                        @foreach (var assembly in OrchardCoreAssemblies)
+                        {
+                            var packageUrl = String.Join("/", SystemUpdatesConstants.NuGetPackageUrl, assembly.Name, version.ToFullString());
+                            <a class="d-block" href="@packageUrl">@assembly.Name</a>
+                        }
+                    </td>
+                </tr>
+            }
+        }
+    </table>
+}
+else
+{
+    <div class="alert alert-info">
+        <p>@T["You're all up to date!"]</p>
+    </div>
+}

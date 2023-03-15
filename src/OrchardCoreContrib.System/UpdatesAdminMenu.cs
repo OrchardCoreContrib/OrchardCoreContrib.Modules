@@ -4,9 +4,9 @@ using OrchardCore.Navigation;
 namespace OrchardCoreContrib.System;
 
 /// <summary>
-/// Represents an admin menu for System module.
+/// Represents an admin menu for System Updates feature.
 /// </summary>
-public class AdminMenu : INavigationProvider
+public class UpdatesAdminMenu : INavigationProvider
 {
     private readonly IStringLocalizer S;
 
@@ -14,7 +14,7 @@ public class AdminMenu : INavigationProvider
     /// Initializes a new instance of <see cref="AdminMenu"/>.
     /// </summary>
     /// <param name="stringLocalizer">The <see cref="IStringLocalizer{AdminMenu}"/>.</param>
-    public AdminMenu(IStringLocalizer<AdminMenu> stringLocalizer)
+    public UpdatesAdminMenu(IStringLocalizer<AdminMenu> stringLocalizer)
     {
         S = stringLocalizer;
     }
@@ -24,11 +24,21 @@ public class AdminMenu : INavigationProvider
     {
         if (string.Equals(name, "admin", StringComparison.OrdinalIgnoreCase))
         {
+            //builder.Add(S["System Info"], "100", info => info
+            //    .AddClass("info").Id("info")
+            //    .Add(S["Updates"], S["Updates"].PrefixPosition(), updates => updates
+            //        .AddClass("updates").Id("updates")
+            //        .Action("Updates", "Admin", "OrchardCoreContrib.System")
+            //        .LocalNav()));
             builder.Add(S["System"], "100", info => info
                 .AddClass("system").Id("system")
                 .Add(S["Info"], S["Info"].PrefixPosition(), updates => updates
                     .AddClass("info").Id("info")
                     .Action("About", "Admin", "OrchardCoreContrib.System")
+                    .LocalNav())
+                .Add(S["Updates"], S["Updates"].PrefixPosition(), updates => updates
+                    .AddClass("updates").Id("updates")
+                    .Action("Updates", "Admin", "OrchardCoreContrib.System")
                     .LocalNav()));
         }
 
