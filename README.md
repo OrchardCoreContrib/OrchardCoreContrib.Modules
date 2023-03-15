@@ -30,3 +30,4 @@ The `OrchardCoreContrib.Modules` repository consists of the following modules:
 | [Yahoo Module](src/OrchardCoreContrib.Email.Yahoo/README.md) | `OrchardCoreContrib.Email.Yahoo` |
 | [YARP Module](src/OrchardCoreContrib.ReverseProxy.Yarp/README.md) | `OrchardCoreContrib.ReverseProxy.Yarp` |
 | [Users Module](src/OrchardCoreContrib.Users/README.md) | `OrchardCoreContrib.Users` |
+| [System Module](src/OrchardCoreContrib.System/README.md) | `OrchardCoreContrib.System` |
