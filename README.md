@@ -22,22 +22,22 @@ There are many goals for creating this repository:
 
 The `OrchardCoreContrib` repository consists of the following projects:
 
-| Name | Namespace |
-| --- | --- |
-| [Orchard Core Contrib Implementation APIs](src/OrchardCoreContrib/README.md) | `OrchardCoreContrib` |
-| [Orchard Core Contrib Abstractions APIs](src/OrchardCoreContrib.Abstractions/README.md) | `OrchardCoreContrib.Abstractions` |
-| [Content Localization Abstractions APIs](src/OrchardCoreContrib.ContentLocalization.Abstractions/README.md) | `OrchardCoreContrib.ContentLocalization.Abstractions` |
-| [Content Localization Implementations APIs](src/OrchardCoreContrib.ContentLocalization.Core/README.md) | `OrchardCoreContrib.ContentLocalization.Core` |
-| [Email APIs](src/OrchardCoreContrib.Email/README.md) | `OrchardCoreContrib.Email` |
-| [Email Abstractions](src/OrchardCoreContrib.Email.Abstractions/README.md) | `OrchardCoreContrib.Email.Abstractions` |
-| [Health Checks Abstractions](src/OrchardCoreContrib.HealthChecks.Abstractions/README.md) | `OrchardCoreContrib.HealthChecks.Abstractions` |
-| [Infrastructure Abstractions APIs](src/OrchardCoreContrib.Infrastructure.Abstractions/README.md) | `OrchardCoreContrib.Infrastructure.Abstractions` |
-| [LINQ to Orchard Core](src/OrchardCoreContrib.Linq/README.md) | `OrchardCoreContrib.Linq` |
-| [Localization Implementation APIs](src/OrchardCoreContrib.Localization/README.md) | `OrchardCoreContrib.Localization` |
-| [Localization Abstractions APIs](src/OrchardCoreContrib.Localization.Abstractions/README.md) | `OrchardCoreContrib.Localization.Abstractions` |
-| [JSON Localization APIs](src/OrchardCoreContrib.Localization.Json/README.md) | `OrchardCoreContrib.Localization.Json` |
-| [XLIFF Localization APIs](src/OrchardCoreContrib.Localization.Xliff/README.md) | `OrchardCoreContrib.Localization.Xliff` |
-| [OpenApi Abstractions APIs](src/OrchardCoreContrib.OpenApi.Abstractions/README.md) | `OrchardCoreContrib.OpenApi.Abstractions` |
-| [Shortcodes Abstractions APIs](src/OrchardCoreContrib.Shortcodes.Abstractions/README.md) | `OrchardCoreContrib.Shortcodes.Abstractions` |
-| [Shortcodes Implementation APIs](src/OrchardCoreContrib.Shortcodes.Core/README.md) | `OrchardCoreContrib.Shortcodes.Core` |
-| [SMS Abstractions APIs](src/OrchardCoreContrib.Sms.Abstractions/README.md) | `OrchardCoreContrib.Sms.Abstractions` |
+| Name | Namespace | NuGet |
+| --- | --- | --- |
+| [Orchard Core Contrib Implementation APIs](src/OrchardCoreContrib/README.md) | `OrchardCoreContrib` ||
+| [Orchard Core Contrib Abstractions APIs](src/OrchardCoreContrib.Abstractions/README.md) | `OrchardCoreContrib.Abstractions` | [![NuGet](https://img.shields.io/nuget/v/OrchardCoreContrib.Abstractions.svg)](https://www.nuget.org/packages/OrchardCoreContrib.Abstractions) |
+| [Content Localization Abstractions APIs](src/OrchardCoreContrib.ContentLocalization.Abstractions/README.md) | `OrchardCoreContrib.ContentLocalization.Abstractions` | [![NuGet](https://img.shields.io/nuget/v/OrchardCoreContrib.ContentLocalization.Abstractions.svg)](https://www.nuget.org/packages/OrchardCoreContrib.ContentLocalization.Abstractions) |
+| [Content Localization Implementations APIs](src/OrchardCoreContrib.ContentLocalization.Core/README.md) | `OrchardCoreContrib.ContentLocalization.Core` | [![NuGet](https://img.shields.io/nuget/v/OrchardCoreContrib.ContentLocalization.Core.svg)](https://www.nuget.org/packages/OrchardCoreContrib.ContentLocalization.Core) |
+| [Email APIs](src/OrchardCoreContrib.Email/README.md) | `OrchardCoreContrib.Email` | [![NuGet](https://img.shields.io/nuget/v/OrchardCoreContrib.Email.svg)](https://www.nuget.org/packages/OrchardCoreContrib.Email) |
+| [Email Abstractions](src/OrchardCoreContrib.Email.Abstractions/README.md) | `OrchardCoreContrib.Email.Abstractions` | [![NuGet](https://img.shields.io/nuget/v/OrchardCoreContrib.Email.Abstractions.svg)](https://www.nuget.org/packages/OrchardCoreContrib.Email.Abstractions) |
+| [Health Checks Abstractions](src/OrchardCoreContrib.HealthChecks.Abstractions/README.md) | `OrchardCoreContrib.HealthChecks.Abstractions` | [![NuGet](https://img.shields.io/nuget/v/OrchardCoreContrib.HealthChecks.Abstractions.svg)](https://www.nuget.org/packages/OrchardCoreContrib.HealthChecks.Abstractions) |
+| [Infrastructure Abstractions APIs](src/OrchardCoreContrib.Infrastructure.Abstractions/README.md) | `OrchardCoreContrib.Infrastructure.Abstractions` | [![NuGet](https://img.shields.io/nuget/v/OrchardCoreContrib.Infrastructure.Abstractions.svg)](https://www.nuget.org/packages/OrchardCoreContrib.Infrastructure.Abstractions) |
+| [LINQ to Orchard Core](src/OrchardCoreContrib.Linq/README.md) | `OrchardCoreContrib.Linq` | [![NuGet](https://img.shields.io/nuget/v/OrchardCoreContrib.Linq.svg)](https://www.nuget.org/packages/OrchardCoreContrib.Linq) |
+| [Localization Implementation APIs](src/OrchardCoreContrib.Localization/README.md) | `OrchardCoreContrib.Localization` | [![NuGet](https://img.shields.io/nuget/v/OrchardCoreContrib.Localization.svg)](https://www.nuget.org/packages/OrchardCoreContrib.Localization) |
+| [Localization Abstractions APIs](src/OrchardCoreContrib.Localization.Abstractions/README.md) | `OrchardCoreContrib.Localization.Abstractions` | [![NuGet](https://img.shields.io/nuget/v/OrchardCoreContrib.Localization.Abstractions.svg)](https://www.nuget.org/packages/OrchardCoreContrib.Localization.Abstractions) |
+| [JSON Localization APIs](src/OrchardCoreContrib.Localization.Json/README.md) | `OrchardCoreContrib.Localization.Json` | [![NuGet](https://img.shields.io/nuget/v/OrchardCoreContrib.Localization.Json.svg)](https://www.nuget.org/packages/OrchardCoreContrib.Localization.Json) |
+| [XLIFF Localization APIs](src/OrchardCoreContrib.Localization.Xliff/README.md) | `OrchardCoreContrib.Localization.Xliff` | [![NuGet](https://img.shields.io/nuget/v/OrchardCoreContrib.Localization.Xliff.svg)](https://www.nuget.org/packages/OrchardCoreContrib.Localization.Xliff) |
+| [OpenApi Abstractions APIs](src/OrchardCoreContrib.OpenApi.Abstractions/README.md) | `OrchardCoreContrib.OpenApi.Abstractions` | [![NuGet](https://img.shields.io/nuget/v/OrchardCoreContrib.OpenApi.Abstractions.svg)](https://www.nuget.org/packages/OrchardCoreContrib.OpenApi.Abstractions) |
+| [Shortcodes Abstractions APIs](src/OrchardCoreContrib.Shortcodes.Abstractions/README.md) | `OrchardCoreContrib.Shortcodes.Abstractions` | [![NuGet](https://img.shields.io/nuget/v/OrchardCoreContrib.Shortcodes.Abstractions.svg)](https://www.nuget.org/packages/OrchardCoreContrib.Shortcodes.Abstractions) |
+| [Shortcodes Implementation APIs](src/OrchardCoreContrib.Shortcodes.Core/README.md) | `OrchardCoreContrib.Shortcodes.Core` | [![NuGet](https://img.shields.io/nuget/v/OrchardCoreContrib.Shortcodes.Core.svg)](https://www.nuget.org/packages/OrchardCoreContrib.Shortcodes.Core) |
+| [SMS Abstractions APIs](src/OrchardCoreContrib.Sms.Abstractions/README.md) | `OrchardCoreContrib.Sms.Abstractions` | [![NuGet](https://img.shields.io/nuget/v/OrchardCoreContrib.Sms.Abstractions.svg)](https://www.nuget.org/packages/OrchardCoreContrib.Sms.Abstractions) |
