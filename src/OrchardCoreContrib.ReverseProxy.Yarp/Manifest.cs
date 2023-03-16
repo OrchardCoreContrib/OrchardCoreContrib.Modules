@@ -7,5 +7,3 @@
     Description = "Enables configuration of hosting scenarios with a reverse proxy using YARP",
     Category = "Infrastructure"
 )]
-
-
