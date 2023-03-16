@@ -3,11 +3,15 @@ using Microsoft.AspNetCore.Diagnostics.HealthChecks;
 using Microsoft.AspNetCore.Routing;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Options;
+using OrchardCore.DisplayManagement.Handlers;
 using OrchardCore.Modules;
 using OrchardCore.Mvc.Core.Utilities;
 using OrchardCore.Navigation;
+using OrchardCore.Security.Permissions;
+using OrchardCore.Settings;
 using OrchardCoreContrib.HealthChecks;
 using OrchardCoreContrib.System.Controllers;
+using OrchardCoreContrib.System.Drivers;
 using OrchardCoreContrib.System.HealthChecks;
 using OrchardCoreContrib.System.Services;
 
@@ -60,4 +64,18 @@ public class UpdatesStartup : StartupBase
             Predicate = r => r.Name == SystemUpdatesHealthCheck.Name
         });
     }
+}
+
+[Feature("OrchardCoreContrib.System.Maintenance")]
+public class MaintenaceStartup : StartupBase
+{
+    public override void ConfigureServices(IServiceCollection services)
+    {
+        services.AddScoped<IPermissionProvider, Permissions>();
+        services.AddScoped<IDisplayDriver<ISite>, SystemSettingsDisplayDriver>();
+        services.AddScoped<INavigationProvider, MaintenanceAdminMenu>();
+    }
+
+    public override void Configure(IApplicationBuilder app, IEndpointRouteBuilder routes, IServiceProvider serviceProvider)
+        => app.UseMaintenanceRedirect();
 }

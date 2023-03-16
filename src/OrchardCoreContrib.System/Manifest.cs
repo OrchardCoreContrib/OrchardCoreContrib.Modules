@@ -20,3 +20,9 @@ using OrchardCore.Modules.Manifest;
     Description = "Displays the available system updates.",
     Dependencies = new[] { "OrchardCoreContrib.System" }
 )]
+
+[assembly: Feature(
+    Id = "OrchardCoreContrib.System.Maintenance",
+    Name = "System Maintenance",
+    Description = "Put your site in maintenance mode while you do upgrades."
+)]

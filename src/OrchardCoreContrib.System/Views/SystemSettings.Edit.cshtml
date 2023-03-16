@@ -1,0 +1,8 @@
+@using OrchardCoreContrib.System
+@model SystemSettings
+
+<div class="form-check mb-3" asp-validation-class-for="AllowMaintenanceMode">
+    <input type="checkbox" class="form-check-input" asp-for="AllowMaintenanceMode">
+    <label class="form-check-label" asp-for="AllowMaintenanceMode">@T["Allow maintenance mode"] </label>
+    <span class="hint dashed">@T["Check to let the maintenance page to be displayed instead of all the site pages, this is useful if you're doing an upgrade or maintenance to your website."]</span>
+</div>
