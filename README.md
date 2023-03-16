@@ -12,22 +12,22 @@ This will encourage all the passionate developers to build the modules that aren
 
 The `OrchardCoreContrib.Modules` repository consists of the following modules:
 
-| Name | Namespace |
-| --- | --- |
-| [Swagger Module](src/OrchardCoreContrib.Apis.Swagger/README.md) | `OrchardCoreContrib.Apis.Swagger` |
-| [Content Localization Module](src/OrchardCoreContrib.ContentLocalization/README.md) | `OrchardCoreContrib.ContentLocalization` |
-| [Content Preview Module](src/OrchardCoreContrib.ContentPreview/README.md) | `OrchardCoreContrib.ContentPreview` |
-| [Data Localization Module](src/OrchardCoreContrib.DataLocalization/README.md) | `OrchardCoreContrib.DataLocalization` |
-| [Elm Diagnostics Module](src/OrchardCoreContrib.Diagnostics.Elm/README.md) | `OrchardCoreContrib.Diagnostics.Elm` |
-| [Gmail Module](src/OrchardCoreContrib.Email.Gmail/README.md) | `OrchardCoreContrib.Email.Gmail` |
-| [Google Maps Module](src/OrchardCoreContrib.GoogleMaps/README.md) | `OrchardCoreContrib.GoogleMaps` |
-| [Gravatar Module](src/OrchardCoreContrib.Gravatar/README.md) | `OrchardCoreContrib.Gravatar` |
-| [Health Checks Module](src/OrchardCoreContrib.HealthChecks/README.md) | `OrchardCoreContrib.HealthChecks` |
-| [Hotmail Module](src/OrchardCoreContrib.Email.Hotmail/README.md) | `OrchardCoreContrib.Email.Hotmail` |
-| [Html Module](src/OrchardCoreContrib.Html/README.md) | `OrchardCoreContrib.Html` |
-| [SendGrid Module](src/OrchardCoreContrib.Email.SendGrid/README.md) | `OrchardCoreContrib.Email.SendGrid` |
-| [Tenants Module](src/OrchardCoreContrib.Tenants/README.md) | `OrchardCoreContrib.Tenants` |
-| [Yahoo Module](src/OrchardCoreContrib.Email.Yahoo/README.md) | `OrchardCoreContrib.Email.Yahoo` |
-| [YARP Module](src/OrchardCoreContrib.ReverseProxy.Yarp/README.md) | `OrchardCoreContrib.ReverseProxy.Yarp` |
-| [Users Module](src/OrchardCoreContrib.Users/README.md) | `OrchardCoreContrib.Users` |
-| [System Module](src/OrchardCoreContrib.System/README.md) | `OrchardCoreContrib.System` |
+| Name | Namespace | NuGet |
+| --- | --- | --- |
+| [Swagger Module](src/OrchardCoreContrib.Apis.Swagger/README.md) | `OrchardCoreContrib.Apis.Swagger` | [![NuGet](https://img.shields.io/nuget/v/OrchardCoreContrib.Apis.Swagger.svg)](https://www.nuget.org/packages/OrchardCoreContrib.Apis.Swagger) |
+| [Content Localization Module](src/OrchardCoreContrib.ContentLocalization/README.md) | `OrchardCoreContrib.ContentLocalization` | [![NuGet](https://img.shields.io/nuget/v/OrchardCoreContrib.ContentLocalization.svg)](https://www.nuget.org/packages/OrchardCoreContrib.ContentLocalization) |
+| [Content Preview Module](src/OrchardCoreContrib.ContentPreview/README.md) | `OrchardCoreContrib.ContentPreview` | [![NuGet](https://img.shields.io/nuget/v/OrchardCoreContrib.ContentPreview.svg)](https://www.nuget.org/packages/OrchardCoreContrib.ContentPreview) |
+| [Data Localization Module](src/OrchardCoreContrib.DataLocalization/README.md) | `OrchardCoreContrib.DataLocalization` | [![NuGet](https://img.shields.io/nuget/v/OrchardCoreContrib.DataLocalization.svg)](https://www.nuget.org/packages/OrchardCoreContrib.DataLocalization) |
+| [Elm Diagnostics Module](src/OrchardCoreContrib.Diagnostics.Elm/README.md) | `OrchardCoreContrib.Diagnostics.Elm` | [![NuGet](https://img.shields.io/nuget/v/OrchardCoreContrib.Diagnostics.Elm.svg)](https://www.nuget.org/packages/OrchardCoreContrib.Diagnostics.Elm) |
+| [Gmail Module](src/OrchardCoreContrib.Email.Gmail/README.md) | `OrchardCoreContrib.Email.Gmail` | [![NuGet](https://img.shields.io/nuget/v/OrchardCoreContrib.Email.Gmail.svg)](https://www.nuget.org/packages/OrchardCoreContrib.Email.Gmail) |
+| [Google Maps Module](src/OrchardCoreContrib.GoogleMaps/README.md) | `OrchardCoreContrib.GoogleMaps` | [![NuGet](https://img.shields.io/nuget/v/OrchardCoreContrib.GoogleMaps.svg)](https://www.nuget.org/packages/OrchardCoreContrib.GoogleMaps) |
+| [Gravatar Module](src/OrchardCoreContrib.Gravatar/README.md) | `OrchardCoreContrib.Gravatar` | [![NuGet](https://img.shields.io/nuget/v/OrchardCoreContrib.Gravatar.svg)](https://www.nuget.org/packages/OrchardCoreContrib.Gravatar) |
+| [Health Checks Module](src/OrchardCoreContrib.HealthChecks/README.md) | `OrchardCoreContrib.HealthChecks` | [![NuGet](https://img.shields.io/nuget/v/OrchardCoreContrib.HealthChecks.svg)](https://www.nuget.org/packages/OrchardCoreContrib.HealthChecks) |
+| [Hotmail Module](src/OrchardCoreContrib.Email.Hotmail/README.md) | `OrchardCoreContrib.Email.Hotmail` | [![NuGet](https://img.shields.io/nuget/v/OrchardCoreContrib.Email.Hotmail.svg)](https://www.nuget.org/packages/OrchardCoreContrib.Email.Hotmail) |
+| [Html Module](src/OrchardCoreContrib.Html/README.md) | `OrchardCoreContrib.Html` | [![NuGet](https://img.shields.io/nuget/v/OrchardCoreContrib.Html.svg)](https://www.nuget.org/packages/OrchardCoreContrib.Html) |
+| [SendGrid Module](src/OrchardCoreContrib.Email.SendGrid/README.md) | `OrchardCoreContrib.Email.SendGrid` | [![NuGet](https://img.shields.io/nuget/v/OrchardCoreContrib.Email.SendGrid.svg)](https://www.nuget.org/packages/OrchardCoreContrib.Email.SendGrid) |
+| [Tenants Module](src/OrchardCoreContrib.Tenants/README.md) | `OrchardCoreContrib.Tenants` | [![NuGet](https://img.shields.io/nuget/v/OrchardCoreContrib.Tenants.svg)](https://www.nuget.org/packages/OrchardCoreContrib.Tenants) |
+| [Yahoo Module](src/OrchardCoreContrib.Email.Yahoo/README.md) | `OrchardCoreContrib.Email.Yahoo` | [![NuGet](https://img.shields.io/nuget/v/OrchardCoreContrib.Email.Yahoo.svg)](https://www.nuget.org/packages/OrchardCoreContrib.Email.Yahoo) |
+| [YARP Module](src/OrchardCoreContrib.ReverseProxy.Yarp/README.md) | `OrchardCoreContrib.ReverseProxy.Yarp` | [![NuGet](https://img.shields.io/nuget/v/OrchardCoreContrib.ReverseProxy.Yarp.svg)](https://www.nuget.org/packages/OrchardCoreContrib.ReverseProxy.Yarp) |
+| [Users Module](src/OrchardCoreContrib.Users/README.md) | `OrchardCoreContrib.Users` | [![NuGet](https://img.shields.io/nuget/v/OrchardCoreContrib.Users.svg)](https://www.nuget.org/packages/OrchardCoreContrib.Users) |
+| [System Module](src/OrchardCoreContrib.System/README.md) | `OrchardCoreContrib.System` | [![NuGet](https://img.shields.io/nuget/v/OrchardCoreContrib.System.svg)](https://www.nuget.org/packages/OrchardCoreContrib.System) |

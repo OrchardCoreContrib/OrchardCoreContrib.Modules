@@ -5,7 +5,7 @@ using OrchardCoreContrib.ContentPreview;
     Name = "Content Preview",
     Author = "The Orchard Core Contrib Team",
     Website = "",
-    Version = "1.0.2",
+    Version = "1.1.0",
     Category = "Content Management"
 )]
 
