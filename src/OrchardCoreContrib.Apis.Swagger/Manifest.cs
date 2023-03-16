@@ -2,7 +2,7 @@
 
 [assembly: Module(
     Author = "The Orchard Core Contrib Team",
-    Version = "1.1.0",
+    Version = "1.2.0",
     Category = "Api"
 )]
 

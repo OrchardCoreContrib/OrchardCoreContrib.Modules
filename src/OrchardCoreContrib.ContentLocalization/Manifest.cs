@@ -3,7 +3,7 @@ using OrchardCore.Modules.Manifest;
 [assembly: Module(
     Name = "Content Localization",
     Author = "The Orchard Core Contrib Team",
-    Version = "1.0.0",
+    Version = "1.1.0",
     Category = "Internationalization"
 )]
 

@@ -3,7 +3,7 @@
 [assembly: Module(
     Name = "SendGrid",
     Author = "The Orchard Core Contrib Team",
-    Version = "1.1.0",
+    Version = "1.2.0",
     Description = "Provides email settings configuration for SendGrid service.",
     Category = "Messaging"
 )]

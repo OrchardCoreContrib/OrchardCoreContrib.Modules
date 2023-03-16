@@ -4,7 +4,7 @@ This module enables user avatar using gravatar service.
 
 ## Version
 
-1.0.0
+1.1.0
 
 ## Category
 
