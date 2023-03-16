@@ -4,19 +4,20 @@ using OrchardCore.Modules.Manifest;
     Name = "System",
     Author = "The Orchard Core Contrib Team",
     Version = "1.0.0",
-    Category = "Utilities",
-    DefaultTenantOnly = true
+    Category = "Utilities"
 )]
 
 [assembly: Feature(
     Id = "OrchardCoreContrib.System",
     Name = "System",
-    Description = "Provides an information about currently running application."
+    Description = "Provides an information about currently running application.",
+    DefaultTenantOnly = true
 )]
 
 [assembly: Feature(
     Id = "OrchardCoreContrib.System.Updates",
     Name = "System Updates",
     Description = "Displays the available system updates.",
-    Dependencies = new[] { "OrchardCoreContrib.System" }
+    Dependencies = new[] { "OrchardCoreContrib.System" },
+    DefaultTenantOnly = true
 )]
