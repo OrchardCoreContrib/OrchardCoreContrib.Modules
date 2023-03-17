@@ -1,4 +1,3 @@
-@using OrchardCore.Modules
 @using OrchardCore.Users
 @using OrchardCore.Users.Models
 @using OrchardCore.Users.Services
@@ -7,7 +6,6 @@
 
 @inject IAuthorizationService AuthorizationService
 @inject IUserService UserService
-@attribute [Feature("OrchardCoreContrib.Gravatar")]
 @{
     var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
 

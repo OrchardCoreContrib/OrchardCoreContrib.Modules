@@ -4,13 +4,7 @@
     Name = "Gravatar",
     Author = "The Orchard Core Contrib Team",
     Version = "1.1.0",
-    Category = "Profile"
-)]
-
-[assembly: Feature(
-    Id = "OrchardCoreContrib.Gravatar",
-    Name = "Gravatar",
+    Category = "Profile",
     Description = "The gravatar module enables user avatar using gravatar service.",
     Dependencies = new[] { "OrchardCore.Users" }
 )]
-
