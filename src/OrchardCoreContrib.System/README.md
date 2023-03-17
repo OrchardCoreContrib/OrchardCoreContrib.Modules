@@ -12,13 +12,27 @@ Utilities
 
 ## Dependencies
 
+This module has no dependencies.
+
 ## Features
 
-| Name | Description |
+| | |
 | --- | --- |
-| System (`OrchardCoreContrib.System`) | Provides an information about currently running application. |
-| System Updates (`OrchardCoreContrib.System.Updates`) | Displays the available system updates. |
-| System Maintenance (`OrchardCoreContrib.System.Maintenance`) | Put your site in maintenance mode while you do upgrades. |
+| **Name** | System (`OrchardCoreContrib.System`) |
+| **Description** | Provides an information about currently running application. |
+| **Dependencies** | |
+
+| | |
+| --- | --- |
+| **Name** | System Updates (`OrchardCoreContrib.System.Updates`) |
+| **Description** | Displays the available system updates. |
+| **Dependencies** | `OrchardCoreContrib.System` |
+
+| | |
+| --- | --- |
+| **Name** | System Maintenance (`OrchardCoreContrib.System.Maintenance`) |
+| **Description** | Put your site in maintenance mode while you're doing upgrades. |
+| **Dependencies** | |
 
 ## NuGet Packages
 

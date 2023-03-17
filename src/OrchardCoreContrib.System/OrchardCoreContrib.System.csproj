@@ -5,7 +5,7 @@
 		<AddRazorSupportForMvc>true</AddRazorSupportForMvc>
 		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
 		<ImplicitUsings>enable</ImplicitUsings>
-		<VersionPrefix>1.2.0</VersionPrefix>
+		<VersionPrefix>1.2.1</VersionPrefix>
 		<Authors>The Orchard Core Contrib Team</Authors>
 		<Company />
 		<Description>The System module provides information about the currently running application.</Description>
