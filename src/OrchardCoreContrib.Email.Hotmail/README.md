@@ -12,15 +12,15 @@ Messaging
 
 ## Dependencies
 
-| Product | Module |
-| --- | --- |
-| OrchardCore | Email (`OrchardCore.Email`) |
+This module has no dependencies.
 
 ## Features
 
-| Name | Description |
+| | |
 | --- | --- |
-| Hotmail (`OrchardCoreContrib.Email.Hotmail`) | Allow you to send email(s) via Hotmail service. |
+| **Name** | Hotmail (`OrchardCoreContrib.Email.Hotmail`) |
+| **Description** | Allow you to send email(s) via Hotmail service. |
+| **Dependencies** | |
 
 ## NuGet Packages
 

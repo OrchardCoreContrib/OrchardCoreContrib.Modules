@@ -12,15 +12,15 @@ Messaging
 
 ## Dependencies
 
-| Product | Module |
-| --- | --- |
-| OrchardCore | Email (`OrchardCore.Email`) |
+This module has no dependencies.
 
 ## Features
 
-| Name | Description |
+| | |
 | --- | --- |
-| SendGrid (`OrchardCoreContrib.Email.SendGrid`) | Allow you to send email(s) via SendGrid service. |
+| **Name** | SendGrid (`OrchardCoreContrib.Email.SendGrid`) |
+| **Description** | Allow you to send email(s) via SendGrid service. |
+| **Dependencies** | |
 
 ## NuGet Packages
 

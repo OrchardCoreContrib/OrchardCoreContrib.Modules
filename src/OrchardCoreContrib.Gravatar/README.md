@@ -14,13 +14,15 @@ Profile
 
 | Product | Module |
 | --- | --- |
-| OrchardCore | Gravatar (`OrchardCore.Gravatar`) |
+| OrchardCore | Users (`OrchardCore.Users`) |
 
 ## Features
 
-| Name | Description |
+| | |
 | --- | --- |
-| Gravatar (`OrchardCoreContrib.Gravatar`) | Displays the user avatar on the admin menu. |
+| **Name** | Gravatar (`OrchardCoreContrib.Gravatar`) |
+| **Description** | Displays the user avatar on the admin menu. |
+| **Dependencies** | `OrchardCore.Users` |
 
 ## NuGet Packages
 

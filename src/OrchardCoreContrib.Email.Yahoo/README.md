@@ -12,15 +12,15 @@ Messaging
 
 ## Dependencies
 
-| Product | Module |
-| --- | --- |
-| OrchardCore | Email (`OrchardCore.Email`) |
+This module has no dependencies.
 
 ## Features
 
-| Name | Description |
+| | |
 | --- | --- |
-| Yahoo (`OrchardCoreContrib.Email.Yahoo`) | Allow you to send email(s) via Yahoo service. |
+| **Name** | Yahoo (`OrchardCoreContrib.Email.Yahoo`) |
+| **Description** | Allow you to send email(s) via Yahoo service. |
+| **Dependencies** | |
 
 ## NuGet Packages
 

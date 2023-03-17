@@ -12,15 +12,15 @@ Messaging
 
 ## Dependencies
 
-| Product | Module |
-| --- | --- |
-| OrchardCore | Email (`OrchardCore.Email`) |
+This module has no dependencies.
 
 ## Features
 
-| Name | Description |
+| | |
 | --- | --- |
-| Gmail (`OrchardCoreContrib.Email.Gmail`) | Allow you to send email(s) via Gmail service. |
+| **Name** | Gmail (`OrchardCoreContrib.Email.Gmail`) |
+| **Description** | Allow you to send email(s) via Gmail service. |
+| **Dependencies** | |
 
 ## NuGet Packages
 

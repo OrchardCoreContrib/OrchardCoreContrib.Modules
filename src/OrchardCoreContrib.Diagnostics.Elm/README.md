@@ -16,9 +16,11 @@ This module has no dependencies.
 
 ## Features
 
-| Name | Description |
+| | |
 | --- | --- |
-| Elm Diagnostics (`OrchardCoreContrib.Diagnostics.Elm`) | Provides services to handle errors using Elm. |
+| **Name** | Elm Diagnostics (`OrchardCoreContrib.Diagnostics.Elm`) |
+| **Description** | Provides services to handle errors using Elm. |
+| **Dependencies** | |
 
 ## NuGet Packages
 

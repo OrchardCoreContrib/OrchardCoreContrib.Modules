@@ -16,10 +16,17 @@ This module has no dependencies.
 
 ## Features
 
-| Name | Description |
+| | |
 | --- | --- |
-| Swagger (`OrchardCoreContrib.Apis.Swagger`)  | Enables Swagger for OrchardCore APIs. |
-| Swagger UI (`OrchardCoreContrib.Apis.Swagger.UI`) | Enables Swagger UI for OrchardCore APIs. |
+| **Name** | Swagger (`OrchardCoreContrib.Apis.Swagger`) |
+| **Description** | Enables Swagger for OrchardCore APIs. |
+| **Dependencies** | |
+
+| | |
+| --- | --- |
+| **Name** | Swagger (`OrchardCoreContrib.Apis.Swagger.UI`) |
+| **Description** | Enables Swagger UI for OrchardCore APIs. |
+| **Dependencies** | `OrchardCoreContrib.Apis.Swagger` |
 
 ## NuGet Packages
 
@@ -33,20 +40,18 @@ This module has no dependencies.
 ## Get Started
 
 1. Install the [`OrchardCoreContrib.Apis.Swagger`](https://www.nuget.org/packages/OrchardCoreContrib.Apis.Swagger/) NuGet package to your Orchard Core host project.
-2. There are two features included in this module:
+2. Go to the admin site
+3. Select **Configuration -> Features** menu.
 
-    - Swagger Feature
-        1. Go to the admin site
-        2. Select **Configuration -> Features** menu.
-        3. Enable the `Swagger` feature.
-        4. Go to the site
-        5. Visit the swagger end-point by append `/swagger/v1.0.0/swagger.json` to the URL.
-    - Swagger UI Feature
-        1. Go to the admin site
-        2. Select **Configuration -> Features** menu.
-        3. Enable the `Swagger UI` feature.
-        4. Go to the site
-        5. Visit the swagger end-point by append `/swagger/index.html` to the URL.
+### Swagger
+
+4. Enable the `Swagger` feature.
+5. Go to the `{tenant-URL}/swagger/v1.0.0/swagger.json`, you should see all the APIs listed in JSON format.
+
+### Swagger UI
+
+4. Enable the `Swagger UI` feature.
+5. Go to the `{tenant-URL}/swagger/index.html`, you should see all the APIs listed in a pretty styled page.
 
 ## How to get my APIs into Swagger docs?
 
@@ -56,7 +61,7 @@ Adding your APIs is not swagger docs is not a difficult task, simply you need:
 3. Add your `HttpGet` or `HttpPost` methods into your contoller.
 4. Then your APIs should be displayed into the swagger docs.
 
-So, If you tried toenable `Lucene` or `Queries` modules for instance, their APIs will show up immediately in the swagger docs. That's because every module defined an `ApiController` in the same way that mentioned above.
+So, If you tried to enable `Lucene` or `Queries` modules for instance, their APIs will show up immediately in the swagger docs. That's because every module defined an `ApiController` in the same way that mentioned above.
 
 For more information about swagger, please refer to [ASP.NET Core web API documentation with Swagger / OpenAPI](https://docs.microsoft.com/en-us/aspnet/core/tutorials/web-api-help-pages-using-swagger).
 

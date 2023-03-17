@@ -14,9 +14,11 @@ Infrastructure
 
 ## Features
 
-| Name | Description |
+| | |
 | --- | --- |
-| HealthChecks (`OrchardCoreContrib.HealthChecks`) | Provides a health checks for the website. |
+| **Name** | HealthChecks (`OrchardCoreContrib.HealthChecks`) |
+| **Description** | Provides a health checks for the website. |
+| **Dependencies** | |
 
 ## NuGet Packages
 

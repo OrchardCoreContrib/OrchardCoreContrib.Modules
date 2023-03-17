@@ -14,7 +14,15 @@ Internationalization
 
 | Product | Module |
 | --- | --- |
-| OrchardCore | Data Loalization (`OrchardCore.DataLocalization`) |
+| OrchardCore | Loalization (`OrchardCore.Localization`) |
+
+## Features
+
+| | |
+| --- | --- |
+| **Name** | Data Loalization (`OrchardCoreContrib.DataLocalization`) |
+| **Description** | Provides features for localizing dynamic data. |
+| **Dependencies** | `OrchardCoreLocalization` |
 
 ## NuGet Packages
 

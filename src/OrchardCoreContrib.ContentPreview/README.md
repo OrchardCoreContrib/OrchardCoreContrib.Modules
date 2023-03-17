@@ -12,15 +12,15 @@ Content Management
 
 ## Dependencies
 
-| Product | Module |
-| --- | --- |
-| OrchardCore | Resources (`OrchardCore.Resources`) |
+This module has no dependencies.
 
 ## Features
 
-| Name | Description |
+| | |
 | --- | --- |
-| Page Preview Bar (`OrchardCoreContrib.ContentPreview`) | Shows a top bar that allows you to preview the current page in desktop, tablet and mobile. |
+| **Name** | Page Preview Bar (`OrchardCoreContrib.ContentPreview`) |
+| **Description** | Shows a top bar that allows you to preview the current page in desktop, tablet and mobile. |
+| **Dependencies** | `OrchardCore.Resources` |
 
 ## NuGet Packages
 

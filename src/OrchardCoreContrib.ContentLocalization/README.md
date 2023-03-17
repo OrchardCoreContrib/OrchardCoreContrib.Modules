@@ -12,16 +12,21 @@ Internationalization
 
 ## Dependencies
 
-| Product | Module |
-| --- | --- |
-| OrchardCore | Content Loalization (`OrchardCore.ContentLocalization`) |
+This module has no dependencies.
 
 ## Features
 
-| Name | Description |
+| | |
 | --- | --- |
-| Localization Matrix (`OrchardCoreContrib.ContentLocalization`) | Shows a matix for localized content per culture. |
+| **Name** | Localization Matrix (`OrchardCoreContrib.ContentLocalization.LocalizationMatrix`) |
+| **Description** | Shows a matix for localized content per culture. |
+| **Dependencies** | `OrchardCoreContrib.ContentLocalization`<br/> `OrchardCore.ContentLocalization` |
 
+| | |
+| --- | --- |
+| **Name** | Transliteration (`OrchardCoreContrib.ContentLocalization.Transliteration`) |
+| **Description** | Provides a type of conversion of a text from one script to another that involves swapping letters. |
+| **Dependencies** | `OrchardCore.ContentLocalization` |
 
 ## NuGet Packages
 
@@ -35,9 +40,17 @@ Internationalization
 1. Install the [`OrchardCoreContrib.ContentLocalization`](https://www.nuget.org/packages/OrchardCoreContrib.ContentLocalization/) NuGet package to your Orchard Core host project.
 2. Go to the admin site
 3. Select **Configuration -> Features** menu.
+
+### Localization Matrix
+
 4. Enable the `Localization Matrix` feature.
 5. Select **Configuration -> Settings -> Localization -> Localization Matrix** menu.
 6. Then you can check the localized content per culture, also you can edit the missing localized content from there.
+
+### Transliteration
+
+4. Enable the `Transliteration` feature.
+5. Now you can inject the `ITransliterationService`, then use `Transliterate()` method to transliterate from one script to another.
 
 ## Video
 

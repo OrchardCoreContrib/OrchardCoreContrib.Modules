@@ -18,9 +18,11 @@ Content Management
 
 ## Features
 
-| Name | Description |
+| | |
 | --- | --- |
-| Googlemaps (`OrchardCoreContrib.GoogleMaps`) | Allow you to display Google Map into your content item. |
+| **Name** | Google Maps (`OrchardCoreContrib.GoogleMaps`) |
+| **Description** | Allow you to display Google Map into your content item. |
+| **Dependencies** | `OrchardCore.Contents` |
 
 ## NuGet Packages
 

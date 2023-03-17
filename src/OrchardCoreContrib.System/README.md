@@ -32,7 +32,7 @@ This module has no dependencies.
 | --- | --- |
 | **Name** | System Maintenance (`OrchardCoreContrib.System.Maintenance`) |
 | **Description** | Put your site in maintenance mode while you're doing upgrades. |
-| **Dependencies** | |
+| **Dependencies** | `OrchardCore.Autoroute` |
 
 ## NuGet Packages
 

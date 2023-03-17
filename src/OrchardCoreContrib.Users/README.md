@@ -18,10 +18,17 @@ Security
 
 ## Features
 
-| Name | Description |
+| | |
 | --- | --- |
-| Users Impersonation (`OrchardCoreContrib.Users.Impersonation`) | Allows the administrators to sign in with other user identity. |
-| User Avatar (`OrchardCoreContrib.Users.Avatar`) | Displays the user avatar on the admin menu. |
+| **Name** | Users Impersonation (`OrchardCoreContrib.Users.Impersonation`) |
+| **Description** | Allows the administrators to sign in with other user identity. |
+| **Dependencies** | `OrchardCore.Users` |
+
+| | |
+| --- | --- |
+| **Name** | User Avatar (`OrchardCoreContrib.Users.Avatar`) |
+| **Description** | Displays the user avatar on the admin menu. |
+| **Dependencies** | `OrchardCore.Users` |
 
 ## NuGet Packages
 

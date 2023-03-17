@@ -1,4 +1,4 @@
-# YARP Module
+# Yet Another Reverse Proxy (YARP) Module
 
 This module enables configuration of hosting scenarios with a reverse proxy using YARP.
 
@@ -12,11 +12,15 @@ Infrastructure
 
 ## Dependencies
 
+This module has no dependencies.
+
 ## Features
 
-| Name | Description |
+| | |
 | --- | --- |
-| Yet Another Reverse Proxy (YARP) (`OrchardCoreContrib.ReverseProxy.Yarp`) | Displays the user avatar on the admin menu. |
+| **Name** | YARP (`OrchardCoreContrib.ReverseProxy.Yarp`) |
+| **Description** | Enables configuration of hosting scenarios with a reverse proxy using YARP. |
+| **Dependencies** | |
 
 ## NuGet Packages
 
