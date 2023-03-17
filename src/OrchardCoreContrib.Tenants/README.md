@@ -1,4 +1,4 @@
-# Tenants Module
+# Multitenancy Module
 
 This module provides features to manage tenants from the Admin UI.
 
@@ -12,17 +12,23 @@ Infrastructure
 
 ## Dependencies
 
+| Product | Module |
+| --- | --- |
+| OrchardCore | Tenants (`OrchardCore.Tenants`) |
+
 ## Features
 
-| Name | Description |
+| | |
 | --- | --- |
-| Tenants (`OrchardCoreContrib.Tenants`) | Displays the user avatar on the admin menu. |
+| **Name** | Multitenancy (`OrchardCoreContrib.Tenants`) |
+| **Description** | Provides a way to manage tenants from the admin. |
+| **Dependencies** | `OrchardCore.Tenants` |
 
 ## NuGet Packages
 
 | Name | Version |
 | --- | --- |
-| [`OrchardCoreContrib.Tenants`](https://www.nuget.org/packages/OrchardCoreContrib.ReverseProxy.Yarp/1.0.0) | 1.0.0 |
+| [`OrchardCoreContrib.Tenants`](https://www.nuget.org/packages/OrchardCoreContrib.Tenants/1.0.0) | 1.0.0 |
 
 ## Get Started
 
