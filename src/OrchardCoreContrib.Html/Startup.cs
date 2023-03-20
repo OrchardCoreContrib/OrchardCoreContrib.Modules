@@ -7,6 +7,7 @@ using OrchardCoreContrib.Html.Controllers;
 
 namespace OrchardCoreContrib.Html
 {
+    [Feature("OrchardCoreContrib.Html.GrapesJS")]
     public class Startup : StartupBase
     {
         public override void Configure(IApplicationBuilder builder, IEndpointRouteBuilder routes, IServiceProvider serviceProvider)
