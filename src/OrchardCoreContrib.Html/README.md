@@ -18,9 +18,11 @@ Content Management
 
 ## Features
 
-| Name | Description |
+| | |
 | --- | --- |
-| GrapesJS HTML Editor (`OrchardCoreContrib.Html`) | Enables GrapesJS editor for HtmlBody content. |
+| **Name** | GrapesJS HTML Editor (`OrchardCoreContrib.Html.GraphesJS`) |
+| **Description** | Enables GrapesJS editor for HtmlBody content. |
+| **Dependencies** | |
 
 ## NuGet Packages
 
