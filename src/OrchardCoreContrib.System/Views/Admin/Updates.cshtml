@@ -5,7 +5,7 @@
 @using System.Reflection;
 @model UpdatesViewModel
 @{
-    var hasUpdates = Model.Versions.Any(v => v.Version > Model.SystemInformation.OrchardCoreVersion);
+    var hasUpdates = Model.Updates.Any();
 }
 @functions
 {
@@ -18,21 +18,18 @@
 @if (hasUpdates)
 {
     <table class="table table-striped table-hover mt-4">
-        @foreach (var version in Model.Versions)
+        @foreach (var update in Model.Updates)
         {
-            if (version.Version > Model.SystemInformation.OrchardCoreVersion)
-            {
-                <tr>
-                    <th>@version.ToFullString()</th>
-                    <td class="w-75">
-                        @foreach (var assembly in OrchardCoreAssemblies)
-                        {
-                            var packageUrl = String.Join("/", SystemUpdatesConstants.NuGetPackageUrl, assembly.Name, version.ToFullString());
-                            <a class="d-block" href="@packageUrl">@assembly.Name</a>
-                        }
-                    </td>
-                </tr>
-            }
+            <tr>
+                <th>@update</th>
+                <td class="w-75">
+                    @foreach (var assembly in OrchardCoreAssemblies)
+                    {
+                        var packageUrl = String.Join("/", SystemUpdatesConstants.NuGetPackageUrl, assembly.Name, update);
+                        <a class="d-block" href="@packageUrl">@assembly.Name</a>
+                    }
+                </td>
+            </tr>
         }
     </table>
 }
