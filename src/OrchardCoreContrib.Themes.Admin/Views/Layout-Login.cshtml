@@ -13,23 +13,51 @@
 
     <!-- Bootstrap CSS -->
     <style asp-name="admin" version="1"></style>
+    <style at="Head">
+        .divider:after,
+        .divider:before {
+            content: "";
+            flex: 1;
+            height: 1px;
+            background: #eee;
+        }
+
+        .oc-bg-primary {
+            background-color: #41B670!important;
+        }
+
+        .oc-btn-primary {
+            background-color: #41B670 !important;
+            border-color: #35935B !important;
+            color: #fff !important;
+        }
+
+            .oc-btn-primary:hover {
+                background-color: #35935B !important;
+            }
+    </style>
 
     <script asp-name="font-awesome" at="Foot" version="6"></script>
     <script asp-name="font-awesome-v4-shims" at="Foot" version="6"></script>
 
     <resources type="Header" />
 </head>
-<body>
-    <div class="ta-content ta-content-login">
-        @await RenderSectionAsync("Header", required: false)
-        @await RenderSectionAsync("Messages", required: false)
-
-        <div class="auth-wrapper">
-            @await RenderBodyAsync()
+<body class="mb-0">
+    <section>
+        <div class="container-fluid px-0 py-0">
+            <div class="row mx-0 my-0">
+                <div class="col-4 min-vh-100 d-flex align-items-center justify-content-center text-white oc-bg-primary">
+                    <div class="text-center">
+                        <img src="@Url.Content("~/OrchardCoreContrib.Themes.Admin/logo-white.png")" width="65" />
+                        <h2 class="mt-2 mb-4 display-6">Orchard Core CMS</h2>
+                    </div>
+                </div>
+                <div class="col-8 min-vh-100 d-flex align-items-center justify-content-center">
+                    @await RenderBodyAsync()
+                </div>
+            </div>
         </div>
-    </div>
-
-    @await RenderSectionAsync("Footer", required: false)
+    </section>
 
     <resources type="Footer" />
 </body>
