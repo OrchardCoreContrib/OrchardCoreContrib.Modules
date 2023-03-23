@@ -42,6 +42,8 @@ public class UpdatesStartup : StartupBase
 {
     public override void ConfigureServices(IServiceCollection services)
     {
+        services.AddSingleton<ISystemUpdateService, SystemUpdateService>();
+
         services.AddScoped<INavigationProvider, UpdatesAdminMenu>();
 
         services.AddHealthChecks()
