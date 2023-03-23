@@ -65,3 +65,7 @@ This module has no dependencies.
 4. Enable the `System Maintenance` feature.
 5. Select **Configuration -> Settings -> System -> Maintenance** submenu.
 6. Check `Allow maintenance mode` settings to let the website enters into the maintenance mode.
+
+## Video
+
+[![Watch the video](https://img.youtube.com/vi/qXmE8ItThbE/maxresdefault.jpg)](https://youtu.be/qXmE8ItThbE)
