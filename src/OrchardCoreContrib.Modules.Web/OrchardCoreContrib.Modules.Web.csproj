@@ -28,6 +28,7 @@
     <ProjectReference Include="..\OrchardCoreContrib.ReverseProxy.Yarp\OrchardCoreContrib.ReverseProxy.Yarp.csproj" />
     <ProjectReference Include="..\OrchardCoreContrib.System\OrchardCoreContrib.System.csproj" />
     <ProjectReference Include="..\OrchardCoreContrib.Tenants\OrchardCoreContrib.Tenants.csproj" />
+    <ProjectReference Include="..\OrchardCoreContrib.Themes.Admin\OrchardCoreContrib.Themes.Admin.csproj" />
     <ProjectReference Include="..\OrchardCoreContrib.Users\OrchardCoreContrib.Users.csproj" />
   </ItemGroup>
 
