@@ -17,6 +17,7 @@ public class NavigationHelper
     public static async Task PopulateMenuAsync(dynamic shapeFactory, dynamic parentShape, dynamic menu, IEnumerable<MenuItem> menuItems, ViewContext viewContext)
     {
         await PopulateMenuLevelAsync(shapeFactory, parentShape, menu, menuItems, viewContext);
+        
         ApplySelection(parentShape, viewContext);
     }
 

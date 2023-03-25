@@ -44,8 +44,5 @@ public class Pager
     /// </summary>
     /// <param name="page">The current page number.</param>
     /// <returns>The index in which the page starts.</returns>
-    public int GetStartIndex(int? page = null)
-    {
-        return ((page ?? Page) - PageDefault) * PageSize;
-    }
+    public int GetStartIndex(int? page = null) => ((page ?? Page) - PageDefault) * PageSize;
 }
