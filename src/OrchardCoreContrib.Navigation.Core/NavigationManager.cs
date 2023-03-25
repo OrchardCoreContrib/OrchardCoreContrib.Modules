@@ -52,7 +52,10 @@ public class NavigationManager : INavigationManager
         {
             try
             {
-                await navigationProvider.BuildNavigationAsync(name, builder);
+                if (navigationProvider.MenuName.Equals(name, StringComparison.OrdinalIgnoreCase))
+                {
+                    await navigationProvider.BuildNavigationAsync(builder);
+                }
             }
             catch (Exception e)
             {

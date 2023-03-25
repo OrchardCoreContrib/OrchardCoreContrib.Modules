@@ -2,5 +2,7 @@
 
 public interface INavigationProvider
 {
-    Task BuildNavigationAsync(string name, NavigationBuilder builder);
+    string MenuName { get; }
+
+    Task BuildNavigationAsync(NavigationBuilder builder);
 }
