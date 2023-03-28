@@ -27,7 +27,7 @@ public class Startup : StartupBase
 
         services.AddTagHelpers<GravatarTagHelper>();
 
-        services.AddLiquidFilter<GravatarFilter>("to_gravatar");
+        services.AddLiquidFilter<GravatarFilter>("gravatar_url");
 
         services.Configure<GravatarOptions>(_shellConfiguration.GetSection("OrchardCoreContrib_Gravatar"));
     }
