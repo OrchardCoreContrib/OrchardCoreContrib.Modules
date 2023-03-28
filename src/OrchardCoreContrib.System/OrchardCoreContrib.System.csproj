@@ -39,6 +39,7 @@
 		<PackageReference Include="OrchardCore.DisplayManagement" Version="1.5.0" />
 		<PackageReference Include="OrchardCoreContrib.HealthChecks.Abstractions" Version="1.0.0" />
 		<PackageReference Include="OrchardCore.Users.Abstractions" Version="1.5.0" />
+		<PackageReference Include="OrchardCoreContrib.Abstractions" Version="1.1.0" />
 		<PackageReference Include="OrchardCoreContrib.Navigation.Core" Version="1.1.0-beta1" />
 	</ItemGroup>
 

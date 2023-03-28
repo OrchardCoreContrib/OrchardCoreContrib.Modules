@@ -1,8 +1,10 @@
 using OrchardCore.Modules.Manifest;
+using ManifestConstants = OrchardCoreContrib.Modules.Manifest.ManifestConstants;
 
 [assembly: Module(
     Name = "Html",
-    Author = "Orchard Core Contrib",
+    Author = ManifestConstants.Author,
+    Website = ManifestConstants.Website,
     Version = "1.0.0"
 )]
 

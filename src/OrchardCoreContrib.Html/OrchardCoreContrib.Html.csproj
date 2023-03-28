@@ -35,6 +35,7 @@
 		<PackageReference Include="OrchardCore.ContentManagement" Version="1.5.0" />
 		<PackageReference Include="OrchardCore.DisplayManagement" Version="1.5.0" />
 		<PackageReference Include="OrchardCore.Html" Version="1.5.0" />
+		<PackageReference Include="OrchardCoreContrib.Abstractions" Version="1.1.0" />
 	</ItemGroup>
 
 </Project>

@@ -1,9 +1,11 @@
 ﻿using OrchardCore.Modules.Manifest;
 using OrchardCoreContrib.ContentPreview;
+using ManifestConstants = OrchardCoreContrib.Modules.Manifest.ManifestConstants;
 
 [assembly: Module(
     Name = "Content Preview",
-    Author = "The Orchard Core Contrib Team",
+    Author = ManifestConstants.Author,
+    Website = ManifestConstants.Website,
     Website = "",
     Version = "1.1.0",
     Category = "Content Management"

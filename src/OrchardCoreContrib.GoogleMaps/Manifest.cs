@@ -1,8 +1,10 @@
 using OrchardCore.Modules.Manifest;
+using ManifestConstants = OrchardCoreContrib.Modules.Manifest.ManifestConstants;
 
 [assembly: Module(
     Name = "Google Maps",
-    Author = "The Orchard Core Contrib Team",
+    Author = ManifestConstants.Author,
+    Website = ManifestConstants.Website,
     Version = "1.1.0",
     Description = "Displays Google maps.",
     Dependencies = new[] { "OrchardCore.Contents" },

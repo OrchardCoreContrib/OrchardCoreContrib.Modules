@@ -1,8 +1,10 @@
 using OrchardCore.Modules.Manifest;
+using ManifestConstants = OrchardCoreContrib.Modules.Manifest.ManifestConstants;
 
 [assembly: Module(
     Name = "Multitenancy",
-    Author = "The Orchard Core Contrib Team",
+    Author = ManifestConstants.Author,
+    Website = ManifestConstants.Website,
     Version = "1.0.0",
     Description = "Provides a way to manage tenants from the admin.",
     Category = "Infrastructure",

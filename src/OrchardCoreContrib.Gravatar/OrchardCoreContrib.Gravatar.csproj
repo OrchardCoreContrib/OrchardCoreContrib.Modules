@@ -33,6 +33,7 @@
 	<ItemGroup>
 		<PackageReference Include="OrchardCore.Module.Targets" Version="1.5.0" />
 		<PackageReference Include="OrchardCore.Users" Version="1.5.0" />
+		<PackageReference Include="OrchardCoreContrib.Abstractions" Version="1.1.0" />
 	</ItemGroup>
 
 </Project>
