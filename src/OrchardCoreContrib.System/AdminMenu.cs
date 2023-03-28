@@ -1,12 +1,13 @@
 ﻿using Microsoft.Extensions.Localization;
-using OrchardCore.Navigation;
+using NavigationBuilder = OrchardCore.Navigation.NavigationBuilder;
+using OrchardCoreContrib.Navigation;
 
 namespace OrchardCoreContrib.System;
 
 /// <summary>
 /// Represents an admin menu for System module.
 /// </summary>
-public class AdminMenu : INavigationProvider
+public class AdminMenu : AdminNavigationProvider
 {
     private readonly IStringLocalizer S;
 
@@ -20,18 +21,14 @@ public class AdminMenu : INavigationProvider
     }
 
     /// <inheritdoc/>
-    public Task BuildNavigationAsync(string name, NavigationBuilder builder)
+    public override void BuildNavigation(NavigationBuilder builder)
     {
-        if (string.Equals(name, "admin", StringComparison.OrdinalIgnoreCase))
-        {
-            builder.Add(S["System"], "100", info => info
-                .AddClass("system").Id("system")
-                .Add(S["Info"], S["Info"].PrefixPosition(), updates => updates
-                    .AddClass("info").Id("info")
-                    .Action("About", "Admin", "OrchardCoreContrib.System")
-                    .LocalNav()));
-        }
-
-        return Task.CompletedTask;
+        builder.Add(S["System"], "100", info => info
+            .AddClass("system").Id("system")
+            .Add(S["Info"], S["Info"].PrefixPosition(), updates => updates
+                .AddClass("info").Id("info")
+                .Action("About", "Admin", "OrchardCoreContrib.System")
+                .LocalNav())
+            );
     }
 }

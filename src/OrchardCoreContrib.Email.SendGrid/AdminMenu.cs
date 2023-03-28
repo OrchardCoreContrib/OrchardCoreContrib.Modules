@@ -1,15 +1,14 @@
 ﻿using Microsoft.Extensions.Localization;
-using OrchardCore.Navigation;
+using NavigationBuilder = OrchardCore.Navigation.NavigationBuilder;
 using OrchardCoreContrib.Email.SendGrid.Drivers;
-using System;
-using System.Threading.Tasks;
+using OrchardCoreContrib.Navigation;
 
 namespace OrchardCoreContrib.Email.SendGrid
 {
     /// <summary>
     /// Represents an admin menu for SendGrid mailing module.
     /// </summary>
-    public class AdminMenu : INavigationProvider
+    public class AdminMenu : AdminNavigationProvider
     {
         private readonly IStringLocalizer S;
 
@@ -23,24 +22,19 @@ namespace OrchardCoreContrib.Email.SendGrid
         }
 
         /// <inheritdoc/>
-        public Task BuildNavigationAsync(string name, NavigationBuilder builder)
+        public override void BuildNavigation(NavigationBuilder builder)
         {
-            if (!string.Equals(name, "admin", StringComparison.OrdinalIgnoreCase))
-            {
-                return Task.CompletedTask;
-            }
-
             builder
                 .Add(S["Configuration"], configuration => configuration
                     .Add(S["Settings"], settings => settings
-                       .Add(S["SendGrid"], S["SendGrid"].PrefixPosition(), entry => entry
-                       .AddClass("sendgrid").Id("sendgrid")
-                          .Action("Index", "Admin", new { area = "OrchardCore.Settings", groupId = SendGridSettingsDisplayDriver.GroupId })
-                          .Permission(Permissions.ManageSendGridSettings)
-                          .LocalNav()
-                )));
-
-            return Task.CompletedTask;
+                        .Add(S["SendGrid"], S["SendGrid"].PrefixPosition(), entry => entry
+                            .AddClass("sendgrid").Id("sendgrid")
+                            .Action("Index", "Admin", new { area = "OrchardCore.Settings", groupId = SendGridSettingsDisplayDriver.GroupId })
+                            .Permission(Permissions.ManageSendGridSettings)
+                            .LocalNav()
+                        )
+                    )
+                );
         }
     }
 }

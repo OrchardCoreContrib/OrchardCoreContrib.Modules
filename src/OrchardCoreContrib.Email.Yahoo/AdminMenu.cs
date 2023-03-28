@@ -1,15 +1,14 @@
 ﻿using Microsoft.Extensions.Localization;
-using OrchardCore.Navigation;
+using NavigationBuilder = OrchardCore.Navigation.NavigationBuilder;
 using OrchardCoreContrib.Email.Yahoo.Drivers;
-using System;
-using System.Threading.Tasks;
+using OrchardCoreContrib.Navigation;
 
 namespace OrchardCoreContrib.Email.Yahoo
 {
     /// <summary>
     /// Represents an admin menu for Yahoo mailing module.
     /// </summary>
-    public class AdminMenu : INavigationProvider
+    public class AdminMenu : AdminNavigationProvider
     {
         private readonly IStringLocalizer S;
 
@@ -23,13 +22,8 @@ namespace OrchardCoreContrib.Email.Yahoo
         }
 
         /// <inheritdoc/>
-        public Task BuildNavigationAsync(string name, NavigationBuilder builder)
+        public override void BuildNavigation(NavigationBuilder builder)
         {
-            if (!string.Equals(name, "admin", StringComparison.OrdinalIgnoreCase))
-            {
-                return Task.CompletedTask;
-            }
-
             builder
                 .Add(S["Configuration"], configuration => configuration
                     .Add(S["Settings"], settings => settings
@@ -38,9 +32,9 @@ namespace OrchardCoreContrib.Email.Yahoo
                           .Action("Index", "Admin", new { area = "OrchardCore.Settings", groupId = YahooSettingsDisplayDriver.GroupId })
                           .Permission(Permissions.ManageYahooSettings)
                           .LocalNav()
-                )));
-
-            return Task.CompletedTask;
+                       )
+                    )
+                );
         }
     }
 }
