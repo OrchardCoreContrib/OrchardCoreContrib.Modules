@@ -1,13 +1,12 @@
 ﻿using Microsoft.Extensions.Localization;
 using OrchardCore.Modules;
-using OrchardCore.Navigation;
-using System;
-using System.Threading.Tasks;
+using NavigationBuilder = OrchardCore.Navigation.NavigationBuilder;
+using OrchardCoreContrib.Navigation;
 
 namespace OrchardCoreContrib.ContentLocalization
 {
     [Feature("OrchardCoreContrib.ContentLocalization.LocalizationMatrix")]
-    public class AdminMenu : INavigationProvider
+    public class AdminMenu : AdminNavigationProvider
     {
         private readonly IStringLocalizer S;
 
@@ -16,13 +15,8 @@ namespace OrchardCoreContrib.ContentLocalization
             S = localizer;
         }
 
-        public Task BuildNavigationAsync(string name, NavigationBuilder builder)
+        public override void BuildNavigation(NavigationBuilder builder)
         {
-            if (!String.Equals(name, "admin", StringComparison.OrdinalIgnoreCase))
-            {
-                return Task.CompletedTask;
-            }
-
             builder
                 .Add(S["Configuration"], c => c
                     .Add(S["Settings"], s => s
@@ -35,8 +29,6 @@ namespace OrchardCoreContrib.ContentLocalization
                         )
                     )
                 );
-
-            return Task.CompletedTask;
         }
     }
 }

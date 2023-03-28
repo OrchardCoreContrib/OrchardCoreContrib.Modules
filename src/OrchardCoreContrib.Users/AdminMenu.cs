@@ -2,10 +2,9 @@
 using Microsoft.Extensions.Localization;
 using OrchardCore.Modules;
 using OrchardCore.Mvc.Core.Utilities;
-using OrchardCore.Navigation;
+using NavigationBuilder = OrchardCore.Navigation.NavigationBuilder;
+using OrchardCoreContrib.Navigation;
 using OrchardCoreContrib.Users.Controllers;
-using System;
-using System.Threading.Tasks;
 
 namespace OrchardCoreContrib.Users
 {
@@ -13,7 +12,7 @@ namespace OrchardCoreContrib.Users
     /// Represents an admin menu for the impersonation feature.
     /// </summary>
     [Feature("OrchardCoreContrib.Users.Impersonation")]
-    public class AdminMenu : INavigationProvider
+    public class AdminMenu : AdminNavigationProvider
     {
         private readonly HttpContext _httpContext;
         private readonly IStringLocalizer S;
@@ -31,14 +30,10 @@ namespace OrchardCoreContrib.Users
         }
 
         /// <inheritdoc/>
-        public Task BuildNavigationAsync(string name, NavigationBuilder builder)
+        public override void BuildNavigation(NavigationBuilder builder)
         {
-            if (!string.Equals(name, "admin", StringComparison.OrdinalIgnoreCase))
-            {
-                return Task.CompletedTask;
-            }
-
             var isImpersonatingClaim = _httpContext.User.FindFirst(ClaimTypesExtended.IsImpersonating);
+            
             if (isImpersonatingClaim?.Value == "true")
             {
                 builder
@@ -51,8 +46,6 @@ namespace OrchardCoreContrib.Users
                         )
                     );
             }
-
-            return Task.CompletedTask;
         }
     }
 }
