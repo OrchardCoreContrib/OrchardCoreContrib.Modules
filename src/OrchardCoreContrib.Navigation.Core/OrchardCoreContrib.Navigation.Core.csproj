@@ -2,6 +2,7 @@
 
 	<PropertyGroup>
 		<TargetFramework>net6.0</TargetFramework>
+		<RootNamespace>OrchardCoreContrib.Navigation</RootNamespace>
 		<ImplicitUsings>enable</ImplicitUsings>
 		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
 		<VersionPrefix>1.0.0</VersionPrefix>
