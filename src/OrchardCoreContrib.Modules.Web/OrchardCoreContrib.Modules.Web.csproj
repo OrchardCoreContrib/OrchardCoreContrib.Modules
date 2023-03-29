@@ -6,6 +6,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Etch.OrchardCore.ContextualEdit" Version="1.5.1" />
     <PackageReference Include="OrchardCore.Application.Cms.Targets" Version="1.5.0" />
   </ItemGroup>
 
@@ -25,6 +26,7 @@
     <ProjectReference Include="..\OrchardCoreContrib.Gravatar\OrchardCoreContrib.Gravatar.csproj" />
     <ProjectReference Include="..\OrchardCoreContrib.HealthChecks\OrchardCoreContrib.HealthChecks.csproj" />
     <ProjectReference Include="..\OrchardCoreContrib.Html\OrchardCoreContrib.Html.csproj" />
+    <ProjectReference Include="..\OrchardCoreContrib.Liquid\OrchardCoreContrib.Liquid.csproj" />
     <ProjectReference Include="..\OrchardCoreContrib.ReverseProxy.Yarp\OrchardCoreContrib.ReverseProxy.Yarp.csproj" />
     <ProjectReference Include="..\OrchardCoreContrib.System\OrchardCoreContrib.System.csproj" />
     <ProjectReference Include="..\OrchardCoreContrib.Tenants\OrchardCoreContrib.Tenants.csproj" />
