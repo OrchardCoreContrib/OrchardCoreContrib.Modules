@@ -39,3 +39,27 @@ Profile
 3. Select **Configuration -> Features** menu.
 4. Enable the `Gravatar` feature.
 5. User avatar should be displayed on the user menu.
+
+### Liquid Filters
+
+The following filters allow for gravatar manipulation:
+
+`gravatar_url`
+
+Returns the URL of a gravatar, based on the email and optional size.
+
+**Input**
+
+```
+{{ 'hishamco_2007@hotmail.com' | gravatar_url }}
+
+{{ 'hishamco_2007@hotmail.com' | gravatar_url: size:32 }}
+```
+
+**Output**
+
+```
+http://www.gravatar.com/avatar/cbf0a05ad7eead6355a35843adc9d1c9?s=24&r=PG
+
+http://www.gravatar.com/avatar/cbf0a05ad7eead6355a35843adc9d1c9?s=32&r=PG
+```
