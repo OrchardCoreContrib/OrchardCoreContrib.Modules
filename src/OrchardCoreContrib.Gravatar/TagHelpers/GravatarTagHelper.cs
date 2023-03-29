@@ -1,5 +1,7 @@
 ﻿using Microsoft.AspNetCore.Razor.TagHelpers;
 using OrchardCoreContrib.Gravatar.Services;
+using System;
+using System.ComponentModel.DataAnnotations;
 
 namespace OrchardCoreContrib.Gravatar.TagHelpers;
 
@@ -15,12 +17,15 @@ public class GravatarTagHelper : TagHelper
 
     public string Email { get; set; }
 
+    [Range(1, 512)]
+    public int Size { get; set; } = GravatarConstants.DefaultSize;
+
     public override void Process(TagHelperContext context, TagHelperOutput output)
     {
         output.TagName = "img";
 
-        var imageUrl = _gravatarService.GetAvatarUrl(Email);
+        var avatarUrl = _gravatarService.GetAvatarUrl(Email, Size);
 
-        output.Attributes.Add("src", imageUrl);
+        output.Attributes.Add("src", avatarUrl);
     }
 }

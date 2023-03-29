@@ -1,6 +1,6 @@
 ﻿using Microsoft.Extensions.Options;
 using System;
-using System.Drawing;
+using System.ComponentModel.DataAnnotations;
 using System.Security.Cryptography;
 using System.Text;
 
@@ -17,7 +17,7 @@ public class GravatarService : IGravatarService
         _gravatarOptions = gravatarOptions.Value;
     }
 
-    public string GetAvatarUrl(string email)
+    public string GetAvatarUrl(string email, [Range(1, 512)] int size = GravatarConstants.DefaultSize)
     {
         if (string.IsNullOrEmpty(email))
         {
@@ -26,7 +26,7 @@ public class GravatarService : IGravatarService
 
         var hash = ComputeHash(email);
 
-        var gravatarImageUrl = $"{GravatarUrl}{hash}?s={_gravatarOptions.Size}&r={_gravatarOptions.Rating}";
+        var gravatarImageUrl = $"{GravatarUrl}{hash}?s={size}&r={_gravatarOptions.Rating}";
 
         if (!String.IsNullOrEmpty(_gravatarOptions.DefaultImage))
         {

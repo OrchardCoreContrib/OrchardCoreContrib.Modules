@@ -25,7 +25,13 @@ public class GravatarFilter : ILiquidFilter
         }
         else
         {
-            var gravatarUrl = _gravatarService.GetAvatarUrl(email);
+            var size = GravatarConstants.DefaultSize;
+            if (arguments.Count == 1)
+            {
+                size = (int)arguments["size"].ToNumberValue();
+            }
+            
+            var gravatarUrl = _gravatarService.GetAvatarUrl(email, size);
 
             return FluidValue.Create(gravatarUrl, context.Options);
         }

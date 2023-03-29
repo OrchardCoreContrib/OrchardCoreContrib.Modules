@@ -2,5 +2,5 @@
 
 public interface IGravatarService
 {
-    string GetAvatarUrl(string email);
+    string GetAvatarUrl(string email, int size = GravatarConstants.DefaultSize);
 }
