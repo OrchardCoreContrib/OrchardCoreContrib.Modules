@@ -24,6 +24,7 @@
         "OrchardCoreContrib.Gravatar",
         "OrchardCoreContrib.Html",
         "OrchardCoreContrib.HealthChecks",
+        "OrchardCoreContrib.Liquid",
         "OrchardCoreContrib.Users.Impersonation",
         "OrchardCore.Roles",
         "OrchardCore.Users",
