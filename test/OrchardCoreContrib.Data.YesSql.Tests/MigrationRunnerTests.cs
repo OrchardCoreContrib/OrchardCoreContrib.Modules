@@ -27,6 +27,31 @@ public class MigrationRunnerTests
         Assert.Single(migrations.Single().Migrations);
     }
 
+    [Fact]
+    public async Task SchemaBuilderPropertyShouldBeSetInYesSqlMigration()
+    {
+        // Arrange
+        var migrationLoader = GetMigrationLoader();
+        var session = GetSession();
+
+        var migrationEventHandler = new Mock<IMigrationEventHandler>();
+        migrationEventHandler
+            .Setup(e => e.MigratingAsync(It.IsAny<IMigration>()))
+            .Callback<IMigration>(m =>
+            {
+                // Assert
+                var migration = (YesSqlMigration)m;
+                Assert.NotNull(migration.SchemaBuilder);
+            });
+        
+        var eventHandlers = new List<IMigrationEventHandler> { migrationEventHandler.Object };
+
+        var migrationRunner = new MigrationRunner(migrationLoader, session, eventHandlers, NullLogger<MigrationRunner>.Instance);
+
+        // Act
+        await migrationRunner.MigrateAsync("OrchardCoreContrib.Data.YesSql");
+    }
+
     private static IMigrationLoader GetMigrationLoader()
     {
         var services = new ServiceCollection();
