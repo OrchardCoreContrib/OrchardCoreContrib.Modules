@@ -1,18 +1,15 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging.Abstractions;
 using Moq;
-using OrchardCoreContrib.Module1.Migrations;
-using OrchardCoreContrib.Module2.Migrations;
+using OrchardCoreContrib.Data.Migrations;
 using YesSql;
 
-namespace OrchardCoreContrib.Data.Migrations.Tests;
+namespace OrchardCoreContrib.Data.YesSql.Migrations.Tests;
 
 public class MigrationRunnerTests
 {
-    [Theory]
-    [InlineData("OrchardCoreContrib.Module1", 3)]
-    [InlineData("OrchardCoreContrib.Module2", 1)]
-    public async Task ShouldRunAllModuleMigrations(string moduleId, int expectedAppliedMigrations)
+    [Fact]
+    public async Task ShouldRunYesSqlMigrations()
     {
         // Arrange
         var migrationLoader = GetMigrationLoader();
@@ -21,23 +18,20 @@ public class MigrationRunnerTests
         var migrationRunner = new MigrationRunner(migrationLoader, session, eventHandlers, NullLogger<MigrationRunner>.Instance);
 
         // Act
-        await migrationRunner.MigrateAsync(moduleId);
+        await migrationRunner.MigrateAsync("OrchardCoreContrib.Data.YesSql");
 
         // Assert
         var migrations = await session.GetAsync<MigrationsHistory>(null);
 
         Assert.Single(migrations);
-        Assert.Equal(expectedAppliedMigrations, migrations.Single().Migrations.Count);
+        Assert.Single(migrations.Single().Migrations);
     }
 
     private static IMigrationLoader GetMigrationLoader()
     {
         var services = new ServiceCollection();
 
-        services.AddScoped<IMigration, Migration1>();
-        services.AddScoped<IMigration, Migration2>();
-        services.AddScoped<IMigration, Migration3>();
-        services.AddScoped<IMigration, Migration4>();
+        services.AddScoped<IMigration, Migration>();
         services.AddScoped<IMigrationLoader, MigrationLoader>();
 
         var serviceProvider = services.BuildServiceProvider();

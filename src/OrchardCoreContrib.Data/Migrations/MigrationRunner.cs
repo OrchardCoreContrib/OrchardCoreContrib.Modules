@@ -1,4 +1,5 @@
 ﻿using Microsoft.Extensions.Logging;
+using OrchardCore.Modules;
 using YesSql;
 
 namespace OrchardCoreContrib.Data.Migrations;
@@ -7,6 +8,7 @@ public class MigrationRunner : IMigrationRunner
 {
     private readonly MigrationDictionary _migrations;
     private readonly ISession _session;
+    private readonly IEnumerable<IMigrationEventHandler> _migrationEventHandlers;
     private readonly ILogger<MigrationRunner> _logger;
 
     private MigrationsHistory _migrationsHistory;
@@ -14,9 +16,11 @@ public class MigrationRunner : IMigrationRunner
     public MigrationRunner(
         IMigrationLoader migrationLoader,
         ISession session,
+        IEnumerable<IMigrationEventHandler> migrationEventHandlers,
         ILogger<MigrationRunner> logger)
     {
         _session = session;
+        _migrationEventHandlers = migrationEventHandlers;
         _logger = logger;
 
         _migrations = migrationLoader.LoadMigrations();
@@ -25,6 +29,16 @@ public class MigrationRunner : IMigrationRunner
     public async Task MigrateAsync(string moduleId)
     {
         var pendingMigrations = await GetPendingMigrationsAsync();
+
+        if (pendingMigrations.Any())
+        {
+            foreach (var handler in _migrationEventHandlers)
+            {
+                pendingMigrations
+                    .ToList()
+                    .ForEach(async r => await handler.MigratingAsync(r.Migration));
+            }
+        }
 
         foreach (var migration in pendingMigrations[moduleId])
         {
@@ -42,7 +56,13 @@ public class MigrationRunner : IMigrationRunner
             {
                 _logger.LogInformation("Running the migration '{migration}'.", migrationClass);
 
+                await _migrationEventHandlers.InvokeAsync((handler, migration)
+                    => handler.MigratingAsync(migration), migration.Migration, _logger);
+
                 migration.Migration.Up();
+
+                await _migrationEventHandlers.InvokeAsync((handler, migration)
+                    => handler.MigratedAsync(migration), migration.Migration, _logger);
             }
             catch
             {
