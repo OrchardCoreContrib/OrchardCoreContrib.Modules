@@ -17,17 +17,19 @@ public class YesSqlMigrationsUpdater : IMigrationEventHandler
 
     public Task MigratedAsync(IMigration migration) => Task.CompletedTask;
 
-    public async Task MigratingAsync(IMigration migration)
-    {
-        if (migration.GetType() == typeof(YesSqlMigration))
-        {
-            var schemaBuilder = new SchemaBuilder(_store.Configuration, await _session.BeginTransactionAsync());
-            
-            ((YesSqlMigration)migration).SchemaBuilder = schemaBuilder;  
-        }
-    }
+    public async Task MigratingAsync(IMigration migration) => await SetSchemaBuilderAsync(migration);
 
     public Task RollbackedAsync(IMigration migration) => Task.CompletedTask;
 
-    public Task RollbackingAsync(IMigration migration) => Task.CompletedTask;
+    public async Task RollbackingAsync(IMigration migration) => await SetSchemaBuilderAsync(migration);
+
+    private async Task SetSchemaBuilderAsync(IMigration migration)
+    {
+        if (migration.GetType().IsSubclassOf(typeof(YesSqlMigration)))
+        {
+            var schemaBuilder = new SchemaBuilder(_store.Configuration, await _session.BeginTransactionAsync());
+
+            ((YesSqlMigration)migration).SchemaBuilder = schemaBuilder;
+        }
+    }
 }

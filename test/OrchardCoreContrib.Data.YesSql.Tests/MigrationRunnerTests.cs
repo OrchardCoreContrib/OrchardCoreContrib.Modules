@@ -2,12 +2,13 @@
 using Microsoft.Extensions.Logging.Abstractions;
 using Moq;
 using OrchardCoreContrib.Data.Migrations;
+using System.Data.Common;
 using YesSql;
 
 namespace OrchardCoreContrib.Data.YesSql.Migrations.Tests;
 
 public class MigrationRunnerTests
-{
+{   
     [Fact]
     public async Task ShouldRunYesSqlMigrations()
     {
@@ -31,31 +32,35 @@ public class MigrationRunnerTests
     public async Task SchemaBuilderPropertyShouldBeSetInYesSqlMigration()
     {
         // Arrange
+        var moduleId = "OrchardCoreContrib.Data.YesSql";
         var migrationLoader = GetMigrationLoader();
         var session = GetSession();
-
-        var migrationEventHandler = new Mock<IMigrationEventHandler>();
-        migrationEventHandler
-            .Setup(e => e.MigratingAsync(It.IsAny<IMigration>()))
-            .Callback<IMigration>(m =>
-            {
-                // Assert
-                var migration = (YesSqlMigration)m;
-                Assert.NotNull(migration.SchemaBuilder);
-            });
+        var store = new Mock<IStore>();
+        store
+            .Setup(s => s.Configuration)
+            .Returns(() => Mock.Of<IConfiguration>());
         
-        var eventHandlers = new List<IMigrationEventHandler> { migrationEventHandler.Object };
+        var eventHandlers = new List<IMigrationEventHandler>
+        {
+            new YesSqlMigrationsUpdater(session, store.Object)
+        };
 
         var migrationRunner = new MigrationRunner(migrationLoader, session, eventHandlers, NullLogger<MigrationRunner>.Instance);
 
         // Act
-        await migrationRunner.MigrateAsync("OrchardCoreContrib.Data.YesSql");
+        await migrationRunner.MigrateAsync(moduleId);
+
+        // Assert
+        var migration = migrationLoader
+            .LoadMigrations()[moduleId]
+            .Single().Migration;
+
+        Assert.NotNull(((YesSqlMigration)migration).SchemaBuilder);
     }
 
     private static IMigrationLoader GetMigrationLoader()
     {
         var services = new ServiceCollection();
-
         services.AddScoped<IMigration, Migration>();
         services.AddScoped<IMigrationLoader, MigrationLoader>();
 
@@ -105,6 +110,9 @@ public class MigrationRunnerTests
 
                 await Task.CompletedTask;
             });
+        session
+            .Setup(s => s.BeginTransactionAsync())
+            .Returns(() => Task.FromResult(Mock.Of<DbTransaction>()));
 
         return session.Object;
     }
