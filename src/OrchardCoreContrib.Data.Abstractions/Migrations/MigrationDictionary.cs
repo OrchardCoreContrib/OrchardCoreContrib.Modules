@@ -37,13 +37,6 @@ public class MigrationDictionary : IEnumerable<MigrationDictionaryRecord>
         _modulesMigrations[moduleId].Add(migration);
     }
 
-    public IEnumerable<MigrationDictionaryRecord> GetMigrations(string moduleId)
-    {
-        _modulesMigrations.TryGetValue(moduleId, out List<MigrationDictionaryRecord> migrations);
-
-        return migrations;
-    }
-
     public IEnumerator<MigrationDictionaryRecord> GetEnumerator()
     {
         foreach (var value in _modulesMigrations.Values)
