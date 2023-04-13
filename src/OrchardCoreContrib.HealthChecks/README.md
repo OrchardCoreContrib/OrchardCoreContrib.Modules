@@ -33,3 +33,6 @@ Infrastructure
 3. Select **Configuration -> Features** menu.
 4. Enable the `Health Checks` feature.
 5. Navigate to `{tenant-url}/health`, you should see Healthy as status for your website.
+
+#Video
+[![Watch the video](https://img.youtube.com/vi/M7xXGJNSdvg/maxresdefault.jpg)](https://youtu.be/M7xXGJNSdvg)
