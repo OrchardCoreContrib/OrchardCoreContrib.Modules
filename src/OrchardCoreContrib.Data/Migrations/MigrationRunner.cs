@@ -30,16 +30,6 @@ public class MigrationRunner : IMigrationRunner
     {
         var pendingMigrations = await GetPendingMigrationsAsync();
 
-        if (pendingMigrations.Any())
-        {
-            foreach (var handler in _migrationEventHandlers)
-            {
-                pendingMigrations
-                    .ToList()
-                    .ForEach(async r => await handler.MigratingAsync(r.Migration));
-            }
-        }
-
         foreach (var migration in pendingMigrations[moduleId])
         {
             var migrationClass = migration.Migration.GetType().FullName;
