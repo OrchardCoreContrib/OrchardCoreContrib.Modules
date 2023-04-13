@@ -82,7 +82,13 @@ public class MigrationRunner : IMigrationRunner
                 {
                     _logger.LogInformation("Rolling back the migration '{migration}'.", migrationRow.MigrationClass);
 
+                    await _migrationEventHandlers.InvokeAsync((handler, migration)
+                        => handler.RollbackingAsync(migration), migrationRecord.Migration, _logger);
+
                     migrationRecord.Migration.Down();
+
+                    await _migrationEventHandlers.InvokeAsync((handler, migration)
+                        => handler.RollbackedAsync(migration), migrationRecord.Migration, _logger);
 
                     _migrationsHistory.Migrations.Remove(migrationRow);
                 }
