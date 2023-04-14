@@ -9,7 +9,7 @@
 		<Company />
 		<Description>Provides an implementations APIs for content localization.</Description>
 		<PackageLicenseExpression>MIT</PackageLicenseExpression>
-		<PackageProjectUrl>https://github.com/OrchardCoreContrib/OrchardCoreContrib</PackageProjectUrl>
+		<PackageProjectUrl>https://github.com/OrchardCoreContrib/OrchardCoreContrib/tree/main/src/OrchardCoreContrib.ContentLocalization.Core/README.md</PackageProjectUrl>
 		<RepositoryUrl>https://github.com/OrchardCoreContrib/OrchardCoreContrib</RepositoryUrl>
 		<RepositoryType>git</RepositoryType>
 		<PublishRepositoryUrl>true</PublishRepositoryUrl>
