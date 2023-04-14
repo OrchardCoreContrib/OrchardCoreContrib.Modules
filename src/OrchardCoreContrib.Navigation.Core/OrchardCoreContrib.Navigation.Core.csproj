@@ -9,7 +9,7 @@
 		<Authors>The Orchard Core Contrib Team</Authors>
 		<Company />
 		<Description>Provides a core implementations APIs for Navigation.</Description>
-		<PackageLicenseExpression>MIT</PackageLicenseExpression>
+		<PackageLicenseExpression>BSD-3-Clause</PackageLicenseExpression>
 		<PackageProjectUrl>https://github.com/OrchardCoreContrib/OrchardCoreContrib/tree/main/src/OrchardCoreContrib.Navigation.Core/README.md</PackageProjectUrl>
 		<RepositoryUrl>https://github.com/OrchardCoreContrib/OrchardCoreContrib</RepositoryUrl>
 		<RepositoryType>git</RepositoryType>
