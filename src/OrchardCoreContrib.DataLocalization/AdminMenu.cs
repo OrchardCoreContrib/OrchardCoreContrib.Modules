@@ -1,5 +1,5 @@
 using Microsoft.Extensions.Localization;
-using NavigationBuilder = OrchardCore.Navigation.NavigationBuilder;
+using OrchardCore.Navigation;
 using OrchardCoreContrib.Navigation;
 
 namespace OrchardCore.DataLocalization

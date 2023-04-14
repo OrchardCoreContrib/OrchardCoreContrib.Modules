@@ -38,7 +38,7 @@
 		<PackageReference Include="OrchardCoreContrib.Abstractions" Version="1.1.0" />
 		<PackageReference Include="OrchardCoreContrib.Localization.Abstractions" Version="1.1.0" />
 		<PackageReference Include="OrchardCoreContrib.Localization" Version="1.1.0" />
-		<PackageReference Include="OrchardCoreContrib.Navigation.Core" Version="1.1.0-beta1" />
+		<PackageReference Include="OrchardCoreContrib.Navigation.Core" Version="1.1.0" />
 	</ItemGroup>
 
 </Project>

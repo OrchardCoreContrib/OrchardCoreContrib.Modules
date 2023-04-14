@@ -1,6 +1,6 @@
 ﻿using Microsoft.Extensions.Localization;
 using OrchardCoreContrib.GoogleMaps.Drivers;
-using NavigationBuilder = OrchardCore.Navigation.NavigationBuilder;
+using OrchardCore.Navigation;
 using OrchardCoreContrib.Navigation;
 
 namespace OrchardCoreContrib.GoogleMaps
