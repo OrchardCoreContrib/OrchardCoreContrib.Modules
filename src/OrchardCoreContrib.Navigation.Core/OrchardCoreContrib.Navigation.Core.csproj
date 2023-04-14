@@ -5,7 +5,7 @@
 		<RootNamespace>OrchardCoreContrib.Navigation</RootNamespace>
 		<ImplicitUsings>enable</ImplicitUsings>
 		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-		<VersionPrefix>1.1.0-beta1</VersionPrefix>
+		<VersionPrefix>1.1.0</VersionPrefix>
 		<Authors>The Orchard Core Contrib Team</Authors>
 		<Company />
 		<Description>Provides a core implementations APIs for Navigation.</Description>
