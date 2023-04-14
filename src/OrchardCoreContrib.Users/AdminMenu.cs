@@ -2,7 +2,7 @@
 using Microsoft.Extensions.Localization;
 using OrchardCore.Modules;
 using OrchardCore.Mvc.Core.Utilities;
-using NavigationBuilder = OrchardCore.Navigation.NavigationBuilder;
+using OrchardCore.Navigation;
 using OrchardCoreContrib.Navigation;
 using OrchardCoreContrib.Users.Controllers;
 

@@ -37,7 +37,17 @@
 		<PackageReference Include="OrchardCore.Module.Targets" Version="1.5.0" />
 		<PackageReference Include="OrchardCoreContrib.Abstractions" Version="1.1.0" />
 		<PackageReference Include="OrchardCoreContrib.Email" Version="1.3.0" />
-		<PackageReference Include="OrchardCoreContrib.Navigation.Core" Version="1.1.0-beta1" />
+		<PackageReference Include="OrchardCore.Navigation.Core" Version="1.5.0" />
+		<PackageReference Include="OrchardCoreContrib.Navigation.Core" Version="1.1.0" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Reference Include="OrchardCoreContrib.Navigation.Abstractions">
+	    <HintPath>..\..\..\OrchardCoreContrib\src\OrchardCoreContrib.Navigation.Core\bin\Debug\net6.0\OrchardCoreContrib.Navigation.Abstractions.dll</HintPath>
+	  </Reference>
+	  <Reference Include="OrchardCoreContrib.Navigation.Core">
+	    <HintPath>..\..\..\OrchardCoreContrib\src\OrchardCoreContrib.Navigation.Core\bin\Debug\net6.0\OrchardCoreContrib.Navigation.Core.dll</HintPath>
+	  </Reference>
 	</ItemGroup>
 
 </Project>

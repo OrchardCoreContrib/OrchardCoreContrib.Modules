@@ -37,7 +37,7 @@
 		<PackageReference Include="OrchardCore.Module.Targets" Version="1.5.0" />
 		<PackageReference Include="OrchardCore.ResourceManagement" Version="1.5.0" />
 		<PackageReference Include="OrchardCoreContrib.Abstractions" Version="1.1.0" />
-		<PackageReference Include="OrchardCoreContrib.Navigation.Core" Version="1.1.0-beta1" />
+		<PackageReference Include="OrchardCoreContrib.Navigation.Core" Version="1.1.0" />
 	</ItemGroup>
 
 </Project>
