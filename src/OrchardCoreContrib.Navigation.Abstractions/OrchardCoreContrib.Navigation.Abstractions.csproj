@@ -29,6 +29,7 @@
 
 	<ItemGroup>
 		<PackageReference Include="OrchardCore.Infrastructure.Abstractions" Version="1.5.0" />
+		<PackageReference Include="OrchardCore.Navigation.Core" Version="1.5.0" />
 	</ItemGroup>
 
 </Project>

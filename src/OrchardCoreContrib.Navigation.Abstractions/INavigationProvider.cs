@@ -1,8 +1,10 @@
-﻿namespace OrchardCoreContrib.Navigation;
+﻿using OrchardCore.Navigation;
 
-public interface INavigationProvider
+namespace OrchardCoreContrib.Navigation;
+
+public interface INavigationProvider : OrchardCore.Navigation.INavigationProvider
 {
-    string MenuName { get; }
+    string Name { get; }
 
     Task BuildNavigationAsync(NavigationBuilder builder);
 }
