@@ -1,37 +1,37 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
-  <PropertyGroup>
-    <TargetFramework>net6.0</TargetFramework>
-    <IsPackable>false</IsPackable>
-  </PropertyGroup>
+	<PropertyGroup>
+		<TargetFramework>net6.0</TargetFramework>
+		<IsPackable>false</IsPackable>
+	</PropertyGroup>
 
-  <ItemGroup>
-    <PackageReference Include="Etch.OrchardCore.ContextualEdit" Version="1.5.1" />
-    <PackageReference Include="OrchardCore.Application.Cms.Targets" Version="1.5.0" />
-  </ItemGroup>
+	<ItemGroup>
+		<PackageReference Include="OrchardCoreContrib.Data.YesSql" Version="1.0.0-beta1" />
+		<PackageReference Include="OrchardCore.Application.Cms.Targets" Version="1.5.0" />
+	</ItemGroup>
 
 
-  <ItemGroup>
-    <ProjectReference Include="..\OrchardCoreContrib.Apis.Swagger\OrchardCoreContrib.Apis.Swagger.csproj" />
-    <ProjectReference Include="..\OrchardCoreContrib.ContentLocalization\OrchardCoreContrib.ContentLocalization.csproj" />
-    <ProjectReference Include="..\OrchardCoreContrib.ContentPreview\OrchardCoreContrib.ContentPreview.csproj" />
-    <ProjectReference Include="..\OrchardCoreContrib.DataLocalization\OrchardCoreContrib.DataLocalization.csproj" />
-    <ProjectReference Include="..\OrchardCoreContrib.Diagnostics.Elm\OrchardCoreContrib.Diagnostics.Elm.csproj" />
-    <ProjectReference Include="..\OrchardCoreContrib.Email.Gmail\OrchardCoreContrib.Email.Gmail.csproj" />
-    <ProjectReference Include="..\OrchardCoreContrib.Email.Hotmail\OrchardCoreContrib.Email.Hotmail.csproj" />
-    <ProjectReference Include="..\OrchardCoreContrib.Email.SendGrid\OrchardCoreContrib.Email.SendGrid.csproj" />
-    <ProjectReference Include="..\OrchardCoreContrib.Email.Yahoo\OrchardCoreContrib.Email.Yahoo.csproj" />
-    <ProjectReference Include="..\OrchardCoreContrib.Gdpr\OrchardCoreContrib.Gdpr.csproj" />
-    <ProjectReference Include="..\OrchardCoreContrib.GoogleMaps\OrchardCoreContrib.GoogleMaps.csproj" />
-    <ProjectReference Include="..\OrchardCoreContrib.Gravatar\OrchardCoreContrib.Gravatar.csproj" />
-    <ProjectReference Include="..\OrchardCoreContrib.HealthChecks\OrchardCoreContrib.HealthChecks.csproj" />
-    <ProjectReference Include="..\OrchardCoreContrib.Html\OrchardCoreContrib.Html.csproj" />
-    <ProjectReference Include="..\OrchardCoreContrib.Liquid\OrchardCoreContrib.Liquid.csproj" />
-    <ProjectReference Include="..\OrchardCoreContrib.ReverseProxy.Yarp\OrchardCoreContrib.ReverseProxy.Yarp.csproj" />
-    <ProjectReference Include="..\OrchardCoreContrib.System\OrchardCoreContrib.System.csproj" />
-    <ProjectReference Include="..\OrchardCoreContrib.Tenants\OrchardCoreContrib.Tenants.csproj" />
-    <ProjectReference Include="..\OrchardCoreContrib.Themes.Admin\OrchardCoreContrib.Themes.Admin.csproj" />
-    <ProjectReference Include="..\OrchardCoreContrib.Users\OrchardCoreContrib.Users.csproj" />
-  </ItemGroup>
+	<ItemGroup>
+		<ProjectReference Include="..\OrchardCoreContrib.Apis.Swagger\OrchardCoreContrib.Apis.Swagger.csproj" />
+		<ProjectReference Include="..\OrchardCoreContrib.ContentLocalization\OrchardCoreContrib.ContentLocalization.csproj" />
+		<ProjectReference Include="..\OrchardCoreContrib.ContentPreview\OrchardCoreContrib.ContentPreview.csproj" />
+		<ProjectReference Include="..\OrchardCoreContrib.DataLocalization\OrchardCoreContrib.DataLocalization.csproj" />
+		<ProjectReference Include="..\OrchardCoreContrib.Diagnostics.Elm\OrchardCoreContrib.Diagnostics.Elm.csproj" />
+		<ProjectReference Include="..\OrchardCoreContrib.Email.Gmail\OrchardCoreContrib.Email.Gmail.csproj" />
+		<ProjectReference Include="..\OrchardCoreContrib.Email.Hotmail\OrchardCoreContrib.Email.Hotmail.csproj" />
+		<ProjectReference Include="..\OrchardCoreContrib.Email.SendGrid\OrchardCoreContrib.Email.SendGrid.csproj" />
+		<ProjectReference Include="..\OrchardCoreContrib.Email.Yahoo\OrchardCoreContrib.Email.Yahoo.csproj" />
+		<ProjectReference Include="..\OrchardCoreContrib.Gdpr\OrchardCoreContrib.Gdpr.csproj" />
+		<ProjectReference Include="..\OrchardCoreContrib.GoogleMaps\OrchardCoreContrib.GoogleMaps.csproj" />
+		<ProjectReference Include="..\OrchardCoreContrib.Gravatar\OrchardCoreContrib.Gravatar.csproj" />
+		<ProjectReference Include="..\OrchardCoreContrib.HealthChecks\OrchardCoreContrib.HealthChecks.csproj" />
+		<ProjectReference Include="..\OrchardCoreContrib.Html\OrchardCoreContrib.Html.csproj" />
+		<ProjectReference Include="..\OrchardCoreContrib.Liquid\OrchardCoreContrib.Liquid.csproj" />
+		<ProjectReference Include="..\OrchardCoreContrib.ReverseProxy.Yarp\OrchardCoreContrib.ReverseProxy.Yarp.csproj" />
+		<ProjectReference Include="..\OrchardCoreContrib.System\OrchardCoreContrib.System.csproj" />
+		<ProjectReference Include="..\OrchardCoreContrib.Tenants\OrchardCoreContrib.Tenants.csproj" />
+		<ProjectReference Include="..\OrchardCoreContrib.Themes.Admin\OrchardCoreContrib.Themes.Admin.csproj" />
+		<ProjectReference Include="..\OrchardCoreContrib.Users\OrchardCoreContrib.Users.csproj" />
+	</ItemGroup>
 
 </Project>

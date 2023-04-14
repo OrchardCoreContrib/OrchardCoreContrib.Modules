@@ -2,13 +2,14 @@ using Fluid;
 using Microsoft.Extensions.DependencyInjection;
 using OrchardCore.ContentManagement;
 using OrchardCore.ContentManagement.Display.ContentDisplay;
-using OrchardCore.Data.Migration;
 using OrchardCore.DisplayManagement.Handlers;
 using OrchardCore.Modules;
 using OrchardCore.Navigation;
 using OrchardCore.Security.Permissions;
 using OrchardCore.Settings;
+using OrchardCoreContrib.Data.Migrations;
 using OrchardCoreContrib.GoogleMaps.Drivers;
+using OrchardCoreContrib.GoogleMaps.Migrations;
 using OrchardCoreContrib.GoogleMaps.Models;
 using OrchardCoreContrib.GoogleMaps.ViewModels;
 
@@ -27,7 +28,7 @@ namespace OrchardCoreContrib.GoogleMaps
             services.AddScoped<INavigationProvider, AdminMenu>();
             services.AddScoped<IPermissionProvider, Permissions>();
 
-            services.AddScoped<IDataMigration, Migrations>();
+            services.AddTransient<IMigration, CreateGoogleMapPart>();
             services.AddScoped<IDisplayDriver<ISite>, GoogleMapsSettingsDisplayDriver>();
 
             services.AddContentPart<GoogleMapPart>()
