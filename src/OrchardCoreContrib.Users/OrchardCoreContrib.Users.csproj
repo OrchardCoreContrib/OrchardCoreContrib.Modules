@@ -8,7 +8,7 @@
 		<Authors>The Orchard Core Contrib Team</Authors>
 		<Company />
 		<Description>Provides a list of users features such as Impersonation.</Description>
-		<PackageLicenseExpression>MIT</PackageLicenseExpression>
+		<PackageLicenseExpression>BSD-3-Clause</PackageLicenseExpression>
 		<PackageProjectUrl>https://github.com/OrchardCoreContrib/OrchardCoreContrib.Modules/tree/main/src/OrchardCoreContrib.Users/README.md</PackageProjectUrl>
 		<RepositoryUrl>https://github.com/OrchardCoreContrib/OrchardCoreContrib.Modules</RepositoryUrl>
 		<RepositoryType>git</RepositoryType>

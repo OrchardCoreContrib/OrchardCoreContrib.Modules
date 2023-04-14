@@ -8,7 +8,7 @@
 		<Authors>The Orchard Core Contrib Team</Authors>
 		<Company />
 		<Description>The Html module enables content items to have rich content using Grapes JS.</Description>
-		<PackageLicenseExpression>MIT</PackageLicenseExpression>
+		<PackageLicenseExpression>BSD-3-Clause</PackageLicenseExpression>
 		<PackageProjectUrl>https://github.com/OrchardCoreContrib/OrchardCoreContrib.Modules/tree/main/src/OrchardCoreContrib.Html/README.md</PackageProjectUrl>
 		<RepositoryUrl>https://github.com/OrchardCoreContrib/OrchardCoreContrib.Modules</RepositoryUrl>
 		<RepositoryType>git</RepositoryType>
