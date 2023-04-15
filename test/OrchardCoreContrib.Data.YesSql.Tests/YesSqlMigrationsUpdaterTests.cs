@@ -1,5 +1,6 @@
 ﻿using Moq;
 using OrchardCoreContrib.Data.YesSql.Migrations;
+using OrchardCoreContrib.Module1.Migrations;
 using System.Data.Common;
 using YesSql;
 

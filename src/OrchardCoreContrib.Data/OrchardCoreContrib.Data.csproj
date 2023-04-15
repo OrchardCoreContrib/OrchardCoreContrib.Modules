@@ -34,9 +34,4 @@
 		<ProjectReference Include="..\OrchardCoreContrib.Data.Abstractions\OrchardCoreContrib.Data.Abstractions.csproj" />
 	</ItemGroup>
 
-	<ItemGroup>
-		<PackageReference Include="OrchardCore.Data" Version="1.5.0" />
-		<PackageReference Include="YesSql.Abstractions" Version="3.3.0" />
-	</ItemGroup>
-
 </Project>

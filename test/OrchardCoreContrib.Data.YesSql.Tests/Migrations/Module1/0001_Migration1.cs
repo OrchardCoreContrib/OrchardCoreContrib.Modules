@@ -1,8 +1,9 @@
 ﻿using OrchardCoreContrib.Data.Migrations;
+using OrchardCoreContrib.Data.YesSql.Migrations;
 
-namespace OrchardCoreContrib.Data.YesSql.Migrations;
+namespace OrchardCoreContrib.Module1.Migrations;
 
-[Migration(2023_04_13)]
+[Migration(0001)]
 internal class Migration1 : YesSqlMigration
 {
     public override void Up()

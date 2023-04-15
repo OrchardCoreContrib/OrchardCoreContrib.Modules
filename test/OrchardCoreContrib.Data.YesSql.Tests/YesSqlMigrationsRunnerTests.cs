@@ -1,37 +1,47 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging.Abstractions;
 using Moq;
+using OrchardCore.Data.Migration.Records;
 using OrchardCoreContrib.Data.Migrations;
+using OrchardCoreContrib.Module1.Migrations;
+using OrchardCoreContrib.Module2.Migrations;
 using System.Data.Common;
 using YesSql;
 
 namespace OrchardCoreContrib.Data.YesSql.Migrations.Tests;
 
-public class MigrationRunnerTests
-{   
-    [Fact]
-    public async Task ShouldRunYesSqlMigrations()
+public class YesSqlMigrationsRunnerTests
+{
+    [Theory]
+    [InlineData("OrchardCoreContrib.Module1", 3)]
+    [InlineData("OrchardCoreContrib.Module2", 1)]
+    public async Task ShouldRunAllModuleMigrations(string moduleId, int expectedAppliedMigrations)
     {
         // Arrange
         var migrationLoader = GetMigrationLoader();
         var session = GetSession();
+        var migrationsHistory = new YesSqlMigrationsHistory(session);
         var eventHandlers = Enumerable.Empty<IMigrationEventHandler>();
-        var migrationRunner = new MigrationRunner(migrationLoader, session, eventHandlers, NullLogger<MigrationRunner>.Instance);
+        var migrationRunner = new YesSqlMigrationsRunner(
+            migrationLoader, migrationsHistory, session, eventHandlers, NullLogger<YesSqlMigrationsRunner>.Instance);
 
         // Act
-        await migrationRunner.MigrateAsync("OrchardCoreContrib.Data.YesSql");
+        await migrationRunner.MigrateAsync(moduleId);
 
         // Assert
-        var migrations = await session.GetAsync<MigrationsHistory>(null);
+        var migrations = await session.GetAsync<DataMigrationRecord>(null);
 
         Assert.Single(migrations);
-        Assert.Single(migrations.Single().Migrations);
+        Assert.Equal(expectedAppliedMigrations, migrations.Single().DataMigrations.Count);
     }
 
     private static IMigrationLoader GetMigrationLoader()
     {
         var services = new ServiceCollection();
         services.AddScoped<IMigration, Migration1>();
+        services.AddScoped<IMigration, Migration2>();
+        services.AddScoped<IMigration, Migration3>();
+        services.AddScoped<IMigration, Migration4>();
         services.AddScoped<IMigrationLoader, MigrationLoader>();
 
         var serviceProvider = services.BuildServiceProvider();
@@ -51,21 +61,21 @@ public class MigrationRunnerTests
                 records.Add(obj);
             });
         session
-            .Setup(s => s.GetAsync<MigrationsHistory>(It.IsAny<long[]>(), It.IsAny<string>()))
-            .Returns<long[], string>((ids, _) => Task.FromResult(records.OfType<MigrationsHistory>()));
+            .Setup(s => s.GetAsync<DataMigrationRecord>(It.IsAny<long[]>(), It.IsAny<string>()))
+            .Returns<long[], string>((ids, _) => Task.FromResult(records.OfType<DataMigrationRecord>()));
         session
             .Setup(s => s.Query(It.IsAny<string>()))
             .Returns<string>(_ =>
             {
                 var query = new Mock<IQuery>();
                 query
-                    .Setup(q => q.For<MigrationsHistory>(It.IsAny<bool>()))
+                    .Setup(q => q.For<DataMigrationRecord>(It.IsAny<bool>()))
                     .Returns<bool>(_ =>
                     {
-                        var queryOfT = new Mock<IQuery<MigrationsHistory>>();
+                        var queryOfT = new Mock<IQuery<DataMigrationRecord>>();
                         queryOfT
                             .Setup(q => q.FirstOrDefaultAsync())
-                            .Returns(() => Task.FromResult(default(MigrationsHistory)));
+                            .Returns((Delegate)(() => Task.FromResult(default(DataMigrationRecord))));
 
                         return queryOfT.Object;
                     });

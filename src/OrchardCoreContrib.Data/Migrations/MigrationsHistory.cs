@@ -4,8 +4,8 @@ public class MigrationsHistory
 {
     public MigrationsHistory()
     {
-        Migrations = new List<MigrationHistoryRow>();
+        Migrations = new List<MigrationsHistoryRow>();
     }
 
-    public List<MigrationHistoryRow> Migrations { get; }
+    public IList<MigrationsHistoryRow> Migrations { get; }
 }

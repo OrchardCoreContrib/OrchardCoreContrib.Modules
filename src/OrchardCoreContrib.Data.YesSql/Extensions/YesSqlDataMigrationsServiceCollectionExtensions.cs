@@ -7,8 +7,9 @@ public static class YesSqlDataMigrationsServiceCollectionExtensions
 {
     public static IServiceCollection AddYesSqlDataMigrations(this IServiceCollection services)
     {
-        services.AddDataMigrations();
-
+        services.AddScoped<IMigrationLoader, MigrationLoader>();
+        services.AddScoped<IMigrationsHistory, YesSqlMigrationsHistory>();
+        services.AddScoped<IMigrationsRunner, YesSqlMigrationsRunner>();
         services.AddScoped<IMigrationEventHandler, YesSqlMigrationsUpdater>();
 
         return services;

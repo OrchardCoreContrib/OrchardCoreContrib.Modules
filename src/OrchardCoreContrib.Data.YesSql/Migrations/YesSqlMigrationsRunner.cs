@@ -1,24 +1,26 @@
 ﻿using Microsoft.Extensions.Logging;
 using OrchardCore.Modules;
+using OrchardCoreContrib.Data.Migrations;
 using YesSql;
 
-namespace OrchardCoreContrib.Data.Migrations;
+namespace OrchardCoreContrib.Data.YesSql.Migrations;
 
-public class MigrationRunner : IMigrationRunner
+public class YesSqlMigrationsRunner : IMigrationsRunner
 {
     private readonly MigrationDictionary _migrations;
+    private readonly IMigrationsHistory _migrationsHistory;
     private readonly ISession _session;
     private readonly IEnumerable<IMigrationEventHandler> _migrationEventHandlers;
-    private readonly ILogger<MigrationRunner> _logger;
+    private readonly ILogger<YesSqlMigrationsRunner> _logger;
 
-    private MigrationsHistory _migrationsHistory;
-
-    public MigrationRunner(
+    public YesSqlMigrationsRunner(
         IMigrationLoader migrationLoader,
+        IMigrationsHistory migrationsHistory,
         ISession session,
         IEnumerable<IMigrationEventHandler> migrationEventHandlers,
-        ILogger<MigrationRunner> logger)
+        ILogger<YesSqlMigrationsRunner> logger)
     {
+        _migrationsHistory = migrationsHistory;
         _session = session;
         _migrationEventHandlers = migrationEventHandlers;
         _logger = logger;
@@ -32,14 +34,12 @@ public class MigrationRunner : IMigrationRunner
 
         foreach (var migration in pendingMigrations[moduleId])
         {
-            var migrationClass = migration.Migration.GetType().FullName;
-            var migrationModule = migrationClass[..migrationClass.IndexOf(".Migrations")];
+            var migrationClass = migration.Migration.GetMigrationClass();
 
-            _migrationsHistory.Migrations.Add(new MigrationHistoryRow
+            _migrationsHistory.DataMigrationRecord.DataMigrations.Add(new MigrationsHistoryRow
             {
-                MigrationId = migration.Id,
-                MigrationModule = migrationModule,
-                MigrationClass = migrationClass
+                Id = migration.Id,
+                DataMigrationClass = migrationClass
             });
 
             try
@@ -60,27 +60,27 @@ public class MigrationRunner : IMigrationRunner
             }
             finally
             {
-                _session.Save(_migrationsHistory);
+                _session.Save(_migrationsHistory.DataMigrationRecord);
             }
         }
     }
 
     public async Task RollbackAsync(string moduleId)
     {
-        var appliedMigrations = (await GetAppliedMigrationsAsync())
-            .Where(m => m.MigrationClass.StartsWith(moduleId))
+        var appliedMigrations = (await _migrationsHistory.GetAppliedMigrationsAsync())
+            .Where(m => m.DataMigrationClass.StartsWith(moduleId))
             .Reverse();
 
         foreach (var migrationRow in appliedMigrations)
         {
             var migrationRecord = _migrations
-                .SingleOrDefault(m => m.Migration.GetType().FullName.Equals(migrationRow.MigrationClass));
+                .SingleOrDefault(m => m.Migration.GetType().FullName.Equals(migrationRow.DataMigrationClass));
 
             if (migrationRecord != null)
             {
                 try
                 {
-                    _logger.LogInformation("Rolling back the migration '{migration}'.", migrationRow.MigrationClass);
+                    _logger.LogInformation("Rolling back the migration '{migration}'.", migrationRow.DataMigrationClass);
 
                     await _migrationEventHandlers.InvokeAsync((handler, migration)
                         => handler.RollbackingAsync(migration), migrationRecord.Migration, _logger);
@@ -90,7 +90,7 @@ public class MigrationRunner : IMigrationRunner
                     await _migrationEventHandlers.InvokeAsync((handler, migration)
                         => handler.RollbackedAsync(migration), migrationRecord.Migration, _logger);
 
-                    _migrationsHistory.Migrations.Remove(migrationRow);
+                    _migrationsHistory.DataMigrationRecord.DataMigrations.Remove(migrationRow);
                 }
                 catch
                 {
@@ -98,54 +98,30 @@ public class MigrationRunner : IMigrationRunner
                 }
                 finally
                 {
-                    _session.Save(_migrationsHistory);
+                    _session.Save(_migrationsHistory.DataMigrationRecord);
                 }
             }
         }
-    }
-
-    private async Task<IEnumerable<MigrationHistoryRow>> GetAppliedMigrationsAsync()
-    {
-        if (_migrationsHistory == null)
-        {
-            _migrationsHistory = await _session.Query<MigrationsHistory>().FirstOrDefaultAsync();
-
-            if (_migrationsHistory == null)
-            {
-                _migrationsHistory = new MigrationsHistory();
-
-                _session.Save(_migrationsHistory);
-            }
-        }
-
-        return _migrationsHistory.Migrations;
     }
 
     private async Task<MigrationDictionary> GetPendingMigrationsAsync()
     {
         var migrations = new MigrationDictionary();
 
-        var appliedMigrations = await GetAppliedMigrationsAsync();
+        var appliedMigrations = await _migrationsHistory.GetAppliedMigrationsAsync();
 
         var hasAppliedMigrations = appliedMigrations.Any();
         
         foreach (var migrationRecord in _migrations)
         {
-            if (!hasAppliedMigrations || !appliedMigrations.Any(m => m.MigrationClass.Equals(migrationRecord.Migration.GetType().FullName)))
+            if (!hasAppliedMigrations || !appliedMigrations.Any(m => m.DataMigrationClass.Equals(migrationRecord.Migration.GetType().FullName)))
             {
-                var moduleId = GetMigrationModuleId(migrationRecord.Migration);
+                var moduleId = migrationRecord.Migration.GetMigrationModuleId();
 
                 migrations.Add(moduleId, migrationRecord);
             }
         }
 
         return migrations;
-    }
-
-    private static string GetMigrationModuleId(IMigration migration)
-    {
-        var migrationName = migration.GetType().FullName;
-
-        return migrationName[..migrationName.IndexOf(".Migrations")];
     }
 }

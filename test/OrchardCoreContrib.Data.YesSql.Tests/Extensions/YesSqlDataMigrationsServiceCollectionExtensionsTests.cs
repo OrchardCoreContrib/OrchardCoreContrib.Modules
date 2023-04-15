@@ -25,10 +25,14 @@ public class YesSqlDataMigrationsServiceCollectionExtensionsTests
         var serviceProvider = services.BuildServiceProvider();
 
         Assert.NotNull(serviceProvider.GetService<IMigrationLoader>());
-        Assert.NotNull(serviceProvider.GetService<IMigrationRunner>());
+
+        var migrationsRunner = serviceProvider.GetService<IMigrationsRunner>();
+
+        Assert.NotNull(migrationsRunner);
+        Assert.IsType<YesSqlMigrationsRunner>(migrationsRunner);
 
         var migrationEventHandler = serviceProvider.GetService<IMigrationEventHandler>();
-        
+
         Assert.NotNull(migrationEventHandler);
         Assert.IsType<YesSqlMigrationsUpdater>(migrationEventHandler);
     }

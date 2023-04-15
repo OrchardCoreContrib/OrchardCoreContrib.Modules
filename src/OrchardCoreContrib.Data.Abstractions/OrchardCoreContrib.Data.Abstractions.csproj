@@ -27,4 +27,8 @@
 		<None Include="../../images/icon.png" Pack="true" PackagePath="icon.png" />
 	</ItemGroup>
 
+	<ItemGroup>
+		<PackageReference Include="OrchardCore.Data" Version="1.5.0" />
+	</ItemGroup>
+
 </Project>

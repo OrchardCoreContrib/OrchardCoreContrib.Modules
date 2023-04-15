@@ -1,6 +1,6 @@
 ﻿namespace OrchardCoreContrib.Data.Migrations;
 
-public interface IMigrationRunner
+public interface IMigrationsRunner
 {
     Task MigrateAsync(string moduleId);
 
