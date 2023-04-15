@@ -22,8 +22,8 @@ public class YesSqlMigrationsRunnerTests
         var session = GetSession();
         var migrationsHistory = new YesSqlMigrationsHistory(session);
         var eventHandlers = Enumerable.Empty<IMigrationEventHandler>();
-        var migrationRunner = new YesSqlMigrationsRunner(
-            migrationLoader, migrationsHistory, session, eventHandlers, NullLogger<YesSqlMigrationsRunner>.Instance);
+        var migrationRunner = new YesSqlMigrationRunner(
+            migrationLoader, migrationsHistory, session, eventHandlers, NullLogger<YesSqlMigrationRunner>.Instance);
 
         // Act
         await migrationRunner.MigrateAsync(moduleId);

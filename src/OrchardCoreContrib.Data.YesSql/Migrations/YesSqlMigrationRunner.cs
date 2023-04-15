@@ -5,20 +5,20 @@ using YesSql;
 
 namespace OrchardCoreContrib.Data.YesSql.Migrations;
 
-public class YesSqlMigrationsRunner : IMigrationsRunner
+public class YesSqlMigrationRunner : IMigrationRunner
 {
     private readonly MigrationDictionary _migrations;
     private readonly IMigrationsHistory _migrationsHistory;
     private readonly ISession _session;
     private readonly IEnumerable<IMigrationEventHandler> _migrationEventHandlers;
-    private readonly ILogger<YesSqlMigrationsRunner> _logger;
+    private readonly ILogger<YesSqlMigrationRunner> _logger;
 
-    public YesSqlMigrationsRunner(
+    public YesSqlMigrationRunner(
         IMigrationLoader migrationLoader,
         IMigrationsHistory migrationsHistory,
         ISession session,
         IEnumerable<IMigrationEventHandler> migrationEventHandlers,
-        ILogger<YesSqlMigrationsRunner> logger)
+        ILogger<YesSqlMigrationRunner> logger)
     {
         _migrationsHistory = migrationsHistory;
         _session = session;
