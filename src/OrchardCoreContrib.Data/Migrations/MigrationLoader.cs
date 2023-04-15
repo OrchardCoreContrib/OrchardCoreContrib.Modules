@@ -14,23 +14,13 @@ public class MigrationLoader : IMigrationLoader
         var migrations = new MigrationDictionary();
         foreach (var migration in _migrations)
         {
-            var migrationClass = migration.GetType().FullName;
-            var moduleId = migrationClass[..migrationClass.IndexOf(".Migrations")];
-            var record = new MigrationDictionaryRecord(GetMigrationId(migration), migration);
+            var migrationId = migration.GetMigrationId();
+            var migrationModuleId = migration.GetMigrationModuleId();
+            var record = new MigrationDictionaryRecord(migrationId, migration);
 
-            migrations.Add(moduleId, record);
+            migrations.Add(migrationModuleId, record);
         }
 
         return migrations;
-    }
-
-    private static long GetMigrationId(IMigration migration)
-    {
-        var migrationAttribute = (MigrationAttribute)(migration.GetType()
-            .GetCustomAttributes(typeof(MigrationAttribute), false))
-            .SingleOrDefault();
-
-        return migrationAttribute?.Id ?? 0;
-
     }
 }

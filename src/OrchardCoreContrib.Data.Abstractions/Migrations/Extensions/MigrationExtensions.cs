@@ -2,6 +2,20 @@
 
 public static class MigrationExtensions
 {
+    public static long GetMigrationId(this IMigration migration)
+    {
+        if (migration is null)
+        {
+            throw new ArgumentNullException(nameof(migration));
+        }
+
+        var migrationAttribute = (MigrationAttribute)(migration.GetType()
+            .GetCustomAttributes(typeof(MigrationAttribute), false))
+            .SingleOrDefault();
+
+        return migrationAttribute?.Id ?? 0;
+    }
+
     public static string GetMigrationClass(this IMigration migration)
     {
         if (migration is null)
