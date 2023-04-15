@@ -14,9 +14,9 @@ public class MigrationLoader : IMigrationLoader
         var migrations = new MigrationDictionary();
         foreach (var migration in _migrations)
         {
-            var migrationId = migration.GetMigrationId();
+            var migrationInfo = migration.GetMigrationInfo();
+            var record = new MigrationDictionaryRecord(migrationInfo.Id, migrationInfo.Skip, migration);
             var migrationModuleId = migration.GetMigrationModuleId();
-            var record = new MigrationDictionaryRecord(migrationId, migration);
 
             migrations.Add(migrationModuleId, record);
         }

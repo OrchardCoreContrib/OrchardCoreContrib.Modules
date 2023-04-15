@@ -2,7 +2,7 @@
 
 public static class MigrationExtensions
 {
-    public static long GetMigrationId(this IMigration migration)
+    public static MigrationAttribute GetMigrationInfo(this IMigration migration)
     {
         if (migration is null)
         {
@@ -13,7 +13,7 @@ public static class MigrationExtensions
             .GetCustomAttributes(typeof(MigrationAttribute), false))
             .SingleOrDefault();
 
-        return migrationAttribute?.Id ?? 0;
+        return migrationAttribute;
     }
 
     public static string GetMigrationClass(this IMigration migration)

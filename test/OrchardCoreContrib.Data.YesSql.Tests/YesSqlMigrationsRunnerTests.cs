@@ -42,6 +42,7 @@ public class YesSqlMigrationsRunnerTests
         services.AddScoped<IMigration, Migration2>();
         services.AddScoped<IMigration, Migration3>();
         services.AddScoped<IMigration, Migration4>();
+        services.AddScoped<IMigration, Migration5>();
         services.AddScoped<IMigrationLoader, MigrationLoader>();
 
         var serviceProvider = services.BuildServiceProvider();

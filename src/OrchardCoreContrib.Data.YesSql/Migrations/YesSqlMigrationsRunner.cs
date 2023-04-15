@@ -116,6 +116,11 @@ public class YesSqlMigrationsRunner : IMigrationsRunner
         {
             if (!hasAppliedMigrations || !appliedMigrations.Any(m => m.DataMigrationClass.Equals(migrationRecord.Migration.GetType().FullName)))
             {
+                if (migrationRecord.Skip)
+                {
+                    continue;
+                }
+
                 var moduleId = migrationRecord.Migration.GetMigrationModuleId();
 
                 migrations.Add(moduleId, migrationRecord);
