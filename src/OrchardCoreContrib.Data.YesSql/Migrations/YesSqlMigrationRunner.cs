@@ -28,17 +28,17 @@ public class YesSqlMigrationRunner : IMigrationRunner
         _migrations = migrationLoader.LoadMigrations();
     }
 
-    public async Task MigrateAsync(string moduleId)
+    public async Task MigrateAsync(string moduleId, long targetMigrationId = 0)
     {
         var pendingMigrations = await GetPendingMigrationsAsync();
 
-        foreach (var migration in pendingMigrations[moduleId])
+        foreach (var migrationRecord in pendingMigrations[moduleId])
         {
-            var migrationClass = migration.Migration.GetMigrationClass();
+            var migrationClass = migrationRecord.Migration.GetMigrationClass();
 
             _migrationsHistory.DataMigrationRecord.DataMigrations.Add(new MigrationsHistoryRow
             {
-                Id = migration.Id,
+                Id = migrationRecord.Id,
                 DataMigrationClass = migrationClass
             });
 
@@ -47,12 +47,12 @@ public class YesSqlMigrationRunner : IMigrationRunner
                 _logger.LogInformation("Running the migration '{migration}'.", migrationClass);
 
                 await _migrationEventHandlers.InvokeAsync((handler, migration)
-                    => handler.MigratingAsync(migration), migration.Migration, _logger);
+                    => handler.MigratingAsync(migration), migrationRecord.Migration, _logger);
 
-                migration.Migration.Up();
+                migrationRecord.Migration.Up();
 
                 await _migrationEventHandlers.InvokeAsync((handler, migration)
-                    => handler.MigratedAsync(migration), migration.Migration, _logger);
+                    => handler.MigratedAsync(migration), migrationRecord.Migration, _logger);
             }
             catch
             {
@@ -62,10 +62,15 @@ public class YesSqlMigrationRunner : IMigrationRunner
             {
                 _session.Save(_migrationsHistory.DataMigrationRecord);
             }
+
+            if (migrationRecord.Id == targetMigrationId)
+            {
+                break;
+            }
         }
     }
 
-    public async Task RollbackAsync(string moduleId)
+    public async Task RollbackAsync(string moduleId, long targetMigrationId = 0)
     {
         var appliedMigrations = (await _migrationsHistory.GetAppliedMigrationsAsync())
             .Where(m => m.DataMigrationClass.StartsWith(moduleId))
@@ -99,6 +104,11 @@ public class YesSqlMigrationRunner : IMigrationRunner
                 finally
                 {
                     _session.Save(_migrationsHistory.DataMigrationRecord);
+                }
+
+                if (migrationRecord.Id == targetMigrationId)
+                {
+                    break;
                 }
             }
         }

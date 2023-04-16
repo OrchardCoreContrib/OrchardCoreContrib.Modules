@@ -2,7 +2,7 @@
 
 public interface IMigrationRunner
 {
-    Task MigrateAsync(string moduleId);
+    Task MigrateAsync(string moduleId, long targetMigrationId = 0);
 
-    Task RollbackAsync(string moduleId);
+    Task RollbackAsync(string moduleId, long targetMigrationId = 0);
 }
