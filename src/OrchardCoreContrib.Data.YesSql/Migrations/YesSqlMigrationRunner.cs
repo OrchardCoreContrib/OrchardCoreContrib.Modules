@@ -36,6 +36,13 @@ public class YesSqlMigrationRunner : IMigrationRunner
         {
             var migrationClass = migrationRecord.Migration.GetMigrationClass();
 
+            if (migrationRecord.Skip)
+            {
+                _logger.LogWarning("Skipping the migration '{migration}'.", migrationClass);
+
+                continue;
+            }
+
             _migrationsHistory.DataMigrationRecord.DataMigrations.Add(new MigrationsHistoryRow
             {
                 Id = migrationRecord.Id,
@@ -126,11 +133,6 @@ public class YesSqlMigrationRunner : IMigrationRunner
         {
             if (!hasAppliedMigrations || !appliedMigrations.Any(m => m.DataMigrationClass.Equals(migrationRecord.Migration.GetType().FullName)))
             {
-                if (migrationRecord.Skip)
-                {
-                    continue;
-                }
-
                 var moduleId = migrationRecord.Migration.GetMigrationModuleId();
 
                 migrations.Add(moduleId, migrationRecord);
