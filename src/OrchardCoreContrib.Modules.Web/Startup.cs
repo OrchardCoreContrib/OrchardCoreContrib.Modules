@@ -17,7 +17,7 @@ namespace OrchardCoreContrib.Modules.Web
                     builder.AddSetupFeatures("OrchardCore.AutoSetup", "OrchardCoreContrib.Tenants");
                     builder.ConfigureServices(builderServices =>
                     {
-                        builderServices.AddDataMigrations();
+                        builderServices.AddYesSqlDataMigrations();
 
                         builderServices.AddScoped<MigrationUpdater>();
                         builderServices.AddScoped<IFeatureEventHandler>(sp => sp.GetRequiredService<MigrationUpdater>());
