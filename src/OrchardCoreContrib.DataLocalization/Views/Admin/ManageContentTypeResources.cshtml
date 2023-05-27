@@ -1,5 +1,6 @@
 ﻿@using System.Globalization
 @using OrchardCore.Localization
+@using OrchardCoreContrib.DataLocalization.Services
 @using OrchardCoreContrib.DataLocalization.ViewModels
 @model ContentTypeResourcesViewModel
 @inject ILocalizationService LocalizationService
@@ -56,7 +57,7 @@ else
             <tbody>
                 @foreach (var resourceName in Model.ResourcesNames)
                 {
-                    var value = Model.Translations.SingleOrDefault(t => t.Key == resourceName)?.Value ?? String.Empty;
+                    var value = Model.Translations.SingleOrDefault(t => t.Key == resourceName && t.Context == ContentTypeResourceStringProvider.Context)?.Value ?? String.Empty;
                     <tr>
                         <td>@resourceName</td>
                         <td><input name="@resourceName" class="form-control" type="text" value="@value"></td>
