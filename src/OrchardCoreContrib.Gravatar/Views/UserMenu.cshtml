@@ -20,10 +20,7 @@
         <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
             <li><h6 class="dropdown-header">@T["Signed in as"]<span class="ms-1 font-weight-bold">@User.Identity.Name</span></h6></li>
             <li><hr class="dropdown-divider" /></li>
-            @*
-            TODO: Use CommonPermissions.EditOwnUser once 1.6.0 is released
-            *@
-            @if (await AuthorizationService.AuthorizeAsync(User, CommonPermissions.ManageUsers))
+            @if (await AuthorizationService.AuthorizeAsync(User, CommonPermissions.EditOwnUser))
             {
                 <li><a class="dropdown-item" asp-area="OrchardCore.Users" asp-action="Edit" asp-controller="Admin" asp-route-returnUrl="@FullRequestPath"><span><i class="far fa-address-card" aria-hidden="true"></i></span>&nbsp;<span> @T["Profile"]</span></a></li>
             }
@@ -32,6 +29,9 @@
                 <li><a class="dropdown-item" asp-area="OrchardCore.Users" asp-action="Display" asp-controller="Admin" asp-route-id="@userId" asp-route-returnUrl="@FullRequestPath"><span><i class="far fa-address-card" aria-hidden="true"></i></span>&nbsp;<span> @T["Profile"]</span></a></li>
             }
             <li><a class="dropdown-item" asp-area="OrchardCore.Users" asp-controller="Account" asp-action="ChangePassword" asp-route-returnUrl="@FullRequestPath"><span><i class="fas fa-key" aria-hidden="true"></i></span>&nbsp;<span> @T["Change password"]</span></a></li>
+            
+            @await RenderSectionAsync("UserMenuItems", required: false)
+
             <li><button type="submit" class="dropdown-item"><span><i class="fa fa-sign-out-alt" aria-hidden="true"></i></span>&nbsp;<span> @T["Log off"]</span></button></li>
         </ul>
     </form>
