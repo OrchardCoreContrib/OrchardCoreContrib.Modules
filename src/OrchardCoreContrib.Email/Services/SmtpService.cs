@@ -163,14 +163,13 @@ namespace OrchardCoreContrib.Email.Services
 
             var body = new BodyBuilder();
 
-            if (message.IsBodyHtml)
+            if (message.IsHtmlBody)
             {
                 body.HtmlBody = message.Body;
             }
-
-            if (message.IsBodyText)
+            else
             {
-                body.TextBody = message.BodyText;
+                body.TextBody = message.Body;
             }
 
             foreach (var attachment in message.Attachments)
@@ -193,8 +192,8 @@ namespace OrchardCoreContrib.Email.Services
                 : _options.EncryptionMethod switch
                 {
                     SmtpEncryptionMethod.None => SecureSocketOptions.None,
-                    SmtpEncryptionMethod.SSLTLS => SecureSocketOptions.SslOnConnect,
-                    SmtpEncryptionMethod.STARTTLS => SecureSocketOptions.StartTls,
+                    SmtpEncryptionMethod.SslTls => SecureSocketOptions.SslOnConnect,
+                    SmtpEncryptionMethod.StartTls => SecureSocketOptions.StartTls,
                     _ => SecureSocketOptions.Auto
                 };
 

@@ -31,8 +31,8 @@ public class SmtpServiceMock : SmtpService
         : _options.EncryptionMethod switch
         {
             SmtpEncryptionMethod.None => SecureSocketOptions.None,
-            SmtpEncryptionMethod.SSLTLS => SecureSocketOptions.SslOnConnect,
-            SmtpEncryptionMethod.STARTTLS => SecureSocketOptions.StartTls,
+            SmtpEncryptionMethod.SslTls => SecureSocketOptions.SslOnConnect,
+            SmtpEncryptionMethod.StartTls => SecureSocketOptions.StartTls,
             _ => SecureSocketOptions.Auto
         };
 

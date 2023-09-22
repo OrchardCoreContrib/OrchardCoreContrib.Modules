@@ -20,7 +20,7 @@ public partial class SmtpServiceTests
         {
             Host = "smtp.gmail.com",
             Port = 0,
-            EncryptionMethod = SmtpEncryptionMethod.SSLTLS
+            EncryptionMethod = SmtpEncryptionMethod.SslTls
         };
         var logger = Mock.Of<ILogger<SmtpServiceMock>>();
         var localizer = Mock.Of<IStringLocalizer<SmtpServiceMock>>();

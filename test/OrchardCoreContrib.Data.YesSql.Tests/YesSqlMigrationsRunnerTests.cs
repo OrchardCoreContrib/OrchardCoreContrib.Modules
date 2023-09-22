@@ -76,7 +76,7 @@ public class YesSqlMigrationsRunnerTests
                         var queryOfT = new Mock<IQuery<DataMigrationRecord>>();
                         queryOfT
                             .Setup(q => q.FirstOrDefaultAsync())
-                            .Returns((Delegate)(() => Task.FromResult(default(DataMigrationRecord))));
+                            .Returns(() => Task.FromResult(default(DataMigrationRecord)));
 
                         return queryOfT.Object;
                     });
