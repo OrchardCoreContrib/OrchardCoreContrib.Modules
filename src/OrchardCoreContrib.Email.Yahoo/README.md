@@ -4,7 +4,7 @@ This module allows you to send emails using Yahoo.
 
 ## Version
 
-1.2.0
+1.3.0
 
 ## Category
 
@@ -16,19 +16,20 @@ This module has no dependencies.
 
 ## Features
 
-| | |
-| --- | --- |
-| **Name** | Yahoo (`OrchardCoreContrib.Email.Yahoo`) |
-| **Description** | Allow you to send email(s) via Yahoo service. |
-| **Dependencies** | |
+|                  |                                               |
+|------------------|-----------------------------------------------|
+| **Name**         | Yahoo (`OrchardCoreContrib.Email.Yahoo`)      |
+| **Description**  | Allow you to send email(s) via Yahoo service. |
+| **Dependencies** |                                               |
 
 ## NuGet Packages
 
-| Name | Version |
-| --- | --- |
-| [`OrchardCoreContrib.Email.Yahoo`](https://www.nuget.org/packages/OrchardCoreContrib.Email.Yahoo/1.2.0) | 1.2.0 |
-| [`OrchardCoreContrib.Email.Yahoo`](https://www.nuget.org/packages/OrchardCoreContrib.Email.Yahoo/1.1.0) | 1.1.0 |
-| [`OrchardCoreContrib.Email.Yahoo`](https://www.nuget.org/packages/OrchardCoreContrib.Email.Yahoo/1.0.0) | 1.0.0 |
+| Name                                                                                                    | Version |
+|---------------------------------------------------------------------------------------------------------|---------|
+| [`OrchardCoreContrib.Email.Yahoo`](https://www.nuget.org/packages/OrchardCoreContrib.Email.Yahoo/1.3.0) | 1.3.0   |
+| [`OrchardCoreContrib.Email.Yahoo`](https://www.nuget.org/packages/OrchardCoreContrib.Email.Yahoo/1.2.0) | 1.2.0   |
+| [`OrchardCoreContrib.Email.Yahoo`](https://www.nuget.org/packages/OrchardCoreContrib.Email.Yahoo/1.1.0) | 1.1.0   |
+| [`OrchardCoreContrib.Email.Yahoo`](https://www.nuget.org/packages/OrchardCoreContrib.Email.Yahoo/1.0.0) | 1.0.0   |
 
 ## Get Started
 
