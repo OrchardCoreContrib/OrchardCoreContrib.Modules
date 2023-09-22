@@ -4,7 +4,7 @@ This module provides features for localizing content.
 
 ## Version
 
-1.1.0
+1.2.0
 
 ## Category
 
@@ -16,24 +16,25 @@ This module has no dependencies.
 
 ## Features
 
-| | |
-| --- | --- |
-| **Name** | Localization Matrix (`OrchardCoreContrib.ContentLocalization.LocalizationMatrix`) |
-| **Description** | Shows a matix for localized content per culture. |
-| **Dependencies** | `OrchardCoreContrib.ContentLocalization`<br/> `OrchardCore.ContentLocalization` |
+|                  |                                                                                   |
+|------------------|-----------------------------------------------------------------------------------|
+| **Name**         | Localization Matrix (`OrchardCoreContrib.ContentLocalization.LocalizationMatrix`) |
+| **Description**  | Shows a matix for localized content per culture.                                  |
+| **Dependencies** | `OrchardCoreContrib.ContentLocalization`<br/> `OrchardCore.ContentLocalization`   |
 
-| | |
-| --- | --- |
-| **Name** | Transliteration (`OrchardCoreContrib.ContentLocalization.Transliteration`) |
-| **Description** | Provides a type of conversion of a text from one script to another that involves swapping letters. |
-| **Dependencies** | `OrchardCore.ContentLocalization` |
+|                  |                                                                                                    |
+|------------------|----------------------------------------------------------------------------------------------------|
+| **Name**         | Transliteration (`OrchardCoreContrib.ContentLocalization.Transliteration`)                         |
+| **Description**  | Provides a type of conversion of a text from one script to another that involves swapping letters. |
+| **Dependencies** | `OrchardCore.ContentLocalization`                                                                  |
 
 ## NuGet Packages
 
-| Name | Version |
-| --- | --- |
-| [`OrchardCoreContrib.ContentLocalization`](https://www.nuget.org/packages/OrchardCoreContrib.ContentLocalization/1.1.0) | 1.1.0 |
-| [`OrchardCoreContrib.ContentLocalization`](https://www.nuget.org/packages/OrchardCoreContrib.ContentLocalization/1.0.0) | 1.0.0 |
+| Name                                                                                                                    | Version |
+|-------------------------------------------------------------------------------------------------------------------------|---------|
+| [`OrchardCoreContrib.ContentLocalization`](https://www.nuget.org/packages/OrchardCoreContrib.ContentLocalization/1.2.0) | 1.2.0   |
+| [`OrchardCoreContrib.ContentLocalization`](https://www.nuget.org/packages/OrchardCoreContrib.ContentLocalization/1.1.0) | 1.1.0   |
+| [`OrchardCoreContrib.ContentLocalization`](https://www.nuget.org/packages/OrchardCoreContrib.ContentLocalization/1.0.0) | 1.0.0   |
 
 ## Get Started
 
