@@ -4,7 +4,7 @@ This module allows you to preview your page in different devices.
 
 ## Version
 
-1.1.0
+1.2.0
 
 ## Category
 
@@ -16,20 +16,21 @@ This module has no dependencies.
 
 ## Features
 
-| | |
-| --- | --- |
-| **Name** | Page Preview Bar (`OrchardCoreContrib.ContentPreview`) |
-| **Description** | Shows a top bar that allows you to preview the current page in desktop, tablet and mobile. |
-| **Dependencies** | `OrchardCore.Resources` |
+|                  |                                                                                            |
+|------------------|--------------------------------------------------------------------------------------------|
+| **Name**         | Page Preview Bar (`OrchardCoreContrib.ContentPreview`)                                     |
+| **Description**  | Shows a top bar that allows you to preview the current page in desktop, tablet and mobile. |
+| **Dependencies** | `OrchardCore.Resources`                                                                    |
 
 ## NuGet Packages
 
-| Name | Version |
-| --- | --- |
-| [`OrchardCoreContrib.ContentPreview`](https://www.nuget.org/packages/OrchardCoreContrib.ContentPreview/1.1.0) | 1.1.0 |
-| [`OrchardCoreContrib.ContentPreview`](https://www.nuget.org/packages/OrchardCoreContrib.ContentPreview/1.0.2) | 1.0.2 |
-| [`OrchardCoreContrib.ContentPreview`](https://www.nuget.org/packages/OrchardCoreContrib.ContentPreview/1.0.1) | 1.0.1 |
-| [`OrchardCoreContrib.ContentPreview`](https://www.nuget.org/packages/OrchardCoreContrib.ContentPreview/1.0.0) | 1.0.0 |
+| Name                                                                                                                | Version     |
+|---------------------------------------------------------------------------------------------------------------------|-------------|
+| [`OrchardCoreContrib.ContentPreview`](https://www.nuget.org/packages/OrchardCoreContrib.ContentPreview/1.2.0)       | 1.2.0       |
+| [`OrchardCoreContrib.ContentPreview`](https://www.nuget.org/packages/OrchardCoreContrib.ContentPreview/1.1.0)       | 1.1.0       |
+| [`OrchardCoreContrib.ContentPreview`](https://www.nuget.org/packages/OrchardCoreContrib.ContentPreview/1.0.2)       | 1.0.2       |
+| [`OrchardCoreContrib.ContentPreview`](https://www.nuget.org/packages/OrchardCoreContrib.ContentPreview/1.0.1)       | 1.0.1       |
+| [`OrchardCoreContrib.ContentPreview`](https://www.nuget.org/packages/OrchardCoreContrib.ContentPreview/1.0.0)       | 1.0.0       |
 | [`OrchardCoreContrib.ContentPreview`](https://www.nuget.org/packages/OrchardCoreContrib.ContentPreview/1.0.0-beta2) | 1.0.0-beta2 |
 | [`OrchardCoreContrib.ContentPreview`](https://www.nuget.org/packages/OrchardCoreContrib.ContentPreview/1.0.0-beta1) | 1.0.0-beta1 |
 
