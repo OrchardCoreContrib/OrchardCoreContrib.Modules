@@ -4,7 +4,7 @@ Provides an information about currently running application.
 
 ## Version
 
-1.2.1
+1.3.0
 
 ## Category
 
@@ -16,31 +16,32 @@ This module has no dependencies.
 
 ## Features
 
-| | |
-| --- | --- |
-| **Name** | System (`OrchardCoreContrib.System`) |
-| **Description** | Provides an information about currently running application. |
-| **Dependencies** | |
+|                  |                                                              |
+|------------------|--------------------------------------------------------------|
+| **Name**         | System (`OrchardCoreContrib.System`)                         |
+| **Description**  | Provides an information about currently running application. |
+| **Dependencies** |                                                              |
 
-| | |
-| --- | --- |
-| **Name** | System Updates (`OrchardCoreContrib.System.Updates`) |
-| **Description** | Displays the available system updates. |
-| **Dependencies** | `OrchardCoreContrib.System` |
+|                  |                                                      |
+|------------------|------------------------------------------------------|
+| **Name**         | System Updates (`OrchardCoreContrib.System.Updates`) |
+| **Description**  | Displays the available system updates.               |
+| **Dependencies** | `OrchardCoreContrib.System`                          |
 
-| | |
-| --- | --- |
-| **Name** | System Maintenance (`OrchardCoreContrib.System.Maintenance`) |
-| **Description** | Put your site in maintenance mode while you're doing upgrades. |
-| **Dependencies** | `OrchardCore.Autoroute` |
+|                  |                                                                |
+|------------------|----------------------------------------------------------------|
+| **Name**         | System Maintenance (`OrchardCoreContrib.System.Maintenance`)   |
+| **Description**  | Put your site in maintenance mode while you're doing upgrades. |
+| **Dependencies** | `OrchardCore.Autoroute`                                        |
 
 ## NuGet Packages
 
-| Name | Version |
-| --- | --- |
-| [`OrchardCoreContrib.System`](https://www.nuget.org/packages/OrchardCoreContrib.System/1.2.1) | 1.2.1 |
-| [`OrchardCoreContrib.System`](https://www.nuget.org/packages/OrchardCoreContrib.System/1.2.0) | 1.2.0 |
-| [`OrchardCoreContrib.System`](https://www.nuget.org/packages/OrchardCoreContrib.System/1.0.0) | 1.0.0 |
+| Name                                                                                          | Version |
+|-----------------------------------------------------------------------------------------------|---------|
+| [`OrchardCoreContrib.System`](https://www.nuget.org/packages/OrchardCoreContrib.System/1.3.0) | 1.3.0   |
+| [`OrchardCoreContrib.System`](https://www.nuget.org/packages/OrchardCoreContrib.System/1.2.1) | 1.2.1   |
+| [`OrchardCoreContrib.System`](https://www.nuget.org/packages/OrchardCoreContrib.System/1.2.0) | 1.2.0   |
+| [`OrchardCoreContrib.System`](https://www.nuget.org/packages/OrchardCoreContrib.System/1.0.0) | 1.0.0   |
 
 ## Get Started
 
