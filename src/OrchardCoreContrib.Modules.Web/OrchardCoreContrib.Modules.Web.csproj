@@ -6,8 +6,8 @@
 	</PropertyGroup>
 
 	<ItemGroup>
-		<PackageReference Include="OrchardCoreContrib.Data.YesSql" Version="1.0.0-beta2" />
-		<PackageReference Include="OrchardCore.Application.Cms.Targets" Version="1.5.0" />
+		<PackageReference Include="OrchardCoreContrib.Data.YesSql" Version="1.0.0" />
+		<PackageReference Include="OrchardCore.Application.Cms.Targets" Version="1.7.0" />
 	</ItemGroup>
 
 

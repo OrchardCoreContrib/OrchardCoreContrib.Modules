@@ -31,13 +31,13 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<PackageReference Include="OrchardCore.Admin.Abstractions" Version="1.5.0" />
-		<PackageReference Include="OrchardCore.DisplayManagement" Version="1.5.0" />
-		<PackageReference Include="OrchardCore.Infrastructure.Abstractions" Version="1.5.0" />
-		<PackageReference Include="OrchardCore.Module.Targets" Version="1.5.0" />
-		<PackageReference Include="OrchardCoreContrib.Abstractions" Version="1.1.0" />
-		<PackageReference Include="OrchardCoreContrib.Email" Version="1.3.0" />
-		<PackageReference Include="OrchardCoreContrib.Navigation.Core" Version="1.1.0" />
+		<PackageReference Include="OrchardCore.Admin.Abstractions" Version="1.7.0" />
+		<PackageReference Include="OrchardCore.DisplayManagement" Version="1.7.0" />
+		<PackageReference Include="OrchardCore.Infrastructure.Abstractions" Version="1.7.0" />
+		<PackageReference Include="OrchardCore.Module.Targets" Version="1.7.0" />
+		<PackageReference Include="OrchardCoreContrib.Abstractions" Version="1.2.0" />
+		<PackageReference Include="OrchardCoreContrib.Email" Version="1.4.0" />
+		<PackageReference Include="OrchardCoreContrib.Navigation.Core" Version="1.2.0" />
 	</ItemGroup>
 
 </Project>

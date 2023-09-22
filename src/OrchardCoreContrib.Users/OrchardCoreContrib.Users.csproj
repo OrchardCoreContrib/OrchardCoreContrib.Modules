@@ -31,11 +31,11 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<PackageReference Include="OrchardCore.Module.Targets" Version="1.5.0" />
-		<PackageReference Include="OrchardCore.Users" Version="1.5.0" />
-		<PackageReference Include="SixLabors.ImageSharp.Drawing" Version="1.0.0-beta15" />
-		<PackageReference Include="OrchardCoreContrib.Abstractions" Version="1.1.0" />
-		<PackageReference Include="OrchardCoreContrib.Navigation.Core" Version="1.1.0" />
+		<PackageReference Include="OrchardCore.Module.Targets" Version="1.7.0" />
+		<PackageReference Include="OrchardCore.Users" Version="1.7.0" />
+		<PackageReference Include="SixLabors.ImageSharp.Drawing" Version="2.0.0" />
+		<PackageReference Include="OrchardCoreContrib.Abstractions" Version="1.2.0" />
+		<PackageReference Include="OrchardCoreContrib.Navigation.Core" Version="1.2.0" />
 	</ItemGroup>
 
 </Project>
