@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk.Razor">
 
 	<PropertyGroup>
-		<TargetFramework>net6.0</TargetFramework>
+		<TargetFrameworks>net6.0;net7.0</TargetFrameworks>
 		<AddRazorSupportForMvc>true</AddRazorSupportForMvc>
 		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
 		<VersionPrefix>1.0.0-beta1</VersionPrefix>
@@ -31,12 +31,12 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<PackageReference Include="OrchardCore.Admin.Abstractions" Version="1.5.0" />
-		<PackageReference Include="OrchardCore.DisplayManagement" Version="1.5.0" />
-		<PackageReference Include="OrchardCore.Infrastructure.Abstractions" Version="1.5.0" />
-		<PackageReference Include="OrchardCore.Module.Targets" Version="1.5.0" />
-		<PackageReference Include="OrchardCore.Navigation.Core" Version="1.5.0" />
-		<PackageReference Include="OrchardCoreContrib.Abstractions" Version="1.1.0" />
+		<PackageReference Include="OrchardCore.Admin.Abstractions" Version="1.7.0" />
+		<PackageReference Include="OrchardCore.DisplayManagement" Version="1.7.0" />
+		<PackageReference Include="OrchardCore.Infrastructure.Abstractions" Version="1.7.0" />
+		<PackageReference Include="OrchardCore.Module.Targets" Version="1.7.0" />
+		<PackageReference Include="OrchardCore.Navigation.Core" Version="1.7.0" />
+		<PackageReference Include="OrchardCoreContrib.Abstractions" Version="1.2.0" />
 	</ItemGroup>
 
 </Project>

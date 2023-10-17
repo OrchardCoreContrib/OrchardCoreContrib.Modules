@@ -4,7 +4,7 @@ This module provides features for users management.
 
 ## Version
 
-1.3.0
+1.4.0
 
 ## Category
 
@@ -12,32 +12,33 @@ Security
 
 ## Dependencies
 
-| Product | Module |
-| --- | --- |
+| Product     | Module                      |
+|-------------|-----------------------------|
 | OrchardCore | Users (`OrchardCore.Users`) |
 
 ## Features
 
-| | |
-| --- | --- |
-| **Name** | Users Impersonation (`OrchardCoreContrib.Users.Impersonation`) |
-| **Description** | Allows the administrators to sign in with other user identity. |
-| **Dependencies** | `OrchardCore.Users` |
+|                  |                                                                |
+|------------------|----------------------------------------------------------------|
+| **Name**         | Users Impersonation (`OrchardCoreContrib.Users.Impersonation`) |
+| **Description**  | Allows the administrators to sign in with other user identity. |
+| **Dependencies** | `OrchardCore.Users`                                            |
 
-| | |
-| --- | --- |
-| **Name** | User Avatar (`OrchardCoreContrib.Users.Avatar`) |
-| **Description** | Displays the user avatar on the admin menu. |
-| **Dependencies** | `OrchardCore.Users` |
+|                  |                                                 |
+|------------------|-------------------------------------------------|
+| **Name**         | User Avatar (`OrchardCoreContrib.Users.Avatar`) |
+| **Description**  | Displays the user avatar on the admin menu.     |
+| **Dependencies** | `OrchardCore.Users`                             |
 
 ## NuGet Packages
 
-| Name | Version |
-| --- | --- |
-| [`OrchardCoreContrib.Users`](https://www.nuget.org/packages/OrchardCoreContrib.Users/1.3.0) | 1.3.0 |
-| [`OrchardCoreContrib.Users`](https://www.nuget.org/packages/OrchardCoreContrib.Users/1.2.0) | 1.2.0 |
-| [`OrchardCoreContrib.Users`](https://www.nuget.org/packages/OrchardCoreContrib.Users/1.1.0) | 1.1.0 |
-| [`OrchardCoreContrib.Users`](https://www.nuget.org/packages/OrchardCoreContrib.Users/1.0.0) | 1.0.0 |
+| Name                                                                                        | Version |
+|---------------------------------------------------------------------------------------------|---------|
+| [`OrchardCoreContrib.Users`](https://www.nuget.org/packages/OrchardCoreContrib.Users/1.4.0) | 1.4.0   |
+| [`OrchardCoreContrib.Users`](https://www.nuget.org/packages/OrchardCoreContrib.Users/1.3.0) | 1.3.0   |
+| [`OrchardCoreContrib.Users`](https://www.nuget.org/packages/OrchardCoreContrib.Users/1.2.0) | 1.2.0   |
+| [`OrchardCoreContrib.Users`](https://www.nuget.org/packages/OrchardCoreContrib.Users/1.1.0) | 1.1.0   |
+| [`OrchardCoreContrib.Users`](https://www.nuget.org/packages/OrchardCoreContrib.Users/1.0.0) | 1.0.0   |
 
 ## Get Started
 

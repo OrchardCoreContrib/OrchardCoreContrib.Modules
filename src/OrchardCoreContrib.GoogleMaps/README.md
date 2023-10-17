@@ -4,7 +4,7 @@ This module allows you to display Google Map in you content item.
 
 ## Version
 
-1.1.0
+1.2.0
 
 ## Category
 
@@ -12,24 +12,25 @@ Content Management
 
 ## Dependencies
 
-| Product | Module |
-| --- | --- |
+| Product     | Module                            |
+|-------------|-----------------------------------|
 | OrchardCore | Contents (`OrchardCore.Contents`) |
 
 ## Features
 
-| | |
-| --- | --- |
-| **Name** | Google Maps (`OrchardCoreContrib.GoogleMaps`) |
-| **Description** | Allow you to display Google Map into your content item. |
-| **Dependencies** | `OrchardCore.Contents` |
+|                  |                                                         |
+|------------------|---------------------------------------------------------|
+| **Name**         | Google Maps (`OrchardCoreContrib.GoogleMaps`)           |
+| **Description**  | Allow you to display Google Map into your content item. |
+| **Dependencies** | `OrchardCore.Contents`                                  |
 
 ## NuGet Packages
 
-| Name | Version |
-| --- | --- |
-| [`OrchardCoreContrib.GoogleMaps`](https://www.nuget.org/packages/OrchardCoreContrib.GoogleMaps/1.1.0) | 1.1.0 |
-| [`OrchardCoreContrib.GoogleMaps`](https://www.nuget.org/packages/OrchardCoreContrib.GoogleMaps/1.0.0) | 1.0.0 |
+| Name                                                                                                  | Version |
+|-------------------------------------------------------------------------------------------------------|---------|
+| [`OrchardCoreContrib.GoogleMaps`](https://www.nuget.org/packages/OrchardCoreContrib.GoogleMaps/1.2.0) | 1.2.0   |
+| [`OrchardCoreContrib.GoogleMaps`](https://www.nuget.org/packages/OrchardCoreContrib.GoogleMaps/1.1.0) | 1.1.0   |
+| [`OrchardCoreContrib.GoogleMaps`](https://www.nuget.org/packages/OrchardCoreContrib.GoogleMaps/1.0.0) | 1.0.0   |
 
 ## Get Started
 

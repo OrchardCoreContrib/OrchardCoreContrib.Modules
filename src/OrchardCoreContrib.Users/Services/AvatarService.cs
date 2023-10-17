@@ -48,7 +48,7 @@ public class AvatarService : IAvatarService
         {
             var imageEncoder = image
                 .GetConfiguration().ImageFormatsManager
-                .FindEncoder(PngFormat.Instance);
+                .GetEncoder(PngFormat.Instance);
             
             image.Save(memoryStream, imageEncoder);
 

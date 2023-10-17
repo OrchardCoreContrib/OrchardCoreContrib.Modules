@@ -16,16 +16,17 @@ There's no dependencies.
 
 ## Features
 
-| | |
-| --- | --- |
-| **Name** | Liquid (`OrchardCoreContrib.Liquid`) |
-| **Description** | Provides a list of liquid filters. |
-| **Dependencies** | |
+|                  |                                      |
+|------------------|--------------------------------------|
+| **Name**         | Liquid (`OrchardCoreContrib.Liquid`) |
+| **Description**  | Provides a list of liquid filters.   |
+| **Dependencies** |                                      |
 
 ## NuGet Packages
 
-| Name | Version |
-| --- | --- |
+| Name                                                                                               | Version    |
+|----------------------------------------------------------------------------------------------------|------------|
+| [`OrchardCoreContrib.Liquid`](https://www.nuget.org/packages/OrchardCoreContrib.Liquid/1.0.0) | 1.0.0 |
 | [`OrchardCoreContrib.Liquid`](https://www.nuget.org/packages/OrchardCoreContrib.Liquid/1.0.0-beta1) | 1.0.0-beta1 |
 
 ## Get Started

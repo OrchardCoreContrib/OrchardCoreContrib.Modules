@@ -4,7 +4,7 @@ This module provides features for localizing dynamic data.
 
 ## Version
 
-1.0.0-beta4
+1.0.0
 
 ## Category
 
@@ -12,22 +12,23 @@ Internationalization
 
 ## Dependencies
 
-| Product | Module |
-| --- | --- |
+| Product     | Module                                   |
+|-------------|------------------------------------------|
 | OrchardCore | Loalization (`OrchardCore.Localization`) |
 
 ## Features
 
-| | |
-| --- | --- |
-| **Name** | Data Loalization (`OrchardCoreContrib.DataLocalization`) |
-| **Description** | Provides features for localizing dynamic data. |
-| **Dependencies** | `OrchardCoreLocalization` |
+|                  |                                                          |
+|------------------|----------------------------------------------------------|
+| **Name**         | Data Loalization (`OrchardCoreContrib.DataLocalization`) |
+| **Description**  | Provides features for localizing dynamic data.           |
+| **Dependencies** | `OrchardCoreLocalization`                                |
 
 ## NuGet Packages
 
-| Name | Version |
-| --- | --- |
+| Name                                                                                                                    | Version     |
+|-------------------------------------------------------------------------------------------------------------------------|-------------|
+| [`OrchardCoreContrib.DataLocalization`](https://www.nuget.org/packages/OrchardCoreContrib.DataLocalization/1.0.0)       | 1.0.0       |
 | [`OrchardCoreContrib.DataLocalization`](https://www.nuget.org/packages/OrchardCoreContrib.DataLocalization/1.0.0-beta4) | 1.0.0-beta4 |
 | [`OrchardCoreContrib.DataLocalization`](https://www.nuget.org/packages/OrchardCoreContrib.DataLocalization/1.0.0-beta3) | 1.0.0-beta3 |
 | [`OrchardCoreContrib.DataLocalization`](https://www.nuget.org/packages/OrchardCoreContrib.DataLocalization/1.0.0-beta2) | 1.0.0-beta2 |

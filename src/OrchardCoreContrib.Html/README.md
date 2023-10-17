@@ -4,7 +4,7 @@ This module enables content items to have rich content using Grapes JS.
 
 ## Version
 
-1.0.0
+1.1.0
 
 ## Category
 
@@ -12,23 +12,24 @@ Content Management
 
 ## Dependencies
 
-| Product | Module |
-| --- | --- |
+| Product     | Module                    |
+|-------------|---------------------------|
 | OrchardCore | Html (`OrchardCore.Html`) |
 
 ## Features
 
-| | |
-| --- | --- |
-| **Name** | GrapesJS HTML Editor (`OrchardCoreContrib.Html.GraphesJS`) |
-| **Description** | Enables GrapesJS editor for HtmlBody content. |
-| **Dependencies** | |
+|                  |                                                            |
+|------------------|------------------------------------------------------------|
+| **Name**         | GrapesJS HTML Editor (`OrchardCoreContrib.Html.GraphesJS`) |
+| **Description**  | Enables GrapesJS editor for HtmlBody content.              |
+| **Dependencies** |                                                            |
 
 ## NuGet Packages
 
-| Name | Version |
-| --- | --- |
-| [`OrchardCoreContrib.Html`](https://www.nuget.org/packages/OrchardCoreContrib.Html/1.0.0) | 1.0.0 |
+| Name                                                                                            | Version     |
+|-------------------------------------------------------------------------------------------------|-------------|
+| [`OrchardCoreContrib.Html`](https://www.nuget.org/packages/OrchardCoreContrib.Html/1.1.0)       | 1.1.0       |
+| [`OrchardCoreContrib.Html`](https://www.nuget.org/packages/OrchardCoreContrib.Html/1.0.0)       | 1.0.0       |
 | [`OrchardCoreContrib.Html`](https://www.nuget.org/packages/OrchardCoreContrib.Html/1.0.0-beta1) | 1.0.0-beta1 |
 
 ## Get Started

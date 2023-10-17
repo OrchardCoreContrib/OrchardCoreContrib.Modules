@@ -4,7 +4,7 @@ This module enables configuration of hosting scenarios with a reverse proxy usin
 
 ## Version
 
-1.0.0
+1.1.0
 
 ## Category
 
@@ -16,17 +16,18 @@ This module has no dependencies.
 
 ## Features
 
-| | |
-| --- | --- |
-| **Name** | YARP (`OrchardCoreContrib.ReverseProxy.Yarp`) |
-| **Description** | Enables configuration of hosting scenarios with a reverse proxy using YARP. |
-| **Dependencies** | |
+|                  |                                                                             |
+|------------------|-----------------------------------------------------------------------------|
+| **Name**         | YARP (`OrchardCoreContrib.ReverseProxy.Yarp`)                               |
+| **Description**  | Enables configuration of hosting scenarios with a reverse proxy using YARP. |
+| **Dependencies** |                                                                             |
 
 ## NuGet Packages
 
-| Name | Version |
-| --- | --- |
-| [`OrchardCoreContrib.ReverseProxy.Yarp`](https://www.nuget.org/packages/OrchardCoreContrib.ReverseProxy.Yarp/1.0.0) | 1.0.0 |
+| Name                                                                                                                | Version |
+|---------------------------------------------------------------------------------------------------------------------|---------|
+| [`OrchardCoreContrib.ReverseProxy.Yarp`](https://www.nuget.org/packages/OrchardCoreContrib.ReverseProxy.Yarp/1.1.0) | 1.1.0   |
+| [`OrchardCoreContrib.ReverseProxy.Yarp`](https://www.nuget.org/packages/OrchardCoreContrib.ReverseProxy.Yarp/1.0.0) | 1.0.0   |
 
 ## Get Started
 

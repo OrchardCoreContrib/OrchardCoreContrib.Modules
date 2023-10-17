@@ -4,7 +4,7 @@ This module handle and logs errors using Elm.
 
 ## Version
 
-1.2.0
+1.3.0
 
 ## Category
 
@@ -16,19 +16,20 @@ This module has no dependencies.
 
 ## Features
 
-| | |
-| --- | --- |
-| **Name** | Elm Diagnostics (`OrchardCoreContrib.Diagnostics.Elm`) |
-| **Description** | Provides services to handle errors using Elm. |
-| **Dependencies** | |
+|                  |                                                        |
+|------------------|--------------------------------------------------------|
+| **Name**         | Elm Diagnostics (`OrchardCoreContrib.Diagnostics.Elm`) |
+| **Description**  | Provides services to handle errors using Elm.          |
+| **Dependencies** |                                                        |
 
 ## NuGet Packages
 
-| Name | Version |
-| --- | --- |
-| [`OrchardCoreContrib.Diagnostics.Elm`](https://www.nuget.org/packages/OrchardCoreContrib.Diagnostics.Elm/1.2.0) | 1.2.0 |
-| [`OrchardCoreContrib.Diagnostics.Elm`](https://www.nuget.org/packages/OrchardCoreContrib.Diagnostics.Elm/1.1.0) | 1.1.0 |
-| [`OrchardCoreContrib.Diagnostics.Elm`](https://www.nuget.org/packages/OrchardCoreContrib.Diagnostics.Elm/1.0.0) | 1.0.0 |
+| Name                                                                                                            | Version |
+|-----------------------------------------------------------------------------------------------------------------|---------|
+| [`OrchardCoreContrib.Diagnostics.Elm`](https://www.nuget.org/packages/OrchardCoreContrib.Diagnostics.Elm/1.3.0) | 1.3.0   |
+| [`OrchardCoreContrib.Diagnostics.Elm`](https://www.nuget.org/packages/OrchardCoreContrib.Diagnostics.Elm/1.2.0) | 1.2.0   |
+| [`OrchardCoreContrib.Diagnostics.Elm`](https://www.nuget.org/packages/OrchardCoreContrib.Diagnostics.Elm/1.1.0) | 1.1.0   |
+| [`OrchardCoreContrib.Diagnostics.Elm`](https://www.nuget.org/packages/OrchardCoreContrib.Diagnostics.Elm/1.0.0) | 1.0.0   |
 
 ## Get Started
 

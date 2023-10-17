@@ -1,9 +1,9 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
 	<PropertyGroup>
-		<TargetFramework>net6.0</TargetFramework>
+		<TargetFrameworks>net6.0;net7.0</TargetFrameworks>
 		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-		<VersionPrefix>1.2.0</VersionPrefix>
+		<VersionPrefix>1.3.0</VersionPrefix>
 		<Authors>The Orchard Core Contrib Team</Authors>
 		<Company />
 		<Description>Provides services to handle errors using Elm.</Description>
@@ -27,8 +27,8 @@
 
 	<ItemGroup>
 		<PackageReference Include="Microsoft.AspNetCore.Diagnostics.Elm" Version="0.2.2" />
-		<PackageReference Include="OrchardCore.Module.Targets" Version="1.5.0" />
-		<PackageReference Include="OrchardCoreContrib.Abstractions" Version="1.1.0" />
+		<PackageReference Include="OrchardCore.Module.Targets" Version="1.7.0" />
+		<PackageReference Include="OrchardCoreContrib.Abstractions" Version="1.2.0" />
 	</ItemGroup>
 
 </Project>
