@@ -16,21 +16,18 @@ public class Startup : StartupBase
     
     public override void ConfigureServices(IServiceCollection services)
     {
-        services.Configure<TemplateOptions>(o =>
+        var environment = new Environment
         {
-            o.Scope.SetValue("Environment", new ObjectValue(new LiquidEnvironmentAccessor()));
-            o.MemberAccessStrategy.Register<LiquidEnvironmentAccessor, FluidValue>((obj, name, context) =>
-            {
-                FluidValue result = name switch
-                {
-                    "IsDevelopment" => BooleanValue.Create(_hostEnvironment.IsDevelopment()),
-                    "IsStaging" => BooleanValue.Create(_hostEnvironment.IsStaging()),
-                    "IsProduction" => BooleanValue.Create(_hostEnvironment.IsProduction()),
-                    _ => NilValue.Instance
-                };
+            IsDevelopment = BooleanValue.Create(_hostEnvironment.IsDevelopment()),
+            IsStaging = BooleanValue.Create(_hostEnvironment.IsStaging()),
+            IsProduction = BooleanValue.Create(_hostEnvironment.IsProduction())
+        };
 
-                return result;
-            });
+        services.Configure<TemplateOptions>(options =>
+        {
+            options.Scope.SetValue("Environment", new ObjectValue(environment));
+
+            options.MemberAccessStrategy.Register<Environment>();
         });
     }
 }
