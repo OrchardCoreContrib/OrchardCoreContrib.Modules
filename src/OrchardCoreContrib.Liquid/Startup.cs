@@ -2,31 +2,32 @@ using Fluid;
 using Fluid.Values;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using OrchardCore.Liquid;
 using OrchardCore.Modules;
 
 namespace OrchardCoreContrib.Liquid;
 public class Startup : StartupBase
 {
+    private readonly IHostEnvironment _hostEnvironment;
+
+    public Startup(IHostEnvironment hostEnvironment)
+    {
+        _hostEnvironment = hostEnvironment;
+    }
+    
     public override void ConfigureServices(IServiceCollection services)
     {
-        services.Configure<TemplateOptions>(o =>
+        var environment = new Environment
         {
-            o.Scope.SetValue("Environment", new ObjectValue(new LiquidEnvironmentAccessor()));
-            o.MemberAccessStrategy.Register<LiquidEnvironmentAccessor, FluidValue>((obj, name, context) =>
-            {
-                var hostEnvironment = ((LiquidTemplateContext)context).Services.GetRequiredService<IHostEnvironment>();
+            IsDevelopment = BooleanValue.Create(_hostEnvironment.IsDevelopment()),
+            IsStaging = BooleanValue.Create(_hostEnvironment.IsStaging()),
+            IsProduction = BooleanValue.Create(_hostEnvironment.IsProduction())
+        };
 
-                FluidValue result = name switch
-                {
-                    "IsDevelopment" => BooleanValue.Create(hostEnvironment.IsDevelopment()),
-                    "IsStaging" => BooleanValue.Create(hostEnvironment.IsStaging()),
-                    "IsProduction" => BooleanValue.Create(hostEnvironment.IsProduction()),
-                    _ => NilValue.Instance
-                };
+        services.Configure<TemplateOptions>(options =>
+        {
+            options.Scope.SetValue("Environment", new ObjectValue(environment));
 
-                return result;
-            });
+            options.MemberAccessStrategy.Register<Environment>();
         });
     }
 }
