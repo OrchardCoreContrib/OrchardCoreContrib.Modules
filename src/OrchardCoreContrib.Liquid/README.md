@@ -1,4 +1,4 @@
-# Liguid Module
+# Liquid Module
 
 This module provides a list of useful Liquid filters.
 
