@@ -1,0 +1,21 @@
+<Project Sdk="Microsoft.NET.Sdk.Razor">
+
+  <PropertyGroup>
+    <TargetFramework>net7.0</TargetFramework>
+    <AddRazorSupportForMvc>true</AddRazorSupportForMvc>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <FrameworkReference Include="Microsoft.AspNetCore.App" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="OrchardCore.Module.Targets" Version="1.7.2" />
+    <PackageReference Include="OrchardCore.ContentManagement" Version="1.7.2" />
+    <PackageReference Include="OrchardCore.ContentTypes.Abstractions" Version="1.7.2" />
+    <PackageReference Include="OrchardCore.DisplayManagement" Version="1.7.2" />
+  </ItemGroup>
+
+</Project>

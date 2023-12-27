@@ -1,0 +1,9 @@
+@model OrchardCoreContrib.IssueTracker.Settings.IssuePartSettingsViewModel
+
+<div class="mb-3">
+    <div class="w-xl-75">
+        <label asp-for="MySetting">@T["Setting"]</label>
+        <input asp-for="MySetting" class="form-control" />
+    </div>
+    <span class="hint">@T["The setting."]</span>
+</div>
