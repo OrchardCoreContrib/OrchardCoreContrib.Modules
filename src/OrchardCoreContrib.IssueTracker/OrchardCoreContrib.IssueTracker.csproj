@@ -18,4 +18,10 @@
     <PackageReference Include="OrchardCore.DisplayManagement" Version="1.7.0" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Drivers\" />
+    <Folder Include="Models\" />
+    <Folder Include="Settings\" />
+  </ItemGroup>
+
 </Project>

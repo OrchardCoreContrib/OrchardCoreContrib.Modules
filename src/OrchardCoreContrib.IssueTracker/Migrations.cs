@@ -14,9 +14,6 @@ public class Migrations : DataMigration
 
     public int Create()
     {
-        _contentDefinitionManager.AlterPartDefinition("IssuePart", builder => builder
-            .Attachable()
-            .WithDescription("Provides a Issue part for your content item."));
 
         return 1;
     }
