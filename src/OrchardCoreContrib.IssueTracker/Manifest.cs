@@ -1,11 +1,11 @@
 using OrchardCore.Modules.Manifest;
 
 [assembly: Module(
-    Name = "OrchardCoreContrib.IssueTracker",
-    Author = "The Orchard Core Team",
-    Website = "https://orchardcore.net",
+    Name = "Issue Tracker",
+    Author = "The Orchard Core Community",
+    Website = "https://github.com/OrchardCoreContrib",
     Version = "0.0.1",
-    Description = "OrchardCoreContrib.IssueTracker",
-    Dependencies = new[] { "OrchardCore.Contents" },
+    Description = "Adds Issue Tracker Features ",
+    Dependencies = new[] { "OrchardCore.Contents", "OrchardCore.Taxonomies", "OrchardCore.Media" },
     Category = "Content Management"
 )]

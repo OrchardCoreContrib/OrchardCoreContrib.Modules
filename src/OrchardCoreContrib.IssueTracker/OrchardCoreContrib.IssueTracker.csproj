@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk.Razor">
+﻿<Project Sdk="Microsoft.NET.Sdk.Razor">
 
   <PropertyGroup>
     <TargetFrameworks>net6.0;net7.0</TargetFrameworks>
@@ -16,6 +16,9 @@
     <PackageReference Include="OrchardCore.ContentManagement" Version="1.7.0" />
     <PackageReference Include="OrchardCore.ContentTypes.Abstractions" Version="1.7.0" />
     <PackageReference Include="OrchardCore.DisplayManagement" Version="1.7.0" />
+    <PackageReference Include="OrchardCore.Taxonomies" Version="1.7.0" />
+    <PackageReference Include="OrchardCore.Media" Version="1.7.0" />
+    <PackageReference Include="OrchardCore.ContentFields" Version="1.7.0" />
   </ItemGroup>
 
   <ItemGroup>
