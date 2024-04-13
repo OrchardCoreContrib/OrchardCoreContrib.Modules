@@ -15,6 +15,11 @@ public class MigrationLoader : IMigrationLoader
         foreach (var migration in _migrations)
         {
             var migrationInfo = migration.GetMigrationInfo();
+            if (migrationInfo is null)
+            {
+                continue;
+            }
+
             var record = new MigrationDictionaryRecord(migrationInfo.Id, migrationInfo.Skip, migration);
             var migrationModuleId = migration.GetMigrationModuleId();
 
