@@ -40,7 +40,7 @@
 		<PackageReference Include="OrchardCore.OpenId.Core" Version="1.8.2" />
 		<PackageReference Include="OrchardCore.ContentManagement" Version="1.8.2" />
 		<PackageReference Include="OrchardCore.ContentLocalization.Abstractions" Version="1.8.2" />
-		<PackageReference Include="linq2db" Version="5.2.2" />
+		<PackageReference Include="linq2db" Version="5.4.1" />
 	</ItemGroup>
 
 </Project>
