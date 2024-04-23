@@ -7,7 +7,7 @@
 		<VersionPrefix>2.2.0</VersionPrefix>
 		<Authors>The Orchard Core Contrib Team</Authors>
 		<Company />
-		<Description>Provides an abstractions APIs for Orchard Core Contrib infrastructure, that ma used accross different modules.</Description>
+		<Description>Provides an abstractions APIs for Orchard Core Contrib infrastructure, that may used accross different modules.</Description>
 		<PackageLicenseExpression>BSD-3-Clause</PackageLicenseExpression>
 		<PackageProjectUrl>https://github.com/OrchardCoreContrib/OrchardCoreContrib/tree/main/src/OrchardCoreContrib.Infrastructure.Abstractions/README.md</PackageProjectUrl>
 		<RepositoryUrl>https://github.com/OrchardCoreContrib/OrchardCoreContrib</RepositoryUrl>
