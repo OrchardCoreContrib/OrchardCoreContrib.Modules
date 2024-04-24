@@ -20,4 +20,8 @@
 		<Copyright>2019 Orchard Core Contrib</Copyright>
 	</PropertyGroup>
 
+	<ItemGroup>
+		<None Include="../../images/icon.png" Pack="true" PackagePath="icon.png" />
+	</ItemGroup>
+
 </Project>
