@@ -4,7 +4,7 @@ This module provides a list of useful Liquid filters.
 
 ## Version
 
-1.1.0
+1.2.0
 
 ## Category
 
@@ -26,6 +26,7 @@ There's no dependencies.
 
 | Name                                                                                               | Version    |
 |----------------------------------------------------------------------------------------------------|------------|
+| [`OrchardCoreContrib.Liquid`](https://www.nuget.org/packages/OrchardCoreContrib.Liquid/1.2.0) | 1.2.0 |
 | [`OrchardCoreContrib.Liquid`](https://www.nuget.org/packages/OrchardCoreContrib.Liquid/1.1.0) | 1.1.0 |
 | [`OrchardCoreContrib.Liquid`](https://www.nuget.org/packages/OrchardCoreContrib.Liquid/1.0.0) | 1.0.0 |
 | [`OrchardCoreContrib.Liquid`](https://www.nuget.org/packages/OrchardCoreContrib.Liquid/1.0.0-beta1) | 1.0.0-beta1 |

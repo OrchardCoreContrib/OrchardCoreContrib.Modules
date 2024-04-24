@@ -5,7 +5,7 @@ using ManifestConstants = OrchardCoreContrib.Modules.Manifest.ManifestConstants;
     Name = "Yet Another Reverse Proxy (YARP)",
     Author = ManifestConstants.Author,
     Website = ManifestConstants.Website,
-    Version = "1.1.0",
+    Version = "1.2.0",
     Description = "Enables configuration of hosting scenarios with a reverse proxy using YARP",
     Category = "Infrastructure"
 )]

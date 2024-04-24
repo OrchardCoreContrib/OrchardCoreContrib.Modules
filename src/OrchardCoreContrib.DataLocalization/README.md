@@ -28,6 +28,7 @@ Internationalization
 
 | Name                                                                                                                    | Version     |
 |-------------------------------------------------------------------------------------------------------------------------|-------------|
+| [`OrchardCoreContrib.DataLocalization`](https://www.nuget.org/packages/OrchardCoreContrib.DataLocalization/1.1.0)       | 1.1.0       |
 | [`OrchardCoreContrib.DataLocalization`](https://www.nuget.org/packages/OrchardCoreContrib.DataLocalization/1.0.0)       | 1.0.0       |
 | [`OrchardCoreContrib.DataLocalization`](https://www.nuget.org/packages/OrchardCoreContrib.DataLocalization/1.0.0-beta4) | 1.0.0-beta4 |
 | [`OrchardCoreContrib.DataLocalization`](https://www.nuget.org/packages/OrchardCoreContrib.DataLocalization/1.0.0-beta3) | 1.0.0-beta3 |

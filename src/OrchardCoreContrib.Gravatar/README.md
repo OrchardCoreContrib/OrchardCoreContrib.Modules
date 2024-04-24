@@ -4,7 +4,7 @@ This module enables user avatar using gravatar service.
 
 ## Version
 
-1.3.0
+1.4.0
 
 ## Category
 
@@ -28,6 +28,7 @@ Profile
 
 | Name                                                                                              | Version |
 |---------------------------------------------------------------------------------------------------|---------|
+| [`OrchardCoreContrib.Gravatar`](https://www.nuget.org/packages/OrchardCoreContrib.Gravatar/1.4.0) | 1.4.0   |
 | [`OrchardCoreContrib.Gravatar`](https://www.nuget.org/packages/OrchardCoreContrib.Gravatar/1.3.0) | 1.3.0   |
 | [`OrchardCoreContrib.Gravatar`](https://www.nuget.org/packages/OrchardCoreContrib.Gravatar/1.2.0) | 1.2.0   |
 | [`OrchardCoreContrib.Gravatar`](https://www.nuget.org/packages/OrchardCoreContrib.Gravatar/1.1.0) | 1.1.0   |

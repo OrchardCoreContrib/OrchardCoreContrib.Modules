@@ -3,8 +3,8 @@
 	<PropertyGroup>
 		<TargetFramework>net8.0</TargetFramework>
 		<AddRazorSupportForMvc>true</AddRazorSupportForMvc>
-		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-		<VersionPrefix>1.0.0-beta1</VersionPrefix>
+		<GeneratePackageOnBuild>false</GeneratePackageOnBuild>
+		<VersionPrefix>1.0.0</VersionPrefix>
 		<Authors>The Orchard Core Contrib Team</Authors>
 		<Company />
 		<Description>Supports EU General Data Protection Regulation (GDPR).</Description>

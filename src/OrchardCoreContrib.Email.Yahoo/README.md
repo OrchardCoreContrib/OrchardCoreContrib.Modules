@@ -26,6 +26,7 @@ This module has no dependencies.
 
 | Name                                                                                                    | Version |
 |---------------------------------------------------------------------------------------------------------|---------|
+| [`OrchardCoreContrib.Email.Yahoo`](https://www.nuget.org/packages/OrchardCoreContrib.Email.Yahoo/1.4.0) | 1.4.0   |
 | [`OrchardCoreContrib.Email.Yahoo`](https://www.nuget.org/packages/OrchardCoreContrib.Email.Yahoo/1.3.0) | 1.3.0   |
 | [`OrchardCoreContrib.Email.Yahoo`](https://www.nuget.org/packages/OrchardCoreContrib.Email.Yahoo/1.2.0) | 1.2.0   |
 | [`OrchardCoreContrib.Email.Yahoo`](https://www.nuget.org/packages/OrchardCoreContrib.Email.Yahoo/1.1.0) | 1.1.0   |

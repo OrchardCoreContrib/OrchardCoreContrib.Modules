@@ -4,7 +4,7 @@
 		<TargetFramework>net8.0</TargetFramework>
 		<ImplicitUsings>enable</ImplicitUsings>
 		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-		<VersionPrefix>1.1.0</VersionPrefix>
+		<VersionPrefix>1.2.0</VersionPrefix>
 		<Authors>The Orchard Core Contrib Team</Authors>
 		<Company />
 		<Description>Provides a list of useful Liquid filters.</Description>

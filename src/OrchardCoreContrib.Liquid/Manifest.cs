@@ -5,7 +5,7 @@ using ManifestConstants = OrchardCoreContrib.Modules.Manifest.ManifestConstants;
     Name = "Liquid",
     Author = ManifestConstants.Author,
     Website = ManifestConstants.Website,
-    Version = "1.1.0",
+    Version = "1.12.0",
     Description = "Provides a list of useful liquid filters.",
     Category = "Content Management"
 )]

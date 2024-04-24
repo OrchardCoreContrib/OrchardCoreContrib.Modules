@@ -5,7 +5,7 @@ using ManifestConstants = OrchardCoreContrib.Modules.Manifest.ManifestConstants;
     Name = "Elm Diagnostics",
     Author = ManifestConstants.Author,
     Website = ManifestConstants.Website,
-    Version = "1.3.0",
+    Version = "1.4.0",
     Description = "Provides services to handle errors using Elm.",
     Category = "Infrastructure"
 )]

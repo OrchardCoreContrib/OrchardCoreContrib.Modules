@@ -26,6 +26,7 @@ This module has no dependencies.
 
 | Name                                                                                                        | Version |
 |-------------------------------------------------------------------------------------------------------------|---------|
+| [`OrchardCoreContrib.Email.Hotmail`](https://www.nuget.org/packages/OrchardCoreContrib.Email.Hotmail/1.4.0) | 1.4.0   |
 | [`OrchardCoreContrib.Email.Hotmail`](https://www.nuget.org/packages/OrchardCoreContrib.Email.Hotmail/1.3.0) | 1.3.0   |
 | [`OrchardCoreContrib.Email.Hotmail`](https://www.nuget.org/packages/OrchardCoreContrib.Email.Hotmail/1.2.0) | 1.2.0   |
 | [`OrchardCoreContrib.Email.Hotmail`](https://www.nuget.org/packages/OrchardCoreContrib.Email.Hotmail/1.1.0) | 1.1.0   |
