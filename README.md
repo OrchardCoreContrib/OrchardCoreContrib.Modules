@@ -14,7 +14,7 @@ The `OrchardCoreContrib.Modules` repository consists of the following modules:
 
 | Name | Namespace | NuGet |
 | --- | --- | --- |
-| [Swagger Module](src/OrchardCoreContrib.Apis.Swagger/README.md) | `OrchardCoreContrib.Apis.Swagger` | [![NuGet](https://img.shields.io/nuget/v/OrchardCoreContrib.Apis.Swagger.svg)](https://www.nuget.org/packages/OrchardCoreContrib.Apis.Swagger) |
+| [Azure SMS Module](src/OrchardCoreContrib.Sms.Azure/README.md) | `OrchardCoreContrib.Sms.Azure` | [![NuGet](https://img.shields.io/nuget/v/OrchardCoreContrib.Sms.Azure.svg)](https://www.nuget.org/packages/OrchardCoreContrib.Sms.Azure) |
 | [Content Localization Module](src/OrchardCoreContrib.ContentLocalization/README.md) | `OrchardCoreContrib.ContentLocalization` | [![NuGet](https://img.shields.io/nuget/v/OrchardCoreContrib.ContentLocalization.svg)](https://www.nuget.org/packages/OrchardCoreContrib.ContentLocalization) |
 | [Content Preview Module](src/OrchardCoreContrib.ContentPreview/README.md) | `OrchardCoreContrib.ContentPreview` | [![NuGet](https://img.shields.io/nuget/v/OrchardCoreContrib.ContentPreview.svg)](https://www.nuget.org/packages/OrchardCoreContrib.ContentPreview) |
 | [Data Localization Module](src/OrchardCoreContrib.DataLocalization/README.md) | `OrchardCoreContrib.DataLocalization` | [![NuGet](https://img.shields.io/nuget/v/OrchardCoreContrib.DataLocalization.svg)](https://www.nuget.org/packages/OrchardCoreContrib.DataLocalization) |
@@ -27,6 +27,7 @@ The `OrchardCoreContrib.Modules` repository consists of the following modules:
 | [Html Module](src/OrchardCoreContrib.Html/README.md) | `OrchardCoreContrib.Html` | [![NuGet](https://img.shields.io/nuget/v/OrchardCoreContrib.Html.svg)](https://www.nuget.org/packages/OrchardCoreContrib.Html) |
 | [Liquid Module](src/OrchardCoreContrib.Liquid/README.md) | `OrchardCoreContrib.Liquid` | [![NuGet](https://img.shields.io/nuget/v/OrchardCoreContrib.Liquid.svg)](https://www.nuget.org/packages/OrchardCoreContrib.Liquid) |
 | [SendGrid Module](src/OrchardCoreContrib.Email.SendGrid/README.md) | `OrchardCoreContrib.Email.SendGrid` | [![NuGet](https://img.shields.io/nuget/v/OrchardCoreContrib.Email.SendGrid.svg)](https://www.nuget.org/packages/OrchardCoreContrib.Email.SendGrid) |
+| [Swagger Module](src/OrchardCoreContrib.Apis.Swagger/README.md) | `OrchardCoreContrib.Apis.Swagger` | [![NuGet](https://img.shields.io/nuget/v/OrchardCoreContrib.Apis.Swagger.svg)](https://www.nuget.org/packages/OrchardCoreContrib.Apis.Swagger) |
 | [Tenants Module](src/OrchardCoreContrib.Tenants/README.md) | `OrchardCoreContrib.Tenants` | [![NuGet](https://img.shields.io/nuget/v/OrchardCoreContrib.Tenants.svg)](https://www.nuget.org/packages/OrchardCoreContrib.Tenants) |
 | [Yahoo Module](src/OrchardCoreContrib.Email.Yahoo/README.md) | `OrchardCoreContrib.Email.Yahoo` | [![NuGet](https://img.shields.io/nuget/v/OrchardCoreContrib.Email.Yahoo.svg)](https://www.nuget.org/packages/OrchardCoreContrib.Email.Yahoo) |
 | [YARP Module](src/OrchardCoreContrib.ReverseProxy.Yarp/README.md) | `OrchardCoreContrib.ReverseProxy.Yarp` | [![NuGet](https://img.shields.io/nuget/v/OrchardCoreContrib.ReverseProxy.Yarp.svg)](https://www.nuget.org/packages/OrchardCoreContrib.ReverseProxy.Yarp) |
