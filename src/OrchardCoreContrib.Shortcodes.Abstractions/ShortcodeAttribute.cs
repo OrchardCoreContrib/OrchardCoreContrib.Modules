@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Html;
+using OrchardCoreContrib.Infrastructure;
 using System;
 using System.IO;
 using System.Text.Encodings.Web;
@@ -26,7 +27,9 @@ namespace OrchardCoreContrib.Shortcodes
         /// <param name="value">The attribute value.</param>
         public ShortcodeAttribute(string name, string value)
         {
-            Name = name ?? throw new ArgumentNullException(nameof(name));
+            Guard.ArgumentNotNullOrEmpty(name, nameof(name));
+
+            Name = name;
             Value = value;
         }
 

@@ -1,5 +1,5 @@
 ﻿using OrchardCore.Localization;
-using System;
+using OrchardCoreContrib.Infrastructure;
 using System.Collections.Generic;
 using System.IO;
 using System.Text.Json;
@@ -11,10 +11,7 @@ namespace OrchardCoreContrib.Localization.Json
     {
         public async Task<IEnumerable<CultureDictionaryRecord>> ParseAsync(Stream stream)
         {
-            if (stream is null)
-            {
-                throw new ArgumentNullException(nameof(stream));
-            }
+            Guard.ArgumentNotNull(stream, nameof(stream));
 
             var document = await JsonDocument.ParseAsync(stream);
             var cultureRecords = new List<CultureDictionaryRecord>();

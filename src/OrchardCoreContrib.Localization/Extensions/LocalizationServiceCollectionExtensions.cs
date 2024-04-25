@@ -16,10 +16,7 @@ namespace Microsoft.Extensions.DependencyInjection
         /// <param name="services">The <see cref="IServiceCollection"/>.</param>
         public static IServiceCollection AddDataLocalization(this IServiceCollection services)
         {
-            if (services == null)
-            {
-                throw new ArgumentNullException(nameof(services));
-            }
+            Guard.ArgumentNotNull(services, nameof(services));
 
             services.AddSingleton<IDataTranslationProvider, NullDataTranslationProvider>();
             services.AddTransient<DataResourceManager>();

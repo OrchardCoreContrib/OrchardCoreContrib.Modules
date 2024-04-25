@@ -1,13 +1,12 @@
-﻿namespace OrchardCoreContrib.Data.Migrations;
+﻿using OrchardCoreContrib.Infrastructure;
+
+namespace OrchardCoreContrib.Data.Migrations;
 
 public static class MigrationExtensions
 {
     public static MigrationAttribute GetMigrationInfo(this IMigration migration)
     {
-        if (migration is null)
-        {
-            throw new ArgumentNullException(nameof(migration));
-        }
+        Guard.ArgumentNotNull(migration, nameof(migration));
 
         var migrationAttribute = (MigrationAttribute)(migration.GetType()
             .GetCustomAttributes(typeof(MigrationAttribute), false))
@@ -18,20 +17,14 @@ public static class MigrationExtensions
 
     public static string GetMigrationClass(this IMigration migration)
     {
-        if (migration is null)
-        {
-            throw new ArgumentNullException(nameof(migration));
-        }
+        Guard.ArgumentNotNull(migration, nameof(migration));
 
         return migration.GetType().FullName;
     }
 
     public static string GetMigrationModuleId(this IMigration migration)
     {
-        if (migration is null)
-        {
-            throw new ArgumentNullException(nameof(migration));
-        }
+        Guard.ArgumentNotNull(migration, nameof(migration));
 
         var migrationClass = migration.GetMigrationClass();
 

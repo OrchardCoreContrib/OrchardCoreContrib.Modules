@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Html;
+using OrchardCoreContrib.Infrastructure;
 using System;
 using System.IO;
 using System.Text.Encodings.Web;
@@ -16,10 +17,7 @@ namespace OrchardCoreContrib.Shortcodes
         /// <param name="attributes">The shortcode attributes.</param>
         public ShortcodeOutput(ShortcodeAttributes attributes)
         {
-            if (attributes is null)
-            {
-                throw new ArgumentNullException(nameof(attributes));
-            }
+            Guard.ArgumentNotNull(attributes, nameof(attributes));
 
             Attributes = attributes;
         }
@@ -56,15 +54,8 @@ namespace OrchardCoreContrib.Shortcodes
         /// <inheritdoc/>
         public void WriteTo(TextWriter writer, HtmlEncoder encoder)
         {
-            if (writer == null)
-            {
-                throw new ArgumentNullException(nameof(writer));
-            }
-
-            if (encoder == null)
-            {
-                throw new ArgumentNullException(nameof(encoder));
-            }
+            Guard.ArgumentNotNull(writer, nameof(writer));
+            Guard.ArgumentNotNull(encoder, nameof(encoder));
 
             var isTagNameNullOrWhitespace = string.IsNullOrWhiteSpace(TagName);
             if (!isTagNameNullOrWhitespace)

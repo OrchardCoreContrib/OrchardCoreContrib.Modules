@@ -1,4 +1,5 @@
-﻿using System;
+﻿using OrchardCoreContrib.Infrastructure;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 
@@ -24,10 +25,7 @@ namespace OrchardCoreContrib.Shortcodes
         /// </summary>
         public ShortcodeAttributes(IEnumerable<ShortcodeAttribute> attributes)
         {
-            if (attributes is null)
-            {
-                throw new ArgumentNullException(nameof(attributes));
-            }
+            Guard.ArgumentNotNull(attributes, nameof(attributes));
 
             _shortcodeAttributes = new List<ShortcodeAttribute>(attributes);
         }
@@ -37,10 +35,7 @@ namespace OrchardCoreContrib.Shortcodes
         /// </summary>
         public ShortcodeAttributes(IEnumerable<KeyValuePair<string, string>> attributes)
         {
-            if (attributes is null)
-            {
-                throw new ArgumentNullException(nameof(attributes));
-            }
+            Guard.ArgumentNotNull(attributes, nameof(attributes));
 
             _shortcodeAttributes = new List<ShortcodeAttribute>();
 
@@ -153,10 +148,7 @@ namespace OrchardCoreContrib.Shortcodes
         /// <param name="attribute">The <see cref="ShortcodeAttribute"/> to be set.</param>
         public void Set(ShortcodeAttribute attribute)
         {
-            if (attribute == null)
-            {
-                throw new ArgumentNullException(nameof(attribute));
-            }
+            Guard.ArgumentNotNull(attribute, nameof(attribute));
 
             var index = IndexOf(attribute);
             if (index > -1)

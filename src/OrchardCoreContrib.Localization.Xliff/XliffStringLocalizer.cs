@@ -1,6 +1,6 @@
 ﻿using Microsoft.Extensions.Localization;
 using OrchardCore.Localization;
-using System;
+using OrchardCoreContrib.Infrastructure;
 using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
@@ -33,10 +33,7 @@ public class XliffStringLocalizer : IStringLocalizer
     {
         get
         {
-            if (name == null)
-            {
-                throw new ArgumentNullException(nameof(name));
-            }
+            Guard.ArgumentNotNull(name, nameof(name));
 
             var translation = GetTranslation(name, CultureInfo.CurrentUICulture);
 

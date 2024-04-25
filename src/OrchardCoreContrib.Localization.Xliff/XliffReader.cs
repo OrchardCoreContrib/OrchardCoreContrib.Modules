@@ -1,4 +1,5 @@
 ﻿using OrchardCore.Localization;
+using OrchardCoreContrib.Infrastructure;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -12,10 +13,7 @@ public class XliffReader
 {
     public static async Task<IEnumerable<CultureDictionaryRecord>> ParseAsync(Stream stream)
     {
-        if (stream is null)
-        {
-            throw new ArgumentNullException(nameof(stream));
-        }
+        Guard.ArgumentNotNull(stream, nameof(stream));
 
         try
         {

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using OrchardCoreContrib.Infrastructure;
+using System;
 
 namespace OrchardCoreContrib.Localization.Diacritics
 {
@@ -15,15 +16,8 @@ namespace OrchardCoreContrib.Localization.Diacritics
         /// <returns>An accent dictionary for a given culture.</returns>
         public static AccentDictionary Get(this IDiacriticsLookup diacriticsLookup, string culture)
         {
-            if (diacriticsLookup is null)
-            {
-                throw new ArgumentNullException(nameof(diacriticsLookup));
-            }
-
-            if (string.IsNullOrEmpty(culture))
-            {
-                throw new ArgumentException($"'{nameof(culture)}' cannot be null or empty.", nameof(culture));
-            }
+            Guard.ArgumentNotNull(diacriticsLookup, nameof(diacriticsLookup));
+            Guard.ArgumentNotNullOrEmpty(culture, nameof(culture));
 
             var result = new AccentDictionary(culture);
 

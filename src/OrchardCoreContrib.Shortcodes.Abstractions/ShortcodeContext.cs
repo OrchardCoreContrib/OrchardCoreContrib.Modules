@@ -1,4 +1,4 @@
-﻿using System;
+﻿using OrchardCoreContrib.Infrastructure;
 
 namespace OrchardCoreContrib.Shortcodes
 {
@@ -14,15 +14,8 @@ namespace OrchardCoreContrib.Shortcodes
         /// <param name="attributes">The shortcode attributes.</param>
         public ShortcodeContext(string shortcodeName, ShortcodeAttributes attributes)
         {
-            if (shortcodeName is null)
-            {
-                throw new ArgumentNullException(nameof(shortcodeName));
-            }
-
-            if (attributes is null)
-            {
-                throw new ArgumentNullException(nameof(attributes));
-            }
+            Guard.ArgumentNotNullOrEmpty(shortcodeName, nameof(shortcodeName));
+            Guard.ArgumentNotNull(attributes, nameof(attributes));
 
             ShortcodeName = shortcodeName;
             Attributes = attributes;
