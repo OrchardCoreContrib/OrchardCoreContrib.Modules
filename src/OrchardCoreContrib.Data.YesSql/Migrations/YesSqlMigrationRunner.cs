@@ -67,7 +67,7 @@ public class YesSqlMigrationRunner : IMigrationRunner
             }
             finally
             {
-                _session.Save(_migrationsHistory.DataMigrationRecord);
+                await _session.SaveAsync(_migrationsHistory.DataMigrationRecord);
             }
 
             if (migrationRecord.Id == targetMigrationId)
@@ -110,7 +110,7 @@ public class YesSqlMigrationRunner : IMigrationRunner
                 }
                 finally
                 {
-                    _session.Save(_migrationsHistory.DataMigrationRecord);
+                    await _session.SaveAsync(_migrationsHistory.DataMigrationRecord);
                 }
 
                 if (migrationRecord.Id == targetMigrationId)

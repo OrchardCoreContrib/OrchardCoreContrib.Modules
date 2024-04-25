@@ -27,7 +27,7 @@ public class YesSqlMigrationsHistory : IMigrationsHistory
             if (_dataMigrationRecord == null)
             {
                 _dataMigrationRecord = new DataMigrationRecord();
-                _session.Save(_dataMigrationRecord);
+                await _session.SaveAsync(_dataMigrationRecord);
             }
         }
 

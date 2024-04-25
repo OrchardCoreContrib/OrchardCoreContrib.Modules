@@ -55,7 +55,7 @@ public class YesSqlMigrationsRunnerTests
         var records = new List<object>();
         var session = new Mock<ISession>();
         session
-            .Setup(s => s.Save(It.IsAny<object>(), It.IsAny<bool>(), It.IsAny<string>()))
+            .Setup(s => s.SaveAsync(It.IsAny<object>(), It.IsAny<bool>(), It.IsAny<string>()))
             .Callback<object, bool, string>((obj, _, _) =>
             {
                 records.RemoveAll(r => r.GetType() == obj.GetType());
