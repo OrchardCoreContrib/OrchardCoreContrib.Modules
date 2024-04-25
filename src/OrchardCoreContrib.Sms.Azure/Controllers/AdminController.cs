@@ -3,27 +3,21 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Localization;
 using OrchardCore.DisplayManagement.Notify;
 using OrchardCoreContrib.Sms.Azure.ViewModels;
+using OrchardCoreContrib.Validation;
 
 namespace OrchardCoreContrib.Sms.Azure.Controllers;
 
-public class AdminController : Controller
+public class AdminController(
+    IPhoneNumberValidator phoneNumberValidator,
+    ISmsService smsService,
+    IAuthorizationService authorizationService,
+    INotifier notifier,
+    IHtmlLocalizer<AdminController> H) : Controller
 {
-    private readonly ISmsService _smsService;
-    private readonly IAuthorizationService _authorizationService;
-    private readonly INotifier _notifier;
-    private readonly IHtmlLocalizer H;
-
-    public AdminController(
-        ISmsService smsService,
-        IAuthorizationService authorizationService,
-        INotifier notifier,
-        IHtmlLocalizer<AdminController> htmlLocalizer)
-    {
-        _smsService = smsService;
-        _authorizationService = authorizationService;
-        _notifier = notifier;
-        H = htmlLocalizer;
-    }
+    private readonly IPhoneNumberValidator _phoneNumberValidator = phoneNumberValidator;
+    private readonly ISmsService _smsService = smsService;
+    private readonly IAuthorizationService _authorizationService = authorizationService;
+    private readonly INotifier _notifier = notifier;
 
     public async Task<IActionResult> Index()
     {
@@ -42,6 +36,11 @@ public class AdminController : Controller
         if (!await _authorizationService.AuthorizeAsync(User, AzureSmsPermissions.ManageSettings))
         {
             return Forbid();
+        }
+
+        if (!_phoneNumberValidator.IsValid(model.PhoneNumber))
+        {
+            ModelState.AddModelError(nameof(AzureSmsSettingsViewModel.PhoneNumber), H["Invalid Phone Number."].Value);
         }
 
         if (ModelState.IsValid)

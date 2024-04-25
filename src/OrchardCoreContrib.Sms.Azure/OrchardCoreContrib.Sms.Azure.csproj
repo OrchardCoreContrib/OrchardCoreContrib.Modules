@@ -35,6 +35,7 @@
 		<PackageReference Include="Azure.Communication.Sms" Version="1.0.1" />
 		<PackageReference Include="OrchardCore.DisplayManagement" Version="1.8.2" />
 		<PackageReference Include="OrchardCore.Module.Targets" Version="1.8.2" />
+		<PackageReference Include="OrchardCoreContrib.Infrastructure" Version="1.0.1" />
 		<PackageReference Include="OrchardCoreContrib.Navigation.Core" Version="1.3.0" />
 		<PackageReference Include="OrchardCoreContrib.Sms.Abstractions" Version="1.3.0" />
 	</ItemGroup>

@@ -1,23 +1,28 @@
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.DataProtection;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc.Localization;
 using OrchardCore.DisplayManagement.Entities;
 using OrchardCore.DisplayManagement.Handlers;
 using OrchardCore.DisplayManagement.Views;
 using OrchardCore.Environment.Shell;
 using OrchardCore.Settings;
+using OrchardCoreContrib.Validation;
 
 namespace OrchardCoreContrib.Sms.Azure.Drivers;
 
 public class AzureSmsSettingsDisplayDriver(
+    IPhoneNumberValidator phoneNumberValidator,
     IDataProtectionProvider dataProtectionProvider,
     IHttpContextAccessor httpContextAccessor,
     IAuthorizationService authorizationService,
     IShellHost shellHost,
-    ShellSettings shellSettings) : SectionDisplayDriver<ISite, AzureSmsSettings>
+    ShellSettings shellSettings,
+    IHtmlLocalizer<AzureSmsSettingsDisplayDriver> H) : SectionDisplayDriver<ISite, AzureSmsSettings>
 {
     public const string GroupId = "azure-sms";
 
+    private readonly IPhoneNumberValidator _phoneNumberValidator = phoneNumberValidator;
     private readonly IDataProtectionProvider _dataProtectionProvider = dataProtectionProvider;
     private readonly IHttpContextAccessor _httpContextAccessor = httpContextAccessor;
     private readonly IAuthorizationService _authorizationService = authorizationService;
@@ -62,7 +67,15 @@ public class AzureSmsSettingsDisplayDriver(
         if (context.GroupId == GroupId)
         {
             var previousConnectionString = settings.ConnectionString;
+           
             await context.Updater.TryUpdateModelAsync(settings, Prefix);
+
+            if (!_phoneNumberValidator.IsValid(settings.SenderPhoneNumber))
+            {
+                context.Updater.ModelState.AddModelError(nameof(AzureSmsSettings.SenderPhoneNumber), H["Invalid Phone Number."].Value);
+
+                return await EditAsync(settings, context);
+            }
 
             if (string.IsNullOrWhiteSpace(settings.ConnectionString))
             {
