@@ -1,5 +1,7 @@
 # OrchardCoreContrib
 
+![Orchard Core Contrib](images/OCC.png)
+
 This repository contains a set of features and APIs for [Orchard Core CMS](https://github.com/OrchardCMS/OrchardCore) that driven by the community members who love Orchard Core.
 
 This will encourage all the passionate developers to add and develop the other necessary core features that aren't included in Orchard Core. Such feature and APIs may necessary to drive other [modules](https://github.com/OrchardCoreContrib/OrchardCoreContrib.Modules) or [themes](https://github.com/OrchardCoreContrib/OrchardCoreContrib.Themes) for Orchard Core Contrib.
