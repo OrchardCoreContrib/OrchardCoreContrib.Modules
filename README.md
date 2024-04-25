@@ -1,5 +1,7 @@
 # OrchardCoreContrib.Modules
 
+![Orchard Core Contrib](images/OCC.png)
+
 This repository contains a set of modules for [Orchard Core CMS](https://github.com/OrchardCMS/OrchardCore) that driven by the community members who love Orchard Core.
 
 This will encourage all the passionate developers to build the modules that aren't included in Orchard Core. Such modules may necessary for the community or essential for any sort of CMS.
