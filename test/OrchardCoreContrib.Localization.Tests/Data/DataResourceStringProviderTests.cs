@@ -1,4 +1,5 @@
 ﻿using System.Linq;
+using System.Threading.Tasks;
 using Xunit;
 
 namespace OrchardCoreContrib.Localization.Data.Tests;
@@ -6,13 +7,13 @@ namespace OrchardCoreContrib.Localization.Data.Tests;
 public class DataResourceStringProviderTests
 {
     [Fact]
-    public void GetResourceStrings()
+    public async Task GetResourceStrings()
     {
         // Arrange
         var resourceStringProvider = new TestResourceStringProvider();
 
         // Act
-        var resourceStrings = resourceStringProvider.GetAllResourceStrings();
+        var resourceStrings = await resourceStringProvider.GetAllResourceStringsAsync();
 
         // Assert
         Assert.Equal(4, resourceStrings.Count());
