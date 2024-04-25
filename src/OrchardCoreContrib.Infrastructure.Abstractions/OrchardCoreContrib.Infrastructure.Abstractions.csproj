@@ -4,7 +4,7 @@
 		<TargetFramework>net8.0</TargetFramework>
 		<RootNamespace>OrchardCoreContrib.Infrastructure</RootNamespace>
 		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-		<VersionPrefix>2.2.0</VersionPrefix>
+		<VersionPrefix>2.3.0</VersionPrefix>
 		<Authors>The Orchard Core Contrib Team</Authors>
 		<Company />
 		<Description>Provides an abstractions APIs for Orchard Core Contrib infrastructure, that may used accross different modules.</Description>
