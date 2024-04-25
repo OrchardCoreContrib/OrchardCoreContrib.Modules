@@ -20,7 +20,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <ProjectReference Include="..\..\src\OrchardCoreContrib.Infrastructure.Abstractions\OrchardCoreContrib.Infrastructure.Abstractions.csproj" />
+	  <ProjectReference Include="..\..\src\OrchardCoreContrib.Infrastructure\OrchardCoreContrib.Infrastructure.csproj" />
 	</ItemGroup>
 
 </Project>

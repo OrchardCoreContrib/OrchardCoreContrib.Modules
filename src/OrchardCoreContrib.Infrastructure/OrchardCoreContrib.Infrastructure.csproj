@@ -1,0 +1,37 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFramework>net8.0</TargetFramework>
+		<RootNamespace>OrchardCoreContrib.Infrastructure</RootNamespace>
+		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+		<VersionPrefix>1.0.0</VersionPrefix>
+		<Authors>The Orchard Core Contrib Team</Authors>
+		<Company />
+		<Description>Provides an implementations APIs for Orchard Core Contrib infrastructure, that may used accross different modules.</Description>
+		<PackageLicenseExpression>BSD-3-Clause</PackageLicenseExpression>
+		<PackageProjectUrl>https://github.com/OrchardCoreContrib/OrchardCoreContrib/tree/main/src/OrchardCoreContrib.Infrastructure/README.md</PackageProjectUrl>
+		<RepositoryUrl>https://github.com/OrchardCoreContrib/OrchardCoreContrib</RepositoryUrl>
+		<RepositoryType>git</RepositoryType>
+		<PublishRepositoryUrl>true</PublishRepositoryUrl>
+		<PackageTags>Orchard Core, Orchard Core Contrib, Infrastructure</PackageTags>
+		<PackageReleaseNotes>https://github.com/OrchardCoreContrib/OrchardCoreContrib/releases</PackageReleaseNotes>
+		<PackageId>OrchardCoreContrib.Infrastructure</PackageId>
+		<PackageIcon>icon.png</PackageIcon>
+		<Product>Orchard Core Contrib Infrastructure</Product>
+		<PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
+		<Copyright>2019 Orchard Core Contrib</Copyright>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<None Include="../../images/icon.png" Pack="true" PackagePath="icon.png" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<PackageReference Include="OrchardCore.Abstractions" Version="1.8.2" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\OrchardCoreContrib.Infrastructure.Abstractions\OrchardCoreContrib.Infrastructure.Abstractions.csproj" />
+	</ItemGroup>
+
+</Project>
