@@ -28,6 +28,7 @@
 		<ProjectReference Include="..\OrchardCoreContrib.Html\OrchardCoreContrib.Html.csproj" />
 		<ProjectReference Include="..\OrchardCoreContrib.Liquid\OrchardCoreContrib.Liquid.csproj" />
 		<ProjectReference Include="..\OrchardCoreContrib.ReverseProxy.Yarp\OrchardCoreContrib.ReverseProxy.Yarp.csproj" />
+		<ProjectReference Include="..\OrchardCoreContrib.Sms.Azure\OrchardCoreContrib.Sms.Azure.csproj" />
 		<ProjectReference Include="..\OrchardCoreContrib.System\OrchardCoreContrib.System.csproj" />
 		<ProjectReference Include="..\OrchardCoreContrib.Tenants\OrchardCoreContrib.Tenants.csproj" />
 		<ProjectReference Include="..\OrchardCoreContrib.Themes.Admin\OrchardCoreContrib.Themes.Admin.csproj" />
