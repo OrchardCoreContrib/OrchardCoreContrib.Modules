@@ -99,7 +99,7 @@ namespace OrchardCoreContrib.Email.SendGrid.Services
 
             sendGridMessage.Subject = message.Subject;
 
-            if (message.IsBodyHtml)
+            if (message.IsHtmlBody)
             {
                 sendGridMessage.PlainTextContent = HtmlTagRegex.Replace(message.Body, String.Empty);
                 sendGridMessage.HtmlContent = message.Body;

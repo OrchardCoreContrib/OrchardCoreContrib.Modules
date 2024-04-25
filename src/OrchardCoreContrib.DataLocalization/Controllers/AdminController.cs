@@ -82,7 +82,7 @@ namespace OrchardCoreContrib.DataLocalization.Controllers
 
             var viewModel = new ContentFieldResourcesViewModel
             {
-                ContentTypes = _contentDefinitionService.GetTypes().Select(t => t.Name),
+                ContentTypes = (await _contentDefinitionService.GetTypesAsync()).Select(t => t.Name),
                 ResourcesNames = resourcesNames,
                 Translations = Enumerable.Empty<Translation>(),
                 SelectedContentType = contentType,

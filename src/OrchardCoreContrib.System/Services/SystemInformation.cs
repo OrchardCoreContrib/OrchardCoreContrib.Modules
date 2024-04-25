@@ -14,7 +14,7 @@ public class SystemInformation
     public SystemInformation(IShellHost shellHost)
     {
         _executedAssembly = Assembly.GetEntryAssembly();
-        _defaultShellSettings = shellHost.GetSettings(ShellHelper.DefaultShellName);
+        _defaultShellSettings = shellHost.GetSettings(ShellSettings.DefaultShellName);
     }
 
     public string ApplicationName => _executedAssembly.GetName().Name;

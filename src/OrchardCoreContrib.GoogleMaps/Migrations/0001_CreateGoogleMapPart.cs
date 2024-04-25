@@ -16,13 +16,13 @@ public class CreateGoogleMapPart : Migration
 
     public override void Up()
     {
-        _contentDefinitionManager.AlterPartDefinition("GoogleMapPart", builder => builder
+        _contentDefinitionManager.AlterPartDefinitionAsync("GoogleMapPart", builder => builder
             .Attachable()
             .WithDescription("Provides a Google Map that you can use for your content item."));
     }
 
     public override void Down()
     {
-        _contentDefinitionManager.DeletePartDefinition("GoogleMapPart");
+        _contentDefinitionManager.DeletePartDefinitionAsync("GoogleMapPart").GetAwaiter().GetResult();
     }
 }
