@@ -1,15 +1,14 @@
 ﻿using LinqToDB.Data;
 
-namespace OrchardCoreContrib.Linq
+namespace OrchardCoreContrib.Linq;
+
+/// <summary>
+/// Contract for OrchardCore database context.
+/// </summary>
+public interface IDataContext
 {
     /// <summary>
-    /// Contract for OrchardCore database context.
+    /// Get the underlying connection.
     /// </summary>
-    public interface IDataContext
-    {
-        /// <summary>
-        /// Get the underlying connection.
-        /// </summary>
-        public DataConnection Connection { get; }
-    }
+    public DataConnection Connection { get; }
 }

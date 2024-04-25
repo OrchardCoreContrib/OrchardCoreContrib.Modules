@@ -3,45 +3,44 @@ using OrchardCoreContrib.Localization.Data;
 using OrchardCoreContrib.Localization.Diacritics;
 using System;
 
-namespace Microsoft.Extensions.DependencyInjection
+namespace Microsoft.Extensions.DependencyInjection;
+
+/// <summary>
+/// Represents an extension methods for <see cref="IServiceCollection"/>.
+/// </summary>
+public static class LocalizationServiceCollectionExtensions
 {
     /// <summary>
-    /// Represents an extension methods for <see cref="IServiceCollection"/>.
+    /// Registers the services to enable localization using data storage.
     /// </summary>
-    public static class LocalizationServiceCollectionExtensions
+    /// <param name="services">The <see cref="IServiceCollection"/>.</param>
+    public static IServiceCollection AddDataLocalization(this IServiceCollection services)
     {
-        /// <summary>
-        /// Registers the services to enable localization using data storage.
-        /// </summary>
-        /// <param name="services">The <see cref="IServiceCollection"/>.</param>
-        public static IServiceCollection AddDataLocalization(this IServiceCollection services)
-        {
-            Guard.ArgumentNotNull(services, nameof(services));
+        Guard.ArgumentNotNull(services, nameof(services));
 
-            services.AddSingleton<IDataTranslationProvider, NullDataTranslationProvider>();
-            services.AddTransient<DataResourceManager>();
-            services.AddSingleton<IDataLocalizerFactory, DataLocalizerFactory>();
-            
-            services.AddTransient(sp => {
-                var dataLocalizerFactory = sp.GetService<IDataLocalizerFactory>();
+        services.AddSingleton<IDataTranslationProvider, NullDataTranslationProvider>();
+        services.AddTransient<DataResourceManager>();
+        services.AddSingleton<IDataLocalizerFactory, DataLocalizerFactory>();
+        
+        services.AddTransient(sp => {
+            var dataLocalizerFactory = sp.GetService<IDataLocalizerFactory>();
 
-                return dataLocalizerFactory.Create();
-            });
+            return dataLocalizerFactory.Create();
+        });
 
-            return services;
-        }
+        return services;
+    }
 
-        /// <summary>
-        /// Adds required services for diacritics into DI.
-        /// </summary>
-        /// <param name="services">The <see cref="IServiceCollection"/>.</param>
-        public static IServiceCollection AddDiacritics(this IServiceCollection services)
-        {
-            Guard.ArgumentNotNull(services, nameof(services));
+    /// <summary>
+    /// Adds required services for diacritics into DI.
+    /// </summary>
+    /// <param name="services">The <see cref="IServiceCollection"/>.</param>
+    public static IServiceCollection AddDiacritics(this IServiceCollection services)
+    {
+        Guard.ArgumentNotNull(services, nameof(services));
 
-            services.AddSingleton<IDiacriticsLookup, DiacriticsLookup>();
+        services.AddSingleton<IDiacriticsLookup, DiacriticsLookup>();
 
-            return services;
-        }
+        return services;
     }
 }

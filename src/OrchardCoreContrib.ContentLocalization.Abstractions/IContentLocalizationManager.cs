@@ -1,16 +1,15 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace OrchardCoreContrib.ContentLocalization
+namespace OrchardCoreContrib.ContentLocalization;
+
+/// <summary>
+/// Represents a contract for managing the localization content.
+/// </summary>
+public interface IContentLocalizationManager : OrchardCore.ContentLocalization.IContentLocalizationManager
 {
     /// <summary>
-    /// Represents a contract for managing the localization content.
+    /// Gets the list of the localization set.
     /// </summary>
-    public interface IContentLocalizationManager : OrchardCore.ContentLocalization.IContentLocalizationManager
-    {
-        /// <summary>
-        /// Gets the list of the localization set.
-        /// </summary>
-        Task<IEnumerable<string>> GetSetsAsync();
-    }
+    Task<IEnumerable<string>> GetSetsAsync();
 }

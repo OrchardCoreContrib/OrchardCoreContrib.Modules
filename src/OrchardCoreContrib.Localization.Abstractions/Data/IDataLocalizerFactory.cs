@@ -1,13 +1,12 @@
-﻿namespace OrchardCoreContrib.Localization.Data
+﻿namespace OrchardCoreContrib.Localization.Data;
+
+/// <summary>
+/// Represents a contract for creating dynamic data localizers.
+/// </summary>
+public interface IDataLocalizerFactory
 {
     /// <summary>
-    /// Represents a contract for creating dynamic data localizers.
+    /// Creates a <see cref="IDataLocalizer"/>.
     /// </summary>
-    public interface IDataLocalizerFactory
-    {
-        /// <summary>
-        /// Creates a <see cref="IDataLocalizer"/>.
-        /// </summary>
-        IDataLocalizer Create();
-    }
+    IDataLocalizer Create();
 }

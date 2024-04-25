@@ -4,90 +4,89 @@ using System;
 using System.IO;
 using System.Text.Encodings.Web;
 
-namespace OrchardCoreContrib.Shortcodes
+namespace OrchardCoreContrib.Shortcodes;
+
+/// <summary>
+/// Represents an output of an <see cref="IShortcode"/>.
+/// </summary>
+public class ShortcodeOutput : IHtmlContent
 {
     /// <summary>
-    /// Represents an output of an <see cref="IShortcode"/>.
+    /// Creates a new instance of <see cref="ShortcodeOutput"/>.
     /// </summary>
-    public class ShortcodeOutput : IHtmlContent
+    /// <param name="attributes">The shortcode attributes.</param>
+    public ShortcodeOutput(ShortcodeAttributes attributes)
     {
-        /// <summary>
-        /// Creates a new instance of <see cref="ShortcodeOutput"/>.
-        /// </summary>
-        /// <param name="attributes">The shortcode attributes.</param>
-        public ShortcodeOutput(ShortcodeAttributes attributes)
-        {
-            Guard.ArgumentNotNull(attributes, nameof(attributes));
+        Guard.ArgumentNotNull(attributes, nameof(attributes));
 
-            Attributes = attributes;
+        Attributes = attributes;
+    }
+
+    /// <summary>
+    /// Gets a shortcode attributes list.
+    /// </summary>
+    public ShortcodeAttributes Attributes { get; }
+
+    /// <summary>
+    /// Gets or sets the shortcode content.
+    /// </summary>
+    public string Content { get; set; }
+
+    /// <summary>
+    /// Gets or sets the tag name that used in the generated HTML.
+    /// </summary>
+    public string TagName { get; set; }
+
+    /// <summary>
+    /// Gets or sets the element syntax in the generated HTML.
+    /// </summary>
+    public TagMode TagMode { get; set; }
+
+    /// <summary>
+    /// Changes the shortcode output to generate nothing.
+    /// </summary>
+    public void SuppressOutput()
+    {
+        TagName = null;
+        Content = null;
+    }
+
+    /// <inheritdoc/>
+    public void WriteTo(TextWriter writer, HtmlEncoder encoder)
+    {
+        Guard.ArgumentNotNull(writer, nameof(writer));
+        Guard.ArgumentNotNull(encoder, nameof(encoder));
+
+        var isTagNameNullOrWhitespace = string.IsNullOrWhiteSpace(TagName);
+        if (!isTagNameNullOrWhitespace)
+        {
+            writer.Write("<");
+            writer.Write(TagName);
+
+            foreach (var attribute in Attributes)
+            {
+                writer.Write(" ");
+                attribute.WriteTo(writer, encoder);
+            }
+
+            if (TagMode == TagMode.SelfClosing)
+            {
+                writer.Write(" /");
+            }
+
+            writer.Write(">");
         }
 
-        /// <summary>
-        /// Gets a shortcode attributes list.
-        /// </summary>
-        public ShortcodeAttributes Attributes { get; }
-
-        /// <summary>
-        /// Gets or sets the shortcode content.
-        /// </summary>
-        public string Content { get; set; }
-
-        /// <summary>
-        /// Gets or sets the tag name that used in the generated HTML.
-        /// </summary>
-        public string TagName { get; set; }
-
-        /// <summary>
-        /// Gets or sets the element syntax in the generated HTML.
-        /// </summary>
-        public TagMode TagMode { get; set; }
-
-        /// <summary>
-        /// Changes the shortcode output to generate nothing.
-        /// </summary>
-        public void SuppressOutput()
+        if (isTagNameNullOrWhitespace || TagMode == TagMode.StartTagAndEndTag)
         {
-            TagName = null;
-            Content = null;
+            encoder.Encode(writer, Content);
         }
 
-        /// <inheritdoc/>
-        public void WriteTo(TextWriter writer, HtmlEncoder encoder)
+        if (!isTagNameNullOrWhitespace && TagMode == TagMode.StartTagAndEndTag)
         {
-            Guard.ArgumentNotNull(writer, nameof(writer));
-            Guard.ArgumentNotNull(encoder, nameof(encoder));
-
-            var isTagNameNullOrWhitespace = string.IsNullOrWhiteSpace(TagName);
-            if (!isTagNameNullOrWhitespace)
-            {
-                writer.Write("<");
-                writer.Write(TagName);
-
-                foreach (var attribute in Attributes)
-                {
-                    writer.Write(" ");
-                    attribute.WriteTo(writer, encoder);
-                }
-
-                if (TagMode == TagMode.SelfClosing)
-                {
-                    writer.Write(" /");
-                }
-
-                writer.Write(">");
-            }
-
-            if (isTagNameNullOrWhitespace || TagMode == TagMode.StartTagAndEndTag)
-            {
-                encoder.Encode(writer, Content);
-            }
-
-            if (!isTagNameNullOrWhitespace && TagMode == TagMode.StartTagAndEndTag)
-            {
-                writer.Write("</");
-                writer.Write(TagName);
-                writer.Write(">");
-            }
+            writer.Write("</");
+            writer.Write(TagName);
+            writer.Write(">");
         }
     }
 }
