@@ -30,4 +30,8 @@
 		<PackageReference Include="Microsoft.AspNetCore.Html.Abstractions" Version="2.2.0" />
 	</ItemGroup>
 
+	<ItemGroup>
+	  <ProjectReference Include="..\OrchardCoreContrib.Infrastructure.Abstractions\OrchardCoreContrib.Infrastructure.Abstractions.csproj" />
+	</ItemGroup>
+
 </Project>

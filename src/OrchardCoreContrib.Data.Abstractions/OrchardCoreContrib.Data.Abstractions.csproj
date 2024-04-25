@@ -31,4 +31,8 @@
 		<PackageReference Include="OrchardCore.Data" Version="1.8.2" />
 	</ItemGroup>
 
+	<ItemGroup>
+	  <ProjectReference Include="..\OrchardCoreContrib.Infrastructure.Abstractions\OrchardCoreContrib.Infrastructure.Abstractions.csproj" />
+	</ItemGroup>
+
 </Project>
