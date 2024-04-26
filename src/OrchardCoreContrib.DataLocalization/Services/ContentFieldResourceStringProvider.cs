@@ -27,10 +27,13 @@ namespace OrchardCoreContrib.DataLocalization.Services
 
         /// <inheritdoc/>
         public IEnumerable<CultureDictionaryRecordKey> GetAllResourceStrings()
-            => _contentDefinitionService.GetTypes()
-                .SelectMany(t => t.TypeDefinition.Parts
-                    .SelectMany(p => p.PartDefinition.Fields
-                        .Select(f => new { ContentType = t.Name, ContentField = f.GetSettings<ContentPartFieldSettings>().DisplayName })))
+        {
+            // Change once https://github.com/OrchardCoreContrib/OrchardCoreContrib/issues/12 fixed
+            var contentTypes = _contentDefinitionService.GetTypesAsync().GetAwaiter().GetResult();
+            
+            return contentTypes
+                .SelectMany(t => t.TypeDefinition.Parts.SelectMany(p => p.PartDefinition.Fields.Select(f => new { ContentType = t.Name, ContentField = f.GetSettings<ContentPartFieldSettings>().DisplayName })))
                 .Select(t => new CultureDictionaryRecordKey(t.ContentField, $"{t.ContentType}-{Context}"));
+        }
     }
 }

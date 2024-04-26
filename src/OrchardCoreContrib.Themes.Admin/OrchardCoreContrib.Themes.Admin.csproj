@@ -10,12 +10,12 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<PackageReference Include="OrchardCore.Admin" Version="1.8.2" />
-		<PackageReference Include="OrchardCore.DisplayManagement" Version="1.8.2" />
-		<PackageReference Include="OrchardCore.ResourceManagement" Version="1.8.2" />
-		<PackageReference Include="OrchardCore.Themes" Version="1.8.2" />
-		<PackageReference Include="OrchardCore.Theme.Targets" Version="1.8.2" />
-		<PackageReference Include="OrchardCore.Users" Version="1.8.2" />
+		<PackageReference Include="OrchardCore.Admin" Version="1.8.3" />
+		<PackageReference Include="OrchardCore.DisplayManagement" Version="1.8.3" />
+		<PackageReference Include="OrchardCore.ResourceManagement" Version="1.8.3" />
+		<PackageReference Include="OrchardCore.Themes" Version="1.8.3" />
+		<PackageReference Include="OrchardCore.Theme.Targets" Version="1.8.3" />
+		<PackageReference Include="OrchardCore.Users" Version="1.8.3" />
 	</ItemGroup>
 
 </Project>
