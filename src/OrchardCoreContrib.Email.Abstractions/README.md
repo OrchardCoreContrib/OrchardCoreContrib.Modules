@@ -6,6 +6,7 @@ This project provides an abstractions APIs for sending emails.
 
 | Name                                                                                                                  | Version |
 |-----------------------------------------------------------------------------------------------------------------------|---------|
+| [`OrchardCoreContrib.Email.Abstractions`](https://www.nuget.org/packages/OrchardCoreContrib.Email.Abstractions/1.4.1) | 1.4.1   |
 | [`OrchardCoreContrib.Email.Abstractions`](https://www.nuget.org/packages/OrchardCoreContrib.Email.Abstractions/1.4.0) | 1.4.0   |
 | [`OrchardCoreContrib.Email.Abstractions`](https://www.nuget.org/packages/OrchardCoreContrib.Email.Abstractions/1.3.0) | 1.3.0   |
 | [`OrchardCoreContrib.Email.Abstractions`](https://www.nuget.org/packages/OrchardCoreContrib.Email.Abstractions/1.2.0) | 1.2.0   |

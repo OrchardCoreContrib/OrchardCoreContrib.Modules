@@ -6,6 +6,7 @@ This project provides core implementations APIs for navigation.
 
 | Name                                                                                                                  | Version     |
 |-----------------------------------------------------------------------------------------------------------------------|-------------|
+| [`OrchardCoreContrib.Navigation.Core`](https://www.nuget.org/packages/OrchardCoreContrib.Navigation.Core/1.3.1)       | 1.3.1       |
 | [`OrchardCoreContrib.Navigation.Core`](https://www.nuget.org/packages/OrchardCoreContrib.Navigation.Core/1.3.0)       | 1.3.0       |
 | [`OrchardCoreContrib.Navigation.Core`](https://www.nuget.org/packages/OrchardCoreContrib.Navigation.Core/1.2.0)       | 1.2.0       |
 | [`OrchardCoreContrib.Navigation.Core`](https://www.nuget.org/packages/OrchardCoreContrib.Navigation.Core/1.1.0)       | 1.1.0       |

@@ -6,6 +6,7 @@ This project provides an abstractions APIs for Data.
 
 | Name                                                                                                                      | Version     |
 |---------------------------------------------------------------------------------------------------------------------------|-------------|
+| [`OrchardCoreContrib.Data.Abstractions`](https://www.nuget.org/packages/OrchardCoreContrib.Data.Abstractions/1.1.1)       | 1.1.1       |
 | [`OrchardCoreContrib.Data.Abstractions`](https://www.nuget.org/packages/OrchardCoreContrib.Data.Abstractions/1.1.0)       | 1.1.0       |
 | [`OrchardCoreContrib.Data.Abstractions`](https://www.nuget.org/packages/OrchardCoreContrib.Data.Abstractions/1.0.0)       | 1.0.0       |
 | [`OrchardCoreContrib.Data.Abstractions`](https://www.nuget.org/packages/OrchardCoreContrib.Data.Abstractions/1.0.0-beta2) | 1.0.0-beta2 |

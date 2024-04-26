@@ -6,6 +6,7 @@ This project provides an implementation APIs for supporting JSON localization.
 
 | Name                                                                                                                      | Version     |
 |---------------------------------------------------------------------------------------------------------------------------|-------------|
+| [`OrchardCoreContrib.Localization.Json`](https://www.nuget.org/packages/OrchardCoreContrib.Localization.Json/1.3.1)       | 1.3.1       |
 | [`OrchardCoreContrib.Localization.Json`](https://www.nuget.org/packages/OrchardCoreContrib.Localization.Json/1.3.0)       | 1.3.0       |
 | [`OrchardCoreContrib.Localization.Json`](https://www.nuget.org/packages/OrchardCoreContrib.Localization.Json/1.2.0)       | 1.2.0       |
 | [`OrchardCoreContrib.Localization.Json`](https://www.nuget.org/packages/OrchardCoreContrib.Localization.Json/1.1.0)       | 1.1.0       |

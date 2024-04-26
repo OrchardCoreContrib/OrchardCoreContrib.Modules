@@ -4,7 +4,7 @@
 		<TargetFramework>net8.0</TargetFramework>
 		<RootNamespace>OrchardCoreContrib.Shortcodes</RootNamespace>
 		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-		<VersionPrefix>1.4.0</VersionPrefix>
+		<VersionPrefix>1.4.1</VersionPrefix>
 		<Authors>The Orchard Core Contrib Team</Authors>
 		<Company />
 		<Description>Provides an abstraction APIs for Shortcodes.</Description>
