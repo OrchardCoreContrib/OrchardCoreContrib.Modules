@@ -28,8 +28,8 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<PackageReference Include="OrchardCore.Infrastructure.Abstractions" Version="1.8.2" />
-		<PackageReference Include="OrchardCore.Navigation.Core" Version="1.8.2" />
+		<PackageReference Include="OrchardCore.Infrastructure.Abstractions" Version="1.8.3" />
+		<PackageReference Include="OrchardCore.Navigation.Core" Version="1.8.3" />
 	</ItemGroup>
 
 </Project>

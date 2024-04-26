@@ -26,20 +26,20 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<PackageReference Include="OrchardCore.Autoroute" Version="1.8.2" />
-		<PackageReference Include="OrchardCore.Alias" Version="1.8.2" />
-		<PackageReference Include="OrchardCore.Users.Core" Version="1.8.2" />
-		<PackageReference Include="OrchardCore.AdminDashboard" Version="1.8.2" />
-		<PackageReference Include="OrchardCore.AuditTrail.Abstractions" Version="1.8.2" />
-		<PackageReference Include="OrchardCore.Deployment" Version="1.8.2" />
-		<PackageReference Include="OrchardCore.Layers" Version="1.8.2" />
-		<PackageReference Include="OrchardCore.Lists" Version="1.8.2" />
-		<PackageReference Include="OrchardCore.PublishLater" Version="1.8.2" />
-		<PackageReference Include="OrchardCore.Taxonomies" Version="1.8.2" />
-		<PackageReference Include="OrchardCore.Workflows" Version="1.8.2" />
-		<PackageReference Include="OrchardCore.OpenId.Core" Version="1.8.2" />
-		<PackageReference Include="OrchardCore.ContentManagement" Version="1.8.2" />
-		<PackageReference Include="OrchardCore.ContentLocalization.Abstractions" Version="1.8.2" />
+		<PackageReference Include="OrchardCore.Autoroute" Version="1.8.3" />
+		<PackageReference Include="OrchardCore.Alias" Version="1.8.3" />
+		<PackageReference Include="OrchardCore.Users.Core" Version="1.8.3" />
+		<PackageReference Include="OrchardCore.AdminDashboard" Version="1.8.3" />
+		<PackageReference Include="OrchardCore.AuditTrail.Abstractions" Version="1.8.3" />
+		<PackageReference Include="OrchardCore.Deployment" Version="1.8.3" />
+		<PackageReference Include="OrchardCore.Layers" Version="1.8.3" />
+		<PackageReference Include="OrchardCore.Lists" Version="1.8.3" />
+		<PackageReference Include="OrchardCore.PublishLater" Version="1.8.3" />
+		<PackageReference Include="OrchardCore.Taxonomies" Version="1.8.3" />
+		<PackageReference Include="OrchardCore.Workflows" Version="1.8.3" />
+		<PackageReference Include="OrchardCore.OpenId.Core" Version="1.8.3" />
+		<PackageReference Include="OrchardCore.ContentManagement" Version="1.8.3" />
+		<PackageReference Include="OrchardCore.ContentLocalization.Abstractions" Version="1.8.3" />
 		<PackageReference Include="linq2db" Version="5.4.1" />
 	</ItemGroup>
 

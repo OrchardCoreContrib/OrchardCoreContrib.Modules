@@ -27,7 +27,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<PackageReference Include="OrchardCore.ContentLocalization.Abstractions" Version="1.8.2" />
+		<PackageReference Include="OrchardCore.ContentLocalization.Abstractions" Version="1.8.3" />
 	</ItemGroup>
 
 </Project>
