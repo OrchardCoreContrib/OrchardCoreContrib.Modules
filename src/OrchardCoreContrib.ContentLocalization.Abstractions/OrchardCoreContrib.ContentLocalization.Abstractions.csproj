@@ -4,7 +4,7 @@
 		<TargetFramework>net8.0</TargetFramework>
 		<RootNamespace>OrchardCoreContrib.ContentLocalization</RootNamespace>
 		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-		<VersionPrefix>1.2.1</VersionPrefix>
+		<VersionPrefix>1.2.2</VersionPrefix>
 		<Authors>The Orchard Core Contrib Team</Authors>
 		<Company />
 		<Description>Provides an abstractions APIs for content localization.</Description>
