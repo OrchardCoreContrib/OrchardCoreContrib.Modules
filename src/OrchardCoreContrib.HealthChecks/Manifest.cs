@@ -5,7 +5,7 @@ using ManifestConstants = OrchardCoreContrib.Modules.Manifest.ManifestConstants;
     Name = "Health Checks",
     Author = ManifestConstants.Author,
     Website = ManifestConstants.Website,
-    Version = "1.2.0",
+    Version = "1.2.1",
     Description = "Provides health checks for the website.",
     Category = "Infrastructure"
 )]

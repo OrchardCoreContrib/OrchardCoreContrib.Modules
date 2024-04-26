@@ -5,7 +5,7 @@
 		<AddRazorSupportForMvc>true</AddRazorSupportForMvc>
 		<ImplicitUsings>enable</ImplicitUsings>
 		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-		<VersionPrefix>1.0.0</VersionPrefix>
+		<VersionPrefix>1.0.1</VersionPrefix>
 		<Authors>The Orchard Core Contrib Team</Authors>
 		<Company />
 		<Description>Provides SMS functionality using Azure Communication SMS Services.</Description>
@@ -35,9 +35,9 @@
 		<PackageReference Include="Azure.Communication.Sms" Version="1.0.1" />
 		<PackageReference Include="OrchardCore.DisplayManagement" Version="1.8.3" />
 		<PackageReference Include="OrchardCore.Module.Targets" Version="1.8.3" />
-		<PackageReference Include="OrchardCoreContrib.Infrastructure" Version="1.0.1" />
-		<PackageReference Include="OrchardCoreContrib.Navigation.Core" Version="1.3.0" />
-		<PackageReference Include="OrchardCoreContrib.Sms.Abstractions" Version="1.3.0" />
+		<PackageReference Include="OrchardCoreContrib.Infrastructure" Version="1.0.2" />
+		<PackageReference Include="OrchardCoreContrib.Navigation.Core" Version="1.3.1" />
+		<PackageReference Include="OrchardCoreContrib.Sms.Abstractions" Version="1.3.1" />
 	</ItemGroup>
 
 </Project>

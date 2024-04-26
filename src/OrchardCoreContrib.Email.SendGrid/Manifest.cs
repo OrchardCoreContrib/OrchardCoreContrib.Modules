@@ -5,7 +5,7 @@ using ManifestConstants = OrchardCoreContrib.Modules.Manifest.ManifestConstants;
     Name = "SendGrid",
     Author = ManifestConstants.Author,
     Website = ManifestConstants.Website,
-    Version = "1.5.0",
+    Version = "1.5.1",
     Description = "Provides email settings configuration for SendGrid service.",
     Category = "Messaging"
 )]

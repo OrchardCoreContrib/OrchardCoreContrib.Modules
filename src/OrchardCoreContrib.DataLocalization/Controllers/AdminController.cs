@@ -45,7 +45,7 @@ namespace OrchardCoreContrib.DataLocalization.Controllers
 
         public async Task<ActionResult> ManageContentTypeResources([FromQuery] string selectedCulture)
         {
-            var resourcesNames = GetResourcesNames(ContentTypeResourceStringProvider.Context);
+            var resourcesNames = await GetResourcesNamesAsync(ContentTypeResourceStringProvider.Context);
 
             var translationsDocument = await _translationsManager.GetTranslationsDocumentAsync();
 
@@ -76,7 +76,7 @@ namespace OrchardCoreContrib.DataLocalization.Controllers
         public async Task<ActionResult> ManageContentFieldResources([FromQuery] string selectedCulture, [FromQuery] string contentType)
         {
             var context = $"{contentType}-{ContentFieldResourceStringProvider.Context}";
-            var resourcesNames = GetResourcesNames(context);
+            var resourcesNames = await GetResourcesNamesAsync(context);
 
             var translationsDocument = await _translationsManager.GetTranslationsDocumentAsync();
 
@@ -108,13 +108,12 @@ namespace OrchardCoreContrib.DataLocalization.Controllers
             return RedirectToAction(nameof(ManageContentFieldResources), new { selectedCulture, contentType });
         }
 
-        private IEnumerable<string> GetResourcesNames(string context)
+        private async Task<IEnumerable<string>> GetResourcesNamesAsync(string context)
         {
             IEnumerable<string> resourcesNames = null;
             foreach (var dataResourceStringProvider in _dataResourceStringProviders)
             {
-                resourcesNames = dataResourceStringProvider
-                    .GetAllResourceStrings(context)
+                resourcesNames = (await dataResourceStringProvider.GetAllResourceStringsAsync(context))
                     .Select(r => r.GetMessageId());
 
                 if (resourcesNames.Any())

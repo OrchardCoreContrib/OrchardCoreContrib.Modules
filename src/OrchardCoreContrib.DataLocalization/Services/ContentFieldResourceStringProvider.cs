@@ -4,6 +4,7 @@ using OrchardCore.Localization;
 using OrchardCoreContrib.Localization.Data;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 
 namespace OrchardCoreContrib.DataLocalization.Services
 {
@@ -26,10 +27,9 @@ namespace OrchardCoreContrib.DataLocalization.Services
         }
 
         /// <inheritdoc/>
-        public IEnumerable<CultureDictionaryRecordKey> GetAllResourceStrings()
+        public async Task<IEnumerable<CultureDictionaryRecordKey>> GetAllResourceStringsAsync()
         {
-            // Change once https://github.com/OrchardCoreContrib/OrchardCoreContrib/issues/12 fixed
-            var contentTypes = _contentDefinitionService.GetTypesAsync().GetAwaiter().GetResult();
+            var contentTypes = await _contentDefinitionService.GetTypesAsync();
             
             return contentTypes
                 .SelectMany(t => t.TypeDefinition.Parts.SelectMany(p => p.PartDefinition.Fields.Select(f => new { ContentType = t.Name, ContentField = f.GetSettings<ContentPartFieldSettings>().DisplayName })))
