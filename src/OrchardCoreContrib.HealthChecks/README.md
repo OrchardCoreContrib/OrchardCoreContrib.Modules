@@ -4,7 +4,7 @@ This module provides a health checks for the website.
 
 ## Version
 
-1.1.0
+1.2.1
 
 ## Category
 
@@ -24,6 +24,8 @@ Infrastructure
 
 | Name                                                                                                      | Version |
 |-----------------------------------------------------------------------------------------------------------|---------|
+| [`OrchardCoreContrib.HealthChecks`](https://www.nuget.org/packages/OrchardCoreContrib.HealthChecks/1.2.1) | 1.2.1   |
+| [`OrchardCoreContrib.HealthChecks`](https://www.nuget.org/packages/OrchardCoreContrib.HealthChecks/1.2.0) | 1.2.0   |
 | [`OrchardCoreContrib.HealthChecks`](https://www.nuget.org/packages/OrchardCoreContrib.HealthChecks/1.1.0) | 1.1.0   |
 | [`OrchardCoreContrib.HealthChecks`](https://www.nuget.org/packages/OrchardCoreContrib.HealthChecks/1.0.0) | 1.0.0   |
 

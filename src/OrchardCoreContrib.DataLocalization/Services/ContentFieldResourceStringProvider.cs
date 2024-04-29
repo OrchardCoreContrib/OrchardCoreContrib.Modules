@@ -4,6 +4,7 @@ using OrchardCore.Localization;
 using OrchardCoreContrib.Localization.Data;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 
 namespace OrchardCoreContrib.DataLocalization.Services
 {
@@ -26,11 +27,13 @@ namespace OrchardCoreContrib.DataLocalization.Services
         }
 
         /// <inheritdoc/>
-        public IEnumerable<CultureDictionaryRecordKey> GetAllResourceStrings()
-            => _contentDefinitionService.GetTypes()
-                .SelectMany(t => t.TypeDefinition.Parts
-                    .SelectMany(p => p.PartDefinition.Fields
-                        .Select(f => new { ContentType = t.Name, ContentField = f.GetSettings<ContentPartFieldSettings>().DisplayName })))
+        public async Task<IEnumerable<CultureDictionaryRecordKey>> GetAllResourceStringsAsync()
+        {
+            var contentTypes = await _contentDefinitionService.GetTypesAsync();
+            
+            return contentTypes
+                .SelectMany(t => t.TypeDefinition.Parts.SelectMany(p => p.PartDefinition.Fields.Select(f => new { ContentType = t.Name, ContentField = f.GetSettings<ContentPartFieldSettings>().DisplayName })))
                 .Select(t => new CultureDictionaryRecordKey(t.ContentField, $"{t.ContentType}-{Context}"));
+        }
     }
 }

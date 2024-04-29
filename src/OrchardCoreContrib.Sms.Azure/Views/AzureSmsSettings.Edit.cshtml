@@ -1,0 +1,19 @@
+@using OrchardCoreContrib.Sms.Azure
+
+@model AzureSmsSettings
+
+<p class="alert alert-warning">@T["The current tenant will be reloaded when the settings are saved."]</p>
+
+<div class="mb-3" asp-validation-class-for="SenderPhoneNumber">
+    <label asp-for="SenderPhoneNumber" class="form-label">@T["Sender Phone Number"]</label>
+    <input asp-for="SenderPhoneNumber" class="form-control" />
+    <span class="hint">@T["The phone number that provided by Azure Communication Services (ACS) to send the SMS."]</span>
+    <span asp-validation-for="SenderPhoneNumber"></span>
+</div>
+
+<div class="mb-3" asp-validation-class-for="ConnectionString">
+    <label asp-for="ConnectionString" class="form-label">@T["Connection String"]</label>
+    <input asp-for="ConnectionString" class="form-control" type="password" />
+    <span asp-validation-for="ConnectionString"></span>
+    <span class="hint">@T["The connection string that provided by Azure Communication Services (ACS)."]</span>
+</div>

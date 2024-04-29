@@ -18,7 +18,8 @@ namespace OrchardCoreContrib.Themes.Admin
 
         public override void ConfigureServices(IServiceCollection services)
         {
-            services.AddTransient<IConfigureOptions<ResourceManagementOptions>, ResourceManagementOptionsConfiguration>();
+            // TODO: Check why the resources broken after upgrading to Orchard Core 1.8.2
+            //services.AddTransient<IConfigureOptions<ResourceManagementOptions>, ResourceManagementOptionsConfiguration>();
             //services.Configure<TheAdminThemeOptions>(_configuration.GetSection("TheAdminTheme:StyleSettings"));
         }
     }

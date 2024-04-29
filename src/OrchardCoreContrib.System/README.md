@@ -4,7 +4,7 @@ Provides an information about currently running application.
 
 ## Version
 
-1.3.0
+1.4.1
 
 ## Category
 
@@ -38,6 +38,8 @@ This module has no dependencies.
 
 | Name                                                                                          | Version |
 |-----------------------------------------------------------------------------------------------|---------|
+| [`OrchardCoreContrib.System`](https://www.nuget.org/packages/OrchardCoreContrib.System/1.4.1) | 1.4.1   |
+| [`OrchardCoreContrib.System`](https://www.nuget.org/packages/OrchardCoreContrib.System/1.4.0) | 1.4.0   |
 | [`OrchardCoreContrib.System`](https://www.nuget.org/packages/OrchardCoreContrib.System/1.3.0) | 1.3.0   |
 | [`OrchardCoreContrib.System`](https://www.nuget.org/packages/OrchardCoreContrib.System/1.2.1) | 1.2.1   |
 | [`OrchardCoreContrib.System`](https://www.nuget.org/packages/OrchardCoreContrib.System/1.2.0) | 1.2.0   |

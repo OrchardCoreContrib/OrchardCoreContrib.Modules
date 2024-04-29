@@ -6,7 +6,7 @@ using ManifestConstants = OrchardCoreContrib.Modules.Manifest.ManifestConstants;
     Name = "Content Preview",
     Author = ManifestConstants.Author,
     Website = ManifestConstants.Website,
-    Version = "1.2.0",
+    Version = "1.3.1",
     Category = "Content Management"
 )]
 

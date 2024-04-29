@@ -1,13 +1,13 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
 	<PropertyGroup>
-		<TargetFrameworks>net6.0;net7.0</TargetFrameworks>
+		<TargetFramework>net8.0</TargetFramework>
 		<IsPackable>false</IsPackable>
 	</PropertyGroup>
 
 	<ItemGroup>
-		<PackageReference Include="OrchardCoreContrib.Data.YesSql" Version="1.0.0" />
-		<PackageReference Include="OrchardCore.Application.Cms.Targets" Version="1.7.0" />
+		<PackageReference Include="OrchardCoreContrib.Data.YesSql" Version="1.1.2" />
+		<PackageReference Include="OrchardCore.Application.Cms.Targets" Version="1.8.3" />
 	</ItemGroup>
 
 
@@ -29,6 +29,7 @@
 		<ProjectReference Include="..\OrchardCoreContrib.IssueTracker\OrchardCoreContrib.IssueTracker.csproj" />
 		<ProjectReference Include="..\OrchardCoreContrib.Liquid\OrchardCoreContrib.Liquid.csproj" />
 		<ProjectReference Include="..\OrchardCoreContrib.ReverseProxy.Yarp\OrchardCoreContrib.ReverseProxy.Yarp.csproj" />
+		<ProjectReference Include="..\OrchardCoreContrib.Sms.Azure\OrchardCoreContrib.Sms.Azure.csproj" />
 		<ProjectReference Include="..\OrchardCoreContrib.System\OrchardCoreContrib.System.csproj" />
 		<ProjectReference Include="..\OrchardCoreContrib.Tenants\OrchardCoreContrib.Tenants.csproj" />
 		<ProjectReference Include="..\OrchardCoreContrib.Themes.Admin\OrchardCoreContrib.Themes.Admin.csproj" />

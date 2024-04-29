@@ -3,6 +3,7 @@ using OrchardCore.Localization;
 using OrchardCoreContrib.Localization.Data;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 
 namespace OrchardCoreContrib.DataLocalization.Services
 {
@@ -25,8 +26,11 @@ namespace OrchardCoreContrib.DataLocalization.Services
         }
 
         /// <inheritdoc/>
-        public IEnumerable<CultureDictionaryRecordKey> GetAllResourceStrings()
-            => _contentDefinitionService.GetTypes()
-                .Select(t => new CultureDictionaryRecordKey(t.DisplayName, Context));
+        public async Task<IEnumerable<CultureDictionaryRecordKey>> GetAllResourceStringsAsync()
+        {
+            var contentTypes = await _contentDefinitionService.GetTypesAsync();
+
+            return contentTypes.Select(t => new CultureDictionaryRecordKey(t.DisplayName, Context));
+        }
     }
 }
