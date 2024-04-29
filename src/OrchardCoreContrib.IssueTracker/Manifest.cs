@@ -5,7 +5,7 @@ using OrchardCore.Modules.Manifest;
     Author = "The Orchard Core Community",
     Website = "https://github.com/OrchardCoreContrib",
     Version = "0.0.1",
-    Description = "Adds Issue Tracker Features ",
+    Description = "Provides a set of features and services to manage and track issues.",
     Dependencies = new[] { "OrchardCore.Contents", "OrchardCore.Taxonomies", "OrchardCore.Media" },
     Category = "Content Management"
 )]
