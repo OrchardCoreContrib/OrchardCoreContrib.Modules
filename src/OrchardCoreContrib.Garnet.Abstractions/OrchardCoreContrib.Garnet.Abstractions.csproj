@@ -1,0 +1,14 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFramework>net8.0</TargetFramework>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<RootNamespace>OrchardCoreContrib.Garnet</RootNamespace>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<PackageReference Include="Microsoft.Garnet" Version="1.0.7" />
+		<PackageReference Include="OrchardCore.Abstractions" Version="1.8.3" />
+	</ItemGroup>
+
+</Project>
