@@ -11,5 +11,5 @@ public interface IGarnetClientFactory
     /// Creates a Garnet client for a given options.
     /// </summary>
     /// <param name="options">The <see cref="GarnetOptions"/>.</param>
-    GarnetClient Create(GarnetOptions options);
+    Task<GarnetClient> CreateAsync(GarnetOptions options);
 }
