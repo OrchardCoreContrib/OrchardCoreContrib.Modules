@@ -31,20 +31,7 @@ public class GarnetCache : IDistributedCache
     }
 
     /// <inheritdoc/>
-    public byte[] Get(string key)
-    {
-        Guard.ArgumentNotNullOrEmpty(key, nameof(key));
-
-        string value = null;
-        _client.StringGet(key, (_, v) => value = v);
-
-        if (value is null)
-        {
-            return [];
-        }
-
-        return Encoding.UTF8.GetBytes(value);
-    }
+    public byte[] Get(string key) => GetAsync(key).GetAwaiter().GetResult();
 
     /// <inheritdoc/>
     public async Task<byte[]> GetAsync(string key, CancellationToken token = default)
@@ -88,7 +75,6 @@ public class GarnetCache : IDistributedCache
     {
         Guard.ArgumentNotNullOrEmpty(key, nameof(key));
         Guard.ArgumentNotNull(value, nameof(value));
-        Guard.ArgumentNotNull(options, nameof(options));
 
         _client.StringSet(key, Encoding.UTF8.GetString(value), _callback);
     }
@@ -98,7 +84,6 @@ public class GarnetCache : IDistributedCache
     {
         Guard.ArgumentNotNullOrEmpty(key, nameof(key));
         Guard.ArgumentNotNull(value, nameof(value));
-        Guard.ArgumentNotNull(options, nameof(options));
 
         await _client.StringSetAsync(key, Encoding.UTF8.GetString(value), token);
     }
