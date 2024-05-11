@@ -60,6 +60,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OrchardCoreContrib.Sms.Azur
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OrchardCoreContrib.Garnet", "src\OrchardCoreContrib.Garnet\OrchardCoreContrib.Garnet.csproj", "{14666792-7A70-4ACF-9FAB-CC1435213052}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OrchardCoreContrib.Garnet.Tests", "test\OrchardCoreContrib.Garnet.Tests\OrchardCoreContrib.Garnet.Tests.csproj", "{BE64AA1E-DDEF-405E-9004-6FF984DA6D71}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -162,6 +164,10 @@ Global
 		{14666792-7A70-4ACF-9FAB-CC1435213052}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{14666792-7A70-4ACF-9FAB-CC1435213052}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{14666792-7A70-4ACF-9FAB-CC1435213052}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BE64AA1E-DDEF-405E-9004-6FF984DA6D71}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BE64AA1E-DDEF-405E-9004-6FF984DA6D71}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BE64AA1E-DDEF-405E-9004-6FF984DA6D71}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BE64AA1E-DDEF-405E-9004-6FF984DA6D71}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -191,6 +197,7 @@ Global
 		{8C49A05B-5D69-4222-9245-310E412E237E} = {C80A325F-F4C4-4C7B-A3CF-FB77CD8C9949}
 		{47BE63E8-AECC-43E5-AC48-2E2835452402} = {C80A325F-F4C4-4C7B-A3CF-FB77CD8C9949}
 		{14666792-7A70-4ACF-9FAB-CC1435213052} = {C80A325F-F4C4-4C7B-A3CF-FB77CD8C9949}
+		{BE64AA1E-DDEF-405E-9004-6FF984DA6D71} = {A239BFB0-9BA7-467C-AD41-405D0740633F}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {48F73B05-7D3D-4ACF-81AE-A98B2B4EFDB2}
