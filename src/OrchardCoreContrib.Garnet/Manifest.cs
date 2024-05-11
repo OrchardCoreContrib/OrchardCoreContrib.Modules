@@ -12,7 +12,7 @@ using ManifestConstants = OrchardCoreContrib.Modules.Manifest.ManifestConstants;
     Id = "OrchardCoreContrib.Garnet",
     Name = "Garnet",
     Description = "Garnet configuration support.",
-    Category = "Distributed"
+    Category = "Distributed Caching"
 )]
 
 [assembly: Feature(
@@ -20,5 +20,13 @@ using ManifestConstants = OrchardCoreContrib.Modules.Manifest.ManifestConstants;
     Name = "Garnet Cache",
     Description = "Distributed cache using Garnet.",
     Dependencies = ["OrchardCoreContrib.Garnet"],
-    Category = "Distributed"
+    Category = "Distributed Caching"
+)]
+
+[assembly: Feature(
+    Id = "OrchardCoreContrib.Garnet.Bus",
+    Name = "Garnet Bus",
+    Description = "Makes the Signal service distributed though Garnet.",
+    Dependencies = ["OrchardCoreContrib.Garnet"],
+    Category = "Distributed Caching"
 )]
