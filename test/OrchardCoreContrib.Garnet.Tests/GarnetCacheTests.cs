@@ -1,7 +1,3 @@
-using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
-using Microsoft.Extensions.Options;
-using Moq;
 using OrchardCoreContrib.Garnet.Services;
 using System.Text;
 
@@ -13,7 +9,7 @@ public class GarnetCacheTests : TestBase
 
     public override async Task InitializeAsync()
     {
-        _garnetService = await CreateGarnetServiceAsync();
+        _garnetService = await Utilities.CreateGarnetServiceAsync();
 
         await _garnetService.Client.KeyDeleteAsync(["key1", "key2", "key3", "key4"]);
     }
@@ -132,17 +128,5 @@ public class GarnetCacheTests : TestBase
 
         // Act & Assert
         await Assert.ThrowsAsync<NotImplementedException>(async () => await cache.RefreshAsync("key8"));
-    }
-
-    private static async Task<IGarnetService> CreateGarnetServiceAsync()
-    {
-        var garnetClientFactory = new GarnetClientFactory(
-            Mock.Of<IHostApplicationLifetime>(),
-            Mock.Of<ILogger<GarnetClientFactory>>());
-        var garnetService = new GarnetService(garnetClientFactory, Options.Create(new GarnetOptions()));
-
-        await garnetService.ConnectAsync();
-
-        return garnetService;
     }
 }

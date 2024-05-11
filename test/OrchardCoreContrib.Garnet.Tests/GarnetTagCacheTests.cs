@@ -1,8 +1,4 @@
-﻿using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
-using Microsoft.Extensions.Logging.Abstractions;
-using Microsoft.Extensions.Options;
-using Moq;
+﻿using Microsoft.Extensions.Logging.Abstractions;
 using OrchardCore.Environment.Shell;
 using OrchardCoreContrib.Garnet.Services;
 
@@ -17,7 +13,7 @@ public class GarnetTagCacheTests : TestBase
 
     public override async Task InitializeAsync()
     {
-        _garnetService = await CreateGarnetServiceAsync();
+        _garnetService = await Utilities.CreateGarnetServiceAsync();
         
         _garnetTagCache = new GarnetTagCache(
             _garnetService,
@@ -79,17 +75,5 @@ public class GarnetTagCacheTests : TestBase
         
         var result = await _garnetService.Client.SetGetAsync($"{_garnetService.InstancePrefix}{_shellSettings.Name}:Tag:{tag}");
         Assert.Empty(result);
-    }
-
-    private static async Task<IGarnetService> CreateGarnetServiceAsync()
-    {
-        var garnetClientFactory = new GarnetClientFactory(
-            Mock.Of<IHostApplicationLifetime>(),
-            Mock.Of<ILogger<GarnetClientFactory>>());
-        var garnetService = new GarnetService(garnetClientFactory, Options.Create(new GarnetOptions()));
-
-        await garnetService.ConnectAsync();
-
-        return garnetService;
     }
 }
