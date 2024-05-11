@@ -28,7 +28,6 @@ public class GarnetBus(
     /// <inheritdoc/>
     public async Task SubscribeAsync(string channel, Action<string, string> handler)
     {
-        ConnectionMultiplexer connectionMultiplexer = null;
         if (garnetService.Client == null)
         {
             await garnetService.ConnectAsync();
@@ -41,7 +40,7 @@ public class GarnetBus(
             }
         }
 
-        connectionMultiplexer = ConnectionMultiplexer.Connect(GetConfigurationOptions(_garnetOptions));
+        var connectionMultiplexer = await ConnectionMultiplexer.ConnectAsync(GetConfigurationOptions(_garnetOptions));
 
         try
         {
@@ -51,7 +50,7 @@ public class GarnetBus(
             {
                 var tokens = redisValue.ToString().Split('/').ToArray();
 
-                if (tokens.Length != 2 || tokens[0].Length == 0 || tokens[0].Equals(_hostName, StringComparison.OrdinalIgnoreCase))
+                if (tokens.Length != 2 || tokens[0].Length == 0)
                 {
                     return;
                 }
@@ -68,7 +67,6 @@ public class GarnetBus(
     /// <inheritdoc/>
     public async Task PublishAsync(string channel, string message)
     {
-        ConnectionMultiplexer connectionMultiplexer = null;
         if (garnetService.Client == null)
         {
             await garnetService.ConnectAsync();
@@ -81,13 +79,12 @@ public class GarnetBus(
             }
         }
 
-        connectionMultiplexer = ConnectionMultiplexer.Connect(GetConfigurationOptions(_garnetOptions));
+        var connectionMultiplexer = await ConnectionMultiplexer.ConnectAsync(GetConfigurationOptions(_garnetOptions));
 
         try
         {
-            var messagePrefix = _hostName + '/';
             await connectionMultiplexer.GetSubscriber()
-                .PublishAsync(RedisChannel.Literal(_channelPrefix + channel), messagePrefix + message);
+                .PublishAsync(RedisChannel.Literal(_channelPrefix + channel), $"{_hostName}/{message}");
         }
         catch (Exception e)
         {
@@ -104,7 +101,6 @@ public class GarnetBus(
         var configOptions = new ConfigurationOptions
         {
             EndPoints = endPoints,
-            //CommandMap = CommandMap.Create(new HashSet<string>()),
             ConnectTimeout = (int)TimeSpan.FromSeconds(2).TotalMilliseconds,
             SyncTimeout = (int)TimeSpan.FromSeconds(30).TotalMilliseconds,
             AsyncTimeout = (int)TimeSpan.FromSeconds(30).TotalMilliseconds,
