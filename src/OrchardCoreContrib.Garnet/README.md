@@ -8,7 +8,7 @@ This module provides a set of features for Garnet service.
 
 ## Category
 
-Distributed
+Distributed Caching
 
 ## Dependencies
 

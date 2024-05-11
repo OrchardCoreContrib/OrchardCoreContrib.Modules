@@ -28,6 +28,7 @@
 		<PackageReference Include="OrchardCoreContrib.Garnet.Abstractions" Version="1.0.0" />
 		<PackageReference Include="OrchardCoreContrib.HealthChecks.Abstractions" Version="1.2.1" />
 		<PackageReference Include="OrchardCoreContrib.Infrastructure.Abstractions" Version="2.3.1" />
+		<PackageReference Include="StackExchange.Redis" Version="2.7.33" />
 	</ItemGroup>
 
 	<ItemGroup>
