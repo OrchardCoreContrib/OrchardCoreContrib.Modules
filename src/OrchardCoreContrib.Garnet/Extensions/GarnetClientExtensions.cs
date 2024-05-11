@@ -1,6 +1,7 @@
-﻿using OrchardCoreContrib.Infrastructure;
+﻿using Garnet.client;
+using OrchardCoreContrib.Infrastructure;
 
-namespace Garnet.client;
+namespace OrchardCoreContrib.Garnet;
 
 /// <summary>
 /// Provides an extension methods for <see cref="GarnetClient"/>.
