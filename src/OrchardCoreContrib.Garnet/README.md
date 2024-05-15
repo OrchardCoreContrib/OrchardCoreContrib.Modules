@@ -4,7 +4,7 @@ This module provides a set of features for Garnet service.
 
 ## Version
 
-1.2.0
+1.3.0
 
 ## Category
 
@@ -28,16 +28,23 @@ This module has no dependencies.
 | **Description**  | Distributed cache using Garnet.		       |
 | **Dependencies** | Garnet (`OrchardCoreContrib.Garnet`)          |
 
-|                  |                                               |
-|------------------|-----------------------------------------------|
-| **Name**         | Garnet (`OrchardCoreContrib.Garnet.Bus`)      |
-| **Description**  | Makes the Signal service distributed.	       |
-| **Dependencies** | Garnet (`OrchardCoreContrib.Garnet`)          |
+|                  |												|
+|------------------|-----------------------------------------------	|
+| **Name**         | Garnet (`OrchardCoreContrib.Garnet.Bus`)		|
+| **Description**  | Makes the Signal service distributed.			|
+| **Dependencies** | Garnet (`OrchardCoreContrib.Garnet`)			|
+
+|                  |													 |
+|------------------|-----------------------------------------------------|
+| **Name**         | Garnet (`OrchardCoreContrib.Garnet.DataProtection`) |
+| **Description**  | Distributed DataProtection using Garnet.	         |
+| **Dependencies** | Garnet (`OrchardCoreContrib.Garnet`)                |
 
 ## NuGet Packages
 
 | Name                                                                                          | Version |
 |-----------------------------------------------------------------------------------------------|---------|
+| [`OrchardCoreContrib.Garnet`](https://www.nuget.org/packages/OrchardCoreContrib.Garnet/1.2.0) | 1.3.0   |
 | [`OrchardCoreContrib.Garnet`](https://www.nuget.org/packages/OrchardCoreContrib.Garnet/1.2.0) | 1.2.0   |
 | [`OrchardCoreContrib.Garnet`](https://www.nuget.org/packages/OrchardCoreContrib.Garnet/1.1.0) | 1.1.0   |
 | [`OrchardCoreContrib.Garnet`](https://www.nuget.org/packages/OrchardCoreContrib.Garnet/1.0.0) | 1.0.0   |
@@ -59,3 +66,7 @@ This module has no dependencies.
 ## Garnet Bus
 
 4. Enable the `Garnet Bus` feature.
+
+## Garnet DataProtection
+
+4. Enable the `Garnet DataProtection` feature.
