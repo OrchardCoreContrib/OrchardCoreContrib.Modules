@@ -4,7 +4,6 @@ using OrchardCore.Environment.Shell;
 using OrchardCore.Locking;
 using OrchardCore.Locking.Distributed;
 using StackExchange.Redis;
-using System.Diagnostics;
 using System.Net;
 
 namespace OrchardCoreContrib.Garnet.Services;
@@ -25,9 +24,9 @@ public class GarnetLock(
     private static readonly double _baseDelay = 100;
     private static readonly double _maxDelay = 10000;
 
-    private readonly GarnetOptions _garnetOptions = garnetOptions.Value;
     private readonly string _hostName = Dns.GetHostName() + ':' + Environment.ProcessId;
     private readonly string _prefix = garnetService.InstancePrefix + shellSettings.Name + ':';
+    private readonly ConfigurationOptions _configurationOptions = GarnetOptionsConverter.ConvertToConfigurationOptions(garnetOptions.Value);
 
     /// <summary>
     /// Waits indefinitely until acquiring a named lock with a given expiration for the current tenant
@@ -94,7 +93,7 @@ public class GarnetLock(
         try
         {
             var database = (await ConnectionMultiplexer
-                .ConnectAsync(GetConfigurationOptions(_garnetOptions)))
+                .ConnectAsync(_configurationOptions))
                 .GetDatabase();
             
             return (await database.LockQueryAsync(_prefix + key)).HasValue;
@@ -124,7 +123,7 @@ public class GarnetLock(
         try
         {
             var database = (await ConnectionMultiplexer
-                .ConnectAsync(GetConfigurationOptions(_garnetOptions)))
+                .ConnectAsync(_configurationOptions))
                 .GetDatabase();
 
             return await database.LockTakeAsync(_prefix + key, _hostName, expiry);
@@ -142,7 +141,7 @@ public class GarnetLock(
         try
         {
             var database = (await ConnectionMultiplexer
-               .ConnectAsync(GetConfigurationOptions(_garnetOptions)))
+               .ConnectAsync(_configurationOptions))
                .GetDatabase();
 
             await database.LockReleaseAsync(_prefix + key, _hostName);
@@ -158,7 +157,7 @@ public class GarnetLock(
         try
         {
             var database = ConnectionMultiplexer
-               .ConnectAsync(GetConfigurationOptions(_garnetOptions))
+               .ConnectAsync(_configurationOptions)
                .GetAwaiter()
                .GetResult()
                .GetDatabase();
@@ -205,35 +204,5 @@ public class GarnetLock(
         var delay = _baseDelay * (1.0 + ((Math.Pow(1.8, retries - 1.0) - 1.0) * (0.6 + new Random().NextDouble() * 0.4)));
 
         return TimeSpan.FromMilliseconds(Math.Min(delay, _maxDelay));
-    }
-
-    // TODO: Use explicit conversion operators to convert between GarnetOptions and ConfigurationOptions
-    private static ConfigurationOptions GetConfigurationOptions(GarnetOptions garnetOptions)
-    {
-        var endPoints = new EndPointCollection
-        {
-            new DnsEndPoint(garnetOptions.Host, garnetOptions.Port)
-        };
-        var configOptions = new ConfigurationOptions
-        {
-            EndPoints = endPoints,
-            ConnectTimeout = (int)TimeSpan.FromSeconds(2).TotalMilliseconds,
-            SyncTimeout = (int)TimeSpan.FromSeconds(30).TotalMilliseconds,
-            AsyncTimeout = (int)TimeSpan.FromSeconds(30).TotalMilliseconds,
-            ReconnectRetryPolicy = new LinearRetry((int)TimeSpan.FromSeconds(10).TotalMilliseconds),
-            ConnectRetry = 5,
-            IncludeDetailInExceptions = true,
-            AbortOnConnectFail = true,
-            User = garnetOptions.UserName,
-            Password = garnetOptions.Password
-        };
-
-        if (Debugger.IsAttached)
-        {
-            configOptions.SyncTimeout = (int)TimeSpan.FromHours(2).TotalMilliseconds;
-            configOptions.AsyncTimeout = (int)TimeSpan.FromHours(2).TotalMilliseconds;
-        }
-
-        return configOptions;
     }
 }
