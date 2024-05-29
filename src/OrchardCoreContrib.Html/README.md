@@ -1,4 +1,4 @@
-# Content Preview Module
+# HTML Module
 
 This module enables content items to have rich content using Grapes JS.
 
