@@ -9,6 +9,7 @@ using OrchardCore.Navigation;
 using OrchardCoreContrib.ContentLocalization.Controllers;
 using OrchardCoreContrib.ContentLocalization.Services;
 using System;
+using OrchardCoreContrib.ContentLocalization.Extensions;
 
 namespace OrchardCoreContrib.ContentLocalization
 {
@@ -29,6 +30,7 @@ namespace OrchardCoreContrib.ContentLocalization
             services.AddScoped<INavigationProvider, AdminMenu>();
             services.AddScoped<IContentLocalizationManager, DefaultContentLocalizationManager>();
             services.AddScoped<ITransliterationService, TransliterationService>();
+            services.AddLiquidFilters();
         }
 
         public override void Configure(IApplicationBuilder builder, IEndpointRouteBuilder routes, IServiceProvider serviceProvider)
@@ -50,6 +52,7 @@ namespace OrchardCoreContrib.ContentLocalization
             services.AddTransliteration();
 
             services.AddScoped<ITransliterationService, TransliterationService>();
+            services.AddLiquidFilters();
         }
     }
 }
