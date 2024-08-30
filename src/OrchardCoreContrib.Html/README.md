@@ -43,4 +43,4 @@ Content Management
 5. Add `HtmlBody` to your content type.
 6. Now you can use GrapesJS editor.
 
-**note:** uncheck "Sanitize Html" on the Html Part to retain styling
+**note:** Uncheck "Sanitize Html" on the HTML part to retain styling
