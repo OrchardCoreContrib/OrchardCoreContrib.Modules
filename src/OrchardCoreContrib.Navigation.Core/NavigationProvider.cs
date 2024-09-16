@@ -18,7 +18,7 @@ public abstract class NavigationProvider : INavigationProvider
         return Task.CompletedTask;
     }
 
-    public async Task BuildNavigationAsync(string name, NavigationBuilder builder)
+    public async ValueTask BuildNavigationAsync(string name, NavigationBuilder builder)
     {
         if (name.Equals(Name, StringComparison.OrdinalIgnoreCase))
         {
@@ -26,7 +26,7 @@ public abstract class NavigationProvider : INavigationProvider
         }
         else
         {
-            await Task.CompletedTask;
+            await ValueTask.CompletedTask;
         }      
     }
 }
