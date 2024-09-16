@@ -24,7 +24,7 @@
 
 	<ItemGroup>
 		<PackageReference Include="Microsoft.Garnet" Version="1.0.7" />
-		<PackageReference Include="OrchardCore.Abstractions" Version="1.8.3" />
+		<PackageReference Include="OrchardCore.Abstractions" Version="2.0.0" />
 	</ItemGroup>
 
 	<ItemGroup>
