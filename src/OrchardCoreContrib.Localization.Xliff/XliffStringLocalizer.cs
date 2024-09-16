@@ -128,7 +128,7 @@ public class XliffStringLocalizer : IStringLocalizer
             {
                 if (translation == null)
                 {
-                    var key = new CultureDictionaryRecordKey(name);
+                    var key = new CultureDictionaryRecordKey { MessageId = name };
                     translation = dictionary[key];
                 }
             }

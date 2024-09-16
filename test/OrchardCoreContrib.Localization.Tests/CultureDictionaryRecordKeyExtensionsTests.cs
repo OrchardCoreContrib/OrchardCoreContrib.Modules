@@ -1,4 +1,5 @@
 ﻿using OrchardCore.Localization;
+using System.Xml.Linq;
 using Xunit;
 
 namespace OrchardCoreContrib.Localization.Tests;
@@ -9,7 +10,11 @@ public class CultureDictionaryRecordKeyExtensionsTests
     public void GetMessageId()
     {
         // Arrange
-        var key = new CultureDictionaryRecordKey("MessageId", "Context");
+        var key = new CultureDictionaryRecordKey
+        {
+            MessageId = "MessageId",
+            Context = "Context"
+        };
 
         // Act
         var messageId = key.GetMessageId();
@@ -22,7 +27,11 @@ public class CultureDictionaryRecordKeyExtensionsTests
     public void GetContext()
     {
         // Arrange
-        var key = new CultureDictionaryRecordKey("MessageId", "Context");
+        var key = new CultureDictionaryRecordKey
+        {
+            MessageId = "MessageId",
+            Context = "Context"
+        };
 
         // Act
         var context = key.GetContext();

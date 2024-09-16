@@ -2,6 +2,7 @@
 using Moq;
 using OrchardCore.Localization;
 using System.Collections.Generic;
+using System.Xml.Linq;
 using Xunit;
 
 namespace OrchardCoreContrib.Localization.Xliff.Tests;
@@ -40,8 +41,8 @@ public class XliffFilesTranslationsProviderTests
         // Assert
         Assert.NotNull(cultureDictionary.Translations);
         Assert.Equal(3, cultureDictionary.Translations.Count);
-        Assert.Equal("Bonjour", cultureDictionary.Translations[new CultureDictionaryRecordKey("Hello")][0]);
-        Assert.Equal("Oui", cultureDictionary.Translations[new CultureDictionaryRecordKey("Yes")][0]);
-        Assert.Equal("Non", cultureDictionary.Translations[new CultureDictionaryRecordKey("No")][0]);
+        Assert.Equal("Bonjour", cultureDictionary.Translations[new CultureDictionaryRecordKey{ MessageId = "Hello" }][0]);
+        Assert.Equal("Oui", cultureDictionary.Translations[new CultureDictionaryRecordKey { MessageId = "Yes" }][0]);
+        Assert.Equal("Non", cultureDictionary.Translations[new CultureDictionaryRecordKey { MessageId = "No" }][0]);
     }
 }

@@ -11,10 +11,10 @@ internal class TestResourceStringProvider : IDataResourceStringProvider
     {
         var recordsKeys = new List<CultureDictionaryRecordKey>
         {
-            new("Article", "Content Type"),
-            new("Article", "Menu"),
-            new("First Name", "Content Field"),
-            new("Last Name", "Content Field")
+            new() { MessageId = "Article", Context = "Content Type" },
+            new() { MessageId = "Article", Context = "Menu" },
+            new() { MessageId = "First Name", Context = "Content Field" },
+            new() { MessageId = "Last Name", Context = "Content Field" }
         };
 
         return Task.FromResult(recordsKeys.AsEnumerable());
