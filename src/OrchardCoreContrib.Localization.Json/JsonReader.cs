@@ -7,8 +7,15 @@ using System.Threading.Tasks;
 
 namespace OrchardCoreContrib.Localization.Json;
 
+/// <summary>
+/// Reprensents a JSON reader.
+/// </summary>
 public class JsonReader
 {
+    /// <summary>
+    /// Parses a given JSON file.
+    /// </summary>
+    /// <param name="stream">The <see cref="Stream"/> to be parsed.</param>
     public async Task<IEnumerable<CultureDictionaryRecord>> ParseAsync(Stream stream)
     {
         Guard.ArgumentNotNull(stream, nameof(stream));

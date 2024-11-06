@@ -8,23 +8,16 @@ namespace OrchardCoreContrib.Localization.Xliff;
 /// <summary>
 /// Represents a provider that provides a translations for .XLIFF files.
 /// </summary>
-public class XliffFilesTranslationsProvider : ITranslationProvider
+/// <remarks>
+/// Initializes a new instance of the <see cref="XliffFilesTranslationsProvider"/> class.
+/// </remarks>
+/// <param name="localizationFileLocationProvider">The <see cref="ILocalizationFileLocationProvider"/>.</param>
+public class XliffFilesTranslationsProvider(ILocalizationFileLocationProvider localizationFileLocationProvider) : ITranslationProvider
 {
-    private readonly ILocalizationFileLocationProvider _localizationFilesLocationProvider;
-
-    /// <summary>
-    /// Initializes a new instance of the <see cref="XliffFilesTranslationsProvider"/> class.
-    /// </summary>
-    /// <param name="localizationFileLocationProvider">The <see cref="ILocalizationFileLocationProvider"/>.</param>
-    public XliffFilesTranslationsProvider(ILocalizationFileLocationProvider localizationFileLocationProvider)
-    {
-        _localizationFilesLocationProvider = localizationFileLocationProvider;
-    }
-
     /// <inheritdocs />
     public void LoadTranslations(string cultureName, CultureDictionary dictionary)
     {
-        foreach (var fileInfo in _localizationFilesLocationProvider.GetLocations(cultureName))
+        foreach (var fileInfo in localizationFileLocationProvider.GetLocations(cultureName))
         {
             LoadFileToDictionaryAsync(fileInfo, dictionary).GetAwaiter().GetResult();
         }

@@ -12,25 +12,16 @@ namespace OrchardCoreContrib.Localization.Data;
 /// <summary>
 /// Represents a resource manager that provides convenient access to culture-specific resources from the data store.
 /// </summary>
-public class DataResourceManager
+/// <remarks>
+/// Initializes a new instance of <see cref="DataResourceManager"/>.
+/// </remarks>
+/// <param name="translationProvider">The <see cref="IDataTranslationProvider"/>.</param>
+/// <param name="cache">The <see cref="IMemoryCache"/>.</param>
+public class DataResourceManager(IDataTranslationProvider translationProvider, IMemoryCache cache)
 {
     private const string CacheKeyPrefix = "OCC-CultureDictionary-";
 
     private static readonly PluralizationRuleDelegate NoPluralRule = n => 0;
-
-    private readonly IDataTranslationProvider _translationProvider;
-    private readonly IMemoryCache _cache;
-
-    /// <summary>
-    /// Initializes a new instance of <see cref="DataResourceManager"/>.
-    /// </summary>
-    /// <param name="translationProvider">The <see cref="IDataTranslationProvider"/>.</param>
-    /// <param name="cache">The <see cref="IMemoryCache"/>.</param>
-    public DataResourceManager(IDataTranslationProvider translationProvider, IMemoryCache cache)
-    {
-        _translationProvider = translationProvider;
-        _cache = cache;
-    }
 
     /// <summary>
     /// Gets the resource value from a given name.
@@ -49,10 +40,7 @@ public class DataResourceManager
         Guard.ArgumentNotNullOrEmpty(name, nameof(name));
         Guard.ArgumentNotNullOrEmpty(context, nameof(context));
 
-        if (culture == null)
-        {
-            culture = CultureInfo.CurrentUICulture;
-        }
+        culture ??= CultureInfo.CurrentUICulture;
 
         string value = null;
         var dictionary = GetCultureDictionary(culture);
@@ -106,11 +94,11 @@ public class DataResourceManager
 
     private CultureDictionary GetCultureDictionary(CultureInfo culture)
     {
-        var cachedDictionary = _cache.GetOrCreate(CacheKeyPrefix + culture.Name, k => new Lazy<CultureDictionary>(() =>
+        var cachedDictionary = cache.GetOrCreate(CacheKeyPrefix + culture.Name, k => new Lazy<CultureDictionary>(() =>
         {
             var dictionary = new CultureDictionary(culture.Name, NoPluralRule);
 
-            _translationProvider.LoadTranslations(culture.Name, dictionary);
+            translationProvider.LoadTranslations(culture.Name, dictionary);
 
             return dictionary;
         }, LazyThreadSafetyMode.ExecutionAndPublication));

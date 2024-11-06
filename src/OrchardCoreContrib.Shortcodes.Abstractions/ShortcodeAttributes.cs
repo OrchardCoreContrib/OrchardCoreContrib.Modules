@@ -17,7 +17,7 @@ public class ShortcodeAttributes : IList<ShortcodeAttribute>
     /// </summary>
     public ShortcodeAttributes()
     {
-        _shortcodeAttributes = new List<ShortcodeAttribute>();
+        _shortcodeAttributes = [];
     }
 
     /// <summary>
@@ -37,7 +37,7 @@ public class ShortcodeAttributes : IList<ShortcodeAttribute>
     {
         Guard.ArgumentNotNull(attributes, nameof(attributes));
 
-        _shortcodeAttributes = new List<ShortcodeAttribute>();
+        _shortcodeAttributes = [];
 
         foreach (var attribute in attributes)
         {

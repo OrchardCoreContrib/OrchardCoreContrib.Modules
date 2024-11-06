@@ -17,7 +17,6 @@ public class ShortcodeAttribute : IHtmlContent
     /// <param name="name">The attribute name.</param>
     public ShortcodeAttribute(string name) : this(name, null)
     {
-
     }
 
     /// <summary>

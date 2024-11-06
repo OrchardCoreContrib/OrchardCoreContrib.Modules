@@ -2,13 +2,16 @@
 
 namespace OrchardCoreContrib.ContentLocalization.Transliteration;
 
+/// <summary>
+/// Represents a default implementation of the <see cref="ITransliterateRuleProvider"/>.
+/// </summary>
 public class DefaultTransliterateRuleProvider : ITransliterateRuleProvider
 {
     private static readonly Dictionary<TransliterateScript, TransliterationRuleDelegate> _rules;
 
     static DefaultTransliterateRuleProvider()
     {
-        _rules = new Dictionary<TransliterateScript, TransliterationRuleDelegate>();
+        _rules = [];
 
         AddRule(TransliterateScript.Arabic, () => new Dictionary<string, string>
         {
@@ -30,6 +33,7 @@ public class DefaultTransliterateRuleProvider : ITransliterateRuleProvider
         });
     }
 
+    /// <inheritdoc/>
     public bool TryGetRule(TransliterateScript script, out TransliterationRuleDelegate rule)
     {
         if (_rules.TryGetValue(script, out rule))
@@ -41,7 +45,5 @@ public class DefaultTransliterateRuleProvider : ITransliterateRuleProvider
     }
 
     private static void AddRule(TransliterateScript script, TransliterationRuleDelegate rule)
-    {
-        _rules.Add(script, rule);
-    }
+        => _rules.Add(script, rule);
 }

@@ -15,7 +15,6 @@ public class ArgumentNullOrEmptyException : ArgumentNullException
     public ArgumentNullOrEmptyException()
         : base(_argumentNullOrEmptyExceptionMessage, null as Exception)
     {
-
     }
 
     /// <summary>
@@ -25,7 +24,6 @@ public class ArgumentNullOrEmptyException : ArgumentNullException
     public ArgumentNullOrEmptyException(string paramName)
         : base(paramName, _argumentNullOrEmptyExceptionMessage)
     {
-
     }
 
     /// <summary>
@@ -36,6 +34,5 @@ public class ArgumentNullOrEmptyException : ArgumentNullException
     public ArgumentNullOrEmptyException(string paramName, string message)
         : base(paramName, message)
     {
-
     }
 }

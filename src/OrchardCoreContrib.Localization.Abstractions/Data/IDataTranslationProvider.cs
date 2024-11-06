@@ -7,5 +7,4 @@ namespace OrchardCoreContrib.Localization.Data;
 /// </summary>
 public interface IDataTranslationProvider : ITranslationProvider
 {
-
 }

@@ -10,24 +10,14 @@ namespace OrchardCoreContrib.Localization.Data;
 /// <summary>
 /// Represents a localizer for dynamic data.
 /// </summary>
-public class DataLocalizer : IDataLocalizer
+/// <remarks>
+/// Initializes a new instance of <see cref="DataLocalizer"/>.
+/// </remarks>
+/// <param name="_dataResourceManager">The <see cref="DataResourceManager"/>.</param>
+/// <param name="fallBackToParentCulture">Whether able to fallback to the parent culture.</param>
+/// <param name="logger">The <see cref="Ilogger"/>.</param>
+public class DataLocalizer(DataResourceManager dataResourceManager, bool fallBackToParentCulture, ILogger logger) : IDataLocalizer
 {
-    private readonly DataResourceManager _dataResourceManager;
-    private readonly bool _fallBackToParentCulture;
-    private readonly ILogger _logger;
-
-    /// <summary>
-    /// Initializes a new instance of <see cref="DataLocalizer"/>.
-    /// </summary>
-    /// <param name="_dataResourceManager">The <see cref="DataResourceManager"/>.</param>
-    /// <param name="fallBackToParentCulture">Whether able to fallback to the parent culture.</param>
-    /// <param name="logger">The <see cref="Ilogger"/>.</param>
-    public DataLocalizer(DataResourceManager dataResourceManager, bool fallBackToParentCulture, ILogger logger)
-    {
-        _dataResourceManager = dataResourceManager;
-        _fallBackToParentCulture = fallBackToParentCulture;
-        _logger = logger;
-    }
 
     /// <inheritdoc/>
     public DataLocalizedString this[string name, string context]
@@ -61,7 +51,7 @@ public class DataLocalizer : IDataLocalizer
     {
         var culture = CultureInfo.CurrentUICulture;
 
-        var translations = _dataResourceManager.GetResources(culture, includeParentCultures);
+        var translations = dataResourceManager.GetResources(culture, includeParentCultures);
 
         foreach (var translation in translations)
         {
@@ -74,11 +64,11 @@ public class DataLocalizer : IDataLocalizer
         string translation = null;
         try
         {
-            if (_fallBackToParentCulture)
+            if (fallBackToParentCulture)
             {
                 do
                 {
-                    translation = _dataResourceManager.GetString(name, context, culture);
+                    translation = dataResourceManager.GetString(name, context, culture);
 
                     if (translation != null)
                     {
@@ -91,12 +81,12 @@ public class DataLocalizer : IDataLocalizer
             }
             else
             {
-                translation = _dataResourceManager.GetString(name, context);
+                translation = dataResourceManager.GetString(name, context);
             }
         }
         catch (PluralFormNotFoundException ex)
         {
-            _logger.LogWarning(ex.Message);
+            logger.LogWarning(ex.Message);
         }
 
         return translation;

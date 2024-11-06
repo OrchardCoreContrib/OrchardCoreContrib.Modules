@@ -3,7 +3,7 @@
 namespace Microsoft.Extensions.DependencyInjection;
 
 /// <summary>
-/// Provides an extension method for <see cref="OrchardCoreBuilder"/>.
+/// Provides an extension methods for <see cref="OrchardCoreBuilder"/>.
 /// </summary>
 public static class OrchardCoreBuilderExtensions
 {

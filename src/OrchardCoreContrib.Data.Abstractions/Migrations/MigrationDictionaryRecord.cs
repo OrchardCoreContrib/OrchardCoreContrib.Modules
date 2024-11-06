@@ -1,19 +1,24 @@
 ﻿namespace OrchardCoreContrib.Data.Migrations;
 
-public class MigrationDictionaryRecord
+/// <summary>
+/// Represents a record for a migration dictionary.
+/// </summary>
+public class MigrationDictionaryRecord(long id, bool skip, IMigration migration)
 {
-    private readonly Lazy<IMigration> _migration;
+    private readonly Lazy<IMigration> _migration = new(migration);
 
-    public MigrationDictionaryRecord(long id, bool skip, IMigration migration)
-    {
-        Id = id;
-        Skip = skip;
-        _migration = new Lazy<IMigration>(migration);
-    }
+    /// <summary>
+    /// Gets the migration identifier.
+    /// </summary>
+    public long Id { get; } = id;
 
-    public long Id { get; }
+    /// <summary>
+    /// Checks if the migration should be skipped.
+    /// </summary>
+    public bool Skip { get; } = skip;
 
-    public bool Skip { get; }
-
+    /// <summary>
+    /// Gets the migration.
+    /// </summary>
     public IMigration Migration => _migration.Value;
 }

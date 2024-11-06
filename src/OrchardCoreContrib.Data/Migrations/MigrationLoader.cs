@@ -1,18 +1,15 @@
 ﻿namespace OrchardCoreContrib.Data.Migrations;
 
-public class MigrationLoader : IMigrationLoader
+/// <summary>
+/// Represents a migration loader.
+/// </summary>
+public class MigrationLoader(IEnumerable<IMigration> migrations) : IMigrationLoader
 {
-    private readonly IEnumerable<IMigration> _migrations;
-
-    public MigrationLoader(IEnumerable<IMigration> migrations)
-    {
-        _migrations = migrations;
-    }
-
+    /// <inheritdoc/>
     public MigrationDictionary LoadMigrations()
     {
-        var migrations = new MigrationDictionary();
-        foreach (var migration in _migrations)
+        var migrationDictionary = new MigrationDictionary();
+        foreach (var migration in migrations)
         {
             var migrationInfo = migration.GetMigrationInfo();
             if (migrationInfo is null)
@@ -23,9 +20,9 @@ public class MigrationLoader : IMigrationLoader
             var record = new MigrationDictionaryRecord(migrationInfo.Id, migrationInfo.Skip, migration);
             var migrationModuleId = migration.GetMigrationModuleId();
 
-            migrations.Add(migrationModuleId, record);
+            migrationDictionary.Add(migrationModuleId, record);
         }
 
-        return migrations;
+        return migrationDictionary;
     }
 }

@@ -17,7 +17,7 @@ public abstract class OpenApiDefinition : IOpenApiDefinition
     public abstract string Version { get; }
 
     /// <inheritdoc/>
-    public OpenApiInfo Info => new OpenApiInfo
+    public OpenApiInfo Info => new()
     {
         Version = Version,
         Title = Name,

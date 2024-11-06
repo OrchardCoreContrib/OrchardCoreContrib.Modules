@@ -5,29 +5,19 @@ using YesSql;
 
 namespace OrchardCoreContrib.Data.YesSql.Migrations;
 
-public class YesSqlMigrationRunner : IMigrationRunner
+/// <summary>
+/// Represents a runner for YesSql migrations.
+/// </summary>
+public class YesSqlMigrationRunner(
+    IMigrationLoader migrationLoader,
+    IMigrationsHistory migrationsHistory,
+    ISession session,
+    IEnumerable<IMigrationEventHandler> migrationEventHandlers,
+    ILogger<YesSqlMigrationRunner> logger) : IMigrationRunner
 {
-    private readonly MigrationDictionary _migrations;
-    private readonly IMigrationsHistory _migrationsHistory;
-    private readonly ISession _session;
-    private readonly IEnumerable<IMigrationEventHandler> _migrationEventHandlers;
-    private readonly ILogger<YesSqlMigrationRunner> _logger;
+    private readonly MigrationDictionary _migrations = migrationLoader.LoadMigrations();
 
-    public YesSqlMigrationRunner(
-        IMigrationLoader migrationLoader,
-        IMigrationsHistory migrationsHistory,
-        ISession session,
-        IEnumerable<IMigrationEventHandler> migrationEventHandlers,
-        ILogger<YesSqlMigrationRunner> logger)
-    {
-        _migrationsHistory = migrationsHistory;
-        _session = session;
-        _migrationEventHandlers = migrationEventHandlers;
-        _logger = logger;
-
-        _migrations = migrationLoader.LoadMigrations();
-    }
-
+    /// <inheritdoc/>
     public async Task MigrateAsync(string moduleId, long targetMigrationId = 0)
     {
         var pendingMigrations = await GetPendingMigrationsAsync();
@@ -38,12 +28,12 @@ public class YesSqlMigrationRunner : IMigrationRunner
 
             if (migrationRecord.Skip)
             {
-                _logger.LogWarning("Skipping the migration '{migration}'.", migrationClass);
+                logger.LogWarning("Skipping the migration '{migration}'.", migrationClass);
 
                 continue;
             }
 
-            _migrationsHistory.DataMigrationRecord.DataMigrations.Add(new MigrationsHistoryRow
+            migrationsHistory.DataMigrationRecord.DataMigrations.Add(new MigrationsHistoryRow
             {
                 Id = migrationRecord.Id,
                 DataMigrationClass = migrationClass
@@ -51,23 +41,23 @@ public class YesSqlMigrationRunner : IMigrationRunner
 
             try
             {
-                _logger.LogInformation("Running the migration '{migration}'.", migrationClass);
+                logger.LogInformation("Running the migration '{migration}'.", migrationClass);
 
-                await _migrationEventHandlers.InvokeAsync((handler, migration)
-                    => handler.MigratingAsync(migration), migrationRecord.Migration, _logger);
+                await migrationEventHandlers.InvokeAsync((handler, migration)
+                    => handler.MigratingAsync(migration), migrationRecord.Migration, logger);
 
                 migrationRecord.Migration.Up();
 
-                await _migrationEventHandlers.InvokeAsync((handler, migration)
-                    => handler.MigratedAsync(migration), migrationRecord.Migration, _logger);
+                await migrationEventHandlers.InvokeAsync((handler, migration)
+                    => handler.MigratedAsync(migration), migrationRecord.Migration, logger);
             }
             catch
             {
-                await _session.CancelAsync();
+                await session.CancelAsync();
             }
             finally
             {
-                await _session.SaveAsync(_migrationsHistory.DataMigrationRecord);
+                await session.SaveAsync(migrationsHistory.DataMigrationRecord);
             }
 
             if (migrationRecord.Id == targetMigrationId)
@@ -77,9 +67,10 @@ public class YesSqlMigrationRunner : IMigrationRunner
         }
     }
 
+    /// <inheritdoc/>
     public async Task RollbackAsync(string moduleId, long targetMigrationId = 0)
     {
-        var appliedMigrations = (await _migrationsHistory.GetAppliedMigrationsAsync())
+        var appliedMigrations = (await migrationsHistory.GetAppliedMigrationsAsync())
             .Where(m => m.DataMigrationClass.StartsWith(moduleId))
             .Reverse();
 
@@ -92,25 +83,25 @@ public class YesSqlMigrationRunner : IMigrationRunner
             {
                 try
                 {
-                    _logger.LogInformation("Rolling back the migration '{migration}'.", migrationRow.DataMigrationClass);
+                    logger.LogInformation("Rolling back the migration '{migration}'.", migrationRow.DataMigrationClass);
 
-                    await _migrationEventHandlers.InvokeAsync((handler, migration)
-                        => handler.RollbackingAsync(migration), migrationRecord.Migration, _logger);
+                    await migrationEventHandlers.InvokeAsync((handler, migration)
+                        => handler.RollbackingAsync(migration), migrationRecord.Migration, logger);
 
                     migrationRecord.Migration.Down();
 
-                    await _migrationEventHandlers.InvokeAsync((handler, migration)
-                        => handler.RollbackedAsync(migration), migrationRecord.Migration, _logger);
+                    await migrationEventHandlers.InvokeAsync((handler, migration)
+                        => handler.RollbackedAsync(migration), migrationRecord.Migration, logger);
 
-                    _migrationsHistory.DataMigrationRecord.DataMigrations.Remove(migrationRow);
+                    migrationsHistory.DataMigrationRecord.DataMigrations.Remove(migrationRow);
                 }
                 catch
                 {
-                    await _session.CancelAsync();
+                    await session.CancelAsync();
                 }
                 finally
                 {
-                    await _session.SaveAsync(_migrationsHistory.DataMigrationRecord);
+                    await session.SaveAsync(migrationsHistory.DataMigrationRecord);
                 }
 
                 if (migrationRecord.Id == targetMigrationId)
@@ -125,7 +116,7 @@ public class YesSqlMigrationRunner : IMigrationRunner
     {
         var migrations = new MigrationDictionary();
 
-        var appliedMigrations = await _migrationsHistory.GetAppliedMigrationsAsync();
+        var appliedMigrations = await migrationsHistory.GetAppliedMigrationsAsync();
 
         var hasAppliedMigrations = appliedMigrations.Any();
         

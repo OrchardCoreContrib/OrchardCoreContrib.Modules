@@ -10,10 +10,7 @@ public abstract class AccentMapperBase : IAccentMapper
     /// <summary>
     /// Initializes a new instance of a <see cref="AccentMapperBase"/>.
     /// </summary>
-    protected AccentMapperBase()
-    {
-        Mapping = new AccentDictionary(Culture.Name);
-    }
+    protected AccentMapperBase() => Mapping = new AccentDictionary(Culture.Name);
 
     /// <inheritdoc/>
     public abstract CultureInfo Culture { get; }

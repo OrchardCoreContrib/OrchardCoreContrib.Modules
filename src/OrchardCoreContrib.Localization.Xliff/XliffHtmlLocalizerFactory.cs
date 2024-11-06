@@ -7,24 +7,17 @@ namespace OrchardCoreContrib.Localization.Xliff;
 /// <summary>
 /// Represents an <see cref="IHtmlLocalizerFactory"/> for XLIFF.
 /// </summary>
-public class XliffHtmlLocalizerFactory : IHtmlLocalizerFactory
+/// <remarks>
+/// Initializes a new instance of the <see cref="XliffHtmlLocalizerFactory"/> class.
+/// </remarks>
+/// <param name="stringLocalizerFactory">The <see cref="IStringLocalizerFactory"/>.</param>
+public class XliffHtmlLocalizerFactory(IStringLocalizerFactory stringLocalizerFactory) : IHtmlLocalizerFactory
 {
-    private readonly IStringLocalizerFactory _stringLocalizerFactory;
-
-    /// <summary>
-    /// Initializes a new instance of the <see cref="XliffHtmlLocalizerFactory"/> class.
-    /// </summary>
-    /// <param name="stringLocalizerFactory">The <see cref="IStringLocalizerFactory"/>.</param>
-    public XliffHtmlLocalizerFactory(IStringLocalizerFactory stringLocalizerFactory)
-    {
-        _stringLocalizerFactory = stringLocalizerFactory;
-    }
-
     /// <inheritdocs />
     public IHtmlLocalizer Create(string baseName, string location)
-        => new XliffHtmlLocalizer(_stringLocalizerFactory.Create(baseName, location));
+        => new XliffHtmlLocalizer(stringLocalizerFactory.Create(baseName, location));
 
     /// <inheritdocs />
     public IHtmlLocalizer Create(Type resourceSource)
-        => new XliffHtmlLocalizer(_stringLocalizerFactory.Create(resourceSource));
+        => new XliffHtmlLocalizer(stringLocalizerFactory.Create(resourceSource));
 }

@@ -10,23 +10,15 @@ namespace OrchardCoreContrib.Localization.Xliff;
 /// <summary>
 /// Represents <see cref="IStringLocalizer"/> for XLIFF.
 /// </summary>
-public class XliffStringLocalizer : IStringLocalizer
+/// <remarks>
+/// Creates a new instance of <see cref="PortableObjectStringLocalizer"/>.
+/// </remarks>
+/// <param name="localizationManager">The <see cref="ILocalizationManager"/>.</param>
+/// <param name="fallBackToParentCulture">Whether fallback to the parent culture.</param>
+public class XliffStringLocalizer(
+    ILocalizationManager localizationManager,
+    bool fallBackToParentCulture) : IStringLocalizer
 {
-    private readonly ILocalizationManager _localizationManager;
-    private readonly bool _fallBackToParentCulture;
-
-    /// <summary>
-    /// Creates a new instance of <see cref="PortableObjectStringLocalizer"/>.
-    /// </summary>
-    /// <param name="localizationManager">The <see cref="ILocalizationManager"/>.</param>
-    /// <param name="fallBackToParentCulture">Whether fallback to the parent culture.</param>
-    public XliffStringLocalizer(
-        ILocalizationManager localizationManager,
-        bool fallBackToParentCulture)
-    {
-        _localizationManager = localizationManager;
-        _fallBackToParentCulture = fallBackToParentCulture;
-    }
 
     /// <inheritdocs />
     public LocalizedString this[string name]
@@ -65,7 +57,7 @@ public class XliffStringLocalizer : IStringLocalizer
 
     private IEnumerable<LocalizedString> GetAllStrings(CultureInfo culture)
     {
-        var dictionary = _localizationManager.GetDictionary(culture);
+        var dictionary = localizationManager.GetDictionary(culture);
 
         foreach (var translation in dictionary.Translations)
         {
@@ -102,7 +94,7 @@ public class XliffStringLocalizer : IStringLocalizer
     private string GetTranslation(string name, CultureInfo culture)
     {
         string translation = null;
-        if (_fallBackToParentCulture)
+        if (fallBackToParentCulture)
         {
             do
             {
@@ -122,7 +114,7 @@ public class XliffStringLocalizer : IStringLocalizer
 
         string ExtractTranslation()
         {
-            var dictionary = _localizationManager.GetDictionary(culture);
+            var dictionary = localizationManager.GetDictionary(culture);
 
             if (dictionary != null)
             {

@@ -16,7 +16,6 @@ public class DataLocalizedString
     public DataLocalizedString(string name, string context, string value)
         : this(name, context, value, resourceNotFound: false)
     {
-
     }
 
     /// <summary>

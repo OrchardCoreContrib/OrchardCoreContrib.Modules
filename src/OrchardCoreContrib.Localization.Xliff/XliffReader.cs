@@ -9,8 +9,16 @@ using System.Xml.Linq;
 
 namespace OrchardCoreContrib.Localization.Xliff;
 
+/// <summary>
+/// Represents an XLIFF reader.
+/// </summary>
 public class XliffReader
 {
+    /// <summary>
+    /// Parses a given XLIFF file.
+    /// </summary>
+    /// <param name="stream">The <see cref="Stream"/> to be parsed.</param>
+    /// <exception cref="XliffException"></exception>
     public static async Task<IEnumerable<CultureDictionaryRecord>> ParseAsync(Stream stream)
     {
         Guard.ArgumentNotNull(stream, nameof(stream));

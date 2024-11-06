@@ -3,31 +3,29 @@ using YesSql;
 
 namespace OrchardCoreContrib.Data.Migrations;
 
-public class YesSqlMigrationsHistory : IMigrationsHistory
+/// <summary>
+/// Represents a history for YesSql migrations.
+/// </summary>
+public class YesSqlMigrationsHistory(ISession session) : IMigrationsHistory
 {
-    private readonly ISession _session;
-
     private DataMigrationRecord _dataMigrationRecord;
 
-    public YesSqlMigrationsHistory(ISession session)
-    {
-        _session = session;
-    }
-
+    /// <inheritdoc/>
     public DataMigrationRecord DataMigrationRecord => _dataMigrationRecord;
 
+    /// <inheritdoc/>
     public async Task<IReadOnlyList<MigrationsHistoryRow>> GetAppliedMigrationsAsync()
     {
         if (_dataMigrationRecord == null)
         {
-            _dataMigrationRecord = await _session
+            _dataMigrationRecord = await session
                 .Query<DataMigrationRecord>()
                 .FirstOrDefaultAsync();
 
             if (_dataMigrationRecord == null)
             {
                 _dataMigrationRecord = new DataMigrationRecord();
-                await _session.SaveAsync(_dataMigrationRecord);
+                await session.SaveAsync(_dataMigrationRecord);
             }
         }
 

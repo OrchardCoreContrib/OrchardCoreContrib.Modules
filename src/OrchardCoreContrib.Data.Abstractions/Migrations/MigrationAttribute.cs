@@ -1,15 +1,18 @@
 ﻿namespace OrchardCoreContrib.Data.Migrations;
 
+/// <summary>
+/// Represents a migration attribute.
+/// </summary>
 [AttributeUsage(AttributeTargets.Class, AllowMultiple = false, Inherited = false)]
-public class MigrationAttribute : Attribute
+public class MigrationAttribute(long id, bool skip = false) : Attribute
 {
-	public MigrationAttribute(long id, bool skip = false)
-	{
-        Id = id;
-        Skip = skip;
-    }
+    /// <summary>
+    /// Gets the migration identifier.
+    /// </summary>
+    public long Id { get; } = id;
 
-    public long Id { get; }
-
-    public bool Skip { get; set; }
+    /// <summary>
+    /// Checks if the migration should be skipped.
+    /// </summary>
+    public bool Skip { get; set; } = skip;
 }

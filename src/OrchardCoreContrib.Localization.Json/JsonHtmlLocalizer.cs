@@ -6,18 +6,13 @@ namespace OrchardCoreContrib.Localization.Json;
 /// <summary>
 /// Represents an <see cref="HtmlLocalizer"/> for JSON.
 /// </summary>
-public class JsonHtmlLocalizer : HtmlLocalizer
+/// <remarks>
+/// Initializes a new instance of the <see cref="JsonHtmlLocalizer"/> class.
+/// </remarks>
+/// <param name="localizer">The <see cref="IStringLocalizer"/>.</param>
+public class JsonHtmlLocalizer(IStringLocalizer localizer) : HtmlLocalizer(localizer)
 {
-    private readonly IStringLocalizer _localizer;
-
-    /// <summary>
-    /// Initializes a new instance of the <see cref="JsonHtmlLocalizer"/> class.
-    /// </summary>
-    /// <param name="localizer">The <see cref="IStringLocalizer"/>.</param>
-    public JsonHtmlLocalizer(IStringLocalizer localizer) : base(localizer)
-    {
-        _localizer = localizer;
-    }
+    private readonly IStringLocalizer _localizer = localizer;
 
     /// <inheritdocs />
     public override LocalizedHtmlString this[string name] => ToHtmlString(_localizer[name]);

@@ -5,7 +5,9 @@ namespace OrchardCoreContrib.Localization;
 /// <summary>
 /// Represents a wrapper for <see cref="CultureDictionary"/>.
 /// </summary>
-public class CultureDictionaryRecordWrapper : CultureDictionaryRecord
+/// <inheritdocs />
+public class CultureDictionaryRecordWrapper(string messageId, string context, string[] translations)
+    : CultureDictionaryRecord(messageId, context, translations)
 {
     /// <summary>
     /// Initializes a new instance of the <see cref="CultureDictionaryRecordWrapper"/> class.
@@ -14,12 +16,6 @@ public class CultureDictionaryRecordWrapper : CultureDictionaryRecord
     /// <param name="translations">a list of translations.</param>
     public CultureDictionaryRecordWrapper(string messageId, params string[] translations)
         : this(messageId, null, translations)
-    {
-    }
-
-    /// <inheritdocs />
-    public CultureDictionaryRecordWrapper(string messageId, string context, string[] translations)
-        : base(messageId, context, translations)
     {
     }
 }

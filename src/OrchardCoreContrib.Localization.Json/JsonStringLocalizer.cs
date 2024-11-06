@@ -11,27 +11,17 @@ namespace OrchardCoreContrib.Localization.Json;
 /// <summary>
 /// Represents <see cref="IStringLocalizer"/> for json.
 /// </summary>
-public class JsonStringLocalizer : IStringLocalizer
+/// <remarks>
+/// Creates a new instance of <see cref="PortableObjectStringLocalizer"/>.
+/// </remarks>
+/// <param name="localizationManager">The <see cref="ILocalizationManager"/>.</param>
+/// <param name="fallBackToParentCulture"></param>
+/// <param name="logger">The <see cref="ILogger"/>.</param>
+public class JsonStringLocalizer(
+    ILocalizationManager localizationManager,
+    bool fallBackToParentCulture,
+    ILogger logger) : IStringLocalizer
 {
-    private readonly ILocalizationManager _localizationManager;
-    private readonly bool _fallBackToParentCulture;
-    private readonly ILogger _logger;
-
-    /// <summary>
-    /// Creates a new instance of <see cref="PortableObjectStringLocalizer"/>.
-    /// </summary>
-    /// <param name="localizationManager">The <see cref="ILocalizationManager"/>.</param>
-    /// <param name="fallBackToParentCulture"></param>
-    /// <param name="logger">The <see cref="ILogger"/>.</param>
-    public JsonStringLocalizer(
-        ILocalizationManager localizationManager,
-        bool fallBackToParentCulture,
-        ILogger logger)
-    {
-        _localizationManager = localizationManager;
-        _fallBackToParentCulture = fallBackToParentCulture;
-        _logger = logger;
-    }
 
     /// <inheritdocs />
     public LocalizedString this[string name]
@@ -70,7 +60,7 @@ public class JsonStringLocalizer : IStringLocalizer
 
     private IEnumerable<LocalizedString> GetAllStrings(CultureInfo culture)
     {
-        var dictionary = _localizationManager.GetDictionary(culture);
+        var dictionary = localizationManager.GetDictionary(culture);
 
         foreach (var translation in dictionary.Translations)
         {
@@ -107,7 +97,7 @@ public class JsonStringLocalizer : IStringLocalizer
     private string GetTranslation(string name, CultureInfo culture)
     {
         string translation = null;
-        if (_fallBackToParentCulture)
+        if (fallBackToParentCulture)
         {
             do
             {
@@ -127,7 +117,7 @@ public class JsonStringLocalizer : IStringLocalizer
 
         string ExtractTranslation()
         {
-            var dictionary = _localizationManager.GetDictionary(culture);
+            var dictionary = localizationManager.GetDictionary(culture);
 
             if (dictionary != null)
             {

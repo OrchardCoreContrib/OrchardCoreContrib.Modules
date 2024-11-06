@@ -2,21 +2,34 @@
 
 namespace OrchardCoreContrib.Data.Migrations;
 
+/// <summary>
+/// Represents a dictionary of migrations.
+/// </summary>
 public class MigrationDictionary : IEnumerable<MigrationDictionaryRecord>
 {
     private readonly Dictionary<string, List<MigrationDictionaryRecord>> _modulesMigrations;
 
     public MigrationDictionary()
     {
-        _modulesMigrations = new();
+        _modulesMigrations = [];
     }
 
+    /// <summary>
+    /// Gets the module ids.
+    /// </summary>
     public ICollection<string> ModuleIds => _modulesMigrations.Keys;
 
+    /// <summary>
+    /// Gets the migrations.
+    /// </summary>
     public ICollection<MigrationDictionaryRecord> Migrations => _modulesMigrations.Values
         .SelectMany(m => m)
         .ToList();
 
+    /// <summary>
+    /// Gets the migrations for the specified module id.
+    /// </summary>
+    /// <param name="moduleId">The module identifier.</param>
     public List<MigrationDictionaryRecord> this[string moduleId]
     {
         get
@@ -27,16 +40,23 @@ public class MigrationDictionary : IEnumerable<MigrationDictionaryRecord>
         }
     }
 
+    /// <summary>
+    /// Adds a migration.
+    /// </summary>
+    /// <param name="moduleId">The module identifier.</param>
+    /// <param name="migration">The migration record.</param>
     public void Add(string moduleId, MigrationDictionaryRecord migration)
     {
-        if (!_modulesMigrations.ContainsKey(moduleId))
+        if (!_modulesMigrations.TryGetValue(moduleId, out List<MigrationDictionaryRecord> value))
         {
-            _modulesMigrations.Add(moduleId, new List<MigrationDictionaryRecord>());
+            value = ([]);
+            _modulesMigrations.Add(moduleId, value);
         }
 
-        _modulesMigrations[moduleId].Add(migration);
+        value.Add(migration);
     }
 
+    /// <inheritdoc/>
     public IEnumerator<MigrationDictionaryRecord> GetEnumerator()
     {
         foreach (var value in _modulesMigrations.Values)
@@ -48,5 +68,6 @@ public class MigrationDictionary : IEnumerable<MigrationDictionaryRecord>
         }
     }
 
+    /// <inheritdoc/>
     IEnumerator IEnumerable.GetEnumerator() => GetEnumerator();
 }
