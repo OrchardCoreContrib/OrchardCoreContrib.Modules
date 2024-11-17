@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace OrchardCoreContrib.Localization.Diacritics;
+﻿namespace OrchardCoreContrib.Localization.Diacritics;
 
 /// <summary>
 /// Represents a record within <see cref="AccentDictionary"/>.

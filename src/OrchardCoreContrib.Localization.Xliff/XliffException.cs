@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace OrchardCoreContrib.Localization.Xliff;
+﻿namespace OrchardCoreContrib.Localization.Xliff;
 
 /// <summary>
 /// Represents errors that occur during dealing with an XLIFF file.

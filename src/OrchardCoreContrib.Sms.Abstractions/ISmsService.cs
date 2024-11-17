@@ -1,6 +1,4 @@
-﻿using System.Threading.Tasks;
-
-namespace OrchardCoreContrib.Sms;
+﻿namespace OrchardCoreContrib.Sms;
 
 /// <summary>
 /// Represents a contract for SMS service.

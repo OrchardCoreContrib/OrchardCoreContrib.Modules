@@ -1,8 +1,6 @@
 ﻿using Microsoft.Extensions.Logging;
 using OrchardCore.Localization;
 using OrchardCoreContrib.Infrastructure;
-using System;
-using System.Collections.Generic;
 using System.Globalization;
 
 namespace OrchardCoreContrib.Localization.Data;

@@ -1,6 +1,4 @@
-﻿using System.Collections.Generic;
-
-namespace OrchardCoreContrib.Localization.Data;
+﻿namespace OrchardCoreContrib.Localization.Data;
 
 /// <summary>
 /// Represents a contract for localizing dynamic data.

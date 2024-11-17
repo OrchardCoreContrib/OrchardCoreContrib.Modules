@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace OrchardCoreContrib.Shortcodes;
+﻿namespace OrchardCoreContrib.Shortcodes;
 
 /// <summary>
 /// Provides an <see cref="IShortcode"/>'s target.

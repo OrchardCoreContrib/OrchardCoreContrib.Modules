@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace OrchardCoreContrib;
+﻿namespace OrchardCoreContrib;
 
 /// <summary>
 /// The exception that is thrown when a <see langword="null" /> reference or empty value is passed to a method that does not accept it as a valid argument.

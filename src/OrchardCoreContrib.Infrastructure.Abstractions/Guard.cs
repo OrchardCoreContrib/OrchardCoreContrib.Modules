@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace OrchardCoreContrib.Infrastructure;
+﻿namespace OrchardCoreContrib.Infrastructure;
 
 /// <summary>
 /// Represents an argument checker.

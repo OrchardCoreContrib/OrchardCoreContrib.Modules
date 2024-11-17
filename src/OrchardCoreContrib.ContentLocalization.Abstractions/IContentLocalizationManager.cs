@@ -1,7 +1,4 @@
-﻿using System.Collections.Generic;
-using System.Threading.Tasks;
-
-namespace OrchardCoreContrib.ContentLocalization;
+﻿namespace OrchardCoreContrib.ContentLocalization;
 
 /// <summary>
 /// Represents a contract for managing the localization content.

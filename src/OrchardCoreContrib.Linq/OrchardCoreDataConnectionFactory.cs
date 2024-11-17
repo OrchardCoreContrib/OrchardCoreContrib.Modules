@@ -1,6 +1,5 @@
 ﻿using LinqToDB;
 using LinqToDB.Data;
-using System;
 using YesSql;
 
 namespace OrchardCoreContrib.Linq;

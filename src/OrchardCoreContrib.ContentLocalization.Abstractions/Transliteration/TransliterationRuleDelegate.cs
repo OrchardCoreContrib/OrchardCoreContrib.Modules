@@ -1,6 +1,4 @@
-﻿using System.Collections.Generic;
-
-namespace OrchardCoreContrib.ContentLocalization.Transliteration;
+﻿namespace OrchardCoreContrib.ContentLocalization.Transliteration;
 
 /// <summary>
 /// Represensts a delegate for transliteration rule.

@@ -1,6 +1,4 @@
-﻿using System.Collections.Generic;
-
-namespace OrchardCoreContrib.ContentLocalization.Transliteration;
+﻿namespace OrchardCoreContrib.ContentLocalization.Transliteration;
 
 /// <summary>
 /// Represents a default implementation of the <see cref="ITransliterateRuleProvider"/>.

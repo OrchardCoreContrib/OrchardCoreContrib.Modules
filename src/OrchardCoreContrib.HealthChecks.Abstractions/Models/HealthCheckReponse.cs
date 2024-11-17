@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-
-namespace OrchardCoreContrib.HealthChecks.Models;
+﻿namespace OrchardCoreContrib.HealthChecks.Models;
 
 /// <summary>
 /// Represents a health check response to be displayed on the browser.

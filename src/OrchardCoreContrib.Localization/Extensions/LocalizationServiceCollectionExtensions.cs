@@ -1,7 +1,6 @@
 ﻿using OrchardCoreContrib.Infrastructure;
 using OrchardCoreContrib.Localization.Data;
 using OrchardCoreContrib.Localization.Diacritics;
-using System;
 
 namespace Microsoft.Extensions.DependencyInjection;
 

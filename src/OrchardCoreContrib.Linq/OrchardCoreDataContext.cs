@@ -13,7 +13,6 @@ using OrchardCore.PublishLater.Indexes;
 using OrchardCore.Taxonomies.Indexing;
 using OrchardCore.Users.Indexes;
 using OrchardCore.Workflows.Indexes;
-using System;
 using YesSql;
 
 namespace OrchardCoreContrib.Linq;

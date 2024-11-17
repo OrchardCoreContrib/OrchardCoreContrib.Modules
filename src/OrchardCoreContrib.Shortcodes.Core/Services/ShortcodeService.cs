@@ -1,6 +1,4 @@
 ﻿using Shortcodes;
-using System.Collections.Generic;
-using System.Threading.Tasks;
 
 namespace OrchardCoreContrib.Shortcodes.Services;
 

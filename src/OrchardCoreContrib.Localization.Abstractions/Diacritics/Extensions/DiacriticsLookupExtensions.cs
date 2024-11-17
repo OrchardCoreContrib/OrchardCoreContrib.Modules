@@ -1,5 +1,4 @@
 ﻿using OrchardCoreContrib.Infrastructure;
-using System;
 
 namespace OrchardCoreContrib.Localization.Diacritics;
 

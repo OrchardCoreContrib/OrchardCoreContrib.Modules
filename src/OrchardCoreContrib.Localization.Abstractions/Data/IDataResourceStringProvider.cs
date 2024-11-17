@@ -1,7 +1,4 @@
 ﻿using OrchardCore.Localization;
-using System;
-using System.Collections.Generic;
-using System.Threading.Tasks;
 
 namespace OrchardCoreContrib.Localization.Data;
 

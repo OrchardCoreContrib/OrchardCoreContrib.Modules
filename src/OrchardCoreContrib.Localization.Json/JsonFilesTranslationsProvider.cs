@@ -1,8 +1,6 @@
 ﻿using Microsoft.Extensions.FileProviders;
 using OrchardCore.Localization;
 using OrchardCoreContrib.Infrastructure;
-using System.IO;
-using System.Threading.Tasks;
 
 namespace OrchardCoreContrib.Localization.Json;
 

@@ -1,9 +1,7 @@
 ﻿using Microsoft.Extensions.Localization;
 using OrchardCore.Localization;
 using OrchardCoreContrib.Infrastructure;
-using System.Collections.Generic;
 using System.Globalization;
-using System.Linq;
 
 namespace OrchardCoreContrib.Localization.Xliff;
 

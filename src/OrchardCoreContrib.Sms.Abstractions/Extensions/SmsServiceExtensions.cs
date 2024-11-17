@@ -1,5 +1,4 @@
 ﻿using OrchardCoreContrib.Infrastructure;
-using System.Threading.Tasks;
 
 namespace OrchardCoreContrib.Sms;
 

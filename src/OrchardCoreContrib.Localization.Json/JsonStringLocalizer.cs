@@ -2,9 +2,7 @@
 using Microsoft.Extensions.Logging;
 using OrchardCore.Localization;
 using OrchardCoreContrib.Infrastructure;
-using System.Collections.Generic;
 using System.Globalization;
-using System.Linq;
 
 namespace OrchardCoreContrib.Localization.Json;
 

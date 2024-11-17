@@ -1,10 +1,5 @@
 ﻿using OrchardCore.Localization;
 using OrchardCoreContrib.Infrastructure;
-using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Threading;
-using System.Threading.Tasks;
 using System.Xml.Linq;
 
 namespace OrchardCoreContrib.Localization.Xliff;

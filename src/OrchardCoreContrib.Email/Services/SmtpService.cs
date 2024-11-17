@@ -6,44 +6,32 @@ using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using MimeKit;
 using OrchardCore.Email;
-using System;
-using System.IO;
 using System.Net.Security;
 using System.Security.Cryptography.X509Certificates;
-using System.Threading;
-using System.Threading.Tasks;
 
 namespace OrchardCoreContrib.Email.Services;
 
 /// <summary>
 /// Represents a SMTP service that allows to send emails.
 /// </summary>
-public class SmtpService : ISmtpService
+/// <remarks>
+/// Initializes a new instance of a <see cref="SmtpService"/>.
+/// </remarks>
+/// <param name="options">The <see cref="IOptions{SmtpSettings}"/>.</param>
+/// <param name="logger">The <see cref="ILogger{SmtpService}"/>.</param>
+/// <param name="stringLocalizer">The <see cref="IStringLocalizer{SmtpService}"/>.</param>
+public class SmtpService(
+    IOptions<SmtpSettings> options,
+    ILogger<SmtpService> logger,
+    IStringLocalizer<SmtpService> stringLocalizer) : ISmtpService
 {
     private const string EmailExtension = ".eml";
 
-    private static readonly char[] EmailsSeparator = new char[] { ',', ';' };
+    private static readonly char[] EmailsSeparator = [',', ';'];
 
-    private readonly SmtpSettings _options;
-    private readonly ILogger _logger;
-    private readonly IStringLocalizer S;
-
-    /// <summary>
-    /// Initializes a new instance of a <see cref="SmtpService"/>.
-    /// </summary>
-    /// <param name="options">The <see cref="IOptions{SmtpSettings}"/>.</param>
-    /// <param name="logger">The <see cref="ILogger{SmtpService}"/>.</param>
-    /// <param name="stringLocalizer">The <see cref="IStringLocalizer{SmtpService}"/>.</param>
-    public SmtpService(
-        IOptions<SmtpSettings> options,
-        ILogger<SmtpService> logger,
-        IStringLocalizer<SmtpService> stringLocalizer
-        )
-    {
-        _options = options.Value;
-        _logger = logger;
-        S = stringLocalizer;
-    }
+    private readonly SmtpSettings _options = options.Value;
+    private readonly ILogger _logger = logger;
+    private readonly IStringLocalizer S = stringLocalizer;
 
     /// <summary>
     /// Sends the specified message to an SMTP server for delivery.
@@ -197,31 +185,29 @@ public class SmtpService : ISmtpService
                 _ => SecureSocketOptions.Auto
             };
 
-        using (var client = new SmtpClient())
+        using var client = new SmtpClient();
+        if (_options.Proxy != null)
         {
-            if (_options.Proxy != null)
-            {
-                client.ProxyClient = new Socks5Client(_options.Proxy.Host, _options.Proxy.Port);
-            }
-
-            client.ServerCertificateValidationCallback = CertificateValidationCallback;
-
-            await client.ConnectAsync(_options.Host, _options.Port, secureSocketOptions);
-
-            if (_options.RequireCredentials)
-            {
-                if (_options.UseDefaultCredentials)
-                {
-                    _options.UserName = _options.Password = String.Empty;
-                }
-
-                await client.AuthenticateAsync(_options.UserName, _options.Password);
-            }
-
-            await client.SendAsync(message);
-
-            await client.DisconnectAsync(true);
+            client.ProxyClient = new Socks5Client(_options.Proxy.Host, _options.Proxy.Port);
         }
+
+        client.ServerCertificateValidationCallback = CertificateValidationCallback;
+
+        await client.ConnectAsync(_options.Host, _options.Port, secureSocketOptions);
+
+        if (_options.RequireCredentials)
+        {
+            if (_options.UseDefaultCredentials)
+            {
+                _options.UserName = _options.Password = String.Empty;
+            }
+
+            await client.AuthenticateAsync(_options.UserName, _options.Password);
+        }
+
+        await client.SendAsync(message);
+
+        await client.DisconnectAsync(true);
     }
 
     protected virtual async Task SendOfflineMessageAsync(MimeMessage message, string pickupDirectory)

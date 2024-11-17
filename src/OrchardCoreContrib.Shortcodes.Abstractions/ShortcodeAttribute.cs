@@ -1,7 +1,5 @@
 ﻿using Microsoft.AspNetCore.Html;
 using OrchardCoreContrib.Infrastructure;
-using System;
-using System.IO;
 using System.Text.Encodings.Web;
 
 namespace OrchardCoreContrib.Shortcodes;

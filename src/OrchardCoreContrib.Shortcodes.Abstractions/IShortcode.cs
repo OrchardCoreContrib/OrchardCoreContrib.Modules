@@ -1,6 +1,4 @@
-﻿using System.Threading.Tasks;
-
-namespace OrchardCoreContrib.Shortcodes;
+﻿namespace OrchardCoreContrib.Shortcodes;
 
 /// <summary>
 /// Contract for shortcode.

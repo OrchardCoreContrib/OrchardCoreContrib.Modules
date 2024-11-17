@@ -1,5 +1,4 @@
 ﻿using OrchardCoreContrib.Infrastructure;
-using System.Collections.Generic;
 
 namespace OrchardCoreContrib.Localization.Data;
 

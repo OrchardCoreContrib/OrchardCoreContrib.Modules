@@ -1,9 +1,5 @@
 ﻿using Microsoft.AspNetCore.Razor.TagHelpers;
 using Shortcodes;
-using System;
-using System.IO;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace OrchardCoreContrib.Shortcodes;
 

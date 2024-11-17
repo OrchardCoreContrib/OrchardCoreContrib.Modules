@@ -1,7 +1,4 @@
-﻿using System.Collections.Generic;
-using System.Linq;
-
-namespace OrchardCoreContrib.Infrastructure;
+﻿namespace OrchardCoreContrib.Infrastructure;
 
 /// <summary>
 /// Represents an argument checker for collections.

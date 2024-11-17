@@ -2,7 +2,6 @@
 using Microsoft.Extensions.Localization;
 using Microsoft.Extensions.Options;
 using OrchardCore.Localization;
-using System;
 
 namespace OrchardCoreContrib.Localization.Xliff;
 

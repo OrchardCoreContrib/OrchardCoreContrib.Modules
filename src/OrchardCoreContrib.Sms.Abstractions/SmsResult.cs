@@ -1,5 +1,4 @@
 ﻿using Microsoft.Extensions.Localization;
-using System.Collections.Generic;
 
 namespace OrchardCoreContrib.Sms;
 
