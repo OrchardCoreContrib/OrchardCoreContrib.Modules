@@ -12,27 +12,27 @@
 		<PackageVersion Include="Microsoft.Garnet" Version="1.0.7" />
 		<PackageVersion Include="Microsoft.NET.Test.Sdk" Version="17.9.0" />
 		<PackageVersion Include="Moq" Version="4.20.70" />
-		<PackageVersion Include="OrchardCore.Abstractions" Version="1.8.3" />
-		<PackageVersion Include="OrchardCore.AdminDashboard" Version="1.8.3" />
-		<PackageVersion Include="OrchardCore.Alias" Version="1.8.3" />
-		<PackageVersion Include="OrchardCore.AuditTrail.Abstractions" Version="1.8.3" />
-		<PackageVersion Include="OrchardCore.Autoroute" Version="1.8.3" />
-		<PackageVersion Include="OrchardCore.ContentLocalization.Abstractions" Version="1.8.3" />
-		<PackageVersion Include="OrchardCore.ContentManagement" Version="1.8.3" />
-		<PackageVersion Include="OrchardCore.Data" Version="1.8.3" />
-		<PackageVersion Include="OrchardCore.Deployment" Version="1.8.3" />
-		<PackageVersion Include="OrchardCore.Email.Abstractions" Version="1.8.3" />
-		<PackageVersion Include="OrchardCore.Email.Core" Version="1.8.3" />
-		<PackageVersion Include="OrchardCore.Infrastructure.Abstractions" Version="1.8.3" />
-		<PackageVersion Include="OrchardCore.Layers" Version="1.8.3" />
-		<PackageVersion Include="OrchardCore.Lists" Version="1.8.3" />
-		<PackageVersion Include="OrchardCore.Localization.Abstractions" Version="1.8.3" />
-		<PackageVersion Include="OrchardCore.Navigation.Core" Version="1.8.3" />
-		<PackageVersion Include="OrchardCore.OpenId.Core" Version="1.8.3" />
-		<PackageVersion Include="OrchardCore.PublishLater" Version="1.8.3" />
-		<PackageVersion Include="OrchardCore.Taxonomies" Version="1.8.3" />
-		<PackageVersion Include="OrchardCore.Users.Core" Version="1.8.3" />
-		<PackageVersion Include="OrchardCore.Workflows" Version="1.8.3" />
+		<PackageVersion Include="OrchardCore.Abstractions" Version="2.0.0" />
+		<PackageVersion Include="OrchardCore.AdminDashboard" Version="2.0.0" />
+		<PackageVersion Include="OrchardCore.Alias" Version="2.0.0" />
+		<PackageVersion Include="OrchardCore.AuditTrail.Abstractions" Version="2.0.0" />
+		<PackageVersion Include="OrchardCore.Autoroute" Version="2.0.0" />
+		<PackageVersion Include="OrchardCore.ContentLocalization.Abstractions" Version="2.0.0" />
+		<PackageVersion Include="OrchardCore.ContentManagement" Version="2.0.0" />
+		<PackageVersion Include="OrchardCore.Data" Version="2.0.0" />
+		<PackageVersion Include="OrchardCore.Deployment" Version="2.0.0" />
+		<PackageVersion Include="OrchardCore.Email.Abstractions" Version="2.0.0" />
+		<PackageVersion Include="OrchardCore.Email.Core" Version="2.0.0" />
+		<PackageVersion Include="OrchardCore.Infrastructure.Abstractions" Version="2.0.0" />
+		<PackageVersion Include="OrchardCore.Layers" Version="2.0.0" />
+		<PackageVersion Include="OrchardCore.Lists" Version="2.0.0" />
+		<PackageVersion Include="OrchardCore.Localization.Abstractions" Version="2.0.0" />
+		<PackageVersion Include="OrchardCore.Navigation.Core" Version="2.0.0" />
+		<PackageVersion Include="OrchardCore.OpenId.Core" Version="2.0.0" />
+		<PackageVersion Include="OrchardCore.PublishLater" Version="2.0.0" />
+		<PackageVersion Include="OrchardCore.Taxonomies" Version="2.0.0" />
+		<PackageVersion Include="OrchardCore.Users.Core" Version="2.0.0" />
+		<PackageVersion Include="OrchardCore.Workflows" Version="2.0.0" />
 		<PackageVersion Include="Shortcodes" Version="1.3.3" />
 		<PackageVersion Include="Microsoft.OpenApi" Version="1.6.14" />
 		<PackageVersion Include="xunit" Version="2.7.1" />
