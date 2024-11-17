@@ -1,9 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk.Razor">
 
 	<PropertyGroup>
-		<TargetFramework>net8.0</TargetFramework>
 		<AddRazorSupportForMvc>true</AddRazorSupportForMvc>
-		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
 		<VersionPrefix>1.1.1</VersionPrefix>
 		<Authors>The Orchard Core Contrib Team</Authors>
 		<Company />
@@ -31,14 +29,14 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<PackageReference Include="OrchardCore.Module.Targets" Version="1.8.3" />
-		<PackageReference Include="OrchardCore" Version="1.8.2" />
-		<PackageReference Include="OrchardCore.ContentTypes" Version="1.8.3" />
-		<PackageReference Include="OrchardCore.Data.Abstractions" Version="1.8.3" />
-		<PackageReference Include="OrchardCoreContrib.Abstractions" Version="1.3.1" />
-		<PackageReference Include="OrchardCoreContrib.Localization.Abstractions" Version="1.3.1" />
-		<PackageReference Include="OrchardCoreContrib.Localization" Version="1.3.1" />
-		<PackageReference Include="OrchardCoreContrib.Navigation.Core" Version="1.3.1" />
+		<PackageReference Include="OrchardCore.Module.Targets" />
+		<PackageReference Include="OrchardCore" />
+		<PackageReference Include="OrchardCore.ContentTypes" />
+		<PackageReference Include="OrchardCore.Data.Abstractions" />
+		<PackageReference Include="OrchardCoreContrib.Abstractions" />
+		<PackageReference Include="OrchardCoreContrib.Localization.Abstractions" />
+		<PackageReference Include="OrchardCoreContrib.Localization" />
+		<PackageReference Include="OrchardCoreContrib.Navigation.Core" />
 	</ItemGroup>
 
 </Project>

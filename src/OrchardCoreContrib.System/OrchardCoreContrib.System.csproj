@@ -1,10 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk.Razor">
 
 	<PropertyGroup>
-		<TargetFramework>net8.0</TargetFramework>
 		<AddRazorSupportForMvc>true</AddRazorSupportForMvc>
-		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-		<ImplicitUsings>enable</ImplicitUsings>
 		<VersionPrefix>1.4.1</VersionPrefix>
 		<Authors>The Orchard Core Contrib Team</Authors>
 		<Company />
@@ -32,15 +29,15 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<PackageReference Include="NuGet.Protocol" Version="6.9.1" />
-		<PackageReference Include="OrchardCore.Module.Targets" Version="1.8.3" />
-		<PackageReference Include="OrchardCore.Admin.Abstractions" Version="1.8.3" />
-		<PackageReference Include="OrchardCore.ContentManagement.Abstractions" Version="1.8.3" />
-		<PackageReference Include="OrchardCore.DisplayManagement" Version="1.8.3" />
-		<PackageReference Include="OrchardCoreContrib.HealthChecks.Abstractions" Version="1.2.1" />
-		<PackageReference Include="OrchardCore.Users.Abstractions" Version="1.8.3" />
-		<PackageReference Include="OrchardCoreContrib.Abstractions" Version="1.3.1" />
-		<PackageReference Include="OrchardCoreContrib.Navigation.Core" Version="1.3.1" />
+		<PackageReference Include="NuGet.Protocol" />
+		<PackageReference Include="OrchardCore.Module.Targets" />
+		<PackageReference Include="OrchardCore.Admin.Abstractions" />
+		<PackageReference Include="OrchardCore.ContentManagement.Abstractions" />
+		<PackageReference Include="OrchardCore.DisplayManagement" />
+		<PackageReference Include="OrchardCoreContrib.HealthChecks.Abstractions" />
+		<PackageReference Include="OrchardCore.Users.Abstractions" />
+		<PackageReference Include="OrchardCoreContrib.Abstractions" />
+		<PackageReference Include="OrchardCoreContrib.Navigation.Core" />
 	</ItemGroup>
 
 </Project>
