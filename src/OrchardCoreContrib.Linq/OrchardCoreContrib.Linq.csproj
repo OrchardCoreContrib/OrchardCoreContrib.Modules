@@ -1,8 +1,6 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
 	<PropertyGroup>
-		<TargetFramework>net8.0</TargetFramework>
-		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
 		<VersionPrefix>1.3.1</VersionPrefix>
 		<Authors>The Orchard Core Contrib Team</Authors>
 		<Company />
@@ -26,21 +24,21 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<PackageReference Include="OrchardCore.Autoroute" Version="1.8.3" />
-		<PackageReference Include="OrchardCore.Alias" Version="1.8.3" />
-		<PackageReference Include="OrchardCore.Users.Core" Version="1.8.3" />
-		<PackageReference Include="OrchardCore.AdminDashboard" Version="1.8.3" />
-		<PackageReference Include="OrchardCore.AuditTrail.Abstractions" Version="1.8.3" />
-		<PackageReference Include="OrchardCore.Deployment" Version="1.8.3" />
-		<PackageReference Include="OrchardCore.Layers" Version="1.8.3" />
-		<PackageReference Include="OrchardCore.Lists" Version="1.8.3" />
-		<PackageReference Include="OrchardCore.PublishLater" Version="1.8.3" />
-		<PackageReference Include="OrchardCore.Taxonomies" Version="1.8.3" />
-		<PackageReference Include="OrchardCore.Workflows" Version="1.8.3" />
-		<PackageReference Include="OrchardCore.OpenId.Core" Version="1.8.3" />
-		<PackageReference Include="OrchardCore.ContentManagement" Version="1.8.3" />
-		<PackageReference Include="OrchardCore.ContentLocalization.Abstractions" Version="1.8.3" />
-		<PackageReference Include="linq2db" Version="5.4.1" />
+		<PackageReference Include="OrchardCore.Autoroute" />
+		<PackageReference Include="OrchardCore.Alias" />
+		<PackageReference Include="OrchardCore.Users.Core" />
+		<PackageReference Include="OrchardCore.AdminDashboard" />
+		<PackageReference Include="OrchardCore.AuditTrail.Abstractions" />
+		<PackageReference Include="OrchardCore.Deployment" />
+		<PackageReference Include="OrchardCore.Layers" />
+		<PackageReference Include="OrchardCore.Lists" />
+		<PackageReference Include="OrchardCore.PublishLater" />
+		<PackageReference Include="OrchardCore.Taxonomies" />
+		<PackageReference Include="OrchardCore.Workflows" />
+		<PackageReference Include="OrchardCore.OpenId.Core" />
+		<PackageReference Include="OrchardCore.ContentManagement" />
+		<PackageReference Include="OrchardCore.ContentLocalization.Abstractions" />
+		<PackageReference Include="linq2db" />
 	</ItemGroup>
 
 </Project>

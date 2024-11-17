@@ -1,9 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
 	<PropertyGroup>
-		<TargetFramework>net8.0</TargetFramework>
 		<RootNamespace>OrchardCoreContrib.ContentLocalization</RootNamespace>
-		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
 		<VersionPrefix>1.2.2</VersionPrefix>
 		<Authors>The Orchard Core Contrib Team</Authors>
 		<Company />
@@ -27,7 +25,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<PackageReference Include="OrchardCore.ContentLocalization.Abstractions" Version="1.8.3" />
+		<PackageReference Include="OrchardCore.ContentLocalization.Abstractions" />
 	</ItemGroup>
 
 </Project>
