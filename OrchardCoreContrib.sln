@@ -80,7 +80,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OrchardCoreContrib.Navigati
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OrchardCoreContrib.Infrastructure", "src\OrchardCoreContrib.Infrastructure\OrchardCoreContrib.Infrastructure.csproj", "{A1AE3FC4-2D43-4153-BCA4-B99669FF04A7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OrchardCoreContrib.Garnet.Abstractions", "src\OrchardCoreContrib.Garnet.Abstractions\OrchardCoreContrib.Garnet.Abstractions.csproj", "{8A22113C-7548-432E-8F6D-F7EAD4A6C747}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OrchardCoreContrib.Garnet.Abstractions", "src\OrchardCoreContrib.Garnet.Abstractions\OrchardCoreContrib.Garnet.Abstractions.csproj", "{8A22113C-7548-432E-8F6D-F7EAD4A6C747}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{1EBD02E7-2FBF-4222-958B-8AA2129A2C52}"
+	ProjectSection(SolutionItems) = preProject
+		Directory.Build.props = Directory.Build.props
+		Directory.Packages.props = Directory.Packages.props
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
