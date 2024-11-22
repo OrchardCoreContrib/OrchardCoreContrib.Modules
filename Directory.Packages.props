@@ -10,7 +10,7 @@
     <PackageVersion Include="Microsoft.Extensions.Configuration.UserSecrets" Version="8.0.1" />
     <PackageVersion Include="Moq" Version="4.20.72" />
     <PackageVersion Include="NuGet.Protocol" Version="6.12.1" />
-    <PackageVersion Include="OrchardCore" Version="1.8.2" />
+    <PackageVersion Include="OrchardCore" Version="2.0.0" />
     <PackageVersion Include="OrchardCore.Admin" Version="2.0.0" />
     <PackageVersion Include="OrchardCore.Admin.Abstractions" Version="2.0.0" />
     <PackageVersion Include="OrchardCore.Application.Cms.Targets" Version="2.0.0" />
