@@ -26,7 +26,7 @@ This module has no dependencies.
 |------------------|-------------------------------------------------------------------------------------------------|
 | **Name**         | Transliteration (`OrchardCoreContrib.ContentLocalization.Transliteration`)                      |
 | **Description**  | Provides a type of conversion of a text from one script to another that involves swapping letters. |
-| **Dependencies** | `OrchardCore.ContentLocalization`                                                               |                                                          
+| **Dependencies** | `OrchardCore.ContentLocalization`                                                               |
 
 ## NuGet Packages
 
