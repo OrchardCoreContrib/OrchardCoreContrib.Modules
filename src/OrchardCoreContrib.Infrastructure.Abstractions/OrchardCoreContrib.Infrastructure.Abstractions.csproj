@@ -2,7 +2,7 @@
 
 	<PropertyGroup>
 		<RootNamespace>OrchardCoreContrib.Infrastructure</RootNamespace>
-		<VersionPrefix>2.3.1</VersionPrefix>
+		<VersionPrefix>2.4.0</VersionPrefix>
 		<Authors>The Orchard Core Contrib Team</Authors>
 		<Company />
 		<Description>Provides an abstractions APIs for Orchard Core Contrib infrastructure, that may used accross different modules.</Description>

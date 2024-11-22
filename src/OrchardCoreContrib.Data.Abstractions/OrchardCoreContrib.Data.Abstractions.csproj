@@ -2,7 +2,7 @@
 
 	<PropertyGroup>
 		<RootNamespace>OrchardCoreContrib.Data</RootNamespace>
-		<VersionPrefix>1.1.1</VersionPrefix>
+		<VersionPrefix>1.2.0</VersionPrefix>
 		<Authors>The Orchard Core Contrib Team</Authors>
 		<Company />
 		<Description>Provides an abstractions APIs for Data.</Description>

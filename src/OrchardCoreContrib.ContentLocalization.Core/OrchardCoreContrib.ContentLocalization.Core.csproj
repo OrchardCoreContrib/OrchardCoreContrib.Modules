@@ -2,7 +2,7 @@
 
 	<PropertyGroup>
 		<RootNamespace>OrchardCoreContrib.ContentLocalization</RootNamespace>
-		<VersionPrefix>1.0.1</VersionPrefix>
+		<VersionPrefix>1.2.0</VersionPrefix>
 		<Authors>The Orchard Core Contrib Team</Authors>
 		<Company />
 		<Description>Provides an implementations APIs for content localization.</Description>
