@@ -44,6 +44,7 @@ This module has no dependencies.
 
 | Name                                                                                          | Version |
 |-----------------------------------------------------------------------------------------------|---------|
+| [`OrchardCoreContrib.Garnet`](https://www.nuget.org/packages/OrchardCoreContrib.Garnet/1.2.0) | 1.4.0   |
 | [`OrchardCoreContrib.Garnet`](https://www.nuget.org/packages/OrchardCoreContrib.Garnet/1.2.0) | 1.3.0   |
 | [`OrchardCoreContrib.Garnet`](https://www.nuget.org/packages/OrchardCoreContrib.Garnet/1.2.0) | 1.2.0   |
 | [`OrchardCoreContrib.Garnet`](https://www.nuget.org/packages/OrchardCoreContrib.Garnet/1.1.0) | 1.1.0   |

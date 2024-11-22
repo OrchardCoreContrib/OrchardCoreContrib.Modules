@@ -38,6 +38,7 @@ This module has no dependencies.
 
 | Name                                                                                          | Version |
 |-----------------------------------------------------------------------------------------------|---------|
+| [`OrchardCoreContrib.System`](https://www.nuget.org/packages/OrchardCoreContrib.System/1.5.0) | 1.5.0   |
 | [`OrchardCoreContrib.System`](https://www.nuget.org/packages/OrchardCoreContrib.System/1.4.1) | 1.4.1   |
 | [`OrchardCoreContrib.System`](https://www.nuget.org/packages/OrchardCoreContrib.System/1.4.0) | 1.4.0   |
 | [`OrchardCoreContrib.System`](https://www.nuget.org/packages/OrchardCoreContrib.System/1.3.0) | 1.3.0   |

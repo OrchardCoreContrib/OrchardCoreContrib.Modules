@@ -26,6 +26,7 @@ This module has no dependencies.
 
 | Name                                                                                                            | Version |
 |-----------------------------------------------------------------------------------------------------------------|---------|
+| [`OrchardCoreContrib.Diagnostics.Elm`](https://www.nuget.org/packages/OrchardCoreContrib.Diagnostics.Elm/1.5.0) | 1.5.0   |
 | [`OrchardCoreContrib.Diagnostics.Elm`](https://www.nuget.org/packages/OrchardCoreContrib.Diagnostics.Elm/1.4.1) | 1.4.1   |
 | [`OrchardCoreContrib.Diagnostics.Elm`](https://www.nuget.org/packages/OrchardCoreContrib.Diagnostics.Elm/1.4.0) | 1.4.0   |
 | [`OrchardCoreContrib.Diagnostics.Elm`](https://www.nuget.org/packages/OrchardCoreContrib.Diagnostics.Elm/1.3.0) | 1.3.0   |

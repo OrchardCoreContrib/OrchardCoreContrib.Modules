@@ -26,6 +26,7 @@ There's no dependencies.
 
 | Name                                                                                                    | Version |
 |---------------------------------------------------------------------------------------------------------|---------|
+| [`OrchardCoreContrib.Sms.Azure`](https://www.nuget.org/packages/OrchardCoreContrib.Sms.Azure/1.1.0)	  | 1.1.0   |
 | [`OrchardCoreContrib.Sms.Azure`](https://www.nuget.org/packages/OrchardCoreContrib.Sms.Azure/1.0.1)	  | 1.0.1   |
 | [`OrchardCoreContrib.Sms.Azure`](https://www.nuget.org/packages/OrchardCoreContrib.Sms.Azure/1.0.0)	  | 1.0.0   |
 

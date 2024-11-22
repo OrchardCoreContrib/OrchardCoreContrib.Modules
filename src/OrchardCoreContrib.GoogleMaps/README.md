@@ -28,6 +28,7 @@ Content Management
 
 | Name                                                                                                  | Version |
 |-------------------------------------------------------------------------------------------------------|---------|
+| [`OrchardCoreContrib.GoogleMaps`](https://www.nuget.org/packages/OrchardCoreContrib.GoogleMaps/1.4.0) | 1.4.0   |
 | [`OrchardCoreContrib.GoogleMaps`](https://www.nuget.org/packages/OrchardCoreContrib.GoogleMaps/1.3.1) | 1.3.1   |
 | [`OrchardCoreContrib.GoogleMaps`](https://www.nuget.org/packages/OrchardCoreContrib.GoogleMaps/1.3.0) | 1.3.0   |
 | [`OrchardCoreContrib.GoogleMaps`](https://www.nuget.org/packages/OrchardCoreContrib.GoogleMaps/1.2.0) | 1.2.0   |

@@ -34,6 +34,7 @@ Security
 
 | Name                                                                                        | Version |
 |---------------------------------------------------------------------------------------------|---------|
+| [`OrchardCoreContrib.Users`](https://www.nuget.org/packages/OrchardCoreContrib.Users/1.6.0) | 1.6.0   |
 | [`OrchardCoreContrib.Users`](https://www.nuget.org/packages/OrchardCoreContrib.Users/1.5.1) | 1.5.1   |
 | [`OrchardCoreContrib.Users`](https://www.nuget.org/packages/OrchardCoreContrib.Users/1.5.0) | 1.5.0   |
 | [`OrchardCoreContrib.Users`](https://www.nuget.org/packages/OrchardCoreContrib.Users/1.4.0) | 1.4.0   |
