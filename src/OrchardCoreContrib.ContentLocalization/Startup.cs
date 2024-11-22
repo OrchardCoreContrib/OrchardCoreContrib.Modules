@@ -7,6 +7,7 @@ using OrchardCore.Modules;
 using OrchardCore.Mvc.Core.Utilities;
 using OrchardCore.Navigation;
 using OrchardCoreContrib.ContentLocalization.Controllers;
+using OrchardCoreContrib.ContentLocalization.Liquid;
 using OrchardCoreContrib.ContentLocalization.Services;
 using System;
 
