@@ -12,6 +12,7 @@ public class CyrToLatFilter(ITransliterationService transliterationService) : IL
     public ValueTask<FluidValue> ProcessAsync(FluidValue input, FilterArguments arguments, LiquidTemplateContext context)
     {
         var text = input.ToStringValue();
+
         return new StringValue(transliterationService.Transliterate(TransliterateScript.Cyrillic, text));
     }
 }

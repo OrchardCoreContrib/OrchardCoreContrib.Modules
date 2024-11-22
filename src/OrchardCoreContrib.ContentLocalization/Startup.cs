@@ -59,9 +59,8 @@ namespace OrchardCoreContrib.ContentLocalization
     {
         public override void ConfigureServices(IServiceCollection services)
         {
-            services.AddTransliteration();
-            services.AddScoped<ITransliterationService, TransliterationService>();
-            services.AddLiquidFilters();
+        services.AddLiquidFilter<CyrToLatFilter>("cyr_to_lat");
+        services.AddLiquidFilter<ArabToLatFilter>("arab_to_lat");
         }
     }
 }

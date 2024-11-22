@@ -24,11 +24,3 @@ using ManifestConstants = OrchardCoreContrib.Modules.Manifest.ManifestConstants;
     Dependencies = new[] { "OrchardCoreContrib.ContentLocalization" },
     Category = "Internationalization"
 )]
-
-[assembly: Feature(
-    Id = "OrchardCoreContrib.ContentLocalization.TransliterationLiquid",
-    Name = "TransliterationLiquid",
-    Description = "Allows the use of existing transliteration services in liquid filters.",
-    Dependencies = new[] { "OrchardCoreContrib.ContentLocalization" },
-    Category = "Internationalization"
-)]
