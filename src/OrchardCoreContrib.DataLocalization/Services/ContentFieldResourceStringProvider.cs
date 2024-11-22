@@ -33,7 +33,11 @@ namespace OrchardCoreContrib.DataLocalization.Services
             
             return contentTypes
                 .SelectMany(t => t.TypeDefinition.Parts.SelectMany(p => p.PartDefinition.Fields.Select(f => new { ContentType = t.Name, ContentField = f.GetSettings<ContentPartFieldSettings>().DisplayName })))
-                .Select(t => new CultureDictionaryRecordKey(t.ContentField, $"{t.ContentType}-{Context}"));
+                .Select(t => new CultureDictionaryRecordKey
+                {
+                    MessageId = t.ContentField,
+                    Context = $"{t.ContentType}-{Context}"
+                });
         }
     }
 }

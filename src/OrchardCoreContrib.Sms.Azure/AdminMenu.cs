@@ -6,6 +6,8 @@ using OrchardCoreContrib.Sms.Azure.Drivers;
 
 namespace OrchardCoreContrib.Sms.Azure;
 
+using OrchardCoreContrib.Navigation;
+
 public class AdminMenu(IStringLocalizer<AdminMenu> S) : AdminNavigationProvider
 {
     private static readonly RouteValueDictionary _routeValues = new()

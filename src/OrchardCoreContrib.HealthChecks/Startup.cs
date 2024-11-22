@@ -5,15 +5,17 @@ using Microsoft.AspNetCore.Routing;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Diagnostics.HealthChecks;
 using Microsoft.Extensions.Options;
-using Newtonsoft.Json;
 using OrchardCore.Environment.Shell.Configuration;
 using OrchardCore.Modules;
 using OrchardCoreContrib.HealthChecks.Models;
 using System.Net.Mime;
+using System.Text.Json;
 
 namespace OrchardCoreContrib.HealthChecks;
 public class Startup : StartupBase
 {
+    private static readonly JsonSerializerOptions _jsonSerializerOptions = new() { WriteIndented = true };
+
     private readonly IShellConfiguration _shellConfiguration;
 
     public Startup(IShellConfiguration shellConfiguration)
@@ -68,6 +70,6 @@ public class Startup : StartupBase
 
         context.Response.ContentType = MediaTypeNames.Application.Json;
 
-        await context.Response.WriteAsync(JsonConvert.SerializeObject(response, Formatting.Indented));
+        await context.Response.WriteAsync(JsonSerializer.Serialize(response, response.GetType(), options: _jsonSerializerOptions));
     }
 }

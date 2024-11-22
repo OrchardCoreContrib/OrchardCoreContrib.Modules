@@ -9,7 +9,7 @@ namespace OrchardCoreContrib.Users.Drivers;
 [Feature("OrchardCoreContrib.Users.Impersonation")]
 public class ImpersonationDisplayDriver : DisplayDriver<User>
 {
-    public override IDisplayResult Display(User user)
+    public override IDisplayResult Display(User user, BuildDisplayContext context)
         => Initialize<SummaryAdminUserViewModel>("ImpersonationButton", model => model.User = user)
             .Location("SummaryAdmin", "Actions:2");
 }

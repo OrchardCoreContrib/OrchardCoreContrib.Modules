@@ -1,62 +1,62 @@
 ﻿<Project>
-	<PropertyGroup>
-		<ManagePackageVersionsCentrally>true</ManagePackageVersionsCentrally>
-	</PropertyGroup>
-	<ItemGroup>
-		<PackageVersion Include="Azure.Communication.Sms" Version="1.0.1" />
-		<PackageVersion Include="coverlet.collector" Version="6.0.0" />
-		<PackageVersion Include="Microsoft.AspNetCore.Diagnostics.Elm" Version="0.2.2" />
-		<PackageVersion Include="Microsoft.NET.Test.Sdk" Version="17.8.0" />
-		<PackageVersion Include="Microsoft.Extensions.Configuration.UserSecrets" Version="6.0.1" />
-		<PackageVersion Include="Moq" Version="4.20.70" />
-		<PackageVersion Include="NuGet.Protocol" Version="6.9.1" />
-		<PackageVersion Include="OrchardCore" Version="1.8.2" />
-		<PackageVersion Include="OrchardCore.Admin" Version="1.8.3" />
-		<PackageVersion Include="OrchardCore.Admin.Abstractions" Version="1.8.3" />
-		<PackageVersion Include="OrchardCore.Application.Cms.Targets" Version="1.8.3" />
-		<PackageVersion Include="OrchardCore.ContentLocalization" Version="1.8.3" />
-		<PackageVersion Include="OrchardCore.ContentManagement" Version="1.8.3" />
-		<PackageVersion Include="OrchardCore.ContentManagement.Abstractions" Version="1.8.3" />
-		<PackageVersion Include="OrchardCore.ContentTypes" Version="1.8.3" />
-		<PackageVersion Include="OrchardCore.ContentTypes.Abstractions" Version="1.8.3" />
-		<PackageVersion Include="OrchardCore.Contents.TagHelpers" Version="1.8.3" />
-		<PackageVersion Include="OrchardCore.Data.Abstractions" Version="1.8.3" />
-		<PackageVersion Include="OrchardCore.DisplayManagement" Version="1.8.3" />
-		<PackageVersion Include="OrchardCore.Email.Abstractions" Version="1.8.3" />
-		<PackageVersion Include="OrchardCore.Email.Core" Version="1.8.3" />
-		<PackageVersion Include="OrchardCore.Email.Smtp" Version="1.8.3" />
-		<PackageVersion Include="OrchardCore.Html" Version="1.8.3" />
-		<PackageVersion Include="OrchardCore.Infrastructure.Abstractions" Version="1.8.3" />
-		<PackageVersion Include="OrchardCore.Liquid.Abstractions" Version="1.8.3" />
-		<PackageVersion Include="OrchardCore.Module.Targets" Version="1.8.3" />
-		<PackageVersion Include="OrchardCore.Navigation.Core" Version="1.8.3" />
-		<PackageVersion Include="OrchardCore.ResourceManagement" Version="1.8.3" />
-		<PackageVersion Include="OrchardCore.Theme.Targets" Version="1.8.3" />
-		<PackageVersion Include="OrchardCore.Themes" Version="1.8.3" />
-		<PackageVersion Include="OrchardCore.Users" Version="1.8.3" />
-		<PackageVersion Include="OrchardCore.Users.Abstractions" Version="1.8.3" />
-		<PackageVersion Include="OrchardCoreContrib.Abstractions" Version="1.3.1" />
-		<PackageVersion Include="OrchardCoreContrib.ContentLocalization.Core" Version="1.0.1" />
-		<PackageVersion Include="OrchardCoreContrib.Data" Version="1.1.1" />
-		<PackageVersion Include="OrchardCoreContrib.Data.YesSql" Version="1.1.2" />
-		<PackageVersion Include="OrchardCoreContrib.Email" Version="1.5.1" />
-		<PackageVersion Include="OrchardCoreContrib.Garnet.Abstractions" Version="1.0.0" />
-		<PackageVersion Include="OrchardCoreContrib.HealthChecks.Abstractions" Version="1.2.1" />
-		<PackageVersion Include="OrchardCoreContrib.Infrastructure" Version="1.0.2" />
-		<PackageVersion Include="OrchardCoreContrib.Infrastructure.Abstractions" Version="2.3.1" />
-		<PackageVersion Include="OrchardCoreContrib.Localization" Version="1.3.1" />
-		<PackageVersion Include="OrchardCoreContrib.Localization.Abstractions" Version="1.3.1" />
-		<PackageVersion Include="OrchardCoreContrib.Navigation.Core" Version="1.3.1" />
-		<PackageVersion Include="OrchardCoreContrib.Sms.Abstractions" Version="1.3.1" />
-		<PackageVersion Include="OrchardCoreContrib.OpenApi.Abstractions" Version="1.3.1" />
-		<PackageVersion Include="SendGrid" Version="9.29.3" />
-		<PackageVersion Include="SixLabors.ImageSharp.Drawing" Version="2.0.0" />
-		<PackageVersion Include="StackExchange.Redis" Version="2.7.33" />
-		<PackageVersion Include="Swashbuckle.AspNetCore" Version="6.9.0" />
-		<PackageVersion Include="Swashbuckle.AspNetCore.Swagger" Version="6.9.0" />
-		<PackageVersion Include="Testcontainers.Redis" Version="3.8.0" />
-		<PackageVersion Include="xunit" Version="2.5.3" />
-		<PackageVersion Include="xunit.runner.visualstudio" Version="2.5.3" />
-		<PackageVersion Include="Yarp.ReverseProxy" Version="2.1.0" />
-	</ItemGroup>
+  <PropertyGroup>
+    <ManagePackageVersionsCentrally>true</ManagePackageVersionsCentrally>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageVersion Include="Azure.Communication.Sms" Version="1.1.0-beta.1" />
+    <PackageVersion Include="coverlet.collector" Version="6.0.2" />
+    <PackageVersion Include="Microsoft.AspNetCore.Diagnostics.Elm" Version="0.2.2" />
+    <PackageVersion Include="Microsoft.NET.Test.Sdk" Version="17.11.1" />
+    <PackageVersion Include="Microsoft.Extensions.Configuration.UserSecrets" Version="8.0.1" />
+    <PackageVersion Include="Moq" Version="4.20.72" />
+    <PackageVersion Include="NuGet.Protocol" Version="6.12.1" />
+    <PackageVersion Include="OrchardCore" Version="1.8.2" />
+    <PackageVersion Include="OrchardCore.Admin" Version="2.0.0" />
+    <PackageVersion Include="OrchardCore.Admin.Abstractions" Version="2.0.0" />
+    <PackageVersion Include="OrchardCore.Application.Cms.Targets" Version="2.0.0" />
+    <PackageVersion Include="OrchardCore.ContentLocalization" Version="2.0.0" />
+    <PackageVersion Include="OrchardCore.ContentManagement" Version="2.0.0" />
+    <PackageVersion Include="OrchardCore.ContentManagement.Abstractions" Version="2.0.0" />
+    <PackageVersion Include="OrchardCore.ContentTypes" Version="2.0.0" />
+    <PackageVersion Include="OrchardCore.ContentTypes.Abstractions" Version="2.0.0" />
+    <PackageVersion Include="OrchardCore.Contents.TagHelpers" Version="2.0.0" />
+    <PackageVersion Include="OrchardCore.Data.Abstractions" Version="2.0.0" />
+    <PackageVersion Include="OrchardCore.DisplayManagement" Version="2.0.0" />
+    <PackageVersion Include="OrchardCore.Email.Abstractions" Version="2.0.0" />
+    <PackageVersion Include="OrchardCore.Email.Core" Version="2.0.0" />
+    <PackageVersion Include="OrchardCore.Email.Smtp" Version="2.0.0" />
+    <PackageVersion Include="OrchardCore.Html" Version="2.0.0" />
+    <PackageVersion Include="OrchardCore.Infrastructure.Abstractions" Version="2.0.0" />
+    <PackageVersion Include="OrchardCore.Liquid.Abstractions" Version="2.0.0" />
+    <PackageVersion Include="OrchardCore.Module.Targets" Version="2.0.0" />
+    <PackageVersion Include="OrchardCore.Navigation.Core" Version="2.0.0" />
+    <PackageVersion Include="OrchardCore.ResourceManagement" Version="2.0.0" />
+    <PackageVersion Include="OrchardCore.Theme.Targets" Version="2.0.0" />
+    <PackageVersion Include="OrchardCore.Themes" Version="2.0.0" />
+    <PackageVersion Include="OrchardCore.Users" Version="2.0.0" />
+    <PackageVersion Include="OrchardCore.Users.Abstractions" Version="2.0.0" />
+    <PackageVersion Include="OrchardCoreContrib.Abstractions" Version="1.4.0" />
+    <PackageVersion Include="OrchardCoreContrib.ContentLocalization.Core" Version="1.2.0" />
+    <PackageVersion Include="OrchardCoreContrib.Data" Version="1.2.0" />
+    <PackageVersion Include="OrchardCoreContrib.Data.YesSql" Version="1.2.0" />
+    <PackageVersion Include="OrchardCoreContrib.Email" Version="1.6.0" />
+    <PackageVersion Include="OrchardCoreContrib.Garnet.Abstractions" Version="1.1.0" />
+    <PackageVersion Include="OrchardCoreContrib.HealthChecks.Abstractions" Version="1.3.0" />
+    <PackageVersion Include="OrchardCoreContrib.Infrastructure" Version="1.1.0" />
+    <PackageVersion Include="OrchardCoreContrib.Infrastructure.Abstractions" Version="2.4.0" />
+    <PackageVersion Include="OrchardCoreContrib.Localization" Version="1.4.0" />
+    <PackageVersion Include="OrchardCoreContrib.Localization.Abstractions" Version="1.4.0" />
+    <PackageVersion Include="OrchardCoreContrib.Navigation.Core" Version="1.4.0" />
+    <PackageVersion Include="OrchardCoreContrib.Sms.Abstractions" Version="1.4.0" />
+    <PackageVersion Include="OrchardCoreContrib.OpenApi.Abstractions" Version="1.4.0" />
+    <PackageVersion Include="SendGrid" Version="9.29.3" />
+    <PackageVersion Include="SixLabors.ImageSharp.Drawing" Version="2.1.4" />
+    <PackageVersion Include="StackExchange.Redis" Version="2.8.16" />
+    <PackageVersion Include="Swashbuckle.AspNetCore" Version="7.0.0" />
+    <PackageVersion Include="Swashbuckle.AspNetCore.Swagger" Version="7.0.0" />
+    <PackageVersion Include="Testcontainers.Redis" Version="4.1.0-beta.11746011829" />
+    <PackageVersion Include="xunit" Version="2.9.2" />
+    <PackageVersion Include="xunit.runner.visualstudio" Version="3.0.0-pre.49" />
+    <PackageVersion Include="Yarp.ReverseProxy" Version="2.2.0" />
+  </ItemGroup>
 </Project>

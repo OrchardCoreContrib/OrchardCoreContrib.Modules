@@ -4,6 +4,8 @@ using OrchardCoreContrib.Navigation;
 
 namespace OrchardCore.DataLocalization
 {
+    using OrchardCoreContrib.Navigation;
+
     /// <summary>
     /// Represents a localization menu in the admin site.
     /// </summary>

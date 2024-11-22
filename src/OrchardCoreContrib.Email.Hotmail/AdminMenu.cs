@@ -5,6 +5,8 @@ using OrchardCoreContrib.Navigation;
 
 namespace OrchardCoreContrib.Email.Hotmail
 {
+    using OrchardCoreContrib.Navigation;
+
     /// <summary>
     /// Represents an admin menu for Hotmail mailing module.
     /// </summary>

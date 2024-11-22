@@ -31,7 +31,7 @@ public class SystemSettingsDisplayDriver : SectionDisplayDriver<ISite, SystemSet
     }
 
     /// <inheritdoc/>
-    public override async Task<IDisplayResult> EditAsync(SystemSettings section, BuildEditorContext context)
+    public override async Task<IDisplayResult> EditAsync(ISite model, SystemSettings section, BuildEditorContext context)
     {
         var user = _httpContextAccessor.HttpContext?.User;
 
@@ -52,7 +52,7 @@ public class SystemSettingsDisplayDriver : SectionDisplayDriver<ISite, SystemSet
     }
 
     /// <inheritdoc/>
-    public override async Task<IDisplayResult> UpdateAsync(SystemSettings section, BuildEditorContext context)
+    public override async Task<IDisplayResult> UpdateAsync(ISite model, SystemSettings section, UpdateEditorContext context)
     {
         var user = _httpContextAccessor.HttpContext?.User;
 
@@ -66,6 +66,6 @@ public class SystemSettingsDisplayDriver : SectionDisplayDriver<ISite, SystemSet
             await context.Updater.TryUpdateModelAsync(section, Prefix);
         }
 
-        return await EditAsync(section, context);
+        return await EditAsync(model, section, context);
     }
 }

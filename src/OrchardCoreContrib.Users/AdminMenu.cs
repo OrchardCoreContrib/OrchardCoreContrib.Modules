@@ -8,6 +8,8 @@ using OrchardCoreContrib.Users.Controllers;
 
 namespace OrchardCoreContrib.Users
 {
+    using OrchardCoreContrib.Navigation;
+
     /// <summary>
     /// Represents an admin menu for the impersonation feature.
     /// </summary>

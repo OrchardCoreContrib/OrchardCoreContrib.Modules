@@ -48,7 +48,7 @@ namespace OrchardCoreContrib.Email.Yahoo.Drivers
         }
 
         /// <inheritdoc/>
-        public override async Task<IDisplayResult> EditAsync(YahooSettings section, BuildEditorContext context)
+        public override async Task<IDisplayResult> EditAsync(ISite model, YahooSettings section, BuildEditorContext context)
         {
             var user = _httpContextAccessor.HttpContext?.User;
 
@@ -84,7 +84,7 @@ namespace OrchardCoreContrib.Email.Yahoo.Drivers
         }
 
         /// <inheritdoc/>
-        public override async Task<IDisplayResult> UpdateAsync(YahooSettings section, BuildEditorContext context)
+        public override async Task<IDisplayResult> UpdateAsync(ISite model, YahooSettings section, UpdateEditorContext context)
         {
             var user = _httpContextAccessor.HttpContext?.User;
 
@@ -111,7 +111,7 @@ namespace OrchardCoreContrib.Email.Yahoo.Drivers
                 await _shellHost.ReleaseShellContextAsync(_shellSettings);
             }
 
-            return await EditAsync(section, context);
+            return await EditAsync(model, section, context);
         }
     }
 }

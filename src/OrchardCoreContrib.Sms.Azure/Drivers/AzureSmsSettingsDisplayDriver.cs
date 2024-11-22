@@ -29,7 +29,7 @@ public class AzureSmsSettingsDisplayDriver(
     private readonly IShellHost _shellHost = shellHost;
     private readonly ShellSettings _shellSettings = shellSettings;
 
-    public override async Task<IDisplayResult> EditAsync(AzureSmsSettings settings, BuildEditorContext context)
+    public override async Task<IDisplayResult> EditAsync(ISite model, AzureSmsSettings settings, BuildEditorContext context)
     {
         var user = _httpContextAccessor.HttpContext?.User;
 
@@ -55,7 +55,7 @@ public class AzureSmsSettingsDisplayDriver(
         return Combine(shapes);
     }
 
-    public override async Task<IDisplayResult> UpdateAsync(AzureSmsSettings settings, BuildEditorContext context)
+    public override async Task<IDisplayResult> UpdateAsync(ISite model, AzureSmsSettings settings, UpdateEditorContext context)
     {
         var user = _httpContextAccessor.HttpContext?.User;
 
@@ -74,7 +74,7 @@ public class AzureSmsSettingsDisplayDriver(
             {
                 context.Updater.ModelState.AddModelError(nameof(AzureSmsSettings.SenderPhoneNumber), H["Invalid Phone Number."].Value);
 
-                return await EditAsync(settings, context);
+                return await EditAsync(model, settings, context);
             }
 
             if (string.IsNullOrWhiteSpace(settings.ConnectionString))
@@ -90,6 +90,6 @@ public class AzureSmsSettingsDisplayDriver(
             await _shellHost.ReleaseShellContextAsync(_shellSettings);
         }
 
-        return await EditAsync(settings, context);
+        return await EditAsync(model, settings, context);
     }
 }

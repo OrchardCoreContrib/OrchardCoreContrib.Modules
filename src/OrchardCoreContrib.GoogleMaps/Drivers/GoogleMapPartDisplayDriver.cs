@@ -42,9 +42,9 @@ namespace OrchardCoreContrib.GoogleMaps.Drivers
             });
         }
 
-        public override async Task<IDisplayResult> UpdateAsync(GoogleMapPart model, IUpdateModel updater, UpdatePartEditorContext context)
+        public override async Task<IDisplayResult> UpdateAsync(GoogleMapPart model, UpdatePartEditorContext context)
         {
-            await updater.TryUpdateModelAsync(model, Prefix, p => p.Latitude, p => p.Longitude);
+            await context.Updater.TryUpdateModelAsync(model, Prefix, p => p.Latitude, p => p.Longitude);
 
             return Edit(model, context);
         }

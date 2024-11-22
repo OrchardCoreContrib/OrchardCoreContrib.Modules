@@ -38,7 +38,7 @@ namespace OrchardCoreContrib.GoogleMaps.Drivers
         }
 
         /// <inheritdoc/>
-        public override async Task<IDisplayResult> EditAsync(GoogleMapsSettings section, BuildEditorContext context)
+        public override async Task<IDisplayResult> EditAsync(ISite model, GoogleMapsSettings section, BuildEditorContext context)
         {
             var user = _httpContextAccessor.HttpContext?.User;
 
@@ -56,7 +56,7 @@ namespace OrchardCoreContrib.GoogleMaps.Drivers
         }
 
         /// <inheritdoc/>
-        public override async Task<IDisplayResult> UpdateAsync(GoogleMapsSettings section, BuildEditorContext context)
+        public override async Task<IDisplayResult> UpdateAsync(ISite model, GoogleMapsSettings section, UpdateEditorContext context)
         {
             var user = _httpContextAccessor.HttpContext?.User;
 
@@ -67,14 +67,14 @@ namespace OrchardCoreContrib.GoogleMaps.Drivers
 
             if (context.GroupId == GroupId)
             {
-                var model = new GoogleMapsSettingsViewModel();
+                var viewModel = new GoogleMapsSettingsViewModel();
                 var previousApiKey = section.ApiKey;
                 
-                if (await context.Updater.TryUpdateModelAsync(model, Prefix, m => m.ApiKey, m => m.Latitude, m => m.Longitude))
+                if (await context.Updater.TryUpdateModelAsync(viewModel, Prefix, m => m.ApiKey, m => m.Latitude, m => m.Longitude))
                 {
-                    section.ApiKey = model.ApiKey;
-                    section.Latitude = model.Latitude;
-                    section.Longitude = model.Longitude;
+                    section.ApiKey = viewModel.ApiKey;
+                    section.Latitude = viewModel.Latitude;
+                    section.Longitude = viewModel.Longitude;
                 }
 
                 if (string.IsNullOrWhiteSpace(section.ApiKey))
@@ -89,7 +89,7 @@ namespace OrchardCoreContrib.GoogleMaps.Drivers
                 }
             }
 
-            return await EditAsync(section, context);
+            return await EditAsync(model, section, context);
         }
     }
 }
