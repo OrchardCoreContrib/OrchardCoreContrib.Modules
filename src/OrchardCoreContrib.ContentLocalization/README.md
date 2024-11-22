@@ -26,13 +26,7 @@ This module has no dependencies.
 |------------------|-------------------------------------------------------------------------------------------------|
 | **Name**         | Transliteration (`OrchardCoreContrib.ContentLocalization.Transliteration`)                      |
 | **Description**  | Provides a type of conversion of a text from one script to another that involves swapping letters. |
-| **Dependencies** | `OrchardCore.ContentLocalization`                                                               |
-
-|                  |                                                                                                    |
-|------------------|----------------------------------------------------------------------------------------------------|
-| **Name**         | Transliteration Liquid (`OrchardCoreContrib.ContentLocalization.TransliterationLiquid`)                  |
-| **Description**  | Allows the use of existing transliteration services in liquid filters. |
-| **Dependencies** | `OrchardCore.ContentLocalization`                                                                  
+| **Dependencies** | `OrchardCore.ContentLocalization`                                                               |                                                          
 
 ## NuGet Packages
 
@@ -62,9 +56,9 @@ This module has no dependencies.
 5. Now you can inject the `ITransliterationService`, then use `Transliterate()` method to transliterate from one script to another.
 
 ### Transliteration Liquid
-4. Enable the `TransliterationLiquid` feature.
-5. Now you can use transliteration feature in liquid filters: `cyr_to_lat` and `arab_to_lat`.
-6. This is useful for transliterating routes, example: `{{ ContentItem.DisplayText | cyr_to_lat | slugify }}`
+4. Enable the `Liquid` feature.
+5. Now you can use the transliteration liquid filters: `cyr_to_lat` and `arab_to_lat`.
+6. Usage: `{{ "Иванович" | cyr_to_lat }}`
 
 ## Video
 
