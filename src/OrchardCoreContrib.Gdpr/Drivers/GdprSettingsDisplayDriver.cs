@@ -47,7 +47,8 @@ namespace OrchardCoreContrib.Gdpr.Drivers
         }
 
         /// <inheritdoc/>
-        public override async Task<IDisplayResult> EditAsync(GdprSettings section, BuildEditorContext context)
+        
+        public override async Task<IDisplayResult> EditAsync(ISite model, GdprSettings section, BuildEditorContext context)
         {
             var user = _httpContextAccessor.HttpContext?.User;
 
@@ -69,7 +70,7 @@ namespace OrchardCoreContrib.Gdpr.Drivers
         }
 
         /// <inheritdoc/>
-        public override async Task<IDisplayResult> UpdateAsync(GdprSettings section, BuildEditorContext context)
+        public override async Task<IDisplayResult> UpdateAsync(ISite model, GdprSettings section, UpdateEditorContext context)
         {
             var user = _httpContextAccessor.HttpContext?.User;
 
@@ -84,7 +85,7 @@ namespace OrchardCoreContrib.Gdpr.Drivers
                 await _shellHost.ReleaseShellContextAsync(_shellSettings);
             }
 
-            return await EditAsync(section, context);
+            return await EditAsync(model, section, context);
         }
     }
 }

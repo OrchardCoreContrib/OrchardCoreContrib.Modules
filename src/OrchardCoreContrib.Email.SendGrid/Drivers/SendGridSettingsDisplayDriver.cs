@@ -48,7 +48,7 @@ namespace OrchardCoreContrib.Email.SendGrid.Drivers
         }
 
         /// <inheritdoc/>
-        public override async Task<IDisplayResult> EditAsync(SendGridSettings section, BuildEditorContext context)
+        public override async Task<IDisplayResult> EditAsync(ISite model, SendGridSettings section, BuildEditorContext context)
         {
             var user = _httpContextAccessor.HttpContext?.User;
 
@@ -75,7 +75,7 @@ namespace OrchardCoreContrib.Email.SendGrid.Drivers
         }
 
         /// <inheritdoc/>
-        public override async Task<IDisplayResult> UpdateAsync(SendGridSettings section, BuildEditorContext context)
+        public override async Task<IDisplayResult> UpdateAsync(ISite model, SendGridSettings section, UpdateEditorContext context)
         {
             var user = _httpContextAccessor.HttpContext?.User;
 
@@ -102,7 +102,7 @@ namespace OrchardCoreContrib.Email.SendGrid.Drivers
                 await _shellHost.ReleaseShellContextAsync(_shellSettings);
             }
 
-            return await EditAsync(section, context);
+            return await EditAsync(model, section, context);
         }
     }
 }

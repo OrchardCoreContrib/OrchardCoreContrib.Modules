@@ -6,10 +6,12 @@ using System.Threading.Tasks;
 
 namespace OrchardCoreContrib.Gdpr
 {
+    using OrchardCoreContrib.Navigation;
+
     /// <summary>
     /// Represents an admin menu for GDPR module.
     /// </summary>
-    public class AdminMenu : INavigationProvider
+    public class AdminMenu : AdminNavigationProvider
     {
         private readonly IStringLocalizer S;
 
@@ -23,13 +25,8 @@ namespace OrchardCoreContrib.Gdpr
         }
 
         /// <inheritdoc/>
-        public Task BuildNavigationAsync(string name, NavigationBuilder builder)
+        public override void BuildNavigation(NavigationBuilder builder)
         {
-            if (!string.Equals(name, "admin", StringComparison.OrdinalIgnoreCase))
-            {
-                return Task.CompletedTask;
-            }
-
             builder
                 .Add(S["Configuration"], configuration => configuration
                     .Add(S["Settings"], settings => settings
@@ -39,8 +36,6 @@ namespace OrchardCoreContrib.Gdpr
                           .Permission(Permissions.ManageGdprSettings)
                           .LocalNav()
                 )));
-
-            return Task.CompletedTask;
         }
     }
 }

@@ -5,6 +5,8 @@ using OrchardCoreContrib.Navigation;
 
 namespace OrchardCoreContrib.Email.Gmail
 {
+    using OrchardCoreContrib.Navigation;
+
     /// <summary>
     /// Represents an admin menu for Gmaail mailing module.
     /// </summary>

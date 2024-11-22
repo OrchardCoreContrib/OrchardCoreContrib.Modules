@@ -5,6 +5,8 @@ using OrchardCoreContrib.Navigation;
 
 namespace OrchardCoreContrib.Email.Yahoo
 {
+    using OrchardCoreContrib.Navigation;
+
     /// <summary>
     /// Represents an admin menu for Yahoo mailing module.
     /// </summary>

@@ -4,6 +4,8 @@ using OrchardCoreContrib.Navigation;
 
 namespace OrchardCoreContrib.System;
 
+using OrchardCoreContrib.Navigation;
+
 /// <summary>
 /// Represents an admin menu for System Updates feature.
 /// </summary>

@@ -5,6 +5,8 @@ using OrchardCoreContrib.Navigation;
 
 namespace OrchardCoreContrib.GoogleMaps
 {
+    using OrchardCoreContrib.Navigation;
+
     /// <summary>
     /// Represents an admin menu for GoogleMaps module.
     /// </summary>

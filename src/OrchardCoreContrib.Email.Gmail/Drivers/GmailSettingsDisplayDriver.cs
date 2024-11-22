@@ -48,7 +48,7 @@ namespace OrchardCoreContrib.Email.Gmail.Drivers
         }
 
         /// <inheritdoc/>
-        public override async Task<IDisplayResult> EditAsync(GmailSettings section, BuildEditorContext context)
+        public override async Task<IDisplayResult> EditAsync(ISite model, GmailSettings section, BuildEditorContext context)
         {
             var user = _httpContextAccessor.HttpContext?.User;
 
@@ -84,7 +84,7 @@ namespace OrchardCoreContrib.Email.Gmail.Drivers
         }
 
         /// <inheritdoc/>
-        public override async Task<IDisplayResult> UpdateAsync(GmailSettings section, BuildEditorContext context)
+        public override async Task<IDisplayResult> UpdateAsync(ISite model, GmailSettings section, UpdateEditorContext context)
         {
             var user = _httpContextAccessor.HttpContext?.User;
 
@@ -111,7 +111,7 @@ namespace OrchardCoreContrib.Email.Gmail.Drivers
                 await _shellHost.ReleaseShellContextAsync(_shellSettings);
             }
 
-            return await EditAsync(section, context);
+            return await EditAsync(model, section, context);
         }
     }
 }

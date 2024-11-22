@@ -5,6 +5,8 @@ using OrchardCoreContrib.System.Drivers;
 
 namespace OrchardCoreContrib.System;
 
+using OrchardCoreContrib.Navigation;
+
 /// <summary>
 /// Represents an admin menu for maintenance feature.
 /// </summary>

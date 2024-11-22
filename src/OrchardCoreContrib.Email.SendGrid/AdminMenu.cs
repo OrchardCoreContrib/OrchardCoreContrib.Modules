@@ -5,6 +5,8 @@ using OrchardCoreContrib.Navigation;
 
 namespace OrchardCoreContrib.Email.SendGrid
 {
+    using OrchardCoreContrib.Navigation;
+
     /// <summary>
     /// Represents an admin menu for SendGrid mailing module.
     /// </summary>

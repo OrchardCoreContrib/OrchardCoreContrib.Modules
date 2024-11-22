@@ -1,10 +1,11 @@
 ﻿using Microsoft.Extensions.Localization;
 using OrchardCore.Modules;
 using OrchardCore.Navigation;
-using OrchardCoreContrib.Navigation;
 
 namespace OrchardCoreContrib.ContentLocalization
 {
+    using OrchardCoreContrib.Navigation;
+
     [Feature("OrchardCoreContrib.ContentLocalization.LocalizationMatrix")]
     public class AdminMenu : AdminNavigationProvider
     {

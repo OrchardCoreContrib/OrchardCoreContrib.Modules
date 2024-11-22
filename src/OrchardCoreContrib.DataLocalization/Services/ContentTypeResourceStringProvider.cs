@@ -30,7 +30,11 @@ namespace OrchardCoreContrib.DataLocalization.Services
         {
             var contentTypes = await _contentDefinitionService.GetTypesAsync();
 
-            return contentTypes.Select(t => new CultureDictionaryRecordKey(t.DisplayName, Context));
+            return contentTypes.Select(t => new CultureDictionaryRecordKey
+            {
+                MessageId = t.DisplayName,
+                Context = Context
+            });
         }
     }
 }
