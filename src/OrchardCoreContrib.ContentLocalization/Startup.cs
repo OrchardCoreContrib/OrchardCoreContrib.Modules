@@ -9,7 +9,6 @@ using OrchardCore.Navigation;
 using OrchardCoreContrib.ContentLocalization.Controllers;
 using OrchardCoreContrib.ContentLocalization.Services;
 using System;
-using OrchardCoreContrib.ContentLocalization.Extensions;
 
 namespace OrchardCoreContrib.ContentLocalization
 {
