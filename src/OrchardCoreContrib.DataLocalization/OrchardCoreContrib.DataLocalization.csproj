@@ -2,7 +2,7 @@
 
 	<PropertyGroup>
 		<AddRazorSupportForMvc>true</AddRazorSupportForMvc>
-		<VersionPrefix>1.1.1</VersionPrefix>
+		<VersionPrefix>1.2.0</VersionPrefix>
 		<Authors>The Orchard Core Contrib Team</Authors>
 		<Company />
 		<Description>Provides a localization feature for dynamic data.</Description>

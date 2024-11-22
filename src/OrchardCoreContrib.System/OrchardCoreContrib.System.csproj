@@ -2,7 +2,7 @@
 
 	<PropertyGroup>
 		<AddRazorSupportForMvc>true</AddRazorSupportForMvc>
-		<VersionPrefix>1.4.1</VersionPrefix>
+		<VersionPrefix>1.5.0</VersionPrefix>
 		<Authors>The Orchard Core Contrib Team</Authors>
 		<Company />
 		<Description>The System module provides information about the currently running application.</Description>

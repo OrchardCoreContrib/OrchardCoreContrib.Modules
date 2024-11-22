@@ -2,7 +2,7 @@
 
 	<PropertyGroup>
 		<AddRazorSupportForMvc>true</AddRazorSupportForMvc>
-		<VersionPrefix>1.5.1</VersionPrefix>
+		<VersionPrefix>1.6.0</VersionPrefix>
 		<Authors>The Orchard Core Contrib Team</Authors>
 		<Company />
 		<Description>Provides mailing functionality using SendGrid service.</Description>
