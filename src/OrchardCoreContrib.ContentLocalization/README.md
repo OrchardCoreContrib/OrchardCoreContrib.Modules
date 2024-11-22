@@ -22,11 +22,11 @@ This module has no dependencies.
 | **Description**  | Shows a matix for localized content per culture.                                  |
 | **Dependencies** | `OrchardCoreContrib.ContentLocalization`<br/> `OrchardCore.ContentLocalization`   |
 
-|                  |                                                                                                 |
-|------------------|-------------------------------------------------------------------------------------------------|
-| **Name**         | Transliteration (`OrchardCoreContrib.ContentLocalization.Transliteration`)                      |
+|                  |                                                                                                    |
+|------------------|----------------------------------------------------------------------------------------------------|
+| **Name**         | Transliteration (`OrchardCoreContrib.ContentLocalization.Transliteration`)                         |
 | **Description**  | Provides a type of conversion of a text from one script to another that involves swapping letters. |
-| **Dependencies** | `OrchardCore.ContentLocalization`                                                               |
+| **Dependencies** | `OrchardCore.ContentLocalization`                                                                  |
 
 ## NuGet Packages
 
