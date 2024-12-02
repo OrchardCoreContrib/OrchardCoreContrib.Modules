@@ -38,3 +38,11 @@ using ManifestConstants = OrchardCoreContrib.Modules.Manifest.ManifestConstants;
     Dependencies = ["OrchardCoreContrib.Garnet"],
     Category = "Distributed Caching"
 )]
+
+[assembly: Feature(
+    Id = "OrchardCoreContrib.Garnet.Lock",
+    Name = "Garnet Lock",
+    Description = "Distributed Lock using Garnet.",
+    Dependencies = ["OrchardCoreContrib.Garnet"],
+    Category = "Distributed Caching"
+)]
