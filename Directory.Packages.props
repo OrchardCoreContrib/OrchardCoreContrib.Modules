@@ -1,6 +1,7 @@
 ﻿<Project>
   <PropertyGroup>
     <ManagePackageVersionsCentrally>true</ManagePackageVersionsCentrally>
+	<OrchardCoreVersion>2.1.3</OrchardCoreVersion>
   </PropertyGroup>
   <ItemGroup>
     <PackageVersion Include="Azure.Communication.Sms" Version="1.1.0-beta.1" />
@@ -10,31 +11,31 @@
     <PackageVersion Include="Microsoft.Extensions.Configuration.UserSecrets" Version="8.0.1" />
     <PackageVersion Include="Moq" Version="4.20.72" />
     <PackageVersion Include="NuGet.Protocol" Version="6.12.1" />
-    <PackageVersion Include="OrchardCore" Version="2.0.0" />
-    <PackageVersion Include="OrchardCore.Admin" Version="2.0.0" />
-    <PackageVersion Include="OrchardCore.Admin.Abstractions" Version="2.0.0" />
-    <PackageVersion Include="OrchardCore.Application.Cms.Targets" Version="2.0.0" />
-    <PackageVersion Include="OrchardCore.ContentLocalization" Version="2.0.0" />
-    <PackageVersion Include="OrchardCore.ContentManagement" Version="2.0.0" />
-    <PackageVersion Include="OrchardCore.ContentManagement.Abstractions" Version="2.0.0" />
-    <PackageVersion Include="OrchardCore.ContentTypes" Version="2.0.0" />
-    <PackageVersion Include="OrchardCore.ContentTypes.Abstractions" Version="2.0.0" />
-    <PackageVersion Include="OrchardCore.Contents.TagHelpers" Version="2.0.0" />
-    <PackageVersion Include="OrchardCore.Data.Abstractions" Version="2.0.0" />
-    <PackageVersion Include="OrchardCore.DisplayManagement" Version="2.0.0" />
-    <PackageVersion Include="OrchardCore.Email.Abstractions" Version="2.0.0" />
-    <PackageVersion Include="OrchardCore.Email.Core" Version="2.0.0" />
-    <PackageVersion Include="OrchardCore.Email.Smtp" Version="2.0.0" />
-    <PackageVersion Include="OrchardCore.Html" Version="2.0.0" />
-    <PackageVersion Include="OrchardCore.Infrastructure.Abstractions" Version="2.0.0" />
-    <PackageVersion Include="OrchardCore.Liquid.Abstractions" Version="2.0.0" />
-    <PackageVersion Include="OrchardCore.Module.Targets" Version="2.0.0" />
-    <PackageVersion Include="OrchardCore.Navigation.Core" Version="2.0.0" />
-    <PackageVersion Include="OrchardCore.ResourceManagement" Version="2.0.0" />
-    <PackageVersion Include="OrchardCore.Theme.Targets" Version="2.0.0" />
-    <PackageVersion Include="OrchardCore.Themes" Version="2.0.0" />
-    <PackageVersion Include="OrchardCore.Users" Version="2.0.0" />
-    <PackageVersion Include="OrchardCore.Users.Abstractions" Version="2.0.0" />
+    <PackageVersion Include="OrchardCore" Version="$(OrchardCoreVersion)" />
+    <PackageVersion Include="OrchardCore.Admin" Version="$(OrchardCoreVersion)" />
+    <PackageVersion Include="OrchardCore.Admin.Abstractions" Version="$(OrchardCoreVersion)" />
+    <PackageVersion Include="OrchardCore.Application.Cms.Targets" Version="$(OrchardCoreVersion)" />
+    <PackageVersion Include="OrchardCore.ContentLocalization" Version="$(OrchardCoreVersion)" />
+    <PackageVersion Include="OrchardCore.ContentManagement" Version="$(OrchardCoreVersion)" />
+    <PackageVersion Include="OrchardCore.ContentManagement.Abstractions" Version="$(OrchardCoreVersion)" />
+    <PackageVersion Include="OrchardCore.ContentTypes" Version="$(OrchardCoreVersion)" />
+    <PackageVersion Include="OrchardCore.ContentTypes.Abstractions" Version="$(OrchardCoreVersion)" />
+    <PackageVersion Include="OrchardCore.Contents.TagHelpers" Version="$(OrchardCoreVersion)" />
+    <PackageVersion Include="OrchardCore.Data.Abstractions" Version="$(OrchardCoreVersion)" />
+    <PackageVersion Include="OrchardCore.DisplayManagement" Version="$(OrchardCoreVersion)" />
+    <PackageVersion Include="OrchardCore.Email.Abstractions" Version="$(OrchardCoreVersion)" />
+    <PackageVersion Include="OrchardCore.Email.Core" Version="$(OrchardCoreVersion)" />
+    <PackageVersion Include="OrchardCore.Email.Smtp" Version="$(OrchardCoreVersion)" />
+    <PackageVersion Include="OrchardCore.Html" Version="$(OrchardCoreVersion)" />
+    <PackageVersion Include="OrchardCore.Infrastructure.Abstractions" Version="$(OrchardCoreVersion)" />
+    <PackageVersion Include="OrchardCore.Liquid.Abstractions" Version="$(OrchardCoreVersion)" />
+    <PackageVersion Include="OrchardCore.Module.Targets" Version="$(OrchardCoreVersion)" />
+    <PackageVersion Include="OrchardCore.Navigation.Core" Version="$(OrchardCoreVersion)" />
+    <PackageVersion Include="OrchardCore.ResourceManagement" Version="$(OrchardCoreVersion)" />
+    <PackageVersion Include="OrchardCore.Theme.Targets" Version="$(OrchardCoreVersion)" />
+    <PackageVersion Include="OrchardCore.Themes" Version="$(OrchardCoreVersion)" />
+    <PackageVersion Include="OrchardCore.Users" Version="$(OrchardCoreVersion)" />
+    <PackageVersion Include="OrchardCore.Users.Abstractions" Version="$(OrchardCoreVersion)" />
     <PackageVersion Include="OrchardCoreContrib.Abstractions" Version="1.4.0" />
     <PackageVersion Include="OrchardCoreContrib.ContentLocalization.Core" Version="1.2.0" />
     <PackageVersion Include="OrchardCoreContrib.Data" Version="1.2.0" />
