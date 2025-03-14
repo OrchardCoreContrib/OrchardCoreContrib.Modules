@@ -7,8 +7,17 @@ using static OrchardCore.OrchardCoreConstants;
 
 namespace OrchardCoreContrib.ContentPermissions.Services;
 
+/// <summary>
+/// Represents a service that provides content permissions.
+/// </summary>
+/// <remarks>
+/// Creates a new instance of <see cref="ContentPermissionsServices"/>
+/// </remarks>
+/// <param name="contentDefinitionManager">The <see cref="IContentDefinitionManager"/>.</param>
+/// <param name="httpContextAccessor">The <see cref="IHttpContextAccessor"/>.</param>
 public class ContentPermissionsServices(IContentDefinitionManager contentDefinitionManager, IHttpContextAccessor httpContextAccessor) : IContentPermissionsService
 {
+    /// <inheritdoc/>
     public async Task<bool> AuthorizeAsync(ContentItem contentItem)
     {
         Guard.ArgumentNotNull(contentItem, nameof(contentItem));
