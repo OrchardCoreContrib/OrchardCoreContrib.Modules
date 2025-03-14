@@ -1,0 +1,22 @@
+﻿@using OrchardCore.Security.Services
+@using OrchardCoreContrib.ContentPermissions.ViewModels
+@model ContentPermissionsPartSettingsViewModel
+
+<div class="form-group mb-3">
+    <div class="row">
+        <div class="col-md-3">
+            <div class="custom-control custom-checkbox">
+                <input asp-for="EnableRoles" class="custom-control-input" />
+                <label asp-for="EnableRoles" class="custom-control-label">@T["Enable Roles"]</label>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-3">
+            <div class="custom-control custom-checkbox">
+                <input asp-for="EnableUsers" class="custom-control-input" />
+                <label asp-for="EnableUsers" class="custom-control-label">@T["Enable Users"]</label>
+            </div>
+        </div>
+    </div>
+</div>
