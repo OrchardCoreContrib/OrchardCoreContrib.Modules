@@ -68,6 +68,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		Directory.Packages.props = Directory.Packages.props
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OrchardCoreContrib.ContentPermissions", "src\OrchardCoreContrib.ContentPermissions\OrchardCoreContrib.ContentPermissions.csproj", "{0BDB5C64-D4C3-454E-A54D-5F5A2169213B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -174,6 +176,10 @@ Global
 		{BE64AA1E-DDEF-405E-9004-6FF984DA6D71}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BE64AA1E-DDEF-405E-9004-6FF984DA6D71}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BE64AA1E-DDEF-405E-9004-6FF984DA6D71}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0BDB5C64-D4C3-454E-A54D-5F5A2169213B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0BDB5C64-D4C3-454E-A54D-5F5A2169213B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0BDB5C64-D4C3-454E-A54D-5F5A2169213B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0BDB5C64-D4C3-454E-A54D-5F5A2169213B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -204,6 +210,7 @@ Global
 		{47BE63E8-AECC-43E5-AC48-2E2835452402} = {C80A325F-F4C4-4C7B-A3CF-FB77CD8C9949}
 		{14666792-7A70-4ACF-9FAB-CC1435213052} = {C80A325F-F4C4-4C7B-A3CF-FB77CD8C9949}
 		{BE64AA1E-DDEF-405E-9004-6FF984DA6D71} = {A239BFB0-9BA7-467C-AD41-405D0740633F}
+		{0BDB5C64-D4C3-454E-A54D-5F5A2169213B} = {C80A325F-F4C4-4C7B-A3CF-FB77CD8C9949}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {48F73B05-7D3D-4ACF-81AE-A98B2B4EFDB2}
