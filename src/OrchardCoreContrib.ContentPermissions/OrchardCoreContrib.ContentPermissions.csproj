@@ -25,6 +25,10 @@
 	</ItemGroup>
 
 	<ItemGroup>
+		<None Include="../../images/icon.png" Pack="true" PackagePath="icon.png" />
+	</ItemGroup>
+
+	<ItemGroup>
 		<PackageReference Include="OrchardCore.Module.Targets" />
 		<PackageReference Include="OrchardCore.Users.Core" />
 		<PackageReference Include="OrchardCoreContrib.Abstractions" />
