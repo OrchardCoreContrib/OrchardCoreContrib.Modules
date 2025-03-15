@@ -13,8 +13,9 @@
 		<PublishRepositoryUrl>true</PublishRepositoryUrl>
 		<PackageTags>Orchard Core, Orchard Core Contrib, Content Permissions</PackageTags>
 		<PackageReleaseNotes>https://github.com/OrchardCoreContrib/OrchardCoreContrib.Modules/releases</PackageReleaseNotes>
-		<PackageId>OrchardCoreContrib.ContentLocalization</PackageId>
+		<PackageId>OrchardCoreContrib.ContentPermissions</PackageId>
 		<PackageIcon>icon.png</PackageIcon>
+		<PackageReadmeFile>README.md</PackageReadmeFile>
 		<Product>Orchard Core Contrib Content Permissions Module</Product>
 		<PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
 		<Copyright>2019 Orchard Core Contrib</Copyright>
@@ -25,7 +26,8 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<None Include="../../images/icon.png" Pack="true" PackagePath="icon.png" />
+		<None Include="README.md" Pack="true" PackagePath="\" />
+		<None Include="../../images/icon.png" Pack="true" PackagePath="\" />
 	</ItemGroup>
 
 	<ItemGroup>
