@@ -1,17 +1,20 @@
-﻿namespace Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Options;
 
+namespace Microsoft.AspNetCore.Http;
+
+// TODO: Move this to OCC.Infrastructure.Abstractions
 internal static class HttpReponseExtensions
 {
-    private const string AccessDeniedPath = "/Error/403";
-
     public static void RedirectToAccessDeniedPage(this HttpResponse httpResponse)
     {
-
-        // TODO: Check why OC doesn't respects the cookie authentication options
-        //var cookieAuthenticationOptions = httpResponse.HttpContext.RequestServices
-        //    .GetService<IOptions<CookieAuthenticationOptions>>().Value;
+        var cookieAuthenticationOptions = httpResponse.HttpContext.RequestServices
+            .GetService<IOptionsMonitor<CookieAuthenticationOptions>>()
+            .Get(IdentityConstants.ApplicationScheme);
 
         httpResponse.StatusCode = StatusCodes.Status403Forbidden;
-        httpResponse.Redirect(AccessDeniedPath);
+        httpResponse.Redirect(cookieAuthenticationOptions.AccessDeniedPath);
     }
 }
