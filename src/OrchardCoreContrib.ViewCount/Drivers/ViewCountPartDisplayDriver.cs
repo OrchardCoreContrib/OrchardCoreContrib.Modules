@@ -9,11 +9,14 @@ namespace OrchardCoreContrib.ViewCount.Drivers;
 
 public sealed class ViewCountPartDisplayDriver(IViewCountService viewCountService) : ContentPartDisplayDriver<ViewCountPart>
 {
-    public override IDisplayResult Display(ViewCountPart part, BuildPartDisplayContext context) => Initialize<ViewCountPartViewModel>(GetDisplayShapeType(context),
-        async model =>
+    public async override Task<IDisplayResult> DisplayAsync(ViewCountPart part, BuildPartDisplayContext context)
+    {
+        if (context.DisplayType == "Detail")
         {
             await viewCountService.ViewAsync(part.ContentItem);
+        }
 
-            model.Count = part.Count;
-        }).Location("Detail", "Content:10");
+        return Initialize<ViewCountPartViewModel>(GetDisplayShapeType(context), model => model.Count = part.Count)
+            .Location("Detail", "Content:10");
+    }
 }
