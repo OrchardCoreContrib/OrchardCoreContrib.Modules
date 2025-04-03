@@ -1,6 +1,7 @@
 ﻿<Project>
 	<PropertyGroup>
 		<TargetFramework>net8.0</TargetFramework>
+		<LangVersion>latest</LangVersion>
 		<ImplicitUsings>enable</ImplicitUsings>
 		<Nullable>disable</Nullable>
 		<GeneratePackageOnBuild>false</GeneratePackageOnBuild>
