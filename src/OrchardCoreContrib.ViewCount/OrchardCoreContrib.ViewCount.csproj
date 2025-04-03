@@ -1,0 +1,40 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Razor">
+
+	<PropertyGroup>
+		<AddRazorSupportForMvc>true</AddRazorSupportForMvc>
+		<VersionPrefix>1.0.0</VersionPrefix>
+		<Authors>The Orchard Core Contrib Team</Authors>
+		<Company />
+		<Description>Allows to count the content item views.</Description>
+		<PackageLicenseExpression>BSD-3-Clause</PackageLicenseExpression>
+		<PackageProjectUrl>https://github.com/OrchardCoreContrib/OrchardCoreContrib.Modules/tree/main/src/OrchardCoreContrib.ViewCount/README.md</PackageProjectUrl>
+		<RepositoryUrl>https://github.com/OrchardCoreContrib/OrchardCoreContrib.Modules</RepositoryUrl>
+		<RepositoryType>git</RepositoryType>
+		<PublishRepositoryUrl>true</PublishRepositoryUrl>
+		<PackageTags>Orchard Core, Orchard Core Contrib, View Count, Counter</PackageTags>
+		<PackageReleaseNotes>https://github.com/OrchardCoreContrib/OrchardCoreContrib.Modules/releases</PackageReleaseNotes>
+		<PackageId>OrchardCoreContrib.ViewCount</PackageId>
+		<PackageIcon>icon.png</PackageIcon>
+		<Product>Orchard Core Contrib View Count Module</Product>
+		<PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
+		<Copyright>2019 Orchard Core Contrib</Copyright>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<FrameworkReference Include="Microsoft.AspNetCore.App" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<None Include="../../images/icon.png" Pack="true" PackagePath="icon.png" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<PackageReference Include="OrchardCore.Module.Targets" />
+		<PackageReference Include="OrchardCore.ContentManagement" />
+		<PackageReference Include="OrchardCore.ContentTypes.Abstractions" />
+		<PackageReference Include="OrchardCore.DisplayManagement" />
+		<PackageReference Include="OrchardCoreContrib.Abstractions" />
+		<PackageReference Include="OrchardCoreContrib.Infrastructure.Abstractions" />
+	</ItemGroup>
+
+</Project>
