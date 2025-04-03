@@ -25,10 +25,11 @@
         "OrchardCoreContrib.Html",
         "OrchardCoreContrib.HealthChecks",
         "OrchardCoreContrib.Liquid",
-        "OrchardCoreContrib.Users.Impersonation",
         "OrchardCore.Roles",
-        "OrchardCore.Users",
         "OrchardCoreContrib.System",
+        "OrchardCore.Users",
+        "OrchardCoreContrib.Users.Impersonation",
+        "OrchardCore.ViewCount",
         "TheTheme"
       ]
     },

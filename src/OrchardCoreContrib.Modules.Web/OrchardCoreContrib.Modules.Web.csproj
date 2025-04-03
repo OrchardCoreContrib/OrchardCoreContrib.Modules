@@ -30,6 +30,7 @@
 		<ProjectReference Include="..\OrchardCoreContrib.Tenants\OrchardCoreContrib.Tenants.csproj" />
 		<ProjectReference Include="..\OrchardCoreContrib.Themes.Admin\OrchardCoreContrib.Themes.Admin.csproj" />
 		<ProjectReference Include="..\OrchardCoreContrib.Users\OrchardCoreContrib.Users.csproj" />
+		<ProjectReference Include="..\OrchardCoreContrib.ViewCount\OrchardCoreContrib.ViewCount.csproj" />
 	</ItemGroup>
 
 </Project>
