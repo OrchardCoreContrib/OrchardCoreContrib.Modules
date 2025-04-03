@@ -10,8 +10,7 @@ public class Migrations(IContentDefinitionManager contentDefinitionManager) : Da
     {
         await contentDefinitionManager.AlterPartDefinitionAsync("ViewCountPart", builder => builder
             .Attachable()
-            .WithDescription("Allow to count the view number of your content item."));
-
+            .WithDescription("Enables counting of views for the content item."));
         return 1;
     }
 }
