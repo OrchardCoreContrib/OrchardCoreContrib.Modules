@@ -1,23 +1,22 @@
 @model UserGroupsIndexViewModel
 @{
+    var count = Model.UserGroups.Count();
     int startIndex = (Model.Pager.Page - 1) * (Model.Pager.PageSize) + 1;
-    int endIndex = startIndex + Model.UserGroupEntries.Count - 1;
+    int endIndex = startIndex + count - 1;
 }
 
 <zone Name="Title"><h1>@RenderTitleSegments(T["User Groups"])</h1></zone>
 
 <form asp-action="Index" class="userGroups">
     <input type="submit" name="submit.Filter" id="submitFilter" class="visually-hidden" />
-    <input asp-for="Options.BulkAction" type="hidden" />
     <input type="submit" name="submit.BulkAction" class="visually-hidden" />
-
     <div class="card text-bg-theme mb-3 position-sticky action-bar" style="position: relative; top: 0;">
         <div class="card-body">
             <div class="row gx-3">
                 <div class="col">
                     <div class="has-search">
                         <i class="fa-solid fa-search form-control-feedback" aria-hidden="true"></i>
-                        <input asp-for="Options.Search" class="form-control" placeholder="@T["Search"]" type="search" autofocus />
+                        <input asp-for="Search" class="form-control" placeholder="@T["Search"]" type="search" autofocus />
                     </div>
                 </div>
                 <div class="col-auto">
@@ -27,7 +26,7 @@
         </div>
     </div>
     <ul class="list-group with-checkbox">
-        @if (Model.UserGroupEntries.Any())
+        @if (Model.UserGroups.Any())
         {
             <li class="list-group-item text-bg-theme">
                 <div class="row gx-3">
@@ -35,7 +34,7 @@
                         <div class="form-check my-1">
                             <input type="checkbox" class="form-check-input" id="select-all">
                             <label class="form-check-label" for="select-all" id="select-all-label" title="@T["Select All"]"></label>
-                            <label id="items" for="select-all">@T.Plural(Model.UserGroupEntries.Count, "1 item", "{0} items")<span class="text-muted" title="@T["Items {0} to {1}", startIndex, endIndex]">@T.Plural((int)Model.Pager.TotalItemCount, " / {0} item in total", " / {0} items in total")</span></label>
+                            <label id="items" for="select-all">@T.Plural(count, "1 item", "{0} items")<span class="text-muted" title="@T["Items {0} to {1}", startIndex, endIndex]">@T.Plural((int)Model.Pager.TotalItemCount, " / {0} item in total", " / {0} items in total")</span></label>
                             <label id="selected-items" class="text-muted" for="select-all"></label>
                         </div>
                     </div>
@@ -45,28 +44,28 @@
                                 @T["Actions"]
                             </button>
                             <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="bulk-action-menu-button">
-                                <li><a class="dropdown-item" href="javascript:void(0)" data-action="@nameof(BulkAction.Remove)" data-title="@T["Bulk Action"]" data-message="@T["Are you sure you want to delete these items?"]">@T["Delete"]</a></li>
+                                <li><a class="dropdown-item" href="javascript:void(0)" data-action="Delete" data-title="@T["Bulk Action"]" data-message="@T["Are you sure you want to delete these items?"]">@T["Delete"]</a></li>
                             </ul>
                         </div>
                     </div>
                 </div>
             </li>
-            @foreach (var entry in Model.UserGroupEntries)
+            @foreach (var group in Model.UserGroups)
             {
                 <li class="list-group-item">
                     <div class="form-check float-start">
-                        <input type="checkbox" class="form-check-input" value="@entry.Name" name="selectedGroupNames" id="selectedGroupNames-@entry.Name">
-                        <label class="form-check-label" for="selectedGroupNames-@entry.Name">&nbsp;</label>
+                        <input type="checkbox" class="form-check-input" value="@group.Name" name="selectedGroupNames" id="selectedGroupNames-@group.Name">
+                        <label class="form-check-label" for="selectedGroupNames-@group.Name">&nbsp;</label>
                     </div>
                     <div class="w-100">
-                        <span>@entry.Name</span>
-                        @if (!string.IsNullOrWhiteSpace(entry.UserGroup.Description))
+                        <span>@group.Name</span>
+                        @if (!string.IsNullOrWhiteSpace(group.Description))
                         {
-                            <span class="hint dashed">@entry.UserGroup.Description</span>
+                            <span class="hint dashed">@group.Description</span>
                         }
                         <div class="float-end">
-                            <a asp-action="Edit" asp-route-name="@entry.Name" class="btn btn-primary btn-sm">@T["Edit"]</a>
-                            <a asp-action="Delete" asp-route-name="@entry.Name" class="btn btn-danger btn-sm" data-url-af="RemoveUrl UnsafeUrl">@T["Delete"]</a>
+                            <a asp-action="Edit" asp-route-name="@group.Name" class="btn btn-primary btn-sm">@T["Edit"]</a>
+                            <a asp-action="Delete" asp-route-name="@group.Name" class="btn btn-danger btn-sm" data-url-af="RemoveUrl UnsafeUrl">@T["Delete"]</a>
                         </div>
                     </div>
                 </li>
@@ -117,7 +116,6 @@
                 confirmDialog({
                     ...$this.data(), callback: function (r) {
                         if (r) {
-                            $("[name='Options.BulkAction']").val($this.data("action"));
                             $("[name='submit.BulkAction']").click();
                         }
                     }

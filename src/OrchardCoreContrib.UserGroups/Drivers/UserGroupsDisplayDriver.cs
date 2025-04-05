@@ -25,7 +25,7 @@ public class UserGroupsDisplayDriver(UserGroupsManager userGroupsManager) : Disp
 
     public async override Task<IDisplayResult> UpdateAsync(User user, UpdateEditorContext context)
     {
-        var model = new UserGroupsListPartEditViewModel();
+        var model = new UserGroupsEditViewModel();
 
         await context.Updater.TryUpdateModelAsync(model, Prefix);
 

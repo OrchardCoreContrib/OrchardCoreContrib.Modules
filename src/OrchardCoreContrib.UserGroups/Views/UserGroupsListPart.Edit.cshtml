@@ -4,11 +4,11 @@
 <div class="mb-3">
     @foreach (var userGroup in Model.UserGroups)
     {
-        var selected = Model.SelectedUserGroups.Contains(userGroup.Name);
+        var selected = Model.SelectedUserGroups.Contains(userGroup);
         <div class="col-md-3">
             <div class="custom-control custom-checkbox">
-                <input id="@userGroup.Name" name="@Html.NameFor(m => m.SelectedUserGroups)" type="checkbox" class="custom-control-input" value="@userGroup.Name" checked="@(selected ? "checked" : null)">
-                <label for="@userGroup.Name" class="custom-control-label">@userGroup.Name</label>
+                <input id="@userGroup" name="@Html.NameFor(m => m.SelectedUserGroups)" type="checkbox" class="custom-control-input" value="@userGroup" checked="@(selected ? "checked" : null)">
+                <label for="@userGroup" class="custom-control-label">@userGroup</label>
             </div>
         </div>
     }

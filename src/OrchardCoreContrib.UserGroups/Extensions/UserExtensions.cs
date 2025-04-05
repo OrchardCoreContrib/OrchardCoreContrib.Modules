@@ -3,7 +3,7 @@ using System.Text.Json.Nodes;
 
 namespace OrchardCore.Users.Models;
 
-public static class UserExtensions
+internal static class UserExtensions
 {
     private const string UserGroupsPropertyName = "UserGroups";
 
