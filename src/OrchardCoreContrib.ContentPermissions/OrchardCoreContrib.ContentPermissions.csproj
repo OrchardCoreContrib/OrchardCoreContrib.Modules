@@ -33,9 +33,12 @@
 	<ItemGroup>
 		<PackageReference Include="OrchardCore.Module.Targets" />
 		<PackageReference Include="OrchardCore.Users.Core" />
-		<PackageReference Include="OrchardCoreContrib.Abstractions" />
-		<PackageReference Include="OrchardCoreContrib.Data" />
-		<PackageReference Include="OrchardCoreContrib.Infrastructure.Abstractions" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\..\OrchardCoreContrib\src\OrchardCoreContrib.Abstractions\OrchardCoreContrib.Abstractions.csproj" />
+		<ProjectReference Include="..\..\OrchardCoreContrib\src\OrchardCoreContrib.Data\OrchardCoreContrib.Data.csproj" />
+		<ProjectReference Include="..\..\OrchardCoreContrib\src\OrchardCoreContrib.Infrastructure.Abstractions\OrchardCoreContrib.Infrastructure.Abstractions.csproj" />
 	</ItemGroup>
 
 </Project>

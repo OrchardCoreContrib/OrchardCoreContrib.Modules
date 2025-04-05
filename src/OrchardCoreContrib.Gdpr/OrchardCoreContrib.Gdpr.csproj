@@ -31,10 +31,13 @@
 	<ItemGroup>
 		<PackageReference Include="OrchardCore.Admin.Abstractions" />
 		<PackageReference Include="OrchardCore.DisplayManagement" />
-		<PackageReference Include="OrchardCore.Infrastructure.Abstractions" />
 		<PackageReference Include="OrchardCore.Module.Targets" />
-		<PackageReference Include="OrchardCoreContrib.Abstractions" />
-		<PackageReference Include="OrchardCoreContrib.Navigation.Core" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\..\OrchardCoreContrib\src\OrchardCoreContrib.Abstractions\OrchardCoreContrib.Abstractions.csproj" />
+		<ProjectReference Include="..\..\OrchardCoreContrib\src\OrchardCoreContrib.Infrastructure.Abstractions\OrchardCoreContrib.Infrastructure.Abstractions.csproj" />
+		<ProjectReference Include="..\..\OrchardCoreContrib\src\OrchardCoreContrib.Navigation.Core\OrchardCoreContrib.Navigation.Core.csproj" />
 	</ItemGroup>
 
 </Project>

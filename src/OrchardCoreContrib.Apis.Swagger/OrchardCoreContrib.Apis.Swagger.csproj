@@ -29,10 +29,13 @@
 
 	<ItemGroup>
 		<PackageReference Include="OrchardCore.Module.Targets" />
-		<PackageReference Include="OrchardCoreContrib.Abstractions" />
-		<PackageReference Include="OrchardCoreContrib.OpenApi.Abstractions" />
 		<PackageReference Include="Swashbuckle.AspNetCore" />
 		<PackageReference Include="Swashbuckle.AspNetCore.Swagger" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\..\OrchardCoreContrib\src\OrchardCoreContrib.Abstractions\OrchardCoreContrib.Abstractions.csproj" />
+		<ProjectReference Include="..\..\OrchardCoreContrib\src\OrchardCoreContrib.OpenApi.Abstractions\OrchardCoreContrib.OpenApi.Abstractions.csproj" />
 	</ItemGroup>
 
 </Project>

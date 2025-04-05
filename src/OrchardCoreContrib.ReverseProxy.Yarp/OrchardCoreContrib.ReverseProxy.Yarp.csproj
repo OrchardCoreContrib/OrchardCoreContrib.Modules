@@ -30,8 +30,11 @@
 
 	<ItemGroup>
 		<PackageReference Include="OrchardCore.Module.Targets" />
-		<PackageReference Include="OrchardCoreContrib.Abstractions" />
 		<PackageReference Include="Yarp.ReverseProxy" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\..\OrchardCoreContrib\src\OrchardCoreContrib.Abstractions\OrchardCoreContrib.Abstractions.csproj" />
 	</ItemGroup>
 
 </Project>

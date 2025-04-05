@@ -35,9 +35,12 @@
 		<PackageReference Include="OrchardCore.Email.Abstractions" />
 		<PackageReference Include="OrchardCore.Infrastructure.Abstractions" />
 		<PackageReference Include="OrchardCore.Module.Targets" />
-		<PackageReference Include="OrchardCoreContrib.Abstractions" />
-		<PackageReference Include="OrchardCoreContrib.HealthChecks.Abstractions" />
-		<PackageReference Include="OrchardCoreContrib.Navigation.Core" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\..\OrchardCoreContrib\src\OrchardCoreContrib.Abstractions\OrchardCoreContrib.Abstractions.csproj" />
+		<ProjectReference Include="..\..\OrchardCoreContrib\src\OrchardCoreContrib.HealthChecks.Abstractions\OrchardCoreContrib.HealthChecks.Abstractions.csproj" />
+		<ProjectReference Include="..\..\OrchardCoreContrib\src\OrchardCoreContrib.Navigation.Core\OrchardCoreContrib.Navigation.Core.csproj" />
 	</ItemGroup>
 
 </Project>

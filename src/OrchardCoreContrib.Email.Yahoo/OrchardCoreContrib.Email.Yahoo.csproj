@@ -33,10 +33,13 @@
 		<PackageReference Include="OrchardCore.DisplayManagement" />
 		<PackageReference Include="OrchardCore.Infrastructure.Abstractions" />
 		<PackageReference Include="OrchardCore.Module.Targets" />
-		<PackageReference Include="OrchardCoreContrib.Abstractions" />
-		<PackageReference Include="OrchardCoreContrib.Email" />
 		<PackageReference Include="OrchardCore.Navigation.Core" />
-		<PackageReference Include="OrchardCoreContrib.Navigation.Core" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\..\OrchardCoreContrib\src\OrchardCoreContrib.Abstractions\OrchardCoreContrib.Abstractions.csproj" />
+		<ProjectReference Include="..\..\OrchardCoreContrib\src\OrchardCoreContrib.Email\OrchardCoreContrib.Email.csproj" />
+		<ProjectReference Include="..\..\OrchardCoreContrib\src\OrchardCoreContrib.Navigation.Core\OrchardCoreContrib.Navigation.Core.csproj" />
 	</ItemGroup>
 
 </Project>

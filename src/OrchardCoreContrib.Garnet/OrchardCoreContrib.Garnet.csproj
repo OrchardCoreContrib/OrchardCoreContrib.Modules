@@ -22,11 +22,14 @@
 	<ItemGroup>
 		<PackageReference Include="OrchardCore.Infrastructure.Abstractions" />
 		<PackageReference Include="OrchardCore.Module.Targets" />
-		<PackageReference Include="OrchardCoreContrib.Abstractions" />
-		<PackageReference Include="OrchardCoreContrib.Garnet.Abstractions" />
-		<PackageReference Include="OrchardCoreContrib.HealthChecks.Abstractions" />
-		<PackageReference Include="OrchardCoreContrib.Infrastructure.Abstractions" />
 		<PackageReference Include="StackExchange.Redis" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\..\OrchardCoreContrib\src\OrchardCoreContrib.Abstractions\OrchardCoreContrib.Abstractions.csproj" />
+		<ProjectReference Include="..\..\OrchardCoreContrib\src\OrchardCoreContrib.Garnet.Abstractions\OrchardCoreContrib.Garnet.Abstractions.csproj" />
+		<ProjectReference Include="..\..\OrchardCoreContrib\src\OrchardCoreContrib.HealthChecks.Abstractions\OrchardCoreContrib.HealthChecks.Abstractions.csproj" />
+		<ProjectReference Include="..\..\OrchardCoreContrib\src\OrchardCoreContrib.Infrastructure.Abstractions\OrchardCoreContrib.Infrastructure.Abstractions.csproj" />
 	</ItemGroup>
 
 	<ItemGroup>

@@ -33,10 +33,13 @@
 		<PackageReference Include="OrchardCore" />
 		<PackageReference Include="OrchardCore.ContentTypes" />
 		<PackageReference Include="OrchardCore.Data.Abstractions" />
-		<PackageReference Include="OrchardCoreContrib.Abstractions" />
-		<PackageReference Include="OrchardCoreContrib.Localization.Abstractions" />
-		<PackageReference Include="OrchardCoreContrib.Localization" />
-		<PackageReference Include="OrchardCoreContrib.Navigation.Core" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\..\OrchardCoreContrib\src\OrchardCoreContrib.Abstractions\OrchardCoreContrib.Abstractions.csproj" />
+		<ProjectReference Include="..\..\OrchardCoreContrib\src\OrchardCoreContrib.Localization.Abstractions\OrchardCoreContrib.Localization.Abstractions.csproj" />
+		<ProjectReference Include="..\..\OrchardCoreContrib\src\OrchardCoreContrib.Localization\OrchardCoreContrib.Localization.csproj" />
+		<ProjectReference Include="..\..\OrchardCoreContrib\src\OrchardCoreContrib.Navigation.Core\OrchardCoreContrib.Navigation.Core.csproj" />
 	</ItemGroup>
 
 </Project>
