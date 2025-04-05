@@ -11,7 +11,7 @@ public class UserGroupsListPartDisplayDriver(UserGroupsManager userGroupsManager
 {
     public async override Task<IDisplayResult> DisplayAsync(UserGroupsListPart part, BuildPartDisplayContext context)
     {
-        var userGroups = await userGroupsManager.GetUserGroupsAsync();
+        var userGroups = await userGroupsManager.GetUserGroupNamesAsync();
 
 
         return Initialize<UserGroupsListPartViewModel>(GetDisplayShapeType(context), model =>
@@ -21,7 +21,7 @@ public class UserGroupsListPartDisplayDriver(UserGroupsManager userGroupsManager
     
     public async override Task<IDisplayResult> EditAsync(UserGroupsListPart part, BuildPartEditorContext context)
     {
-        var userGroups = await userGroupsManager.GetUserGroupsAsync();
+        var userGroups = await userGroupsManager.GetUserGroupNamesAsync();
         
         return Initialize<UserGroupsListPartEditViewModel>("UserGroupsListPart_Edit", model =>
         {

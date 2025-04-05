@@ -1,9 +1,8 @@
 ﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Localization;
-using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.AspNetCore.Routing;
-using Microsoft.Extensions.Localization;
 using Microsoft.Extensions.Options;
 using OrchardCore.Admin;
 using OrchardCore.Data.Documents;
@@ -11,7 +10,6 @@ using OrchardCore.DisplayManagement;
 using OrchardCore.DisplayManagement.Notify;
 using OrchardCore.Navigation;
 using OrchardCore.Routing;
-using OrchardCoreContrib.UserGroups.Models;
 using OrchardCoreContrib.UserGroups.Services;
 using OrchardCoreContrib.UserGroups.ViewModels;
 using YesSql.Services;
@@ -26,14 +24,13 @@ public class AdminController(
     IOptions<PagerOptions> pagerOptions,
     IShapeFactory shapeFactory,
     INotifier notifier,
-    IStringLocalizer<AdminController> S,
     IHtmlLocalizer<AdminController> H) : Controller
 {
-    private const string _optionsSearch = "Options.Search";
+    private const string SearchKey = "q";
 
     private readonly PagerOptions pagerOptions = pagerOptions.Value;
 
-    public async Task<ActionResult> Index(ContentOptions options, PagerParameters pagerParameters)
+    public async Task<ActionResult> Index(string search, PagerParameters pagerParameters)
     {
         if (!await authorizationService.AuthorizeAsync(User, UserGroupsPermissions.ManageUserGroups))
         {
@@ -44,9 +41,9 @@ public class AdminController(
 
         var pager = new Pager(pagerParameters, pagerOptions.GetPageSize());
         var count = userGroups.Count();
-        if (!string.IsNullOrWhiteSpace(options.Search))
+        if (!string.IsNullOrWhiteSpace(search))
         {
-            userGroups = userGroups.Where(group => group.Name.Contains(options.Search, StringComparison.OrdinalIgnoreCase));
+            userGroups = userGroups.Where(group => group.Name.Contains(search, StringComparison.OrdinalIgnoreCase));
         }
 
         userGroups = userGroups.OrderBy(group => group.Name)
@@ -54,27 +51,17 @@ public class AdminController(
             .Take(pager.PageSize);
 
         var routeData = new RouteData();
-        if (!string.IsNullOrEmpty(options.Search))
+        if (!string.IsNullOrEmpty(search))
         {
-            routeData.Values.TryAdd(_optionsSearch, options.Search);
+            routeData.Values.TryAdd(SearchKey, search);
         }
-
-        //options.ContentsBulkAction =
-        //[
-        //    new SelectListItem(S["Delete"],
-        //    nameof(ContentsBulkAction.Remove))
-        //];
 
         var pagerShape = await shapeFactory.PagerAsync(pager, count, routeData);
 
         var model = new UserGroupsIndexViewModel
         {
-            UserGroupEntries = userGroups.Select(group => new UserGroupEntry
-            { 
-                Name = group.Name,
-                UserGroup = group
-            }).ToList(),
-            Options = options,
+            UserGroups = userGroups,
+            Search = search,
             Pager = pagerShape
         };
 
@@ -86,37 +73,34 @@ public class AdminController(
     [FormValueRequired("submit.Filter")]
     public ActionResult IndexFilterPost(UserGroupsIndexViewModel model) => RedirectToAction(nameof(Index), new RouteValueDictionary
     {
-        { _optionsSearch, model.Options.Search }
+        { SearchKey, model.Search }
     });
 
     [HttpPost]
     [ActionName(nameof(Index))]
     [FormValueRequired("submit.BulkAction")]
-    public async Task<ActionResult> IndexBulkActionPost(ContentOptions options, IEnumerable<string> selectedGroupNames)
+    public async Task<ActionResult> IndexBulkActionPost(IEnumerable<string> selectedGroupNames)
     {
         if (!await authorizationService.AuthorizeAsync(User, UserGroupsPermissions.ManageUserGroups))
         {
             return Forbid();
         }
 
-        switch (options.BulkAction)
+        if (selectedGroupNames is not null)
         {
-            case BulkAction.None:
-                break;
-            case BulkAction.Remove:
-                if (selectedGroupNames is not null)
+            foreach (var name in selectedGroupNames)
+            {
+                var result = await userGroupsManager.DeleteAsync(name);
+                if (result == IdentityResult.Success)
                 {
-                    foreach (var id in selectedGroupNames)
-                    {
-                        await userGroupsManager.DeleteAsync(id);
-                    }
-
                     await notifier.SuccessAsync(H["User groups have been removed successfully."]);
                 }
-
-                break;
-            default:
-                return BadRequest();
+                else
+                {
+                    var error = result.Errors.First().Description;
+                    await notifier.ErrorAsync(new LocalizedHtmlString(error, error));
+                }
+            }
         }
 
         return RedirectToAction(nameof(Index));
@@ -144,39 +128,20 @@ public class AdminController(
 
         if (ModelState.IsValid)
         {
-            model.Name = model.Name.Trim();
-
-            if (model.Name.Any(c => Path.GetInvalidPathChars().Contains(c)))
+            var result = await userGroupsManager.CreateAsync(model.Name, model.Description);
+            if (result == IdentityResult.Success)
             {
-                ModelState.AddModelError(string.Empty, S["Invalid user group name."]);
-            }
-
-            if (await userGroupsManager.FindByNameAsync(model.Name) is not null)
-            {
-                ModelState.AddModelError(string.Empty, S["The user group is already used."]);
-            }
-
-            var group = new UserGroup
-            {
-                Name = model.Name,
-                Description = model.Description,
-            };
-
-            try
-            {
-                await userGroupsManager.CreateAsync(group);
-
                 await notifier.SuccessAsync(H["User Group created successfully."]);
 
                 return RedirectToAction(nameof(Index));
             }
-            catch
+            else
             {
-                await notifier.ErrorAsync(H["Error occurs during user group creation."]);
+                ModelState.AddModelError(string.Empty, result.Errors.First().Description);
 
                 await documentStore.CancelAsync();
 
-                ModelState.AddModelError(string.Empty, "Error occurs during user group creation.");
+                await notifier.ErrorAsync(H["Error occurs during user group creation."]);
             }
         }
 
@@ -198,7 +163,6 @@ public class AdminController(
 
         var model = new EditUserGroupViewModel
         {
-            UserGroup = userGroup,
             Name = userGroup.Name,
             Description = userGroup.Description
         };
@@ -207,24 +171,34 @@ public class AdminController(
     }
 
     [HttpPost, ActionName(nameof(Edit))]
-    public async Task<IActionResult> EditPost(string name, string description)
+    public async Task<IActionResult> EditPost(EditUserGroupViewModel model)
     {
         if (!await authorizationService.AuthorizeAsync(User, UserGroupsPermissions.ManageUserGroups))
         {
             return Forbid();
         }
 
-        var userGroup = await userGroupsManager.FindByNameAsync(name);
+        var userGroup = await userGroupsManager.FindByNameAsync(model.Name);
         if (userGroup is null)
         {
             return NotFound();
         }
 
-        userGroup.Description = description;
+        userGroup.Description = model.Description;
 
-        await userGroupsManager.UpdateAsync(userGroup);
+        var result = await userGroupsManager.UpdateAsync(userGroup);
+        if (result == IdentityResult.Success)
+        {
+            await notifier.SuccessAsync(H["User group updated successfully."]);
+        }
+        else
+        {
+            ModelState.AddModelError(string.Empty, result.Errors.First().Description);
 
-        await notifier.SuccessAsync(H["User group updated successfully."]);
+            await documentStore.CancelAsync();
+
+            await notifier.ErrorAsync(H["Could not update this user group."]);
+        }
 
         return RedirectToAction(nameof(Index));
     }
@@ -237,22 +211,19 @@ public class AdminController(
             return Forbid();
         }
 
-        if (await userGroupsManager.FindByNameAsync(name) is null)
+        var result = await userGroupsManager.DeleteAsync(name);
+        if (result == IdentityResult.Success)
         {
-            return NotFound();
-        }
-
-        try
-        {
-            await userGroupsManager.DeleteAsync(name);
-
             await notifier.SuccessAsync(H["User group deleted successfully."]);
         }
-        catch
+        else
         {
             await documentStore.CancelAsync();
 
             await notifier.ErrorAsync(H["Could not delete this user group."]);
+
+            var error = result.Errors.First().Description;
+            await notifier.ErrorAsync(new LocalizedHtmlString(error, error));
         }
 
         return RedirectToAction(nameof(Index));
