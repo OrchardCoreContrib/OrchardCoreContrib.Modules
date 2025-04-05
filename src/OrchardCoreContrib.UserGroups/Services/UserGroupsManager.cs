@@ -26,7 +26,7 @@ public class UserGroupsManager(IDocumentManager<UserGroupDocument> documentManag
         {
             return IdentityResult.Failed(new IdentityError
             {
-                Description = S["The user group '{0}' is already exist.", userGroup.Name],
+                Description = S["The user group '{0}' already exists.", userGroup.Name],
             });
         }
 
