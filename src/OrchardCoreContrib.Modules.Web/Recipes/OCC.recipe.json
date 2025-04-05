@@ -29,6 +29,7 @@
         "OrchardCoreContrib.System",
         "OrchardCore.Users",
         "OrchardCoreContrib.Users.Impersonation",
+        "OrchardCoreContrib.UserGroups",
         "OrchardCore.ViewCount",
         "TheTheme"
       ]

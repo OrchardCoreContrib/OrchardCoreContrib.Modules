@@ -1,0 +1,20 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Razor">
+	<PropertyGroup>
+		<AddRazorSupportForMvc>true</AddRazorSupportForMvc>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<FrameworkReference Include="Microsoft.AspNetCore.App" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<PackageReference Include="OrchardCore.Module.Targets" />
+		<PackageReference Include="OrchardCore.ContentFields" />
+		<PackageReference Include="OrchardCore.ContentManagement" />
+		<PackageReference Include="OrchardCore.ContentTypes.Abstractions" />
+		<PackageReference Include="OrchardCore.DisplayManagement" />
+		<PackageReference Include="OrchardCoreContrib.Infrastructure.Abstractions" />
+		<PackageReference Include="OrchardCoreContrib.Navigation.Core" />
+	</ItemGroup>
+
+</Project>
