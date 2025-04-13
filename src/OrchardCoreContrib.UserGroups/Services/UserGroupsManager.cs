@@ -6,8 +6,17 @@ using OrchardCoreContrib.UserGroups.Models;
 
 namespace OrchardCoreContrib.UserGroups.Services;
 
+/// <summary>
+/// Represents a manager for user groups.
+/// </summary>
+/// <param name="documentManager">The <see cref="IDocumentManager{UserGroupDocument}"/>.</param>
+/// <param name="S">The <see cref="IStringLocalizer{UserGroupDocument}"/>.</param>
 public class UserGroupsManager(IDocumentManager<UserGroupDocument> documentManager, IStringLocalizer<UserGroupsManager> S)
 {
+    /// <summary>
+    /// Creates a new user group.
+    /// </summary>
+    /// <param name="userGroup">The group to be created.</param>
     public async Task<IdentityResult> CreateAsync(UserGroup userGroup)
     {
         Guard.ArgumentNotNull(userGroup, nameof(userGroup));
@@ -38,6 +47,10 @@ public class UserGroupsManager(IDocumentManager<UserGroupDocument> documentManag
         return IdentityResult.Success;
     }
 
+    /// <summary>
+    /// Deletes a user group.
+    /// </summary>
+    /// <param name="groupName">The name of the group to be deleted.</param>
     public async Task<IdentityResult> DeleteAsync(string groupName)
     {
         Guard.ArgumentNotNullOrEmpty(groupName, nameof(groupName));
@@ -59,6 +72,10 @@ public class UserGroupsManager(IDocumentManager<UserGroupDocument> documentManag
         }
     }
 
+    /// <summary>
+    /// Updates an existing user group.
+    /// </summary>
+    /// <param name="userGroup">The group to be updated.</param>
     public async Task<IdentityResult> UpdateAsync(UserGroup userGroup)
     {
         Guard.ArgumentNotNull(userGroup, nameof(userGroup));
@@ -82,6 +99,9 @@ public class UserGroupsManager(IDocumentManager<UserGroupDocument> documentManag
         }
     }
 
+    /// <summary>
+    /// Retrieves all user groups.
+    /// </summary>
     public async Task<IEnumerable<UserGroup>> GetUserGroupsAsync()
     {
         var document = await documentManager.GetOrCreateImmutableAsync();
@@ -89,6 +109,10 @@ public class UserGroupsManager(IDocumentManager<UserGroupDocument> documentManag
         return document.UserGroups.Values;
     }
 
+    /// <summary>
+    /// Finds a user group by its name.
+    /// </summary>
+    /// <param name="groupName">The group name that's used for retrieval.</param>
     public async Task<UserGroup> FindByNameAsync(string groupName)
     {
         Guard.ArgumentNotNullOrEmpty(groupName, nameof(groupName));
