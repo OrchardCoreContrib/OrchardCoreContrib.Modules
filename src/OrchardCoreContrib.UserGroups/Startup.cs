@@ -1,6 +1,7 @@
 using Microsoft.Extensions.DependencyInjection;
 using OrchardCore.ContentManagement;
 using OrchardCore.ContentManagement.Display.ContentDisplay;
+using OrchardCore.Data;
 using OrchardCore.Data.Migration;
 using OrchardCore.DisplayManagement.Handlers;
 using OrchardCore.Modules;
@@ -8,6 +9,7 @@ using OrchardCore.Navigation;
 using OrchardCore.Security.Permissions;
 using OrchardCore.Users.Models;
 using OrchardCoreContrib.UserGroups.Drivers;
+using OrchardCoreContrib.UserGroups.Indexes;
 using OrchardCoreContrib.UserGroups.Models;
 using OrchardCoreContrib.UserGroups.Services;
 
@@ -17,6 +19,8 @@ public sealed class Startup : StartupBase
 {
     public override void ConfigureServices(IServiceCollection services)
     {
+        services.AddIndexProvider<UserByUserGroupNameIndexProvider>();
+
         services.AddDataMigration<Migrations>();
         services.AddPermissionProvider<Permissions>();
         services.AddNavigationProvider<AdminMenu>();
