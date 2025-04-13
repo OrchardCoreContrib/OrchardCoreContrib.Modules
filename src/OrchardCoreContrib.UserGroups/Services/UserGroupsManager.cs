@@ -11,8 +11,9 @@ public class UserGroupsManager(IDocumentManager<UserGroupDocument> documentManag
     public async Task<IdentityResult> CreateAsync(UserGroup userGroup)
     {
         Guard.ArgumentNotNull(userGroup, nameof(userGroup));
-
-        if (userGroup.Name.Any(c => Path.GetInvalidPathChars().Contains(c)))
+        
+        var invalidChars = Path.GetInvalidPathChars();
+        if (userGroup.Name.ToArray().Intersect(invalidChars).Any())
         {
             return IdentityResult.Failed(new IdentityError
             {
