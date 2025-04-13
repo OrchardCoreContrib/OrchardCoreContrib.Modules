@@ -30,7 +30,7 @@ public class AdminController(
 
     private readonly PagerOptions pagerOptions = pagerOptions.Value;
 
-    public async Task<ActionResult> Index(string search, PagerParameters pagerParameters)
+    public async Task<ActionResult> Index([FromQuery(Name = SearchKey)]string search, PagerParameters pagerParameters)
     {
         if (!await authorizationService.AuthorizeAsync(User, UserGroupsPermissions.ManageUserGroups))
         {
