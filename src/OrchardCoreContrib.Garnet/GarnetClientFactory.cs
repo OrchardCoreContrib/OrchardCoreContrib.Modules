@@ -2,6 +2,7 @@
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using System.Collections.Concurrent;
+using System.Net;
 
 namespace OrchardCoreContrib.Garnet;
 
@@ -60,7 +61,8 @@ public class GarnetClientFactory : IGarnetClientFactory, IDisposable
                     _logger.LogDebug("Creating a new instance of '{name}'. A single instance per configuration should be created across tenants. Total instances prior creating is '{count}'.", nameof(GarnetClient), _factories.Count);
                 }
 
-                var client = new GarnetClient(options.Host, options.Port, authUsername: options.UserName, authPassword: options.Password);
+                var endpoint = new IPEndPoint(IPAddress.Parse(options.Host), options.Port);
+                var client = new GarnetClient(endpoint, authUsername: options.UserName, authPassword: options.Password);
 
                 await client.ConnectAsync();
 

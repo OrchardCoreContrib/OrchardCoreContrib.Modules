@@ -26,7 +26,10 @@
 	<ItemGroup>
 		<PackageReference Include="Microsoft.AspNetCore.Diagnostics.Elm" />
 		<PackageReference Include="OrchardCore.Module.Targets" />
-		<PackageReference Include="OrchardCoreContrib.Abstractions" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\..\OrchardCoreContrib\src\OrchardCoreContrib.Abstractions\OrchardCoreContrib.Abstractions.csproj" />
 	</ItemGroup>
 
 </Project>

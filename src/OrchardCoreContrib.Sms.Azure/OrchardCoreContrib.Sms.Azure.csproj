@@ -32,9 +32,12 @@
 		<PackageReference Include="Azure.Communication.Sms" />
 		<PackageReference Include="OrchardCore.DisplayManagement" />
 		<PackageReference Include="OrchardCore.Module.Targets" />
-		<PackageReference Include="OrchardCoreContrib.Infrastructure" />
-		<PackageReference Include="OrchardCoreContrib.Navigation.Core" />
-		<PackageReference Include="OrchardCoreContrib.Sms.Abstractions" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\..\OrchardCoreContrib\src\OrchardCoreContrib.Infrastructure\OrchardCoreContrib.Infrastructure.csproj" />
+		<ProjectReference Include="..\..\OrchardCoreContrib\src\OrchardCoreContrib.Navigation.Core\OrchardCoreContrib.Navigation.Core.csproj" />
+		<ProjectReference Include="..\..\OrchardCoreContrib\src\OrchardCoreContrib.Sms.Abstractions\OrchardCoreContrib.Sms.Abstractions.csproj" />
 	</ItemGroup>
 
 </Project>
