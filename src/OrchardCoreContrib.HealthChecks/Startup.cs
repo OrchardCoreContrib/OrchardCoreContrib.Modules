@@ -12,22 +12,15 @@ using System.Net.Mime;
 using System.Text.Json;
 
 namespace OrchardCoreContrib.HealthChecks;
-public class Startup : StartupBase
+public class Startup(IShellConfiguration shellConfiguration) : StartupBase
 {
     private static readonly JsonSerializerOptions _jsonSerializerOptions = new() { WriteIndented = true };
-
-    private readonly IShellConfiguration _shellConfiguration;
-
-    public Startup(IShellConfiguration shellConfiguration)
-    {
-        _shellConfiguration = shellConfiguration;
-    }
 
     public override void ConfigureServices(IServiceCollection services)
     {
         services.AddHealthChecks();
 
-        services.Configure<HealthChecksOptions>(_shellConfiguration.GetSection("OrchardCoreContrib_HealthChecks"));
+        services.Configure<HealthChecksOptions>(shellConfiguration.GetSection(Constants.ConfigurationKey));
     }
 
     public override void Configure(IApplicationBuilder builder, IEndpointRouteBuilder routes, IServiceProvider serviceProvider)
