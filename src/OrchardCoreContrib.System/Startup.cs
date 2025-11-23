@@ -17,8 +17,13 @@ using OrchardCoreContrib.System.Services;
 
 namespace OrchardCoreContrib.System;
 
+/// <summary>
+/// Provides application startup configuration for the System module, including service registrations
+/// and route mappings.
+/// </summary>
 public class Startup : StartupBase
 {
+    /// <inheritdoc/>
     public override void ConfigureServices(IServiceCollection services)
     {
         services.AddScoped<INavigationProvider, AdminMenu>();
@@ -26,6 +31,7 @@ public class Startup : StartupBase
         services.AddSingleton<SystemInformation>();
     }
 
+    /// <inheritdoc/>
     public override void Configure(IApplicationBuilder builder, IEndpointRouteBuilder routes, IServiceProvider serviceProvider)
     {
         routes.MapAreaControllerRoute(
@@ -37,9 +43,13 @@ public class Startup : StartupBase
     }
 }
 
+/// <summary>
+/// Configures services and routes required for the system updates feature within an Orchard Core application.
+/// </summary>
 [Feature("OrchardCoreContrib.System.Updates")]
 public class UpdatesStartup : StartupBase
 {
+    /// <inheritdoc/>
     public override void ConfigureServices(IServiceCollection services)
     {
         services.AddSingleton<ISystemUpdateService, SystemUpdateService>();
@@ -50,6 +60,7 @@ public class UpdatesStartup : StartupBase
             .AddSystemUpdatesCheck();
     }
 
+    /// <inheritdoc/>
     public override void Configure(IApplicationBuilder builder, IEndpointRouteBuilder routes, IServiceProvider serviceProvider)
     {
         routes.MapAreaControllerRoute(
@@ -68,9 +79,13 @@ public class UpdatesStartup : StartupBase
     }
 }
 
+/// <summary>
+/// Configures services and routes required for the system maintenance feature within an Orchard Core application.
+/// </summary>
 [Feature("OrchardCoreContrib.System.Maintenance")]
 public class MaintenaceStartup : StartupBase
 {
+    /// <inheritdoc/>
     public override void ConfigureServices(IServiceCollection services)
     {
         services.AddScoped<IPermissionProvider, Permissions>();
@@ -78,6 +93,7 @@ public class MaintenaceStartup : StartupBase
         services.AddScoped<INavigationProvider, MaintenanceAdminMenu>();
     }
 
+    /// <inheritdoc/>
     public override void Configure(IApplicationBuilder app, IEndpointRouteBuilder routes, IServiceProvider serviceProvider)
         => app.UseMaintenanceRedirect();
 }

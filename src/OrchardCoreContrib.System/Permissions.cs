@@ -7,21 +7,21 @@ namespace OrchardCoreContrib.System;
 /// </summary>
 public class Permissions : IPermissionProvider
 {
-    /// <summary>
-    /// Gets a permission for managing a System settings.
-    /// </summary>
-    public static readonly Permission ManageSystemSettings = new("ManageSystemSettings", "Manage System Settings");
+    private readonly IEnumerable<Permission> _allPermissions =
+    [
+        SystemPermissions.ManageSystemSettings,
+    ];
 
     /// <inheritdoc/>
-    public Task<IEnumerable<Permission>> GetPermissionsAsync() => Task.FromResult(new[] { ManageSystemSettings }.AsEnumerable());
+    public Task<IEnumerable<Permission>> GetPermissionsAsync() => Task.FromResult(_allPermissions);
 
     /// <inheritdoc/>
-    public IEnumerable<PermissionStereotype> GetDefaultStereotypes() => new[]
-    {
+    public IEnumerable<PermissionStereotype> GetDefaultStereotypes() =>
+    [
         new PermissionStereotype
         {
             Name = "Administrator",
-            Permissions = new[] { ManageSystemSettings }
+            Permissions = _allPermissions
         },
-    };
+    ];
 }

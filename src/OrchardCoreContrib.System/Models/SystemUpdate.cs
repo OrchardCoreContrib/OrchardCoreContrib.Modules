@@ -2,16 +2,17 @@
 
 namespace OrchardCoreContrib.System.Models;
 
-public class SystemUpdate
+/// <summary>
+/// Represents a system update identified by a specific NuGet package version.
+/// </summary>
+/// <param name="version">The NuGet package version that uniquely identifies the system update. Cannot be null.</param>
+public class SystemUpdate(NuGetVersion version)
 {
-    private readonly NuGetVersion _version;
-    
-    public SystemUpdate(NuGetVersion version)
-    {
-        _version = version;
-    }
+    /// <summary>
+    /// Gets the version information for the current instance.
+    /// </summary>
+    public Version Version => version.Version;
 
-    public Version Version => _version.Version;
-
-    public override string ToString() => _version.ToFullString();
+    /// <inheritdoc/>
+    public override string ToString() => version.ToFullString();
 }
