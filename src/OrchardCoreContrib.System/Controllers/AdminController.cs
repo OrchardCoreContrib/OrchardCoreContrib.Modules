@@ -5,40 +5,22 @@ using OrchardCoreContrib.System.ViewModels;
 
 namespace OrchardCoreContrib.System.Controllers;
 
-public class AdminController : Controller
+public class AdminController(
+    SystemInformation systemInformation,
+    IShellHost shellHost,
+    IShellFeaturesManager shellFeaturesManager,
+    ISystemUpdateService systemUpdateService) : Controller
 {
-    private readonly SystemInformation _systemInformation;
-    private readonly IShellHost _shellHost;
-    private readonly IShellFeaturesManager _shellFeaturesManager;
-    private readonly ISystemUpdateService _systemUpdateService;
-
-    public AdminController(
-        SystemInformation systemInformation,
-        IShellHost shellHost,
-        IShellFeaturesManager shellFeaturesManager,
-        ISystemUpdateService systemUpdateService)
-    {
-        _systemInformation = systemInformation;
-        _shellHost = shellHost;
-        _shellFeaturesManager = shellFeaturesManager;
-        _systemUpdateService = systemUpdateService;
-    }
-
     public async Task<ActionResult> About() => View(new AboutViewModel
     {
-        SystemInformation = _systemInformation,
-        Tenants = _shellHost.GetAllSettings(),
-        Features = await _shellFeaturesManager.GetEnabledFeaturesAsync()
+        SystemInformation = systemInformation,
+        Tenants = shellHost.GetAllSettings(),
+        Features = await shellFeaturesManager.GetEnabledFeaturesAsync()
     });
 
-    public async Task<ActionResult> Updates()
+    public async Task<ActionResult> Updates() => View(new UpdatesViewModel
     {
-        var updates = await _systemUpdateService.GetUpdatesAsync();
-
-        return View(new UpdatesViewModel
-        {
-            SystemInformation = _systemInformation,
-            Updates = updates,
-        });
-    }
+        SystemInformation = systemInformation,
+        Updates = await systemUpdateService.GetUpdatesAsync(),
+    });
 }

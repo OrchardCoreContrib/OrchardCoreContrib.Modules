@@ -1,27 +1,26 @@
 ﻿using Microsoft.Extensions.Localization;
 using OrchardCore.Navigation;
-using OrchardCoreContrib.Navigation;
 using OrchardCoreContrib.System.Drivers;
 
 namespace OrchardCoreContrib.System;
 
+using Microsoft.AspNetCore.Routing;
 using OrchardCoreContrib.Navigation;
 
 /// <summary>
 /// Represents an admin menu for maintenance feature.
 /// </summary>
-public class MaintenanceAdminMenu : AdminNavigationProvider
+/// <remarks>
+/// Initializes a new instance of <see cref="MaintenanceAdminMenu"/>.
+/// </remarks>
+/// <param name="S"></param>
+public class MaintenanceAdminMenu(IStringLocalizer<MaintenanceAdminMenu> S) : AdminNavigationProvider
 {
-    private readonly IStringLocalizer S;
-
-    /// <summary>
-    /// Initializes a new instance of <see cref="MaintenanceAdminMenu"/>.
-    /// </summary>
-    /// <param name="stringLocalizer"></param>
-    public MaintenanceAdminMenu(IStringLocalizer<MaintenanceAdminMenu> stringLocalizer)
+    private static readonly RouteValueDictionary _routeValues = new()
     {
-        S = stringLocalizer;
-    }
+        { "area", "OrchardCore.Settings" },
+        { "groupId", SystemSettingsDisplayDriver.GroupId },
+    };
 
     /// <inheritdoc/>
     public override void BuildNavigation(NavigationBuilder builder)
@@ -32,8 +31,8 @@ public class MaintenanceAdminMenu : AdminNavigationProvider
                     .Add(S["System"], S["System"].PrefixPosition(), system => system
                         .AddClass("system").Id("system")
                         .Add(S["Maintenance"], S["Maintenance"], maintenance => maintenance
-                            .Action("Index", "Admin", new { area = "OrchardCore.Settings", groupId = SystemSettingsDisplayDriver.GroupId })
-                            .Permission(Permissions.ManageSystemSettings)
+                            .Action("Index", "Admin", _routeValues)
+                            .Permission(SystemPermissions.ManageSystemSettings)
                             .LocalNav()
                        )
                    )
