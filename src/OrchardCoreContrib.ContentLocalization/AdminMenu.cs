@@ -1,35 +1,33 @@
-﻿using Microsoft.Extensions.Localization;
+﻿using Microsoft.AspNetCore.Routing;
+using Microsoft.Extensions.Localization;
 using OrchardCore.Modules;
 using OrchardCore.Navigation;
 
-namespace OrchardCoreContrib.ContentLocalization
+namespace OrchardCoreContrib.ContentLocalization;
+
+using OrchardCoreContrib.Navigation;
+
+[Feature("OrchardCoreContrib.ContentLocalization.LocalizationMatrix")]
+public class AdminMenu(IStringLocalizer<AdminMenu> S) : AdminNavigationProvider
 {
-    using OrchardCoreContrib.Navigation;
-
-    [Feature("OrchardCoreContrib.ContentLocalization.LocalizationMatrix")]
-    public class AdminMenu : AdminNavigationProvider
+    private static readonly RouteValueDictionary _routeValues = new()
     {
-        private readonly IStringLocalizer S;
+        { "area", "OrchardCoreContrib.ContentLocalization" }
+    };
 
-        public AdminMenu(IStringLocalizer<AdminMenu> localizer)
-        {
-            S = localizer;
-        }
-
-        public override void BuildNavigation(NavigationBuilder builder)
-        {
-            builder
-                .Add(S["Configuration"], c => c
-                    .Add(S["Settings"], s => s
-                        .Add(S["Localization"], l => l
-                            .AddClass("localization").Id("localization")
-                            .Add(S["Localization Matrix"], S["Localization Matrix"].PrefixPosition(), lm => lm
-                                .Action("LocalizationMatrix", "Admin", new { area = "OrchardCoreContrib.ContentLocalization" })
-                                .LocalNav()
-                             )
-                        )
+    public override void BuildNavigation(NavigationBuilder builder)
+    {
+        builder
+            .Add(S["Configuration"], config => config
+                .Add(S["Settings"], settings => settings
+                    .Add(S["Localization"], localization => localization
+                        .AddClass("localization").Id("localization")
+                        .Add(S["Localization Matrix"], S["Localization Matrix"].PrefixPosition(), localizationMatrix => localizationMatrix
+                            .Action("LocalizationMatrix", "Admin", _routeValues)
+                            .LocalNav()
+                         )
                     )
-                );
-        }
+                )
+            );
     }
 }

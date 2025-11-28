@@ -1,11 +1,8 @@
-﻿using System.Collections.Generic;
+﻿namespace OrchardCoreContrib.ContentLocalization.ViewModels;
 
-namespace OrchardCoreContrib.ContentLocalization.ViewModels
+public class LocalizationMatrixViewModel
 {
-    public class LocalizationMatrixViewModel
-    {
-        public IEnumerable<string> Cultures { get; set; }
+    public IEnumerable<string> Cultures { get; set; }
 
-        public IEnumerable<string> LocalizationSets { get; set; }
-    }
+    public IEnumerable<string> LocalizationSets { get; set; }
 }
