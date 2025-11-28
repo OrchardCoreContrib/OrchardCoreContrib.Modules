@@ -1,9 +1,10 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
 	<PropertyGroup>
-		<VersionPrefix>1.3.0</VersionPrefix>
+		<VersionPrefix>1.4.0</VersionPrefix>
 		<Authors>The Orchard Core Contrib Team</Authors>
 		<Company />
+		<PackageReadmeFile>README.md</PackageReadmeFile>
 		<Description>Provides a list of useful Liquid filters.</Description>
 		<PackageLicenseExpression>BSD-3-Clause</PackageLicenseExpression>
 		<PackageProjectUrl>https://github.com/OrchardCoreContrib/OrchardCoreContrib.Modules/tree/main/src/OrchardCoreContrib.Liquid/README.md</PackageProjectUrl>
@@ -25,12 +26,13 @@
 
 	<ItemGroup>
 		<None Include="../../images/icon.png" Pack="true" PackagePath="icon.png" />
+		<None Include="README.md" Pack="true" PackagePath="\"/>
 	</ItemGroup>
 
 	<ItemGroup>
-		<PackageReference Include="OrchardCore.Liquid.Abstractions" />
 		<PackageReference Include="OrchardCore.Module.Targets" />
 		<PackageReference Include="OrchardCoreContrib.Abstractions" />
+		<PackageReference Include="OrchardCoreContrib.DisplayManagement.Liquid" />
 	</ItemGroup>
 
 </Project>

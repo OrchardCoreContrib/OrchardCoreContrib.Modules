@@ -39,6 +39,7 @@
 		<PackageVersion Include="OrchardCore.Users.Core" Version="2.2.0" />
 		<PackageVersion Include="OrchardCoreContrib.Abstractions" Version="1.4.0" />
 		<PackageVersion Include="OrchardCoreContrib.ContentLocalization.Core" Version="1.2.0" />
+		<PackageVersion Include="OrchardCoreContrib.DisplayManagement.Liquid" Version="1.0.0" />
 		<PackageVersion Include="OrchardCoreContrib.Data" Version="1.2.0" />
 		<PackageVersion Include="OrchardCoreContrib.Data.YesSql" Version="1.2.0" />
 		<PackageVersion Include="OrchardCoreContrib.Email" Version="1.6.0" />
