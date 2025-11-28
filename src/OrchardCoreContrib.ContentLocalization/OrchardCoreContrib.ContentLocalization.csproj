@@ -34,6 +34,7 @@
 		<PackageReference Include="OrchardCore.Module.Targets" />
 		<PackageReference Include="OrchardCoreContrib.Abstractions" />
 		<PackageReference Include="OrchardCoreContrib.ContentLocalization.Core" />
+		<PackageReference Include="OrchardCoreContrib.Infrastructure.Abstractions" />
 		<PackageReference Include="OrchardCoreContrib.Navigation.Core" />
 	</ItemGroup>
 
