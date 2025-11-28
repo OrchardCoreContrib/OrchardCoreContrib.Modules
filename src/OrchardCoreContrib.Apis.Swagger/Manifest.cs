@@ -11,12 +11,12 @@ using ManifestConstants = OrchardCoreContrib.Modules.Manifest.ManifestConstants;
 [assembly: Feature(
     Id = "OrchardCoreContrib.Apis.Swagger",
     Name = "Swagger",
-    Description = "Enables Swagger for OrchardCore APIs."
+    Description = "Enables Swagger for Orchard Core APIs."
 )]
 
 [assembly: Feature(
     Id = "OrchardCoreContrib.Apis.Swagger.UI",
     Name = "Swagger UI",
-    Description = "Enables Swagger UI for OrchardCore APIs.",
-    Dependencies = new[] { "OrchardCoreContrib.Apis.Swagger" }
+    Description = "Enables Swagger UI for Orchard Core APIs.",
+    Dependencies = ["OrchardCoreContrib.Apis.Swagger"]
 )]
