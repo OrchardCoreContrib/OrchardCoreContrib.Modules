@@ -4,7 +4,7 @@ This module provides settings and services to send SMS messages using Azure Comm
 
 ## Version
 
-1.0.1
+1.3.0
 
 ## Category
 
@@ -26,6 +26,8 @@ There's no dependencies.
 
 | Name                                                                                                    | Version |
 |---------------------------------------------------------------------------------------------------------|---------|
+| [`OrchardCoreContrib.Sms.Azure`](https://www.nuget.org/packages/OrchardCoreContrib.Sms.Azure/1.3.0)	  | 1.3.0   |
+| [`OrchardCoreContrib.Sms.Azure`](https://www.nuget.org/packages/OrchardCoreContrib.Sms.Azure/1.2.0)	  | 1.2.0   |
 | [`OrchardCoreContrib.Sms.Azure`](https://www.nuget.org/packages/OrchardCoreContrib.Sms.Azure/1.1.0)	  | 1.1.0   |
 | [`OrchardCoreContrib.Sms.Azure`](https://www.nuget.org/packages/OrchardCoreContrib.Sms.Azure/1.0.1)	  | 1.0.1   |
 | [`OrchardCoreContrib.Sms.Azure`](https://www.nuget.org/packages/OrchardCoreContrib.Sms.Azure/1.0.0)	  | 1.0.0   |
