@@ -4,7 +4,7 @@ using ManifestConstants = OrchardCoreContrib.Modules.Manifest.ManifestConstants;
 [assembly: Module(
     Author = ManifestConstants.Author,
     Website = ManifestConstants.Website,
-    Version = "1.4.1",
+    Version = "1.6.0",
     Category = "Api"
 )]
 
