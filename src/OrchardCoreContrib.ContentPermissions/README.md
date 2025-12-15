@@ -4,7 +4,7 @@ This module allows you to protect your content items with permission(s).
 
 ## Version
 
-1.0.0
+1.1.0
 
 ## Category
 
@@ -26,6 +26,7 @@ This module has no dependencies.
 
 | Name																													| Version     |
 |-----------------------------------------------------------------------------------------------------------------------|-------------|
+| [`OrchardCoreContrib.ContentPermissions`](https://www.nuget.org/packages/OrchardCoreContrib.ContentPermissions/1.1.0) | 1.1.0       |
 | [`OrchardCoreContrib.ContentPermissions`](https://www.nuget.org/packages/OrchardCoreContrib.ContentPermissions/1.0.0) | 1.0.0       |
 
 ## Get Started
