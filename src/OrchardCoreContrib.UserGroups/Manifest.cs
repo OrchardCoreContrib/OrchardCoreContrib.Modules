@@ -5,7 +5,7 @@ using ManifestConstants = OrchardCoreContrib.Modules.Manifest.ManifestConstants;
     Name = "User Groups",
     Author = ManifestConstants.Author,
     Website = ManifestConstants.Website,
-    Version = "1.0.0",
+    Version = "1.1.0",
     Description = "Provides a way to organize the users into group(s).",
     Category = "Security"
 )]

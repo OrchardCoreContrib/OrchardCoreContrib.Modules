@@ -26,7 +26,8 @@ This module has no dependencies.
 
 | Name																													| Version     |
 |-----------------------------------------------------------------------------------------------------------------------|-------------|
-| [`OrchardCoreContrib.UserGroups`](https://www.nuget.org/packages/OrchardCoreContrib.UserGroups/1.0.0) | 1.0.0       |
+| [`OrchardCoreContrib.UserGroups`](https://www.nuget.org/packages/OrchardCoreContrib.UserGroups/1.1.0)					| 1.1.0       |
+| [`OrchardCoreContrib.UserGroups`](https://www.nuget.org/packages/OrchardCoreContrib.UserGroups/1.0.0)					| 1.0.0       |
 
 ## Get Started
 
