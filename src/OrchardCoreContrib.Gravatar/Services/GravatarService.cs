@@ -1,21 +1,15 @@
 ﻿using Microsoft.Extensions.Options;
-using System;
 using System.ComponentModel.DataAnnotations;
 using System.Security.Cryptography;
 using System.Text;
 
 namespace OrchardCoreContrib.Gravatar.Services;
 
-public class GravatarService : IGravatarService
+public class GravatarService(IOptions<GravatarOptions> gravatarOptions) : IGravatarService
 {
     private const string GravatarUrl = "http://www.gravatar.com/avatar/";
 
-    private readonly GravatarOptions _gravatarOptions;
-
-    public GravatarService(IOptions<GravatarOptions> gravatarOptions)
-    {
-        _gravatarOptions = gravatarOptions.Value;
-    }
+    private readonly GravatarOptions _gravatarOptions = gravatarOptions.Value;
 
     public string GetAvatarUrl(string email, [Range(1, 512)] int size = GravatarConstants.DefaultSize)
     {
@@ -38,9 +32,8 @@ public class GravatarService : IGravatarService
 
     private static string ComputeHash(string email)
     {
-        var md5 = MD5.Create();
         var bytes = Encoding.ASCII.GetBytes(email);
-        var hash = md5.ComputeHash(bytes);
+        var hash = MD5.HashData(bytes);
         var sb = new StringBuilder();
 
         for (var i = 0; i < hash.Length; i++)
