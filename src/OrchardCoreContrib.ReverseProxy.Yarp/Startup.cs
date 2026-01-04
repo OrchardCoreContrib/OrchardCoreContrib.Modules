@@ -7,15 +7,8 @@ using System;
 
 namespace OrchardCoreContrib.ReverseProxy.Yarp;
 
-public class Startup : StartupBase
+public class Startup(IShellConfiguration shellConfiguration) : StartupBase
 {
-    private readonly IShellConfiguration _shellConfiguration;
-
-    public Startup(IShellConfiguration shellConfiguration)
-    {
-        _shellConfiguration = shellConfiguration;
-    }
-
     public override int Order => -1;
 
     public override void Configure(IApplicationBuilder app, IEndpointRouteBuilder routes, IServiceProvider serviceProvider)
@@ -27,6 +20,6 @@ public class Startup : StartupBase
     {
         services
             .AddReverseProxy()
-            .LoadFromConfig(_shellConfiguration.GetSection("OrchardCoreContrib_Yarp"));
+            .LoadFromConfig(shellConfiguration.GetSection(Constants.ConfigurationSectionName));
     }
 }
