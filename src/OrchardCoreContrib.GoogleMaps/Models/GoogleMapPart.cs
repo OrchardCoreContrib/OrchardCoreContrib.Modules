@@ -1,11 +1,10 @@
 ﻿using OrchardCore.ContentManagement;
 
-namespace OrchardCoreContrib.GoogleMaps.Models
-{
-    public class GoogleMapPart : ContentPart
-    {
-        public double Latitude { get; set; }
+namespace OrchardCoreContrib.GoogleMaps.Models;
 
-        public double Longitude { get; set; }
-    }
+public class GoogleMapPart : ContentPart
+{
+    public double Latitude { get; set; }
+
+    public double Longitude { get; set; }
 }
