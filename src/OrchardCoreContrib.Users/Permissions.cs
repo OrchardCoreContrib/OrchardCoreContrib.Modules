@@ -1,44 +1,32 @@
 ﻿using OrchardCore.Modules;
-using OrchardCore.Security;
 using OrchardCore.Security.Permissions;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
-namespace OrchardCoreContrib.Users
+namespace OrchardCoreContrib.Users;
+
+/// <summary>
+/// Represents a permissions that will be applied into users module.
+/// </summary>
+[Feature("OrchardCoreContrib.Users.Impersonation")]
+public class Permissions : IPermissionProvider
 {
-    /// <summary>
-    /// Represents a permissions that will be applied into users module.
-    /// </summary>
-    [Feature("OrchardCoreContrib.Users.Impersonation")]
-    public class Permissions : IPermissionProvider
+    private readonly IEnumerable<Permission> _allPermissions =
+    [
+        UsersPermissions.ManageImpersonationSettings,
+    ];
+
+    /// <inheritdoc/>
+    public Task<IEnumerable<Permission>> GetPermissionsAsync() => Task.FromResult(_allPermissions);
+
+    /// <inheritdoc/>
+    public IEnumerable<PermissionStereotype> GetDefaultStereotypes()
     {
-        /// <summary>
-        /// Gets a permission for managing a impersonation settings.
-        /// </summary>
-        public static readonly Permission ManageImpersonationSettings = new Permission("ManageImpersonationSettings", "Manage Impersonation Settings", isSecurityCritical: true);
-
-        /// <inheritdoc/>
-        public Task<IEnumerable<Permission>> GetPermissionsAsync()
-        {
-            return Task.FromResult(new[]
+        return
+        [
+            new PermissionStereotype
             {
-                ManageImpersonationSettings
-            }
-            .AsEnumerable());
-        }
-
-        /// <inheritdoc/>
-        public IEnumerable<PermissionStereotype> GetDefaultStereotypes()
-        {
-            return new[]
-            {
-                new PermissionStereotype
-                {
-                    Name = "Administrator",
-                    Permissions = new[] { ManageImpersonationSettings, StandardPermissions.SiteOwner }
-                },
-            };
-        }
+                Name = "Administrator",
+                Permissions = _allPermissions
+            },
+        ];
     }
 }
