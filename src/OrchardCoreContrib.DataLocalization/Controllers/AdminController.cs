@@ -8,160 +8,140 @@ using OrchardCoreContrib.DataLocalization.Services;
 using OrchardCoreContrib.DataLocalization.ViewModels;
 using OrchardCoreContrib.Localization;
 using OrchardCoreContrib.Localization.Data;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
-namespace OrchardCoreContrib.DataLocalization.Controllers
+namespace OrchardCoreContrib.DataLocalization.Controllers;
+
+public class AdminController(
+    IContentDefinitionService contentDefinitionService,
+    IEnumerable<IDataResourceStringProvider> dataResourceStringProviders,
+    TranslationsManager translationsManager,
+    IMemoryCache memoryCache,
+    IHtmlLocalizer<AdminController> H,
+    INotifier notifier) : Controller
 {
-    public class AdminController : Controller
+    private const string ResourcesCachePrefix = "OCC-CultureDictionary-";
+    private const string AntiForgeryTokenKey = "__RequestVerificationToken";
+
+    public async Task<ActionResult> ManageContentTypeResources([FromQuery] string selectedCulture)
     {
-        private const string ResourcesCachePrefix = "OCC-CultureDictionary-";
-        private const string AntiForgeryTokenKey = "__RequestVerificationToken";
+        var resourcesNames = await GetResourcesNamesAsync(ContentTypeResourceStringProvider.Context);
 
-        private readonly IContentDefinitionService _contentDefinitionService;
-        private readonly IEnumerable<IDataResourceStringProvider> _dataResourceStringProviders;
-        private readonly TranslationsManager _translationsManager;
-        private readonly IMemoryCache _memoryCache;
-        private readonly INotifier _notifier;
-        private readonly IHtmlLocalizer H;
+        var translationsDocument = await translationsManager.GetTranslationsDocumentAsync();
 
-        public AdminController(
-            IContentDefinitionService contentDefinitionService,
-            IEnumerable<IDataResourceStringProvider> dataResourceStringProviders,
-            TranslationsManager translationsManager,
-            IMemoryCache memoryCache,
-            IHtmlLocalizer<AdminController> htmlLocalizer,
-            INotifier notifier)
+        var viewModel = new ContentTypeResourcesViewModel
         {
-            _contentDefinitionService = contentDefinitionService;
-            _dataResourceStringProviders = dataResourceStringProviders;
-            _translationsManager = translationsManager;
-            _memoryCache = memoryCache;
-            _notifier = notifier;
-            H = htmlLocalizer;
+            ResourcesNames = resourcesNames,
+            Translations = [],
+            SelectedCulture = selectedCulture
+        };
+
+        if (!string.IsNullOrEmpty(selectedCulture) &&
+            translationsDocument.Translations.TryGetValue(selectedCulture, out IEnumerable<Translation> value))
+        {
+            viewModel.Translations = value;
         }
 
-        public async Task<ActionResult> ManageContentTypeResources([FromQuery] string selectedCulture)
+        return View(viewModel);
+    }
+
+    [HttpPost]
+    [ActionName(nameof(ManageContentTypeResources))]
+    public async Task<ActionResult> ManageContentTypeResourcesPost([FromQuery] string selectedCulture)
+    {
+        await UpdateResourcesAsync(ContentTypeResourceStringProvider.Context, selectedCulture);
+
+        return RedirectToAction(nameof(ManageContentTypeResources), new { selectedCulture });
+    }
+
+    public async Task<ActionResult> ManageContentFieldResources([FromQuery] string selectedCulture, [FromQuery] string contentType)
+    {
+        var context = $"{contentType}-{ContentFieldResourceStringProvider.Context}";
+        var resourcesNames = await GetResourcesNamesAsync(context);
+
+        var translationsDocument = await translationsManager.GetTranslationsDocumentAsync();
+
+        var viewModel = new ContentFieldResourcesViewModel
         {
-            var resourcesNames = await GetResourcesNamesAsync(ContentTypeResourceStringProvider.Context);
+            ContentTypes = (await contentDefinitionService.GetTypesAsync()).Select(t => t.Name),
+            ResourcesNames = resourcesNames,
+            Translations = [],
+            SelectedContentType = contentType,
+            SelectedCulture = selectedCulture
+        };
 
-            var translationsDocument = await _translationsManager.GetTranslationsDocumentAsync();
+        if (!string.IsNullOrEmpty(selectedCulture) &&
+            translationsDocument.Translations.TryGetValue(selectedCulture, out IEnumerable<Translation> value))
+        {
+            viewModel.Translations = value;
+        }
 
-            var viewModel = new ContentTypeResourcesViewModel
+        return View(viewModel);
+    }
+
+    [HttpPost]
+    [ActionName(nameof(ManageContentFieldResources))]
+    public async Task<ActionResult> ManageContentFieldResourcesPost([FromQuery] string selectedCulture, [FromQuery] string contentType)
+    {
+        var context = $"{contentType}-{ContentFieldResourceStringProvider.Context}";
+        
+        await UpdateResourcesAsync(context, selectedCulture);
+
+        return RedirectToAction(nameof(ManageContentFieldResources), new { selectedCulture, contentType });
+    }
+
+    private async Task<IEnumerable<string>> GetResourcesNamesAsync(string context)
+    {
+        IEnumerable<string> resourcesNames = null;
+        foreach (var dataResourceStringProvider in dataResourceStringProviders)
+        {
+            resourcesNames = (await dataResourceStringProvider.GetAllResourceStringsAsync(context))
+                .Select(r => r.GetMessageId());
+
+            if (resourcesNames.Any())
             {
-                ResourcesNames = resourcesNames,
-                Translations = Enumerable.Empty<Translation>(),
-                SelectedCulture = selectedCulture
-            };
-
-            if (!String.IsNullOrEmpty(selectedCulture) && translationsDocument.Translations.ContainsKey(selectedCulture))
-            {
-                viewModel.Translations = translationsDocument.Translations[selectedCulture];
+                break;
             }
-
-            return View(viewModel);
         }
 
-        [HttpPost]
-        [ActionName(nameof(ManageContentTypeResources))]
-        public async Task<ActionResult> ManageContentTypeResourcesPost([FromQuery] string selectedCulture)
-        {
-            await UpdateResourcesAsync(ContentTypeResourceStringProvider.Context, selectedCulture);
+        return resourcesNames;
+    }
 
-            return RedirectToAction(nameof(ManageContentTypeResources), new { selectedCulture });
+    private async Task UpdateResourcesAsync(string context, string culture)
+    {
+        var translations = new List<Translation>();
+
+        var translationsDocument = await translationsManager.GetTranslationsDocumentAsync();
+
+        if (translationsDocument.Translations.TryGetValue(culture, out IEnumerable<Translation> translationsValue))
+        {
+            translations = [.. translationsValue];
         }
 
-        public async Task<ActionResult> ManageContentFieldResources([FromQuery] string selectedCulture, [FromQuery] string contentType)
+        foreach (var key in Request.Form.Keys.Where(k => !k.Equals(AntiForgeryTokenKey)))
         {
-            var context = $"{contentType}-{ContentFieldResourceStringProvider.Context}";
-            var resourcesNames = await GetResourcesNamesAsync(context);
+            var value = Request.Form[key].ToString();
+            var index = translations.FindIndex(t => t.Context == context && t.Key == key);
 
-            var translationsDocument = await _translationsManager.GetTranslationsDocumentAsync();
-
-            var viewModel = new ContentFieldResourcesViewModel
+            if (index > -1)
             {
-                ContentTypes = (await _contentDefinitionService.GetTypesAsync()).Select(t => t.Name),
-                ResourcesNames = resourcesNames,
-                Translations = Enumerable.Empty<Translation>(),
-                SelectedContentType = contentType,
-                SelectedCulture = selectedCulture
-            };
-
-            if (!String.IsNullOrEmpty(selectedCulture) && translationsDocument.Translations.ContainsKey(selectedCulture))
-            {
-                viewModel.Translations = translationsDocument.Translations[selectedCulture];
+                translations[index].Value = value;
             }
-
-            return View(viewModel);
-        }
-
-        [HttpPost]
-        [ActionName(nameof(ManageContentFieldResources))]
-        public async Task<ActionResult> ManageContentFieldResourcesPost([FromQuery] string selectedCulture, [FromQuery] string contentType)
-        {
-            var context = $"{contentType}-{ContentFieldResourceStringProvider.Context}";
-            
-            await UpdateResourcesAsync(context, selectedCulture);
-
-            return RedirectToAction(nameof(ManageContentFieldResources), new { selectedCulture, contentType });
-        }
-
-        private async Task<IEnumerable<string>> GetResourcesNamesAsync(string context)
-        {
-            IEnumerable<string> resourcesNames = null;
-            foreach (var dataResourceStringProvider in _dataResourceStringProviders)
+            else
             {
-                resourcesNames = (await dataResourceStringProvider.GetAllResourceStringsAsync(context))
-                    .Select(r => r.GetMessageId());
-
-                if (resourcesNames.Any())
+                translations.Add(new Translation
                 {
-                    break;
-                }
+                    Context = context,
+                    Key = key,
+                    Value = value
+                });
             }
-
-            return resourcesNames;
         }
 
-        private async Task UpdateResourcesAsync(string context, string culture)
-        {
-            var translations = new List<Translation>();
+        await translationsManager.UpdateTranslationAsync(culture, translations);
 
-            var translationsDocument = await _translationsManager.GetTranslationsDocumentAsync();
+        // Purge the resource cache
+        memoryCache.Remove(ResourcesCachePrefix + culture);
 
-            if (translationsDocument.Translations.ContainsKey(culture))
-            {
-                translations = translationsDocument.Translations[culture].ToList();
-            }
-
-            foreach (var key in Request.Form.Keys.Where(k => !k.Equals(AntiForgeryTokenKey)))
-            {
-                var value = Request.Form[key].ToString();
-                var index = translations.FindIndex(t => t.Context == context && t.Key == key);
-
-                if (index > -1)
-                {
-                    translations[index].Value = value;
-                }
-                else
-                {
-                    translations.Add(new Translation
-                    {
-                        Context = context,
-                        Key = key,
-                        Value = value
-                    });
-                }
-            }
-
-            await _translationsManager.UpdateTranslationAsync(culture, translations);
-
-            // Purge the resource cache
-            _memoryCache.Remove(ResourcesCachePrefix + culture);
-
-            await _notifier.SuccessAsync(H["The resource has been saved successfully."]);
-        }
+        await notifier.SuccessAsync(H["The resource has been saved successfully."]);
     }
 }

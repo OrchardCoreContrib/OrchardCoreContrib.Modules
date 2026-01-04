@@ -4,7 +4,7 @@ This module provides features for localizing dynamic data.
 
 ## Version
 
-1.1.1
+1.3.0
 
 ## Category
 
@@ -28,6 +28,7 @@ Internationalization
 
 | Name                                                                                                                    | Version     |
 |-------------------------------------------------------------------------------------------------------------------------|-------------|
+| [`OrchardCoreContrib.DataLocalization`](https://www.nuget.org/packages/OrchardCoreContrib.DataLocalization/1.3.0)       | 1.3.0       |
 | [`OrchardCoreContrib.DataLocalization`](https://www.nuget.org/packages/OrchardCoreContrib.DataLocalization/1.2.0)       | 1.2.0       |
 | [`OrchardCoreContrib.DataLocalization`](https://www.nuget.org/packages/OrchardCoreContrib.DataLocalization/1.1.1)       | 1.1.1       |
 | [`OrchardCoreContrib.DataLocalization`](https://www.nuget.org/packages/OrchardCoreContrib.DataLocalization/1.1.0)       | 1.1.0       |
