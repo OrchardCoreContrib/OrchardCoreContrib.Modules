@@ -13,84 +13,73 @@ using OrchardCore.Users.Models;
 using OrchardCoreContrib.Users.Controllers;
 using OrchardCoreContrib.Users.Drivers;
 using OrchardCoreContrib.Users.Services;
-using System;
-using System.Linq;
-using System.Threading.Tasks;
 
-namespace OrchardCoreContrib.Users
+namespace OrchardCoreContrib.Users;
+
+/// <summary>
+/// Represents an entry point to register the impersonation required services.
+/// </summary>
+/// <remarks>
+/// Initializes a new instance of <see cref="ImpersonationStartup"/>.
+/// </remarks>
+/// <param name="adminOptions">The <see cref="IOptions{AdminOptions}>.</param>
+[Feature("OrchardCoreContrib.Users.Impersonation")]
+public class ImpersonationStartup(IOptions<AdminOptions> adminOptions) : StartupBase
 {
-    /// <summary>
-    /// Represents an entry point to register the impersonation required services.
-    /// </summary>
-    [Feature("OrchardCoreContrib.Users.Impersonation")]
-    public class ImpersonationStartup : StartupBase
+    private readonly AdminOptions _adminOptions = adminOptions.Value;
+
+    /// <inheritdoc/>
+    public override void ConfigureServices(IServiceCollection services)
     {
-        private readonly AdminOptions _adminOptions;
+        services.AddScoped<INavigationProvider, AdminMenu>();
+        services.AddScoped<IDisplayDriver<User>, ImpersonationDisplayDriver>();
 
-        /// <summary>
-        /// Initializes a new instance of <see cref="ImpersonationStartup"/>.
-        /// </summary>
-        /// <param name="adminOptions">The <see cref="IOptions{AdminOptions}>.</param>
-        public ImpersonationStartup(IOptions<AdminOptions> adminOptions)
+        services.Configure<SecurityStampValidatorOptions>(options =>
         {
-            _adminOptions = adminOptions.Value;
-        }
-
-        /// <inheritdoc/>
-        public override void ConfigureServices(IServiceCollection services)
-        {
-            services.AddScoped<INavigationProvider, AdminMenu>();
-            services.AddScoped<IDisplayDriver<User>, ImpersonationDisplayDriver>();
-
-            services.Configure<SecurityStampValidatorOptions>(options =>
+            options.ValidationInterval = TimeSpan.FromMinutes(10);
+            options.OnRefreshingPrincipal = context =>
             {
-                options.ValidationInterval = TimeSpan.FromMinutes(10);
-                options.OnRefreshingPrincipal = context =>
+                var impersonatorNameClaim = context.CurrentPrincipal.FindFirst(ClaimTypesExtended.ImpersonatorNameIdentifier);
+                var isImpersonatingClaim = context.CurrentPrincipal.FindFirst(ClaimTypesExtended.IsImpersonating);
+                if (impersonatorNameClaim != null && isImpersonatingClaim?.Value == "true")
                 {
-                    var impersonatorNameClaim = context.CurrentPrincipal.FindFirst(ClaimTypesExtended.ImpersonatorNameIdentifier);
-                    var isImpersonatingClaim = context.CurrentPrincipal.FindFirst(ClaimTypesExtended.IsImpersonating);
-                    if (impersonatorNameClaim != null && isImpersonatingClaim?.Value == "true")
-                    {
-                        context.NewPrincipal.Identities.First().AddClaim(impersonatorNameClaim);
-                        context.NewPrincipal.Identities.First().AddClaim(isImpersonatingClaim);
-                    }
+                    context.NewPrincipal.Identities.First().AddClaim(impersonatorNameClaim);
+                    context.NewPrincipal.Identities.First().AddClaim(isImpersonatingClaim);
+                }
 
-                    return Task.FromResult(0);
-                };
-            });
-        }
-
-        /// <inheritdoc/>
-        public override void Configure(IApplicationBuilder app, IEndpointRouteBuilder routes, IServiceProvider serviceProvider)
-        {
-            routes.MapAreaControllerRoute(
-                name: "UsersImpersonateUser",
-                areaName: "OrchardCoreContrib.Users",
-                pattern: _adminOptions.AdminUrlPrefix + "/Users/Impersonate",
-                defaults: new { controller = typeof(ImpersonationController).ControllerName(), action = nameof(ImpersonationController.ImpersonateUser) }
-            );
-        }
+                return Task.FromResult(0);
+            };
+        });
     }
 
-    /// <summary>
-    /// Represents an entry point to register the user avatar required services.
-    /// </summary>
-    [Feature("OrchardCoreContrib.Users.Avatar")]
-    public class UserAvatarStartup : StartupBase
+    /// <inheritdoc/>
+    public override void Configure(IApplicationBuilder app, IEndpointRouteBuilder routes, IServiceProvider serviceProvider)
     {
-        private readonly IShellConfiguration _shellConfiguration;
-        
-        public UserAvatarStartup(IShellConfiguration shellConfiguration)
-        {
-            _shellConfiguration = shellConfiguration;
-        }
+        routes.MapAreaControllerRoute(
+            name: "UsersImpersonateUser",
+            areaName: "OrchardCoreContrib.Users",
+            pattern: _adminOptions.AdminUrlPrefix + "/Users/Impersonate",
+            defaults: new
+            {
+                controller = typeof(ImpersonationController).ControllerName(),
+                action = nameof(ImpersonationController.ImpersonateUser)
+            }
+        );
+    }
+}
 
-        /// <inheritdoc/>
-        public override void ConfigureServices(IServiceCollection services)
-        {
-            services.AddScoped<IAvatarService, AvatarService>();
-            
-            services.Configure<AvatarOptions>(_shellConfiguration.GetSection("OrchardCoreContrib_Users_AvatarOptions"));
-        }
+/// <summary>
+/// Represents an entry point to register the user avatar required services.
+/// </summary>
+[Feature("OrchardCoreContrib.Users.Avatar")]
+public class UserAvatarStartup(IShellConfiguration shellConfiguration) : StartupBase
+{
+
+    /// <inheritdoc/>
+    public override void ConfigureServices(IServiceCollection services)
+    {
+        services.AddScoped<IAvatarService, AvatarService>();
+        
+        services.Configure<AvatarOptions>(shellConfiguration.GetSection("OrchardCoreContrib_Users_AvatarOptions"));
     }
 }

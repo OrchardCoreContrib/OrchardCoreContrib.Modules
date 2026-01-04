@@ -4,7 +4,7 @@ This module provides features for users management.
 
 ## Version
 
-1.5.1
+1.7.0
 
 ## Category
 
@@ -34,6 +34,7 @@ Security
 
 | Name                                                                                        | Version |
 |---------------------------------------------------------------------------------------------|---------|
+| [`OrchardCoreContrib.Users`](https://www.nuget.org/packages/OrchardCoreContrib.Users/1.7.0) | 1.7.0   |
 | [`OrchardCoreContrib.Users`](https://www.nuget.org/packages/OrchardCoreContrib.Users/1.6.0) | 1.6.0   |
 | [`OrchardCoreContrib.Users`](https://www.nuget.org/packages/OrchardCoreContrib.Users/1.5.1) | 1.5.1   |
 | [`OrchardCoreContrib.Users`](https://www.nuget.org/packages/OrchardCoreContrib.Users/1.5.0) | 1.5.0   |
