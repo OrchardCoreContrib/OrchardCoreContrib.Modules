@@ -37,16 +37,16 @@
 		<PackageVersion Include="OrchardCore.Users" Version="2.2.0" />
 		<PackageVersion Include="OrchardCore.Users.Abstractions" Version="2.2.0" />
 		<PackageVersion Include="OrchardCore.Users.Core" Version="2.2.0" />
-		<PackageVersion Include="OrchardCoreContrib.Abstractions" Version="1.4.0" />
+		<PackageVersion Include="OrchardCoreContrib.Abstractions" Version="1.5.0" />
 		<PackageVersion Include="OrchardCoreContrib.ContentLocalization.Core" Version="1.2.0" />
 		<PackageVersion Include="OrchardCoreContrib.DisplayManagement.Liquid" Version="1.0.0" />
-		<PackageVersion Include="OrchardCoreContrib.Data" Version="1.2.0" />
+		<PackageVersion Include="OrchardCoreContrib.Data" Version="1.3.0" />
 		<PackageVersion Include="OrchardCoreContrib.Data.YesSql" Version="1.2.0" />
 		<PackageVersion Include="OrchardCoreContrib.Email" Version="1.6.0" />
 		<PackageVersion Include="OrchardCoreContrib.Garnet.Abstractions" Version="1.1.0" />
 		<PackageVersion Include="OrchardCoreContrib.HealthChecks.Abstractions" Version="1.3.0" />
 		<PackageVersion Include="OrchardCoreContrib.Infrastructure" Version="1.1.0" />
-		<PackageVersion Include="OrchardCoreContrib.Infrastructure.Abstractions" Version="2.4.0" />
+		<PackageVersion Include="OrchardCoreContrib.Infrastructure.Abstractions" Version="2.5.0" />
 		<PackageVersion Include="OrchardCoreContrib.Localization" Version="1.4.0" />
 		<PackageVersion Include="OrchardCoreContrib.Localization.Abstractions" Version="1.4.0" />
 		<PackageVersion Include="OrchardCoreContrib.Navigation.Core" Version="1.4.0" />
