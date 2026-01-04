@@ -1,17 +1,16 @@
-﻿namespace OrchardCoreContrib.Email.Gmail
+﻿namespace OrchardCoreContrib.Email.Gmail;
+
+/// <summary>
+/// Represents a settings for Gmail.
+/// </summary>
+public class GmailSettings : SmtpSettings
 {
     /// <summary>
-    /// Represents a settings for Gmail.
+    /// Initializes a new instance of <see cref="GmailSettings"/>.
     /// </summary>
-    public class GmailSettings : SmtpSettings
+    public GmailSettings()
     {
-        /// <summary>
-        /// Initializes a new instance of <see cref="GmailSettings"/>.
-        /// </summary>
-        public GmailSettings()
-        {
-            Host = GmailDefaults.Host;
-            Port = GmailDefaults.Port;
-        }
+        Host = GmailDefaults.Host;
+        Port = GmailDefaults.Port;
     }
 }
