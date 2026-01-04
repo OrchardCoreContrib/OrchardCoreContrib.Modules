@@ -4,7 +4,7 @@ This module enables user avatar using gravatar service.
 
 ## Version
 
-1.4.1
+1.6.0
 
 ## Category
 
@@ -14,7 +14,7 @@ Profile
 
 | Product     | Module                      |
 |-------------|-----------------------------|
-| OrchardCore | Users (`OrchardCore.Users`) |
+| OrchardCore | Liquid (`OrchardCore.Liquid`), Users (`OrchardCore.Users`) |
 
 ## Features
 
@@ -22,12 +22,13 @@ Profile
 |------------------|---------------------------------------------|
 | **Name**         | Gravatar (`OrchardCoreContrib.Gravatar`)    |
 | **Description**  | Displays the user avatar on the admin menu. |
-| **Dependencies** | `OrchardCore.Users`                         |
+| **Dependencies** | `OrchardCore.Liquid`, `OrchardCore.Users`   |
 
 ## NuGet Packages
 
 | Name                                                                                              | Version |
 |---------------------------------------------------------------------------------------------------|---------|
+| [`OrchardCoreContrib.Gravatar`](https://www.nuget.org/packages/OrchardCoreContrib.Gravatar/1.6.0) | 1.6.0   |
 | [`OrchardCoreContrib.Gravatar`](https://www.nuget.org/packages/OrchardCoreContrib.Gravatar/1.5.0) | 1.5.0   |
 | [`OrchardCoreContrib.Gravatar`](https://www.nuget.org/packages/OrchardCoreContrib.Gravatar/1.4.1) | 1.4.1   |
 | [`OrchardCoreContrib.Gravatar`](https://www.nuget.org/packages/OrchardCoreContrib.Gravatar/1.4.0) | 1.4.0   |

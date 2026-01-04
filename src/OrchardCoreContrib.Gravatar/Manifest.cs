@@ -5,8 +5,8 @@ using ManifestConstants = OrchardCoreContrib.Modules.Manifest.ManifestConstants;
     Name = "Gravatar",
     Author = ManifestConstants.Author,
     Website = ManifestConstants.Website,
-    Version = "1.4.1",
+    Version = "1.6.0",
     Category = "Profile",
     Description = "The gravatar module enables user avatar using gravatar service.",
-    Dependencies = new[] { "OrchardCore.Users" }
+    Dependencies = new[] { "OrchardCore.Liquid", "OrchardCore.Users" }
 )]

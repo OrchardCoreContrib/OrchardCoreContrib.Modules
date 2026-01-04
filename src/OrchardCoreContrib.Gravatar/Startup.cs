@@ -11,15 +11,8 @@ namespace OrchardCoreContrib.Gravatar;
 /// <summary>
 /// Represents an entry point to register the user avatar required services.
 /// </summary>
-public class Startup : StartupBase
+public class Startup(IShellConfiguration shellConfiguration) : StartupBase
 {
-    private readonly IShellConfiguration _shellConfiguration;
-
-    public Startup(IShellConfiguration shellConfiguration)
-    {
-        _shellConfiguration = shellConfiguration;
-    }
-
     /// <inheritdoc/>
     public override void ConfigureServices(IServiceCollection services)
     {
@@ -29,6 +22,6 @@ public class Startup : StartupBase
 
         services.AddLiquidFilter<GravatarFilter>("gravatar_url");
 
-        services.Configure<GravatarOptions>(_shellConfiguration.GetSection("OrchardCoreContrib_Gravatar"));
+        services.Configure<GravatarOptions>(shellConfiguration.GetSection("OrchardCoreContrib_Gravatar"));
     }
 }
