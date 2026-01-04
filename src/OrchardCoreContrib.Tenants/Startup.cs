@@ -5,8 +5,9 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Options;
 using OrchardCore.Modules;
 using OrchardCoreContrib.HealthChecks;
+using OrchardCoreContrib.Tenants.HealthChecks;
 
-namespace OrchardCoreContrib.Tenants.HealthChecks;
+namespace OrchardCoreContrib.Tenants;
 
 [RequireFeatures("OrchardCoreContrib.HealthChecks")]
 public class Startup : StartupBase

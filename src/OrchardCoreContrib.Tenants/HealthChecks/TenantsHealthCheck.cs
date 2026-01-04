@@ -6,27 +6,18 @@ using OrchardCore.Environment.Shell.Models;
 
 namespace OrchardCoreContrib.Tenants.HealthChecks;
 
-public class TenantsHealthCheck : IHealthCheck
+public class TenantsHealthCheck(IShellHost shellHost, IServiceProvider serviceProvider) : IHealthCheck
 {
     internal const string Name = "Tenants Health Check";
 
-    private readonly IShellHost _shellHost;
-    private readonly IServiceProvider _serviceProvider;
-
-    public TenantsHealthCheck(IShellHost shellHost, IServiceProvider serviceProvider)
-    {
-        _shellHost = shellHost;
-        _serviceProvider = serviceProvider;
-    }
-
     public Task<HealthCheckResult> CheckHealthAsync(HealthCheckContext context, CancellationToken cancellationToken = default)
     {
-        var nonRunningTenants = _shellHost.GetAllSettings()
+        var nonRunningTenants = shellHost.GetAllSettings()
             .Where(s => !s.IsDefaultShell() && s.State != TenantState.Running);
         if (nonRunningTenants.Any())
         {
             var description = String.Empty;
-            var localizer = _serviceProvider.GetService<IStringLocalizer<TenantsHealthCheck>>();
+            var localizer = serviceProvider.GetService<IStringLocalizer<TenantsHealthCheck>>();
 
             if (nonRunningTenants.Count() == 1)
             {
