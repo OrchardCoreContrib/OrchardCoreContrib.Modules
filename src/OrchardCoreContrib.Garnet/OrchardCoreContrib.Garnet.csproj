@@ -1,10 +1,11 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
 	<PropertyGroup>
-		<VersionPrefix>1.4.0</VersionPrefix>
+		<VersionPrefix>1.5.0</VersionPrefix>
 		<Authors>The Orchard Core Contrib Team</Authors>
 		<Company />
 		<Description>Provides Garnet features for configuration, cache, bus and data protection.</Description>
+		<PackageReadmeFile>README.md</PackageReadmeFile>
 		<PackageLicenseExpression>BSD-3-Clause</PackageLicenseExpression>
 		<PackageProjectUrl>https://github.com/OrchardCoreContrib/OrchardCoreContrib.Modules/tree/main/src/OrchardCoreContrib.Garnet/README.md</PackageProjectUrl>
 		<RepositoryUrl>https://github.com/OrchardCoreContrib/OrchardCoreContrib.Modules</RepositoryUrl>
@@ -31,6 +32,7 @@
 
 	<ItemGroup>
 		<None Include="../../images/icon.png" Pack="true" PackagePath="icon.png" />
+		<None Include="README.md" Pack="true" PackagePath="\"/>
 	</ItemGroup>
 
 </Project>
