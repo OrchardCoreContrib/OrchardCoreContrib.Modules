@@ -1,41 +1,30 @@
 ﻿using OrchardCore.Security.Permissions;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
-namespace OrchardCoreContrib.Email.Hotmail
+namespace OrchardCoreContrib.Email.Hotmail;
+
+/// <summary>
+/// Represents a permissions that will be applied into Hotmail mailing module.
+/// </summary>
+public class Permissions : IPermissionProvider
 {
-    /// <summary>
-    /// Represents a permissions that will be applied into Hotmail mailing module.
-    /// </summary>
-    public class Permissions : IPermissionProvider
+    private readonly IEnumerable<Permission> _allPermissions =
+    [
+        HotmailPermissions.ManageHotmailSettings,
+    ];
+
+    /// <inheritdoc/>
+    public Task<IEnumerable<Permission>> GetPermissionsAsync() => Task.FromResult(_allPermissions);
+
+    /// <inheritdoc/>
+    public IEnumerable<PermissionStereotype> GetDefaultStereotypes()
     {
-        /// <summary>
-        /// Gets a permission for managing a Hotmail settings.
-        /// </summary>
-        public static readonly Permission ManageHotmailSettings = new Permission("ManageHotmailSettings", "Manage Hotmail Settings");
-
-        /// <inheritdoc/>
-        public Task<IEnumerable<Permission>> GetPermissionsAsync()
-        {
-            return Task.FromResult(new[]
+        return
+        [
+            new PermissionStereotype
             {
-                ManageHotmailSettings
-            }
-            .AsEnumerable());
-        }
-
-        /// <inheritdoc/>
-        public IEnumerable<PermissionStereotype> GetDefaultStereotypes()
-        {
-            return new[]
-            {
-                new PermissionStereotype
-                {
-                    Name = "Administrator",
-                    Permissions = new[] { ManageHotmailSettings }
-                },
-            };
-        }
+                Name = "Administrator",
+                Permissions = _allPermissions
+            },
+        ];
     }
 }
