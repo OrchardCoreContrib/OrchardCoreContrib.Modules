@@ -38,4 +38,5 @@ The `OrchardCoreContrib.Modules` repository consists of the following modules:
 | [Tenants Module](src/OrchardCoreContrib.Tenants/README.md) | `OrchardCoreContrib.Tenants` | [![NuGet](https://img.shields.io/nuget/v/OrchardCoreContrib.Tenants.svg)](https://www.nuget.org/packages/OrchardCoreContrib.Tenants) |
 | [Users Module](src/OrchardCoreContrib.Users/README.md) | `OrchardCoreContrib.Users` | [![NuGet](https://img.shields.io/nuget/v/OrchardCoreContrib.Users.svg)](https://www.nuget.org/packages/OrchardCoreContrib.Users) |
 | [Users Groups Module](src/OrchardCoreContrib.UserGroups/README.md) | `OrchardCoreContrib.UserGroups` | [![NuGet](https://img.shields.io/nuget/v/OrchardCoreContrib.UserGroups.svg)](https://www.nuget.org/packages/OrchardCoreContrib.UserGroups) |
+| [View Count Module](src/OrchardCoreContrib.ViewCount/README.md) | `OrchardCoreContrib.ViewCount` | [![NuGet](https://img.shields.io/nuget/v/OrchardCoreContrib.ViewCount.svg)](https://www.nuget.org/packages/OrchardCoreContrib.ViewCount) |
 
