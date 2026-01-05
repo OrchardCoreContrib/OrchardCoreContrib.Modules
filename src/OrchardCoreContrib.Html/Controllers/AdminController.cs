@@ -1,12 +1,10 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using OrchardCore.Modules;
 
-namespace OrchardCoreContrib.Html.Controllers
+namespace OrchardCoreContrib.Html.Controllers;
+
+[Feature("OrchardCoreContrib.Html.GrapesJS")]
+public class AdminController : Controller
 {
-    [Feature("OrchardCoreContrib.Html.GrapesJS")]
-    public class AdminController : Controller
-    {
-        [HttpGet]
-        public ActionResult Index() => View();
-    }
+    public ActionResult Index() => View();
 }
