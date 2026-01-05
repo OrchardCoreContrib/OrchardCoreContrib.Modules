@@ -1,21 +1,15 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using OrchardCore.Entities;
 using OrchardCore.Settings;
 
-namespace OrchardCoreContrib.Gdpr.Controllers
+namespace OrchardCoreContrib.Gdpr.Controllers;
+
+public class HomeController(ISiteService site) : Controller
 {
-    public class HomeController : Controller
+    [HttpGet]
+    public async Task<IActionResult> Privacy()
     {
-        private readonly GdprSettings _gdprSettings;
+        var gdprSettings = (await site.GetSiteSettingsAsync()).As<GdprSettings>();
 
-        public HomeController(ISiteService site)
-        {
-            _gdprSettings = site.GetSiteSettingsAsync()
-                .GetAwaiter().GetResult()
-                .As<GdprSettings>();
-        }
-
-        [HttpGet]
-        public IActionResult Privacy() => View(_gdprSettings);
+        return View(gdprSettings);
     }
 }
