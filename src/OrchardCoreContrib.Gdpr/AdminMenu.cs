@@ -1,41 +1,38 @@
-﻿using Microsoft.Extensions.Localization;
+﻿using Microsoft.AspNetCore.Routing;
+using Microsoft.Extensions.Localization;
 using OrchardCore.Navigation;
 using OrchardCoreContrib.Gdpr.Drivers;
-using System;
-using System.Threading.Tasks;
 
-namespace OrchardCoreContrib.Gdpr
+namespace OrchardCoreContrib.Gdpr;
+
+using OrchardCoreContrib.Navigation;
+
+/// <summary>
+/// Represents an admin menu for GDPR module.
+/// </summary>
+/// <remarks>
+/// Initializes a new instance of <see cref="AdminMenu"/>.
+/// </remarks>
+/// <param name="stringLocalizer">The <see cref="IStringLocalizer{AdminMenu}"/>.</param>
+public class AdminMenu(IStringLocalizer<AdminMenu> S) : AdminNavigationProvider
 {
-    using OrchardCoreContrib.Navigation;
-
-    /// <summary>
-    /// Represents an admin menu for GDPR module.
-    /// </summary>
-    public class AdminMenu : AdminNavigationProvider
+    private static readonly RouteValueDictionary _routeValues = new()
     {
-        private readonly IStringLocalizer S;
+        { "area", "OrchardCore.Settings" },
+        { "groupId", GdprSettingsDisplayDriver.GroupId },
+    };
 
-        /// <summary>
-        /// Initializes a new instance of <see cref="AdminMenu"/>.
-        /// </summary>
-        /// <param name="stringLocalizer">The <see cref="IStringLocalizer{AdminMenu}"/>.</param>
-        public AdminMenu(IStringLocalizer<AdminMenu> stringLocalizer)
-        {
-            S = stringLocalizer;
-        }
-
-        /// <inheritdoc/>
-        public override void BuildNavigation(NavigationBuilder builder)
-        {
-            builder
-                .Add(S["Configuration"], configuration => configuration
-                    .Add(S["Settings"], settings => settings
-                       .Add(S["GDPR"], S["GDPR"].PrefixPosition(), entry => entry
-                       .AddClass("gdpr").Id("gdpr")
-                          .Action("Index", "Admin", new { area = "OrchardCore.Settings", groupId = GdprSettingsDisplayDriver.GroupId })
-                          .Permission(Permissions.ManageGdprSettings)
-                          .LocalNav()
-                )));
-        }
+    /// <inheritdoc/>
+    public override void BuildNavigation(NavigationBuilder builder)
+    {
+        builder
+            .Add(S["Configuration"], configuration => configuration
+                .Add(S["Settings"], settings => settings
+                   .Add(S["GDPR"], S["GDPR"].PrefixPosition(), entry => entry
+                   .AddClass("gdpr").Id("gdpr")
+                      .Action("Index", "Admin", _routeValues)
+                      .Permission(GdprPermissions.ManageGdprSettings)
+                      .LocalNav()
+            )));
     }
 }
