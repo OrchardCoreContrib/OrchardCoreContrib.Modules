@@ -19,10 +19,10 @@ Content Management
 ## Features
 
 |                  |											|
-|------------------|--------------------------------------------|
-| **Name**         | View Count (`OrchardCoreContrib.ViewCount`)|
-| **Description**  | Allow you to send SMS via ACS SMS service.	|
-| **Dependencies** | `OrchardCore.Contents`                     |
+|------------------|------------------------------------------------------------|
+| **Name**         | View Count (`OrchardCoreContrib.ViewCount`)                |
+| **Description**  | Allows you to track the number of views of a content item.	|
+| **Dependencies** | `OrchardCore.Contents`                                     |
 
 ## NuGet Packages
 
