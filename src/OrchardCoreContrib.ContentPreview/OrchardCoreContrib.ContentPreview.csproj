@@ -2,10 +2,11 @@
 
 	<PropertyGroup>
 		<AddRazorSupportForMvc>true</AddRazorSupportForMvc>
-		<VersionPrefix>1.4.0</VersionPrefix>
+		<VersionPrefix>1.5.0</VersionPrefix>
 		<Authors>The Orchard Core Contrib Team</Authors>
 		<Company />
 		<Description>Provides a list of content preview features such as page preview bar.</Description>
+		<PackageReadmeFile>README.md</PackageReadmeFile>
 		<PackageLicenseExpression>BSD-3-Clause</PackageLicenseExpression>
 		<PackageProjectUrl>https://github.com/OrchardCoreContrib/OrchardCoreContrib.Modules/tree/main/src/OrchardCoreContrib.ContentPreview/README.md</PackageProjectUrl>
 		<RepositoryUrl>https://github.com/OrchardCoreContrib/OrchardCoreContrib.Modules</RepositoryUrl>
@@ -26,6 +27,7 @@
 
 	<ItemGroup>
 		<None Include="../../images/icon.png" Pack="true" PackagePath="icon.png" />
+		<None Include="README.md" Pack="true" PackagePath="\" />
 	</ItemGroup>
 
 	<ItemGroup>
@@ -35,6 +37,7 @@
 		<PackageReference Include="OrchardCore.ResourceManagement" />
 		<PackageReference Include="OrchardCore.Users.Abstractions" />
 		<PackageReference Include="OrchardCoreContrib.Abstractions" />
+		<PackageReference Include="OrchardCoreContrib.Infrastructure.Abstractions" />
 	</ItemGroup>
 
 </Project>

@@ -1,8 +1,4 @@
-﻿@functions {
-    public bool IframeRequest => Context.Request.Headers["sec-fetch-dest"] == RequestDestination.Iframe;
-}
-
-@if (!IframeRequest)
+﻿@if (Context.Request.Headers["sec-fetch-dest"] != "iframe")
 {
     <nav class="navbar sticky-top navbar-light bg-light border-primary border-3">
         <div class="container-fluid">
