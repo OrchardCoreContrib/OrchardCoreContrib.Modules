@@ -1,10 +1,10 @@
 # Elm Diagnostics Module
 
-This module handle and logs errors using Elm.
+This module handle and logs errors using ASP.NET Core Error Logging Middleware (ELM).
 
 ## Version
 
-1.4.1
+1.6.0
 
 ## Category
 
@@ -26,6 +26,7 @@ This module has no dependencies.
 
 | Name                                                                                                            | Version |
 |-----------------------------------------------------------------------------------------------------------------|---------|
+| [`OrchardCoreContrib.Diagnostics.Elm`](https://www.nuget.org/packages/OrchardCoreContrib.Diagnostics.Elm/1.6.0) | 1.6.0   |
 | [`OrchardCoreContrib.Diagnostics.Elm`](https://www.nuget.org/packages/OrchardCoreContrib.Diagnostics.Elm/1.5.0) | 1.5.0   |
 | [`OrchardCoreContrib.Diagnostics.Elm`](https://www.nuget.org/packages/OrchardCoreContrib.Diagnostics.Elm/1.4.1) | 1.4.1   |
 | [`OrchardCoreContrib.Diagnostics.Elm`](https://www.nuget.org/packages/OrchardCoreContrib.Diagnostics.Elm/1.4.0) | 1.4.0   |
