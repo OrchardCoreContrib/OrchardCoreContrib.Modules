@@ -41,4 +41,4 @@ This module has no dependencies.
 3. Select **Configuration -> Features** menu.
 4. Enable the `Elm Diagnostics` feature.
 5. Go to the site.
-6. Visit the ELm end-point by append `/elm` to the URL.
+6. Visit the ELm end-point by append `/elm` to the URL. In case you need to change the path, set the `Path` property of the `OrchardCoreContrib_Diagnostics_Elm` settings section from within `appsettings.json`.
