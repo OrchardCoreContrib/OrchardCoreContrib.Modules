@@ -4,33 +4,31 @@ using OrchardCore.Admin;
 using OrchardCore.Environment.Shell;
 using OrchardCore.Users;
 using OrchardCoreContrib.ContentPreview;
-using System;
+using OrchardCoreContrib.Infrastructure;
 
-namespace Microsoft.AspNetCore.Builder
+namespace Microsoft.AspNetCore.Builder;
+
+/// <summary>
+/// Provides an extension methods for <see cref="IApplicationBuilder"/> to enable page preview.
+/// </summary>
+public static class PagePreviewOrchardCoreExtensions
 {
     /// <summary>
-    /// Provides an extension methods for <see cref="IApplicationBuilder"/> to enable page preview.
+    /// Uses the page preview middleware.
     /// </summary>
-    public static class PagePreviewOrchardCoreExtensions
+    /// <param name="app">The <see cref="IApplicationBuilder"/>.</param>
+    public static IApplicationBuilder UsePagePreview(this IApplicationBuilder app)
     {
-        /// <summary>
-        /// Uses the page preview middleware.
-        /// </summary>
-        /// <param name="app">The <see cref="IApplicationBuilder"/>.</param>
-        public static IApplicationBuilder UsePagePreview(this IApplicationBuilder app)
-        {
-            if (app is null)
-            {
-                throw new ArgumentNullException(nameof(app));
-            }
+        Guard.ArgumentNotNull(app, nameof(app));
 
-            var adminOptions = app.ApplicationServices.GetService<IOptions<AdminOptions>>();
-            var userOptions = app.ApplicationServices.GetService<IOptions<UserOptions>>();
-            var shellFeaturesManager = app.ApplicationServices.CreateScope().ServiceProvider.GetService<IShellFeaturesManager>();
+        var adminOptions = app.ApplicationServices.GetService<IOptions<AdminOptions>>();
+        var userOptions = app.ApplicationServices.GetService<IOptions<UserOptions>>();
+        var shellFeaturesManager = app.ApplicationServices.CreateScope()
+            .ServiceProvider
+            .GetService<IShellFeaturesManager>();
 
-            app.UseMiddleware<PagePreviewMiddleware>(adminOptions, userOptions, shellFeaturesManager);
+        app.UseMiddleware<PagePreviewMiddleware>(adminOptions, userOptions, shellFeaturesManager);
 
-            return app;
-        }
+        return app;
     }
 }

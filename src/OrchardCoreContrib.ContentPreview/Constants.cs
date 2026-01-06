@@ -1,9 +1,8 @@
-﻿namespace OrchardCoreContrib.ContentPreview
-{
-    internal class Constants
-    {
-        public const string PreviewSlug = "preview";
+﻿namespace OrchardCoreContrib.ContentPreview;
 
-        public const string PagePreviewBarFeatureId = "OrchardCoreContrib.ContentPreview.PagePreviewBar";
-    }
+public class Constants
+{
+    public const string PreviewSlug = "preview";
+
+    public const string PagePreviewBarFeatureId = "OrchardCoreContrib.ContentPreview.PagePreviewBar";
 }

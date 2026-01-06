@@ -3,86 +3,78 @@ using Microsoft.Extensions.Options;
 using OrchardCore.Admin;
 using OrchardCore.Environment.Shell;
 using OrchardCore.Users;
-using System;
-using System.Linq;
-using System.Threading.Tasks;
 
-namespace OrchardCoreContrib.ContentPreview
+namespace OrchardCoreContrib.ContentPreview;
+
+/// <summary>
+/// Represents a middleware for a page preview.
+/// </summary>
+/// <remarks>
+/// Craates a new instance of <see cref="PagePreviewMiddleware"/>.
+/// </remarks>
+/// <param name="next">The <see cref="RequestDelegate"/>.</param>
+/// <param name="adminOptions">The <see cref="IOptions{AdminOptions}"/>.</param>
+/// <param name="userOptions">The <see cref="IOptions{UserOptions}"/>.</param>
+/// <param name="shellFeaturesManager">The <see cref="IShellFeaturesManager"/>.</param>
+public class PagePreviewMiddleware(
+    RequestDelegate next,
+    IOptions<AdminOptions> adminOptions,
+    IOptions<UserOptions> userOptions,
+    IShellFeaturesManager shellFeaturesManager)
 {
+    private readonly AdminOptions _adminOptions = adminOptions.Value;
+    private readonly UserOptions _userOptions = userOptions.Value;
+
     /// <summary>
-    /// Represents a middleware for a page preview.
+    /// Invokes the logic of the middleware.
     /// </summary>
-    public class PagePreviewMiddleware
+    /// <param name="context">The <see cref="HttpContext"/>.</param>
+    public async Task InvokeAsync(HttpContext context)
     {
-        private readonly RequestDelegate _next;
-        private readonly AdminOptions _adminOptions;
-        private readonly UserOptions _userOptions;
-        private readonly IShellFeaturesManager _shellFeaturesManager;
+        var path = context.Request.Path.Value;
 
-        /// <summary>
-        /// Craates a new instance of <see cref="PagePreviewMiddleware"/>.
-        /// </summary>
-        /// <param name="next">The <see cref="RequestDelegate"/>.</param>
-        /// <param name="adminOptions">The <see cref="IOptions{AdminOptions}"/>.</param>
-        /// <param name="userOptions">The <see cref="IOptions{UserOptions}"/>.</param>
-        /// <param name="shellFeaturesManager">The <see cref="IShellFeaturesManager"/>.</param>
-        public PagePreviewMiddleware(
-            RequestDelegate next,
-            IOptions<AdminOptions> adminOptions,
-            IOptions<UserOptions> userOptions,
-            IShellFeaturesManager shellFeaturesManager)
+        // Skip if the user is not authenticated
+        if (!context.User.Identity.IsAuthenticated)
         {
-            _next = next;
-            _adminOptions = adminOptions.Value;
-            _userOptions = userOptions.Value;
-            _shellFeaturesManager = shellFeaturesManager;
+            await next(context);
+
+            return;
         }
 
-        /// <summary>
-        /// Invokes the logic of the middleware.
-        /// </summary>
-        /// <param name="context">The <see cref="HttpContext"/>.</param>
-        public Task Invoke(HttpContext context)
+        // Skip if the current request for a login page
+        if (path.StartsWith($"/{_userOptions.LoginPath}", StringComparison.OrdinalIgnoreCase))
         {
-            var path = context.Request.Path.Value;
+            await next(context);
 
-            // Skip if the user is not authenticated
-            if (!context.User.Identity.IsAuthenticated)
-            {
-                return _next(context);
-            }
-
-            // Skip if the current request for a login page
-            if (path.StartsWith($"/{_userOptions.LoginPath}", StringComparison.OrdinalIgnoreCase))
-            {
-                return _next(context);
-            }
-
-            // Skip if the current request for an admin page
-            if (path.StartsWith($"/{_adminOptions.AdminUrlPrefix}", StringComparison.OrdinalIgnoreCase))
-            {
-                return _next(context);
-            }
-
-            var featureEnabled = _shellFeaturesManager
-                .GetEnabledFeaturesAsync().Result
-                .Any(f => f.Id == Constants.PagePreviewBarFeatureId);
-
-            if (!featureEnabled)
-            {
-                return _next(context);
-            }
-
-            var isPreview = context.Request.Query.ContainsKey(Constants.PreviewSlug);
-
-            if (!path.Contains(Constants.PreviewSlug) && !isPreview)
-            {
-                var url = String.Concat(context.Request.PathBase.Value, $"/{Constants.PreviewSlug}", context.Request.Path.Value);
-                
-                context.Response.Redirect(url);
-            }
-
-            return _next(context);
+            return;
         }
+
+        // Skip if the current request for an admin page
+        if (path.StartsWith($"/{_adminOptions.AdminUrlPrefix}", StringComparison.OrdinalIgnoreCase))
+        {
+            await next(context);
+
+            return;
+        }
+
+        var enabledFeatures = await shellFeaturesManager.GetEnabledFeaturesAsync();
+
+        if (!enabledFeatures.Any(f => f.Id == Constants.PagePreviewBarFeatureId))
+        {
+            await next(context);
+
+            return;
+        }
+
+        var isPreview = context.Request.Query.ContainsKey(Constants.PreviewSlug);
+
+        if (!path.Contains(Constants.PreviewSlug) && !isPreview)
+        {
+            var url = string.Concat(context.Request.PathBase.Value, $"/{Constants.PreviewSlug}", context.Request.Path.Value);
+            
+            context.Response.Redirect(url);
+        }
+
+        await next(context);
     }
 }
