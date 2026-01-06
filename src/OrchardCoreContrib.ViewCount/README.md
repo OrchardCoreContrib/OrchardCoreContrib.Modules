@@ -1,6 +1,6 @@
 # View Count Module
 
-This module provides settings and services to send SMS messages using Azure Communication Service.
+This module allows the user to track the content item's views count.
 
 ## Version
 
