@@ -20,6 +20,8 @@ public class ViewCountService(
     IEnumerable<IViewCountContentHandler> handlers,
     ILogger<ViewCountService> logger) : IViewCountService
 {
+    private static readonly SemaphoreSlim _semaphore = new(initialCount: 1, maxCount: 1);
+
     /// <inheritdoc/>
     public int GetViewsCount(ContentItem contentItem)
     {
@@ -35,6 +37,8 @@ public class ViewCountService(
     {
         Guard.ArgumentNotNull(contentItem, nameof(contentItem));
 
+        await _semaphore.WaitAsync();
+
         var viewCountPart = contentItem.As<ViewCountPart>()
             ?? throw new InvalidOperationException($"The content item doesn't have a `{nameof(ViewCountPart)}`.");
         var count = viewCountPart.Count;
@@ -42,12 +46,16 @@ public class ViewCountService(
 
         await handlers.InvokeAsync((handler, context) => handler.ViewingAsync(context), context, logger);
 
-        contentItem.Content.ViewCountPart.Count = ++count;
+        viewCountPart.Count = ++count;
+
+        contentItem.Content.ViewCountPart.Count = count;
 
         await contentManager.UpdateAsync(contentItem);
 
         context = new ViewCountContentContext(contentItem, count);
 
         await handlers.InvokeAsync((handler, context) => handler.ViewedAsync(context), context, logger);
+
+        _semaphore.Release();
     }
 }
