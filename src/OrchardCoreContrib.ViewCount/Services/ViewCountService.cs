@@ -51,8 +51,12 @@ public class ViewCountService(
 
         // Reload the content item to get the updated count
         contentItem = await contentManager.GetAsync(contentItem.ContentItemId);
-        viewCountPart = contentItem.As<ViewCountPart>();
-        count = viewCountPart?.Count ?? count + 1;
+        viewCountPart = contentItem?.As<ViewCountPart>();
+        
+        if (viewCountPart != null)
+        {
+            count = viewCountPart.Count;
+        }
 
         context = new ViewCountContentContext(contentItem, count);
 
@@ -109,16 +113,18 @@ public class ViewCountService(
                 SET {dialect.QuoteForColumnName("Content")} = jsonb_set(
                     {dialect.QuoteForColumnName("Content")},
                     '{{ViewCountPart,Count}}',
-                    to_jsonb(COALESCE(({dialect.QuoteForColumnName("Content")}->>'ViewCountPart'->>'Count')::int, 0) + 1)
+                    to_jsonb(COALESCE(({dialect.QuoteForColumnName("Content")}#>>'{{ViewCountPart,Count}}')::int, 0) + 1)
                 )
                 WHERE {dialect.QuoteForColumnName("Content")}->>'ContentItemId' = @ContentItemId";
         }
         else
         {
+            logger.LogError("Unsupported SQL dialect '{DialectName}' for atomic view count updates. Supported dialects are: SqlServer, Sqlite, MySql, PostgreSql.", dialect.Name);
             throw new NotSupportedException($"The SQL dialect '{dialect.Name}' is not supported for atomic view count updates.");
         }
 
-        // Use existing session connection. Do not use 'using' or dispose the connection.
+        // Use existing session connection managed by YesSql.
+        // Do not dispose the connection as YesSql manages its lifecycle within the session's transaction scope.
         var connection = await session.CreateConnectionAsync();
         
         var commandDefinition = new CommandDefinition(
