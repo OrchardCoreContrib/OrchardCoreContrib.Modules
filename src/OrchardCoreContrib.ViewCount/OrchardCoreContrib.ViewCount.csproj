@@ -37,6 +37,7 @@
 		<PackageReference Include="OrchardCore.DisplayManagement" />
 		<PackageReference Include="OrchardCoreContrib.Abstractions" />
 		<PackageReference Include="OrchardCoreContrib.Infrastructure.Abstractions" />
+		<PackageReference Include="Dapper.StrongName" />
 	</ItemGroup>
 
 </Project>
