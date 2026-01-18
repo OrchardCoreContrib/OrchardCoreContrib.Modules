@@ -5,6 +5,7 @@
 	<ItemGroup>
 		<PackageVersion Include="Azure.Communication.Sms" Version="1.1.0-beta.2" />
 		<PackageVersion Include="coverlet.collector" Version="6.0.4" />
+		<PackageVersion Include="Dapper.StrongName" Version="2.1.66" />
 		<PackageVersion Include="Microsoft.AspNetCore.Diagnostics.Elm" Version="0.2.2" />
 		<PackageVersion Include="Microsoft.NET.Test.Sdk" Version="17.14.0-preview-25107-01" />
 		<PackageVersion Include="Microsoft.Extensions.Configuration.UserSecrets" Version="8.0.1" />
