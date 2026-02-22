@@ -8,6 +8,7 @@
 
 	<ItemGroup>
 		<ProjectReference Include="..\OrchardCoreContrib.Apis.Swagger\OrchardCoreContrib.Apis.Swagger.csproj" />
+		<ProjectReference Include="..\OrchardCoreContrib.CloudflareTurnstile\OrchardCoreContrib.CloudflareTurnstile.csproj" />
 		<!--<ProjectReference Include="..\OrchardCoreContrib.ContentLocalization\OrchardCoreContrib.ContentLocalization.csproj" />-->
 		<ProjectReference Include="..\OrchardCoreContrib.ContentPermissions\OrchardCoreContrib.ContentPermissions.csproj" />
 		<ProjectReference Include="..\OrchardCoreContrib.ContentPreview\OrchardCoreContrib.ContentPreview.csproj" />
