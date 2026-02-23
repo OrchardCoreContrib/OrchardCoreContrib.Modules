@@ -3,13 +3,11 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.Extensions.Options;
 using OrchardCore.DisplayManagement;
 using OrchardCore.DisplayManagement.Descriptors;
-using OrchardCore.Modules;
 using OrchardCore.ResourceManagement;
 using OrchardCoreContrib.CloudflareTurnstile.Configuration;
 
 namespace OrchardCoreContrib.CloudflareTurnstile.Services;
 
-[Feature("OrchardCoreContrib.CloudflareTurnstile")]
 public sealed class TurnstileShape(IResourceManager resourceManager, IOptions<TurnstileOptions> options) : IShapeAttributeProvider
 {
     private readonly TurnstileOptions options = options.Value;
