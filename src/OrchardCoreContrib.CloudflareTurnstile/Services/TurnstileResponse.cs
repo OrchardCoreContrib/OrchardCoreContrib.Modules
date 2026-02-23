@@ -1,3 +1,8 @@
 ﻿namespace OrchardCoreContrib.CloudflareTurnstile.Services;
 
-public record TurnstileResponse (bool Success, string[] ErrorCodes);
+public class TurnstileResponse
+{
+    public bool Success { get; set; }
+
+    public string[] ErrorCodes { get; set; }
+}
