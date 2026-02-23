@@ -17,6 +17,7 @@ The `OrchardCoreContrib.Modules` repository consists of the following modules:
 | Name | Namespace | NuGet |
 | --- | --- | --- |
 | [Swagger Module](src/OrchardCoreContrib.Apis.Swagger/README.md) | `OrchardCoreContrib.Apis.Swagger` | [![NuGet](https://img.shields.io/nuget/v/OrchardCoreContrib.Apis.Swagger.svg)](https://www.nuget.org/packages/OrchardCoreContrib.Apis.Swagger) |
+| [Cloudflare Turnstile Module](src/OrchardCoreContrib.CloudflareTurnstile/README.md) | `OrchardCoreContrib.CloudflareTurnstile` | [![NuGet](https://img.shields.io/nuget/v/OrchardCoreContrib.CloudflareTurnstile.svg)](https://www.nuget.org/packages/OrchardCoreContrib.CloudflareTurnstile) |
 | [Content Localization Module](src/OrchardCoreContrib.ContentLocalization/README.md) | `OrchardCoreContrib.ContentLocalization` | [![NuGet](https://img.shields.io/nuget/v/OrchardCoreContrib.ContentLocalization.svg)](https://www.nuget.org/packages/OrchardCoreContrib.ContentLocalization) |
 | [Content Preview Module](src/OrchardCoreContrib.ContentPreview/README.md) | `OrchardCoreContrib.ContentPreview` | [![NuGet](https://img.shields.io/nuget/v/OrchardCoreContrib.ContentPreview.svg)](https://www.nuget.org/packages/OrchardCoreContrib.ContentPreview) |
 | [Content Permissions Module](src/OrchardCoreContrib.ContentPermissions/README.md) | `OrchardCoreContrib.Permissions` | [![NuGet](https://img.shields.io/nuget/v/OrchardCoreContrib.ContentPermissions.svg)](https://www.nuget.org/packages/OrchardCoreContrib.ContentPermissions) |
