@@ -1,0 +1,17 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<ImplicitUsings>enable</ImplicitUsings>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<FrameworkReference Include="Microsoft.AspNetCore.App" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<PackageReference Include="OrchardCoreContrib.OpenApi.Abstractions" />
+		<PackageReference Include="OrchardCore.Module.Targets" />
+		<PackageReference Include="Scalar.AspNetCore" />
+	</ItemGroup>
+
+</Project>
