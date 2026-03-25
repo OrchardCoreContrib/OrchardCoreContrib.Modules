@@ -12,5 +12,6 @@ using ManifestConstants = OrchardCoreContrib.Modules.Manifest.ManifestConstants;
 [assembly: Feature(
     Id = "OrchardCoreContrib.Contents.ShareDraftContent",
     Name = "Share Draft Content",
-    Description = "Allows sharing of draft content items via a unique link."
+    Description = "Allows sharing of draft content items via a unique link.",
+    Dependencies = ["OrchardCore.Contents"]
 )]
