@@ -5,6 +5,7 @@ using OrchardCore.Admin;
 using OrchardCore.ContentManagement.Routing;
 using OrchardCore.Settings;
 using OrchardCore.Users;
+using OrchardCoreContrib.Infrastructure;
 using OrchardCoreContrib.System.Services;
 
 namespace Microsoft.AspNetCore.Builder;
@@ -24,7 +25,7 @@ public static class ApplicationBuilderExtensions
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="app"/> is null.</exception>
     public static IApplicationBuilder UseMaintenanceRedirect(this IApplicationBuilder app)
     {
-        ArgumentNullException.ThrowIfNull(app);
+        Guard.ArgumentNotNull(app, nameof(app));
 
         var siteService = app.ApplicationServices.GetService<ISiteService>();
         var adminOptions = app.ApplicationServices.GetService<IOptions<AdminOptions>>();

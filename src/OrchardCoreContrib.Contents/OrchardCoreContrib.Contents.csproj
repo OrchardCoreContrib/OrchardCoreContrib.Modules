@@ -30,8 +30,9 @@
 		<PackageReference Include="OrchardCore.ContentManagement" />
 		<PackageReference Include="OrchardCore.ContentTypes.Abstractions" />
 		<PackageReference Include="OrchardCore.DisplayManagement" />
-		<PackageReference Include="OrchardCoreContrib.Abstractions" />
 		<PackageReference Include="OrchardCore.ResourceManagement" />
+		<PackageReference Include="OrchardCoreContrib.Abstractions" />
+		<PackageReference Include="OrchardCoreContrib.Infrastructure.Abstractions" />
 	</ItemGroup>
 
 	<ItemGroup>

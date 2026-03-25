@@ -38,6 +38,7 @@
 		<PackageReference Include="OrchardCore.DisplayManagement" />
 		<PackageReference Include="OrchardCoreContrib.HealthChecks.Abstractions" />
 		<PackageReference Include="OrchardCore.Users.Abstractions" />
+		<PackageReference Include="OrchardCoreContrib.Infrastructure.Abstractions" />
 		<PackageReference Include="OrchardCoreContrib.Abstractions" />
 		<PackageReference Include="OrchardCoreContrib.Navigation.Core" />
 	</ItemGroup>
