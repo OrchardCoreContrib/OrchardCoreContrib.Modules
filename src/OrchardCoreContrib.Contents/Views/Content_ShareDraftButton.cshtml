@@ -1,12 +1,17 @@
 ﻿@using OrchardCore.ContentManagement
+@using OrchardCore.Environment.Shell
 @using OrchardCoreContrib.Contents.Services
 @using OrchardCoreContrib.Contents.ViewModels
 @model ShareDraftViewModel
 @inject ISharedDraftLinkService LinkService
+@inject ShellSettings ShellSettings
 
 @{
+    var tenant = ShellSettings.RequestUrlPrefix;
     var link = await LinkService.GenerateLinkAsync(Model.ContentItem);
-    var fullLink = $"{Context.Request.Scheme}://{Context.Request.Host}{link}";
+    var fullLink = string.IsNullOrEmpty(ShellSettings.RequestUrlPrefix)
+        ? $"{Context.Request.Scheme}://{Context.Request.Host}{link}"
+        : $"{Context.Request.Scheme}://{Context.Request.Host}/{tenant}{link}";
 }
 
 <div class="btn-group mb-1">
