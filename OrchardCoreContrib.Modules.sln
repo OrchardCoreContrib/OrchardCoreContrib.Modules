@@ -84,6 +84,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OrchardCoreContrib.Cloudfla
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OrchardCoreContrib.Apis.Scalar", "src\OrchardCoreContrib.Apis.Scalar\OrchardCoreContrib.Apis.Scalar.csproj", "{3D421DD2-F842-4F5A-A95E-5AD8D3632712}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OrchardCoreContrib.Contents", "src\OrchardCoreContrib.Contents\OrchardCoreContrib.Contents.csproj", "{46481A89-4274-4126-8E23-FE4F3107AD41}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -222,6 +224,10 @@ Global
 		{3D421DD2-F842-4F5A-A95E-5AD8D3632712}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3D421DD2-F842-4F5A-A95E-5AD8D3632712}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3D421DD2-F842-4F5A-A95E-5AD8D3632712}.Release|Any CPU.Build.0 = Release|Any CPU
+		{46481A89-4274-4126-8E23-FE4F3107AD41}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{46481A89-4274-4126-8E23-FE4F3107AD41}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{46481A89-4274-4126-8E23-FE4F3107AD41}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{46481A89-4274-4126-8E23-FE4F3107AD41}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -260,6 +266,7 @@ Global
 		{1CF93DCB-2DF2-4E42-A37E-744F38D347C5} = {C80A325F-F4C4-4C7B-A3CF-FB77CD8C9949}
 		{B2029246-BC23-4C18-B71A-55F13CB9E7AB} = {A239BFB0-9BA7-467C-AD41-405D0740633F}
 		{3D421DD2-F842-4F5A-A95E-5AD8D3632712} = {C80A325F-F4C4-4C7B-A3CF-FB77CD8C9949}
+		{46481A89-4274-4126-8E23-FE4F3107AD41} = {C80A325F-F4C4-4C7B-A3CF-FB77CD8C9949}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {48F73B05-7D3D-4ACF-81AE-A98B2B4EFDB2}
