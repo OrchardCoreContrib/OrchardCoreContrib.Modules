@@ -48,6 +48,6 @@ public class SharedDraftLinkService(
 
         return link is null
             ? null
-            : await contentManager.GetAsync(link.ContentItemId, VersionOptions.DraftRequired);
+            : await contentManager.GetAsync(link.ContentItemId, VersionOptions.Draft);
     }
 }

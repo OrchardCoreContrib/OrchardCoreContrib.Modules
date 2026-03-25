@@ -20,7 +20,6 @@ public sealed class Startup : StartupBase
 
         services.AddIndexProvider<SharedDraftLinkIndexProvider>();
 
-        //services.AddShapeTableProvider<ShareDraftShapes>();
         services.AddScoped<IContentDisplayDriver, ShareDraftContentDriver>();
     }
 }
