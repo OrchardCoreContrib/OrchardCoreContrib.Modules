@@ -50,4 +50,19 @@ public class SharedDraftLinkService(
             ? null
             : await contentManager.GetAsync(link.ContentItemId, VersionOptions.Draft);
     }
+
+    public async Task<int> CleanupExpiredLinksAsync()
+    {
+        var expiredLinks = await session.Query<SharedDraftLink, SharedDraftLinkIndex>()
+            .Where(l => l.ExpirationUtc < DateTime.UtcNow)
+            .ListAsync();
+
+        foreach (var link in expiredLinks)
+        {
+            session.Delete(link);
+        }
+
+        return expiredLinks.Count();
+    }
+
 }
