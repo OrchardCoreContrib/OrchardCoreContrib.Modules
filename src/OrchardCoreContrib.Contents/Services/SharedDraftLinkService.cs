@@ -66,4 +66,22 @@ public class SharedDraftLinkService(
         return expiredLinks.Count();
     }
 
+    public async Task<bool> RevokeLinkAsync(string contentItemId)
+    {
+        var link = await session.Query<SharedDraftLink, SharedDraftLinkIndex>()
+            .Where(l => l.ContentItemId == contentItemId && l.ExpirationUtc > DateTime.UtcNow)
+            .FirstOrDefaultAsync();
+
+        if (link is null)
+        {
+            return false;
+        }
+
+        // Enforce expiration by setting the ExpirationUtc to the current time, so the link will be considered expired.
+        link.ExpirationUtc = DateTime.UtcNow;
+
+        await session.SaveAsync(link);
+
+        return true;
+    }
 }

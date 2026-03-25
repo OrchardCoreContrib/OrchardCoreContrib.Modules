@@ -9,4 +9,6 @@ public interface ISharedDraftLinkService
     Task<ContentItem> GetDraftContentAsync(string token);
 
     Task<int> CleanupExpiredLinksAsync();
+
+    Task<bool> RevokeLinkAsync(string contentItemId);
 }

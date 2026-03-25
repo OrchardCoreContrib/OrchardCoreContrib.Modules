@@ -27,4 +27,3 @@ public class SharedDraftController(
         return View(shape);
     }
 }
-
