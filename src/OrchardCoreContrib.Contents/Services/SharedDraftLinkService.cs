@@ -3,7 +3,7 @@ using OrchardCore.ContentManagement;
 using OrchardCore.Environment.Shell;
 using OrchardCoreContrib.Contents.Indexes;
 using OrchardCoreContrib.Contents.Models;
-using Parlot.Fluent;
+using OrchardCoreContrib.Infrastructure;
 using YesSql;
 
 namespace OrchardCoreContrib.Contents.Services;
@@ -16,7 +16,7 @@ public class SharedDraftLinkService(
 {
     public async Task<string> GenerateLinkAsync(string contentItemId)
     {
-        ArgumentException.ThrowIfNullOrEmpty(contentItemId);
+        Guard.ArgumentNotNullOrEmpty(contentItemId, nameof(contentItemId));
 
         var existingLink = await session.Query<SharedDraftLink, SharedDraftLinkIndex>()
             .Where(l => l.ContentItemId == contentItemId && l.ExpirationUtc > DateTime.UtcNow)
@@ -44,7 +44,7 @@ public class SharedDraftLinkService(
 
     public string GetGeneratedLink(string token)
     {
-        ArgumentException.ThrowIfNullOrEmpty(token);
+        Guard.ArgumentNotNullOrEmpty(token, nameof(token));
 
         var tenant = shellSettings.RequestUrlPrefix;
         var baseUrl = $"{httpContextAccessor.HttpContext.Request.Scheme}://{httpContextAccessor.HttpContext.Request.Host}";
@@ -56,7 +56,7 @@ public class SharedDraftLinkService(
 
     public async Task<ContentItem> GetDraftContentAsync(string token)
     {
-        ArgumentException.ThrowIfNullOrEmpty(token);
+        Guard.ArgumentNotNullOrEmpty(token, nameof(token));
 
         var link = await session.Query<SharedDraftLink, SharedDraftLinkIndex>()
             .Where(l => l.Token == token && l.ExpirationUtc > DateTime.UtcNow)
@@ -83,6 +83,8 @@ public class SharedDraftLinkService(
 
     public async Task<bool> RevokeLinkAsync(string contentItemId)
     {
+        Guard.ArgumentNotNullOrEmpty(contentItemId, nameof(contentItemId));
+
         var link = await session.Query<SharedDraftLink, SharedDraftLinkIndex>()
             .Where(l => l.ContentItemId == contentItemId && l.ExpirationUtc > DateTime.UtcNow)
             .FirstOrDefaultAsync();
@@ -102,7 +104,7 @@ public class SharedDraftLinkService(
 
     public async Task<SharedDraftLink> GetActiveLinkAsync(string contentItemId)
     {
-        ArgumentException.ThrowIfNullOrEmpty(contentItemId);
+        Guard.ArgumentNotNullOrEmpty(contentItemId, nameof(contentItemId));
 
         return await session.Query<SharedDraftLink, SharedDraftLinkIndex>()
             .Where(l => l.ContentItemId == contentItemId && l.ExpirationUtc > DateTime.UtcNow)

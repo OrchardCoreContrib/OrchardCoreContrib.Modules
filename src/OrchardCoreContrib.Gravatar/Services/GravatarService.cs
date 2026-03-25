@@ -1,4 +1,5 @@
 ﻿using Microsoft.Extensions.Options;
+using OrchardCoreContrib.Infrastructure;
 using System.ComponentModel.DataAnnotations;
 using System.Security.Cryptography;
 using System.Text;
@@ -13,10 +14,7 @@ public class GravatarService(IOptions<GravatarOptions> gravatarOptions) : IGrava
 
     public string GetAvatarUrl(string email, [Range(1, 512)] int size = GravatarConstants.DefaultSize)
     {
-        if (string.IsNullOrEmpty(email))
-        {
-            throw new ArgumentException($"'{nameof(email)}' cannot be null or empty.", nameof(email));
-        }
+        Guard.ArgumentNotNullOrEmpty(email, nameof(email));
 
         var hash = ComputeHash(email);
 
