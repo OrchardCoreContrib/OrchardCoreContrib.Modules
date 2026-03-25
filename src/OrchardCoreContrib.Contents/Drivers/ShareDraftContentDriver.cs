@@ -10,5 +10,6 @@ public sealed class ShareDraftContentDriver : ContentDisplayDriver
 {
     public override async Task<IDisplayResult> EditAsync(ContentItem contentItem, BuildEditorContext context)
         => Initialize<ShareDraftViewModel>("Content_ShareDraftButton", model => model.ContentItem = contentItem)
+            .RenderWhen(() => Task.FromResult(!contentItem.Published))
             .Location("Actions:30");
 }
