@@ -30,7 +30,8 @@ public class SharedDraftLinkService(
             ContentItemId = contentItem.ContentItemId,
             Token = token,
             ExpirationUtc = DateTime.UtcNow.AddDays(30),
-            CreatedBy = httpContextAccessor.HttpContext.User.Identity.Name
+            CreatedBy = httpContextAccessor.HttpContext.User.Identity.Name,
+            CreatedUtc = DateTime.UtcNow
         };
 
         await session.SaveAsync(link);
