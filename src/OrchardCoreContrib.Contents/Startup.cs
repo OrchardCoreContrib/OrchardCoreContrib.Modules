@@ -22,7 +22,7 @@ public sealed class Startup : StartupBase
 
         services.AddIndexProvider<SharedDraftLinkIndexProvider>();
 
-        services.AddScoped<IContentDisplayDriver, ShareDraftContentDriver>();
+        services.AddScoped<IContentDisplayDriver, SharedDraftContentDriver>();
         services.AddScoped<ISharedDraftLinkService, SharedDraftLinkService>();
 
         services.AddPermissionProvider<Permissions>();

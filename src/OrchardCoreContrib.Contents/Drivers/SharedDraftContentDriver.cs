@@ -11,13 +11,37 @@ using OrchardCoreContrib.Contents.ViewModels;
 
 namespace OrchardCoreContrib.Contents.Drivers;
 
-public sealed class ShareDraftContentDriver(
+public sealed class SharedDraftContentDriver(
     IAuthorizationService authorizationService,
     IHttpContextAccessor httpContextAccessor,
     ISharedDraftLinkService linkService,
     INotifier notifier,
-    IHtmlLocalizer<ShareDraftContentDriver> H) : ContentDisplayDriver
+    IHtmlLocalizer<SharedDraftContentDriver> H) : ContentDisplayDriver
 {
+    public override async Task<IDisplayResult> DisplayAsync(ContentItem contentItem, BuildDisplayContext context)
+    {
+        var user = httpContextAccessor.HttpContext.User;
+
+        if (!await authorizationService.AuthorizeAsync(user, ContentsPermissions.ShareDraftContent))
+        {
+            return null;
+        }
+
+        var model = new SharedDraftLinkViewModel();
+
+        var link = await linkService.GetActiveLinkAsync(contentItem.ContentItemId);
+
+        if (link is not null)
+        {
+            model.Link = link;
+            model.GeneratedLink = linkService.GetGeneratedLink(link.Token);
+        }
+
+        return Shape("SharedDraftStatus_SummaryAdmin", model)
+            .RenderWhen(() => Task.FromResult(!contentItem.Published))
+            .Location("SummaryAdmin", "Meta:15");
+    }
+
     public override async Task<IDisplayResult> EditAsync(ContentItem contentItem, BuildEditorContext context)
     {
         var user = httpContextAccessor.HttpContext.User;
@@ -27,9 +51,16 @@ public sealed class ShareDraftContentDriver(
             return null;
         }
 
-        return Initialize<ShareDraftViewModel>("Content_ShareDraftButton", model => model.ContentItem = contentItem)
-            .RenderWhen(() => Task.FromResult(!contentItem.Published))
-            .Location("Actions:30");
+        var generatedLink = await linkService.GenerateLinkAsync(contentItem.ContentItemId);
+
+        var link = await linkService.GetActiveLinkAsync(contentItem.ContentItemId);
+
+        return Initialize<SharedDraftLinkViewModel>("Content_ShareDraftButton", model =>
+        {
+            model.Link = link;
+            model.GeneratedLink = generatedLink;
+        }).RenderWhen(() => Task.FromResult(!contentItem.Published))
+        .Location("Actions:30");
     }
 
     public override async Task<IDisplayResult> UpdateAsync(ContentItem contentItem, UpdateEditorContext context)
@@ -41,7 +72,7 @@ public sealed class ShareDraftContentDriver(
             return null;
         }
 
-        var model = new ShareDraftViewModel();
+        var model = new SharedDraftLinkViewModel();
 
         await context.Updater.TryUpdateModelAsync(model, Prefix);
 
