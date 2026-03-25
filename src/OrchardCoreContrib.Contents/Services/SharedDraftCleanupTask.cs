@@ -5,10 +5,12 @@ using OrchardCore.BackgroundTasks;
 namespace OrchardCoreContrib.Contents.Services;
 
 [BackgroundTask(Schedule = "0 0 * * *", Description = "Shared Draft Cleanup Background Service")]
-public class SharedDraftCleanupTask(ISharedDraftLinkService linkService) : IBackgroundTask
+public class SharedDraftCleanupTask : IBackgroundTask
 {
     public async Task DoWorkAsync(IServiceProvider serviceProvider, CancellationToken cancellationToken)
     {
+        var linkService = serviceProvider.GetRequiredService<ISharedDraftLinkService>();
+
         var count = await linkService.CleanupExpiredLinksAsync();
 
         if (count > 0)
