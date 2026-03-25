@@ -5,7 +5,7 @@ namespace OrchardCoreContrib.Contents;
 
 public class Permissions : IPermissionProvider
 {
-    private readonly IEnumerable<Permission> _allPermissions = [ContentsPermissions.ShareDraftContent];
+    private readonly IEnumerable<Permission> _allPermissions = [ContentsPermissions.ShareDraftContent, ContentsPermissions.RevokeDraftContent];
 
     public IEnumerable<PermissionStereotype> GetDefaultStereotypes() =>
     [
@@ -17,7 +17,7 @@ public class Permissions : IPermissionProvider
         new PermissionStereotype
         {
             Name = OrchardCoreConstants.Roles.Editor,
-            Permissions = _allPermissions
+            Permissions = [ContentsPermissions.ShareDraftContent]
         }
     ];
 
