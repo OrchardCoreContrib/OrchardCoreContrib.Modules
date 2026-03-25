@@ -1,22 +1,8 @@
 ﻿@using Microsoft.AspNetCore.Authorization
-@using OrchardCore.ContentManagement
-@using OrchardCore.Environment.Shell
 @using OrchardCoreContrib.Contents
-@using OrchardCoreContrib.Contents.Models
-@using OrchardCoreContrib.Contents.Services
 @using OrchardCoreContrib.Contents.ViewModels
-@model ShareDraftViewModel
-@inject ISharedDraftLinkService LinkService
-@inject ShellSettings ShellSettings
+@model SharedDraftLinkViewModel
 @inject IAuthorizationService AuthorizationService
-
-@{
-    var tenant = ShellSettings.RequestUrlPrefix;
-    var link = await LinkService.GenerateLinkAsync(Model.ContentItem);
-    var fullLink = string.IsNullOrEmpty(ShellSettings.RequestUrlPrefix)
-        ? $"{Context.Request.Scheme}://{Context.Request.Host}{link}"
-        : $"{Context.Request.Scheme}://{Context.Request.Host}/{tenant}{link}";
-}
 
 <div class="btn-group mb-1">
     <button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#shareDraftModal">
@@ -40,7 +26,7 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <input id="linkInput" type="text" class="form-control" readonly value="@fullLink" />
+                <input id="linkInput" type="text" class="form-control" readonly value="@Model.GeneratedLink" />
                 <button id="copyButton" type="button" class="btn btn-outline-secondary mt-2" onclick="copyUrl()">
                     Copy to Clipboard
                 </button>
