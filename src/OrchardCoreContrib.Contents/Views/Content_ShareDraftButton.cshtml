@@ -3,7 +3,9 @@
 @using OrchardCoreContrib.Contents.ViewModels
 @model SharedDraftLinkViewModel
 @inject IAuthorizationService AuthorizationService
-
+@{
+    var dateDiff = Model.Link.ExpirationUtc - DateTime.UtcNow;
+}
 <div class="btn-group mb-1">
     <button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#shareDraftModal">
         @T["Share Draft"]
@@ -31,7 +33,15 @@
                     Copy to Clipboard
                 </button>
                 <p class="text-muted mt-2">
-                    Expires in <span id="expiryCountdown"></span>
+                    @if (dateDiff <= TimeSpan.Zero)
+                    {
+                        <span class="text-danger">@T["Expired"]</span>
+                    }
+                    else
+                    {
+                        var days = (int)Math.Round(dateDiff.TotalDays);
+                        <span>@T["Expires in {0} day(s)", days]</span>
+                    }
                 </p>
             </div>
         </div>
@@ -39,25 +49,8 @@
 </div>
 
 <script at="Foot">
-    const copyButton = document.getElementById('copyButton');
-    const expireyCountdown = document.getElementById("expiryCountdown");
-
-    const expiryDate = new Date("@Model.Link.ExpirationUtc.ToString("o")");
-    const now = new Date();
-    const diff = expiryDate - now;
-
-    if (diff <= 0) {
-        expireyCountdown.parentElement.setAttribute('class', 'text-danger mt-2')
-        expireyCountdown.parentElement.innerText = "Expired";
-        copyButton.disabled = true;
-    }
-    else {
-        const days = Math.floor(diff / (1000*60*60*24));
-
-        expireyCountdown.innerText = `${days} days`;
-    }
-
     function copyUrl() {
+        const copyButton = document.getElementById('copyButton');
         const link = document.getElementById('linkInput').value;
         navigator.clipboard.writeText(link);
 
