@@ -28,7 +28,7 @@
     <PackageVersion Include="OrchardCore.Email.Core" Version="2.2.0" />
     <PackageVersion Include="OrchardCore.Email.Smtp" Version="2.2.0" />
     <PackageVersion Include="OrchardCore.Html" Version="2.2.0" />
-    <PackageVersion Include="OrchardCore.Infrastructure.Abstractions" Version="2.2.0" />
+    <PackageVersion Include="OrchardCore.Infrastructure.Abstractions" Version="2.2.1" />
     <PackageVersion Include="OrchardCore.Liquid.Abstractions" Version="2.2.0" />
     <PackageVersion Include="OrchardCore.Module.Targets" Version="2.2.0" />
     <PackageVersion Include="OrchardCore.Navigation.Core" Version="2.2.0" />
