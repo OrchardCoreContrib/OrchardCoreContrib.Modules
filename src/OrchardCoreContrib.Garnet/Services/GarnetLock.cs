@@ -28,21 +28,11 @@ public class GarnetLock(
     private readonly string _prefix = garnetService.InstancePrefix + shellSettings.Name + ':';
     private readonly ConfigurationOptions _configurationOptions = GarnetOptionsConverter.ConvertToConfigurationOptions(garnetOptions.Value);
 
-    /// <summary>
-    /// Waits indefinitely until acquiring a named lock with a given expiration for the current tenant
-    /// </summary>
-    /// <param name="key">The key.</param>
-    /// <param name="expiration">The expiration time for the lock.</param>
+    /// <inheritdoc/>
     public async Task<ILocker> AcquireLockAsync(string key, TimeSpan? expiration = null)
         => (await TryAcquireLockAsync(key, TimeSpan.MaxValue, expiration)).locker;
 
-    /// <summary>
-    /// Tries to acquire a named lock in a given timeout with a given expiration for the current tenant.
-    /// </summary>
-    /// <param name="key">The key.</param>
-    /// <param name="timeout">The timeout for acquiring the lock.</param>
-    /// <param name="expiration">The expiration time for the lock.</param>
-    /// <returns></returns>
+    /// <inheritdoc/>
     public async Task<(ILocker locker, bool locked)> TryAcquireLockAsync(string key, TimeSpan timeout, TimeSpan? expiration = null)
     {
         using (var cts = new CancellationTokenSource(timeout != TimeSpan.MaxValue ? timeout : Timeout.InfiniteTimeSpan))
@@ -76,6 +66,7 @@ public class GarnetLock(
         return (null, false);
     }
 
+    /// <inheritdoc/>
     public async Task<bool> IsLockAcquiredAsync(string key)
     {
         if (garnetService.Client == null)
@@ -95,12 +86,14 @@ public class GarnetLock(
             var database = (await ConnectionMultiplexer
                 .ConnectAsync(_configurationOptions))
                 .GetDatabase();
-            
-            return (await database.LockQueryAsync(_prefix + key)).HasValue;
+
+            var lockValue = await database.LockQueryAsync(_prefix + key);
+
+            return lockValue.HasValue;
         }
-        catch (Exception e)
+        catch (Exception ex)
         {
-            logger.LogError(e, "Fails to check whether the named lock '{LockName}' is already acquired.", _prefix + key);
+            logger.LogError(ex, "Fails to check whether the named lock '{LockName}' is already acquired.", _prefix + key);
         }
 
         return false;
@@ -108,11 +101,11 @@ public class GarnetLock(
 
     private async Task<bool> LockAsync(string key, TimeSpan expiry)
     {
-        if (garnetService.Client == null)
+        if (garnetService.Client is null)
         {
             await garnetService.ConnectAsync();
 
-            if (garnetService.Client == null)
+            if (garnetService.Client is null)
             {
                 logger.LogError("Fails to acquire the named lock '{LockName}'.", _prefix + key);
                 
@@ -128,9 +121,9 @@ public class GarnetLock(
 
             return await database.LockTakeAsync(_prefix + key, _hostName, expiry);
         }
-        catch (Exception e)
+        catch (Exception ex)
         {
-            logger.LogError(e, "Fails to acquire the named lock '{LockName}'.", _prefix + key);
+            logger.LogError(ex, "Fails to acquire the named lock '{LockName}'.", _prefix + key);
         }
 
         return false;
@@ -146,9 +139,9 @@ public class GarnetLock(
 
             await database.LockReleaseAsync(_prefix + key, _hostName);
         }
-        catch (Exception e)
+        catch (Exception ex)
         {
-            logger.LogError(e, "Fails to release the named lock '{LockName}'.", _prefix + key);
+            logger.LogError(ex, "Fails to release the named lock '{LockName}'.", _prefix + key);
         }
     }
 
@@ -164,9 +157,9 @@ public class GarnetLock(
 
             database.LockRelease(_prefix + key, _hostName);
         }
-        catch (Exception e)
+        catch (Exception ex)
         {
-            logger.LogError(e, "Fails to release the named lock '{LockName}'.", _prefix + key);
+            logger.LogError(ex, "Fails to release the named lock '{LockName}'.", _prefix + key);
         }
     }
 
