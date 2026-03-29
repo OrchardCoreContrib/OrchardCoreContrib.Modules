@@ -24,8 +24,9 @@ This module has no dependencies.
 
 ## NuGet Packages
 
-| Name                                                                                                                | Version     |
-|---------------------------------------------------------------------------------------------------------------------|-------------|
+| Name                                                                                                    | Version     |
+|---------------------------------------------------------------------------------------------------------|-------------|
+| [`OrchardCoreContrib.Contents`](https://www.nuget.org/packages/OrchardCoreContrib.Contents/1.0.1)       | 1.0.1       |
 | [`OrchardCoreContrib.Contents`](https://www.nuget.org/packages/OrchardCoreContrib.Contents/1.0.0)       | 1.0.0       |
 
 ## Get Started
