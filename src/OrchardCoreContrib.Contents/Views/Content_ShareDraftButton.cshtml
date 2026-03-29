@@ -1,0 +1,60 @@
+﻿@using Microsoft.AspNetCore.Authorization
+@using OrchardCoreContrib.Contents
+@using OrchardCoreContrib.Contents.ViewModels
+@model SharedDraftLinkViewModel
+@inject IAuthorizationService AuthorizationService
+@{
+    var dateDiff = Model.Link.ExpirationUtc - DateTime.UtcNow;
+}
+<div class="btn-group mb-1">
+    <button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#shareDraftModal">
+        @T["Share Draft"]
+    </button>
+</div>
+<div class="btn-group mb-1">
+    @if (await AuthorizationService.AuthorizeAsync(User, ContentsPermissions.RevokeDraftContent))
+    {
+        <button name="submit.Save" type="submit" class="btn btn-danger" value="Revoke">
+            @T["Revoke Link"]
+        </button>
+    }
+</div>
+
+<div class="modal fade" id="shareDraftModal" tabindex="-1" aria-labelledby="shareDraftModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="shareDraftModalLabel">@T["Share Draft Link"]</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <input id="linkInput" type="text" class="form-control" readonly value="@Model.GeneratedLink" />
+                <button id="copyButton" type="button" class="btn btn-outline-secondary mt-2" onclick="copyUrl()">
+                    Copy to Clipboard
+                </button>
+                <p class="text-muted mt-2">
+                    @if (dateDiff <= TimeSpan.Zero)
+                    {
+                        <span class="text-danger">@T["Expired"]</span>
+                    }
+                    else
+                    {
+                        var days = (int)Math.Round(dateDiff.TotalDays);
+                        <span>@T["Expires in {0} day(s)", days]</span>
+                    }
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script at="Foot">
+    function copyUrl() {
+        const copyButton = document.getElementById('copyButton');
+        const link = document.getElementById('linkInput').value;
+        navigator.clipboard.writeText(link);
+
+        copyButton.setAttribute('class', 'btn btn-secondary mt-2');
+        copyButton.innerText = 'Copied!';
+    }
+</script>

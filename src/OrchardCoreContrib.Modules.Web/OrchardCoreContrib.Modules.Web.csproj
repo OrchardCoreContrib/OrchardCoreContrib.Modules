@@ -5,12 +5,14 @@
 		<PackageReference Include="OrchardCore.Application.Cms.Targets" />
 	</ItemGroup>
 
-
 	<ItemGroup>
+		<ProjectReference Include="..\OrchardCoreContrib.Apis.Scalar\OrchardCoreContrib.Apis.Scalar.csproj" />
 		<ProjectReference Include="..\OrchardCoreContrib.Apis.Swagger\OrchardCoreContrib.Apis.Swagger.csproj" />
-		<!--<ProjectReference Include="..\OrchardCoreContrib.ContentLocalization\OrchardCoreContrib.ContentLocalization.csproj" />-->
+		<ProjectReference Include="..\OrchardCoreContrib.CloudflareTurnstile\OrchardCoreContrib.CloudflareTurnstile.csproj" />
+		<ProjectReference Include="..\OrchardCoreContrib.ContentLocalization\OrchardCoreContrib.ContentLocalization.csproj" />
 		<ProjectReference Include="..\OrchardCoreContrib.ContentPermissions\OrchardCoreContrib.ContentPermissions.csproj" />
 		<ProjectReference Include="..\OrchardCoreContrib.ContentPreview\OrchardCoreContrib.ContentPreview.csproj" />
+		<ProjectReference Include="..\OrchardCoreContrib.Contents\OrchardCoreContrib.Contents.csproj" />
 		<ProjectReference Include="..\OrchardCoreContrib.DataLocalization\OrchardCoreContrib.DataLocalization.csproj" />
 		<ProjectReference Include="..\OrchardCoreContrib.Diagnostics.Elm\OrchardCoreContrib.Diagnostics.Elm.csproj" />
 		<ProjectReference Include="..\OrchardCoreContrib.Email.Gmail\OrchardCoreContrib.Email.Gmail.csproj" />
