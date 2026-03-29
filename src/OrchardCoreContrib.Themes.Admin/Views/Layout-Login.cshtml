@@ -13,10 +13,9 @@
     <link type="image/x-icon" rel="shortcut icon" href="~/TheAdmin/favicon.ico" />
 
     <!-- This script can't wait till the footer -->
-    <script asp-name="admin-head" version="1" at="Head"></script>
+    <script asp-name="admin-main" version="1" at="Head"></script>
 
     <!-- Bootstrap CSS -->
-    <style asp-name="admin" version="1" at="Head"></style>
     <style at="Head">
         .divider:after,
         .divider:before {
@@ -40,6 +39,7 @@
                 background-color: #35935B !important;
             }
     </style>
+
     @if (Orchard.IsRightToLeft())
     {
         <style asp-name="bootstrap-rtl" version="5" at="Head"></style>
@@ -56,27 +56,18 @@
     <resources type="Header" />
     @await RenderSectionAsync("HeadMeta", required: false)
 </head>
-<body class="mb-0">
-    <section>
-        <div class="d-flex align-items-center justify-content-center h-100">
-            <div class="container-fluid px-0">
-                @await RenderSectionAsync("Header", required: false)
-                @await RenderSectionAsync("Messages", required: false)
+<body>
+    <div class="d-flex align-items-center justify-content-center h-100">
+        <div class="container-fluid">
+            @await RenderSectionAsync("Header", required: false)
+            @await RenderSectionAsync("Messages", required: false)
 
-                <div class="row mx-0 my-0">
-                    <div class="col-4 min-vh-100 d-flex align-items-center justify-content-center text-white oc-bg-primary">
-                        <div class="text-center">
-                            <img src="@Url.Content("~/OrchardCoreContrib.Themes.Admin/logo-white.png")" width="65" />
-                            <h2 class="mt-2 mb-4 display-6">Orchard Core CMS</h2>
-                        </div>
-                    </div>
-                    <div class="col-8 min-vh-100 d-flex align-items-center justify-content-center">
-                        @await RenderBodyAsync()
-                    </div>
-                </div>
+            <div class="auth-wrapper">
+                @await RenderBodyAsync()
             </div>
         </div>
-    </section>
+    </div>
+
     @await RenderSectionAsync("Footer", required: false)
 
     <resources type="Footer" />

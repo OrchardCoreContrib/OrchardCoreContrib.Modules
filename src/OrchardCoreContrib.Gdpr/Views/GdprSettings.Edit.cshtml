@@ -1,8 +1,6 @@
 @using OrchardCoreContrib.Gdpr
 @model GdprSettings
 
-<p class="alert alert-warning">@T["The current tenant will be reloaded when the settings are saved."]</p>
-
 <div class="form-group" asp-validation-class-for="Summary">
     <label asp-for="Summary">@T["Summary"]</label>
     <input asp-for="Summary" class="form-control" type="text" />
@@ -12,7 +10,7 @@
 
 <div class="form-group" asp-validation-class-for="Detail">
     <label asp-for="Detail">@T["Detail"]</label>
-    <input asp-for="Detail" class="form-control" type="text" />
+    <textarea asp-for="Detail" class="form-control" rows="5"></textarea>
     <span asp-validation-for="Detail"></span>
     <span class="hint">@T["The content to detail your site's privacy policy."]</span>
 </div>

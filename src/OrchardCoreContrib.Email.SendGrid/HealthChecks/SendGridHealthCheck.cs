@@ -1,11 +1,7 @@
 ﻿using Microsoft.Extensions.Diagnostics.HealthChecks;
 using SendGrid.Helpers.Mail;
 using SendGrid;
-using System;
-using System.Net.Http;
 using System.Net;
-using System.Threading;
-using System.Threading.Tasks;
 using Microsoft.Extensions.Options;
 
 namespace OrchardCoreContrib.Email.SendGrid.HealthChecks;

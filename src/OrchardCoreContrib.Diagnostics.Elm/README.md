@@ -1,10 +1,10 @@
 # Elm Diagnostics Module
 
-This module handle and logs errors using Elm.
+This module handle and logs errors using ASP.NET Core Error Logging Middleware (ELM).
 
 ## Version
 
-1.4.1
+1.6.0
 
 ## Category
 
@@ -26,6 +26,8 @@ This module has no dependencies.
 
 | Name                                                                                                            | Version |
 |-----------------------------------------------------------------------------------------------------------------|---------|
+| [`OrchardCoreContrib.Diagnostics.Elm`](https://www.nuget.org/packages/OrchardCoreContrib.Diagnostics.Elm/1.6.0) | 1.6.0   |
+| [`OrchardCoreContrib.Diagnostics.Elm`](https://www.nuget.org/packages/OrchardCoreContrib.Diagnostics.Elm/1.5.0) | 1.5.0   |
 | [`OrchardCoreContrib.Diagnostics.Elm`](https://www.nuget.org/packages/OrchardCoreContrib.Diagnostics.Elm/1.4.1) | 1.4.1   |
 | [`OrchardCoreContrib.Diagnostics.Elm`](https://www.nuget.org/packages/OrchardCoreContrib.Diagnostics.Elm/1.4.0) | 1.4.0   |
 | [`OrchardCoreContrib.Diagnostics.Elm`](https://www.nuget.org/packages/OrchardCoreContrib.Diagnostics.Elm/1.3.0) | 1.3.0   |
@@ -40,4 +42,4 @@ This module has no dependencies.
 3. Select **Configuration -> Features** menu.
 4. Enable the `Elm Diagnostics` feature.
 5. Go to the site.
-6. Visit the ELm end-point by append `/elm` to the URL.
+6. Visit the ELm end-point by append `/elm` to the URL. In case you need to change the path, set the `Path` property of the `OrchardCoreContrib_Diagnostics_Elm` settings section from within `appsettings.json`.

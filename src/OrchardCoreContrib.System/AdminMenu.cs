@@ -1,25 +1,19 @@
 ﻿using Microsoft.Extensions.Localization;
 using OrchardCore.Navigation;
-using OrchardCoreContrib.Navigation;
 
 namespace OrchardCoreContrib.System;
+
+using OrchardCoreContrib.Navigation;
 
 /// <summary>
 /// Represents an admin menu for System module.
 /// </summary>
-public class AdminMenu : AdminNavigationProvider
+/// <remarks>
+/// Initializes a new instance of <see cref="AdminMenu"/>.
+/// </remarks>
+/// <param name="S">The <see cref="IStringLocalizer{AdminMenu}"/>.</param>
+public class AdminMenu(IStringLocalizer<AdminMenu> S) : AdminNavigationProvider
 {
-    private readonly IStringLocalizer S;
-
-    /// <summary>
-    /// Initializes a new instance of <see cref="AdminMenu"/>.
-    /// </summary>
-    /// <param name="stringLocalizer">The <see cref="IStringLocalizer{AdminMenu}"/>.</param>
-    public AdminMenu(IStringLocalizer<AdminMenu> stringLocalizer)
-    {
-        S = stringLocalizer;
-    }
-
     /// <inheritdoc/>
     public override void BuildNavigation(NavigationBuilder builder)
     {

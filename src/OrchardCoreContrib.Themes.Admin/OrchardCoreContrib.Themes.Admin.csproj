@@ -1,7 +1,6 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk.Razor">
 
 	<PropertyGroup>
-		<TargetFramework>net8.0</TargetFramework>
 		<AddRazorSupportForMvc>true</AddRazorSupportForMvc>
 	</PropertyGroup>
 
@@ -10,12 +9,12 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<PackageReference Include="OrchardCore.Admin" Version="1.8.3" />
-		<PackageReference Include="OrchardCore.DisplayManagement" Version="1.8.3" />
-		<PackageReference Include="OrchardCore.ResourceManagement" Version="1.8.3" />
-		<PackageReference Include="OrchardCore.Themes" Version="1.8.3" />
-		<PackageReference Include="OrchardCore.Theme.Targets" Version="1.8.3" />
-		<PackageReference Include="OrchardCore.Users" Version="1.8.3" />
+		<PackageReference Include="OrchardCore.Admin" />
+		<PackageReference Include="OrchardCore.DisplayManagement" />
+		<PackageReference Include="OrchardCore.ResourceManagement" />
+		<PackageReference Include="OrchardCore.Themes" />
+		<PackageReference Include="OrchardCore.Theme.Targets" />
+		<PackageReference Include="OrchardCore.Users" />
 	</ItemGroup>
 
 </Project>

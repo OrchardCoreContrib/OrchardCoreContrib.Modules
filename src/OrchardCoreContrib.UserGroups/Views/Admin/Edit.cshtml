@@ -1,0 +1,15 @@
+@model EditUserGroupViewModel
+
+<zone Name="Title"><h1>@RenderTitleSegments(T["Edit '{0}' User Group", Model.Name])</h1></zone>
+
+<form asp-action="Edit" method="post" class="no-multisubmit">
+    <div class="mb-3" asp-validation-class-for="Description">
+        <label asp-for="Description" class="form-label">@T["Description"]</label>
+        <textarea asp-for="Description" class="form-control"></textarea>
+        <span asp-validation-for="Description" class="text-danger"></span>
+    </div>
+    <div class="mb-3">
+        <button class="btn btn-primary save" type="submit">@T["Save"]</button>
+        <a class="btn btn-secondary cancel" role="button" asp-route-action="Index">@T["Cancel"]</a>
+    </div>
+</form>

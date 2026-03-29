@@ -1,25 +1,17 @@
 ﻿using Microsoft.Extensions.Options;
 using SixLabors.Fonts;
 using SixLabors.ImageSharp;
-using SixLabors.ImageSharp.Advanced;
 using SixLabors.ImageSharp.Drawing;
 using SixLabors.ImageSharp.Drawing.Processing;
 using SixLabors.ImageSharp.Formats.Png;
 using SixLabors.ImageSharp.PixelFormats;
 using SixLabors.ImageSharp.Processing;
-using System;
-using System.IO;
 
 namespace OrchardCoreContrib.Users.Services;
 
-public class AvatarService : IAvatarService
+public class AvatarService(IOptions<AvatarOptions> avatarOptions) : IAvatarService
 {
-    private readonly AvatarOptions _avatarOptions;
-
-    public AvatarService(IOptions<AvatarOptions> avatarOptions)
-    {
-        _avatarOptions = avatarOptions.Value;
-    }
+    private readonly AvatarOptions _avatarOptions = avatarOptions.Value;
 
     public string Generate(string userName)
     {
@@ -46,9 +38,7 @@ public class AvatarService : IAvatarService
     {
         using (var memoryStream = new MemoryStream())
         {
-            var imageEncoder = image
-                .GetConfiguration().ImageFormatsManager
-                .GetEncoder(PngFormat.Instance);
+            var imageEncoder = image.Configuration.ImageFormatsManager.GetEncoder(PngFormat.Instance);
             
             image.Save(memoryStream, imageEncoder);
 

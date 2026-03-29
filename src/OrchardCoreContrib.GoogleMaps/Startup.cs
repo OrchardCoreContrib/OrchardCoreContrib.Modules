@@ -13,26 +13,25 @@ using OrchardCoreContrib.GoogleMaps.Migrations;
 using OrchardCoreContrib.GoogleMaps.Models;
 using OrchardCoreContrib.GoogleMaps.ViewModels;
 
-namespace OrchardCoreContrib.GoogleMaps
+namespace OrchardCoreContrib.GoogleMaps;
+
+public class Startup : StartupBase
 {
-    public class Startup : StartupBase
+    public override void ConfigureServices(IServiceCollection services)
     {
-        public override void ConfigureServices(IServiceCollection services)
+        services.Configure<TemplateOptions>(o =>
         {
-            services.Configure<TemplateOptions>(o =>
-            {
-                o.MemberAccessStrategy.Register<GoogleMapPartViewModel>();
-                o.MemberAccessStrategy.Register<GoogleMapsSettingsViewModel>();
-            });
+            o.MemberAccessStrategy.Register<GoogleMapPartViewModel>();
+            o.MemberAccessStrategy.Register<GoogleMapsSettingsViewModel>();
+        });
 
-            services.AddScoped<INavigationProvider, AdminMenu>();
-            services.AddScoped<IPermissionProvider, Permissions>();
+        services.AddScoped<INavigationProvider, AdminMenu>();
+        services.AddScoped<IPermissionProvider, Permissions>();
 
-            services.AddTransient<IMigration, CreateGoogleMapPart>();
-            services.AddScoped<IDisplayDriver<ISite>, GoogleMapsSettingsDisplayDriver>();
+        services.AddTransient<IMigration, CreateGoogleMapPart>();
+        services.AddScoped<IDisplayDriver<ISite>, GoogleMapsSettingsDisplayDriver>();
 
-            services.AddContentPart<GoogleMapPart>()
-                .UseDisplayDriver<GoogleMapPartDisplayDriver>();
-        }
+        services.AddContentPart<GoogleMapPart>()
+            .UseDisplayDriver<GoogleMapPartDisplayDriver>();
     }
 }

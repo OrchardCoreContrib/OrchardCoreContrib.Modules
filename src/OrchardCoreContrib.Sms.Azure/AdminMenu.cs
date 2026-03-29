@@ -1,10 +1,11 @@
 using Microsoft.AspNetCore.Routing;
 using Microsoft.Extensions.Localization;
 using OrchardCore.Navigation;
-using OrchardCoreContrib.Navigation;
 using OrchardCoreContrib.Sms.Azure.Drivers;
 
 namespace OrchardCoreContrib.Sms.Azure;
+
+using OrchardCoreContrib.Navigation;
 
 public class AdminMenu(IStringLocalizer<AdminMenu> S) : AdminNavigationProvider
 {
@@ -22,7 +23,7 @@ public class AdminMenu(IStringLocalizer<AdminMenu> S) : AdminNavigationProvider
                    .Add(S["Azure SMS"], S["Azure SMS"].PrefixPosition(), sms => sms
                    .AddClass("azure-sms").Id("azuresms")
                       .Action("Index", "Admin", _routeValues)
-                      .Permission(AzureSmsPermissions.ManageSettings)
+                      .Permission(AzureSmsPermissions.ManageAzureSmsSettings)
                       .LocalNav()
                     )
                 )

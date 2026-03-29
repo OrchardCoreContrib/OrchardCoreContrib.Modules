@@ -1,0 +1,50 @@
+﻿@using OrchardCore.Security.Services
+@using OrchardCoreContrib.ContentPermissions.ViewModels
+@model ContentPermissionsPartViewModel
+
+@if (Model.EnableRoles == false && Model.EnableUsers == false)
+{
+    <div class="alert alert-warning" role="alert">
+        @T["No permissions are currently enabled."]
+    </div>
+
+    return;
+}
+
+@if (Model.EnableRoles)
+{
+    <div class="form-group mb-3">
+        <label class="form-label">@T["Roles"]</label>
+        <div class="row">
+            @foreach (var role in Model.Roles)
+            {
+                var selected = Model.SelectedRoles.Contains(role);
+                <div class="col-md-3">
+                    <div class="custom-control custom-checkbox">
+                        <input id="@role" name="@Html.NameFor(m => m.SelectedRoles)" type="checkbox" class="custom-control-input" value="@role" checked="@(selected ? "checked" : null)">
+                        <label for="@role" class="custom-control-label">@role</label>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+}
+
+@if (Model.EnableUsers)
+{
+    <div class="form-group mb-3">
+        <label class="form-label">@T["Users"]</label>
+        <div class="row">
+            @foreach (var user in Model.Users)
+            {
+                var selected = Model.SelectedUsers.Contains(user);
+                <div class="col-md-3">
+                    <div class="custom-control custom-checkbox">
+                        <input id="@user" name="@Html.NameFor(m => m.SelectedUsers)" type="checkbox" class="custom-control-input" value="@user" checked="@(selected ? "checked" : null)">
+                        <label for="@user" class="custom-control-label">@user</label>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+}

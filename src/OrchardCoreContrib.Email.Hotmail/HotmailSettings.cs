@@ -1,17 +1,16 @@
-﻿namespace OrchardCoreContrib.Email.Hotmail
+﻿namespace OrchardCoreContrib.Email.Hotmail;
+
+/// <summary>
+/// Represents a settings for Hotmail.
+/// </summary>
+public class HotmailSettings : SmtpSettings
 {
     /// <summary>
-    /// Represents a settings for Hotmail.
+    /// Initializes a new instance of <see cref="HotmailSettings"/>.
     /// </summary>
-    public class HotmailSettings : SmtpSettings
+    public HotmailSettings()
     {
-        /// <summary>
-        /// Initializes a new instance of <see cref="HotmailSettings"/>.
-        /// </summary>
-        public HotmailSettings()
-        {
-            Host = HotmailDefaults.Host;
-            Port = HotmailDefaults.Port;
-        }
+        Host = HotmailDefaults.Host;
+        Port = HotmailDefaults.Port;
     }
 }

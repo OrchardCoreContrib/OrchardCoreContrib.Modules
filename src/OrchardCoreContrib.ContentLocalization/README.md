@@ -4,7 +4,7 @@ This module provides features for localizing content.
 
 ## Version
 
-1.3.1
+1.5.0
 
 ## Category
 
@@ -32,6 +32,8 @@ This module has no dependencies.
 
 | Name                                                                                                                    | Version |
 |-------------------------------------------------------------------------------------------------------------------------|---------|
+| [`OrchardCoreContrib.ContentLocalization`](https://www.nuget.org/packages/OrchardCoreContrib.ContentLocalization/1.5.0) | 1.5.0   |
+| [`OrchardCoreContrib.ContentLocalization`](https://www.nuget.org/packages/OrchardCoreContrib.ContentLocalization/1.4.0) | 1.4.0   |
 | [`OrchardCoreContrib.ContentLocalization`](https://www.nuget.org/packages/OrchardCoreContrib.ContentLocalization/1.3.1) | 1.3.1   |
 | [`OrchardCoreContrib.ContentLocalization`](https://www.nuget.org/packages/OrchardCoreContrib.ContentLocalization/1.3.0) | 1.3.0   |
 | [`OrchardCoreContrib.ContentLocalization`](https://www.nuget.org/packages/OrchardCoreContrib.ContentLocalization/1.2.0) | 1.2.0   |
@@ -54,6 +56,11 @@ This module has no dependencies.
 
 4. Enable the `Transliteration` feature.
 5. Now you can inject the `ITransliterationService`, then use `Transliterate()` method to transliterate from one script to another.
+
+### Transliteration Liquid
+4. Enable the `Liquid` feature.
+5. Now you can use the transliteration liquid filters: `cyr_to_lat` and `arab_to_lat`.
+6. Usage: `{{ "Иванович" | cyr_to_lat }}`
 
 ## Video
 

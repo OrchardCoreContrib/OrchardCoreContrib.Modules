@@ -1,25 +1,21 @@
 ﻿using OrchardCoreContrib.ContentLocalization.Transliteration;
-using System;
+using OrchardCoreContrib.Infrastructure;
 
 namespace OrchardCoreContrib.ContentLocalization.Services;
 
-public class TransliterationService : ITransliterationService
+/// <summary>
+/// Provides transliteration services for converting text between different scripts using configurable transliteration
+/// rules.
+/// </summary>
+/// <param name="transliterateRuleProvider">The provider that supplies transliteration rules for supported scripts. Cannot be null.</param>
+public class TransliterationService(ITransliterateRuleProvider transliterateRuleProvider) : ITransliterationService
 {
-    private readonly ITransliterateRuleProvider _transliterateRuleProvider;
-
-    public TransliterationService(ITransliterateRuleProvider transliterateRuleProvider)
-    {
-        _transliterateRuleProvider = transliterateRuleProvider;
-    }
-
+    /// <inheritdoc/>
     public string Transliterate(TransliterateScript script, string text)
     {
-        if (string.IsNullOrEmpty(text))
-        {
-            throw new ArgumentException($"'{nameof(text)}' cannot be null or empty.", nameof(text));
-        }
+        Guard.ArgumentNotNullOrEmpty(text, nameof(text));
 
-        if (_transliterateRuleProvider.TryGetRule(script, out var rule))
+        if (transliterateRuleProvider.TryGetRule(script, out var rule))
         {
             var mappings = rule.Invoke();
 

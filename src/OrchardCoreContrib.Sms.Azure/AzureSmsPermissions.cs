@@ -2,7 +2,7 @@
 
 namespace OrchardCoreContrib.Sms.Azure;
 
-public class AzureSmsPermissions
+public static class AzureSmsPermissions
 {
-    public static readonly Permission ManageSettings = new("ManageSettings", "Manage Azure SMS Settings");
+    public static readonly Permission ManageAzureSmsSettings = new("ManageAzureSmsSettings", "Manage Azure SMS Settings");
 }

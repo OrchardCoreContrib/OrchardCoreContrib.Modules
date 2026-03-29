@@ -7,96 +7,82 @@ using OrchardCoreContrib.Email.SendGrid.Drivers;
 using OrchardCoreContrib.Email.SendGrid.ViewModels;
 using System.Threading.Tasks;
 
-namespace OrchardCoreContrib.Email.SendGrid.Controllers
+namespace OrchardCoreContrib.Email.SendGrid.Controllers;
+
+public class AdminController(
+    IHtmlLocalizer<AdminController> H,
+    IAuthorizationService authorizationService,
+    INotifier notifier,
+    ISmtpService smtpService) : Controller
 {
-    public class AdminController : Controller
+    [HttpGet]
+    public async Task<IActionResult> Index()
     {
-        private readonly IAuthorizationService _authorizationService;
-        private readonly INotifier _notifier;
-        private readonly ISmtpService _smtpService;
-        private readonly IHtmlLocalizer H;
-
-        public AdminController(
-            IHtmlLocalizer<AdminController> htmlLocalizer,
-            IAuthorizationService authorizationService,
-            INotifier notifier,
-            ISmtpService smtpService)
+        if (!await authorizationService.AuthorizeAsync(User, SendGridPermissions.ManageSendGridSettings))
         {
-            H = htmlLocalizer;
-            _authorizationService = authorizationService;
-            _notifier = notifier;
-            _smtpService = smtpService;
+            return Forbid();
         }
 
-        [HttpGet]
-        public async Task<IActionResult> Index()
-        {
-            if (!await _authorizationService.AuthorizeAsync(User, Permissions.ManageSendGridSettings))
-            {
-                return Forbid();
-            }
+        return View();
+    }
 
-            return View();
+    [HttpPost, ActionName(nameof(Index))]
+    public async Task<IActionResult> IndexPost(SendGridSettingsViewModel model)
+    {
+        if (!await authorizationService.AuthorizeAsync(User, SendGridPermissions.ManageSendGridSettings))
+        {
+            return Forbid();
         }
 
-        [HttpPost, ActionName(nameof(Index))]
-        public async Task<IActionResult> IndexPost(SendGridSettingsViewModel model)
+        if (ModelState.IsValid)
         {
-            if (!await _authorizationService.AuthorizeAsync(User, Permissions.ManageSendGridSettings))
+            var message = CreateMessageFromViewModel(model);
+
+            var result = await smtpService.SendAsync(message);
+
+            if (!result.Succeeded)
             {
-                return Forbid();
-            }
-
-            if (ModelState.IsValid)
-            {
-                var message = CreateMessageFromViewModel(model);
-
-                var result = await _smtpService.SendAsync(message);
-
-                if (!result.Succeeded)
+                foreach (var error in result.Errors)
                 {
-                    foreach (var error in result.Errors)
-                    {
-                        ModelState.AddModelError("*", error.ToString());
-                    }
-                }
-                else
-                {
-                    await _notifier.SuccessAsync(H["Message sent successfully"]);
-
-                    return Redirect(Url.Action("Index", "Admin", new { area = "OrchardCore.Settings", groupId = SendGridSettingsDisplayDriver.GroupId }));
+                    ModelState.AddModelError("*", error.ToString());
                 }
             }
+            else
+            {
+                await notifier.SuccessAsync(H["Message sent successfully"]);
 
-            return View(model);
+                return Redirect(Url.Action("Index", "Admin", new { area = "OrchardCore.Settings", groupId = SendGridSettingsDisplayDriver.GroupId }));
+            }
         }
 
-        private MailMessage CreateMessageFromViewModel(SendGridSettingsViewModel testSettings)
+        return View(model);
+    }
+
+    private static MailMessage CreateMessageFromViewModel(SendGridSettingsViewModel testSettings)
+    {
+        var message = new MailMessage
         {
-            var message = new MailMessage
-            {
-                To = testSettings.To,
-                Bcc = testSettings.Bcc,
-                Cc = testSettings.Cc,
-                ReplyTo = testSettings.ReplyTo
-            };
+            To = testSettings.To,
+            Bcc = testSettings.Bcc,
+            Cc = testSettings.Cc,
+            ReplyTo = testSettings.ReplyTo
+        };
 
-            if (!string.IsNullOrWhiteSpace(testSettings.Sender))
-            {
-                message.Sender = testSettings.Sender;
-            }
-
-            if (!string.IsNullOrWhiteSpace(testSettings.Subject))
-            {
-                message.Subject = testSettings.Subject;
-            }
-
-            if (!string.IsNullOrWhiteSpace(testSettings.Body))
-            {
-                message.Body = testSettings.Body;
-            }
-
-            return message;
+        if (!string.IsNullOrWhiteSpace(testSettings.Sender))
+        {
+            message.Sender = testSettings.Sender;
         }
+
+        if (!string.IsNullOrWhiteSpace(testSettings.Subject))
+        {
+            message.Subject = testSettings.Subject;
+        }
+
+        if (!string.IsNullOrWhiteSpace(testSettings.Body))
+        {
+            message.Body = testSettings.Body;
+        }
+
+        return message;
     }
 }

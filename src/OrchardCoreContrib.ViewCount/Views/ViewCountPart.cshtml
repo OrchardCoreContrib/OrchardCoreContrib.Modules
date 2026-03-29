@@ -1,0 +1,4 @@
+@using Microsoft.AspNetCore.Mvc.Localization
+@model ViewCountPartViewModel
+
+<div>@T.Plural(Model.Count, "1 view", "{0} views")</div>

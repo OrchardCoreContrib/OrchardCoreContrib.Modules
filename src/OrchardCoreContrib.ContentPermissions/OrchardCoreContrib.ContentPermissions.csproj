@@ -1,0 +1,42 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Razor">
+
+	<PropertyGroup>
+		<AddRazorSupportForMvc>true</AddRazorSupportForMvc>
+		<VersionPrefix>1.1.0</VersionPrefix>
+		<Authors>The Orchard Core Contrib Team</Authors>
+		<Company />
+		<Description>Provides a control to access the contents via permission(s).</Description>
+		<PackageReadmeFile>README.md</PackageReadmeFile>
+		<PackageLicenseExpression>BSD-3-Clause</PackageLicenseExpression>
+		<PackageProjectUrl>https://github.com/OrchardCoreContrib/OrchardCoreContrib.Modules/tree/main/src/OrchardCoreContrib.ContentPermissions/README.md</PackageProjectUrl>
+		<RepositoryUrl>https://github.com/OrchardCoreContrib/OrchardCoreContrib.Modules</RepositoryUrl>
+		<RepositoryType>git</RepositoryType>
+		<PublishRepositoryUrl>true</PublishRepositoryUrl>
+		<PackageTags>Orchard Core, Orchard Core Contrib, Content Permissions</PackageTags>
+		<PackageReleaseNotes>https://github.com/OrchardCoreContrib/OrchardCoreContrib.Modules/releases</PackageReleaseNotes>
+		<PackageId>OrchardCoreContrib.ContentPermissions</PackageId>
+		<PackageIcon>icon.png</PackageIcon>
+		<PackageReadmeFile>README.md</PackageReadmeFile>
+		<Product>Orchard Core Contrib Content Permissions Module</Product>
+		<PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
+		<Copyright>2019 Orchard Core Contrib</Copyright>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<FrameworkReference Include="Microsoft.AspNetCore.App" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<None Include="../../images/icon.png" Pack="true" PackagePath="\" />
+		<None Include="README.md" Pack="true" PackagePath="\"/>
+	</ItemGroup>
+
+	<ItemGroup>
+		<PackageReference Include="OrchardCore.Module.Targets" />
+		<PackageReference Include="OrchardCore.Users.Core" />
+		<PackageReference Include="OrchardCoreContrib.Abstractions" />
+		<PackageReference Include="OrchardCoreContrib.Data" />
+		<PackageReference Include="OrchardCoreContrib.Infrastructure.Abstractions" />
+	</ItemGroup>
+
+</Project>

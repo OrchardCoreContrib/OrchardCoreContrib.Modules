@@ -2,4 +2,6 @@
 @model GdprSettings
 
 <h2>Privacy Policy</h2>
-<p>@Model.Detail</p>
+<div class="mt-3">
+    @Html.Raw(@Model.Detail)
+</div>

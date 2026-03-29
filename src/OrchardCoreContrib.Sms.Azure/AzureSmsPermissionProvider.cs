@@ -4,7 +4,7 @@ namespace OrchardCoreContrib.Sms.Azure;
 
 public class AzureSmsPermissionProvider : IPermissionProvider
 {
-    private static readonly IEnumerable<Permission> _permissions = [AzureSmsPermissions.ManageSettings];
+    private static readonly IEnumerable<Permission> _permissions = [AzureSmsPermissions.ManageAzureSmsSettings];
 
     public Task<IEnumerable<Permission>> GetPermissionsAsync() => Task.FromResult(_permissions);
 

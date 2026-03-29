@@ -1,41 +1,30 @@
 ﻿using OrchardCore.Security.Permissions;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
-namespace OrchardCoreContrib.Email.SendGrid
+namespace OrchardCoreContrib.Email.SendGrid;
+
+/// <summary>
+/// Represents a permissions that will be applied into SendGrid mailing module.
+/// </summary>
+public class Permissions : IPermissionProvider
 {
-    /// <summary>
-    /// Represents a permissions that will be applied into SendGrid mailing module.
-    /// </summary>
-    public class Permissions : IPermissionProvider
+    private readonly IEnumerable<Permission> _allPermissions =
+[
+        SendGridPermissions.ManageSendGridSettings,
+    ];
+
+    /// <inheritdoc/>
+    public Task<IEnumerable<Permission>> GetPermissionsAsync() => Task.FromResult(_allPermissions);
+
+    /// <inheritdoc/>
+    public IEnumerable<PermissionStereotype> GetDefaultStereotypes()
     {
-        /// <summary>
-        /// Gets a permission for managing a SendGrid settings.
-        /// </summary>
-        public static readonly Permission ManageSendGridSettings = new Permission("ManageSendGridSettings", "Manage SendGrid Settings");
-
-        /// <inheritdoc/>
-        public Task<IEnumerable<Permission>> GetPermissionsAsync()
-        {
-            return Task.FromResult(new[]
+        return
+        [
+            new PermissionStereotype
             {
-                ManageSendGridSettings
-            }
-            .AsEnumerable());
-        }
-
-        /// <inheritdoc/>
-        public IEnumerable<PermissionStereotype> GetDefaultStereotypes()
-        {
-            return new[]
-            {
-                new PermissionStereotype
-                {
-                    Name = "Administrator",
-                    Permissions = new[] { ManageSendGridSettings }
-                },
-            };
-        }
+                Name = "Administrator",
+                Permissions = _allPermissions
+            },
+        ];
     }
 }

@@ -1,5 +1,4 @@
-﻿using NuGet.Versioning;
-using OrchardCoreContrib.System.Models;
+﻿using OrchardCoreContrib.System.Models;
 using OrchardCoreContrib.System.Services;
 
 namespace OrchardCoreContrib.System.ViewModels;

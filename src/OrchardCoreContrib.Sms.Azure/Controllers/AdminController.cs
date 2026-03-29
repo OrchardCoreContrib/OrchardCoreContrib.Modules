@@ -14,14 +14,9 @@ public class AdminController(
     INotifier notifier,
     IHtmlLocalizer<AdminController> H) : Controller
 {
-    private readonly IPhoneNumberValidator _phoneNumberValidator = phoneNumberValidator;
-    private readonly ISmsService _smsService = smsService;
-    private readonly IAuthorizationService _authorizationService = authorizationService;
-    private readonly INotifier _notifier = notifier;
-
     public async Task<IActionResult> Index()
     {
-        if (!await _authorizationService.AuthorizeAsync(User, AzureSmsPermissions.ManageSettings))
+        if (!await authorizationService.AuthorizeAsync(User, AzureSmsPermissions.ManageAzureSmsSettings))
         {
             return Forbid();
         }
@@ -30,32 +25,32 @@ public class AdminController(
     }
 
     [ValidateAntiForgeryToken]
-    [HttpPost, ActionName(nameof(Index))]
-    public async Task<IActionResult> IndexPost(AzureSmsSettingsViewModel model)
+    [HttpPost]
+    public async Task<IActionResult> Index(AzureSmsSettingsViewModel model)
     {
-        if (!await _authorizationService.AuthorizeAsync(User, AzureSmsPermissions.ManageSettings))
+        if (!await authorizationService.AuthorizeAsync(User, AzureSmsPermissions.ManageAzureSmsSettings))
         {
             return Forbid();
         }
 
-        if (!_phoneNumberValidator.IsValid(model.PhoneNumber))
-        {
-            ModelState.AddModelError(nameof(AzureSmsSettingsViewModel.PhoneNumber), H["Invalid Phone Number."].Value);
-        }
-
         if (ModelState.IsValid)
         {
-            var result = await _smsService.SendAsync(model.PhoneNumber, model.Message);
+            if (!phoneNumberValidator.IsValid(model.PhoneNumber))
+            {
+                ModelState.AddModelError(nameof(AzureSmsSettingsViewModel.PhoneNumber), H["Invalid Phone Number."].Value);
+            }
+
+            var result = await smsService.SendAsync(model.PhoneNumber, model.Message);
 
             if (result.Succeeded)
             {
-                await _notifier.SuccessAsync(H["The test SMS message has been successfully sent."]);
+                await notifier.SuccessAsync(H["The test SMS message has been successfully sent."]);
 
                 return RedirectToAction(nameof(Index));
             }
             else
             {
-                await _notifier.ErrorAsync(H["The test SMS message failed to send."]);
+                await notifier.ErrorAsync(H["The test SMS message failed to send."]);
             }
         }
 

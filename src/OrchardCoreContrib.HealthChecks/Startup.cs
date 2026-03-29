@@ -5,27 +5,22 @@ using Microsoft.AspNetCore.Routing;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Diagnostics.HealthChecks;
 using Microsoft.Extensions.Options;
-using Newtonsoft.Json;
 using OrchardCore.Environment.Shell.Configuration;
 using OrchardCore.Modules;
 using OrchardCoreContrib.HealthChecks.Models;
 using System.Net.Mime;
+using System.Text.Json;
 
 namespace OrchardCoreContrib.HealthChecks;
-public class Startup : StartupBase
+public class Startup(IShellConfiguration shellConfiguration) : StartupBase
 {
-    private readonly IShellConfiguration _shellConfiguration;
-
-    public Startup(IShellConfiguration shellConfiguration)
-    {
-        _shellConfiguration = shellConfiguration;
-    }
+    private static readonly JsonSerializerOptions _jsonSerializerOptions = new() { WriteIndented = true };
 
     public override void ConfigureServices(IServiceCollection services)
     {
         services.AddHealthChecks();
 
-        services.Configure<HealthChecksOptions>(_shellConfiguration.GetSection("OrchardCoreContrib_HealthChecks"));
+        services.Configure<HealthChecksOptions>(shellConfiguration.GetSection(Constants.ConfigurationKey));
     }
 
     public override void Configure(IApplicationBuilder builder, IEndpointRouteBuilder routes, IServiceProvider serviceProvider)
@@ -68,6 +63,6 @@ public class Startup : StartupBase
 
         context.Response.ContentType = MediaTypeNames.Application.Json;
 
-        await context.Response.WriteAsync(JsonConvert.SerializeObject(response, Formatting.Indented));
+        await context.Response.WriteAsync(JsonSerializer.Serialize(response, response.GetType(), options: _jsonSerializerOptions));
     }
 }

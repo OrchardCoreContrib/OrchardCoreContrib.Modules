@@ -1,11 +1,10 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using OrchardCore.Modules;
 
-namespace OrchardCoreContrib.ContentPreview.Controllers
+namespace OrchardCoreContrib.ContentPreview.Controllers;
+
+[Feature("OrchardCoreContrib.ContentPreview.PagePreviewBar")]
+public class PreviewController : Controller
 {
-    [Feature("OrchardCoreContrib.ContentPreview.PagePreviewBar")]
-    public class PreviewController : Controller
-    {
-        public IActionResult Index() => View();
-    }
+    public IActionResult Index() => View();
 }
