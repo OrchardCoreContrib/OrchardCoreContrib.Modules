@@ -12,6 +12,7 @@ using System.Net.Mime;
 using System.Text.Json;
 
 namespace OrchardCoreContrib.HealthChecks;
+
 public class Startup(IShellConfiguration shellConfiguration) : StartupBase
 {
     private static readonly JsonSerializerOptions _jsonSerializerOptions = new() { WriteIndented = true };
@@ -64,5 +65,14 @@ public class Startup(IShellConfiguration shellConfiguration) : StartupBase
         context.Response.ContentType = MediaTypeNames.Application.Json;
 
         await context.Response.WriteAsync(JsonSerializer.Serialize(response, response.GetType(), options: _jsonSerializerOptions));
+    }
+}
+
+[Feature("OrchardCoreContrib.HealthChecks.IPRestriction")]
+public class IPRestrictionStartup : StartupBase
+{
+    public override void Configure(IApplicationBuilder app, IEndpointRouteBuilder routes, IServiceProvider serviceProvider)
+    {
+        app.UseMiddleware<HealthCheckIPRestrictionMiddleware>();
     }
 }
