@@ -3,7 +3,7 @@ using System.Net;
 
 namespace OrchardCoreContrib.HealthChecks.Tests;
 
-public class HealthCheckRateLimitingTests
+public class HealthChecksRateLimitingTests
 {
     [Fact]
     public async Task ExceedingLimit_Returns429()
@@ -13,10 +13,12 @@ public class HealthCheckRateLimitingTests
 
         await context.InitializeAsync();
 
+        context.Client.DefaultRequestHeaders.Add("X-Forwarded-For", "127.0.0.1");
+
         // Act
         HttpResponseMessage httpResponse = null;
 
-        for (int i = 0; i < 6; i++)
+        for (int i = 1; i <= 6; i++)
         {
             httpResponse = await context.Client.GetAsync("health");
         }
