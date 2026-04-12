@@ -21,3 +21,10 @@ using ManifestConstants = OrchardCoreContrib.Modules.Manifest.ManifestConstants;
     Description = "Restricts access to health check endpoints by IP address.",
     Dependencies = [ "OrchardCoreContrib.HealthChecks" ]
 )]
+
+[assembly: Feature(
+    Id = "OrchardCoreContrib.HealthCheck.RateLimiting",
+    Name = "Health Check Rate Limiting",
+    Description = "Limits requests to health check endpoints to prevent DOS attacks.",
+    Dependencies = ["OrchardCoreContrib.HealthChecks"]
+)]
