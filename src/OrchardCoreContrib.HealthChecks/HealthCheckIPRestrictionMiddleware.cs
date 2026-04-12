@@ -13,8 +13,9 @@ public class HealthCheckIPRestrictionMiddleware(
     ILogger<HealthCheckIPRestrictionMiddleware> logger)
 {
     private readonly HealthChecksOptions _healthChecksOptions = healthChecksOptions.Value;
-    private readonly HashSet<string> _allowedIPs = shellConfiguration.GetSection($"{Constants.ConfigurationKey}:AllowedIPs")
-        .Get<string[]>()?.ToHashSet() ?? [];
+    private readonly HashSet<string> _allowedIPs =
+        shellConfiguration.GetSection($"{Constants.ConfigurationKey}:AllowedIPs").Get<string[]>()?.ToHashSet(StringComparer.OrdinalIgnoreCase)
+        ?? [];
 
     public async Task InvokeAsync(HttpContext context)
     {
@@ -24,6 +25,7 @@ public class HealthCheckIPRestrictionMiddleware(
             if (!_allowedIPs.Contains(remoteIP))
             {
                 logger.LogWarning("Unauthorized IP {IP} tried to access {HealthCheckEndpoint}.", remoteIP, _healthChecksOptions.Url);
+
                 context.Response.StatusCode = StatusCodes.Status403Forbidden;
 
                 await context.Response.WriteAsync("Forbidden");
