@@ -71,6 +71,8 @@ public class Startup(IShellConfiguration shellConfiguration) : StartupBase
 [Feature("OrchardCoreContrib.HealthChecks.IPRestriction")]
 public class IPRestrictionStartup : StartupBase
 {
+    public override int Order => 10;
+
     public override void Configure(IApplicationBuilder app, IEndpointRouteBuilder routes, IServiceProvider serviceProvider)
         => app.UseMiddleware<HealthCheckIPRestrictionMiddleware>();
 }
@@ -78,6 +80,8 @@ public class IPRestrictionStartup : StartupBase
 [Feature("OrchardCoreContrib.HealthChecks.RateLimiting")]
 public class RateLimitingStartup(IShellConfiguration shellConfiguration) : StartupBase
 {
+    public override int Order => 20;
+
     public override void ConfigureServices(IServiceCollection services)
         => services.Configure<HealthChecksRateLimitingOptions>(shellConfiguration.GetSection($"{Constants.ConfigurationKey}:RateLimiting"));
 
