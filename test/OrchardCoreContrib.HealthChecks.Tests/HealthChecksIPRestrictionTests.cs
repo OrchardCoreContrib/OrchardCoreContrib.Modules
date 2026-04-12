@@ -3,7 +3,7 @@ using System.Net;
 
 namespace OrchardCoreContrib.HealthChecks.Tests;
 
-public class IPRestrictionTests
+public class HealthChecksIPRestrictionTests
 {
     [Theory]
     [InlineData("10.0.0.1", HttpStatusCode.Forbidden)]
@@ -16,11 +16,9 @@ public class IPRestrictionTests
         await context.InitializeAsync();
 
         // Act
-        using var request = new HttpRequestMessage(HttpMethod.Get, "health");
+        context.Client.DefaultRequestHeaders.Add("X-Forwarded-For", clientIP);
 
-        request.Headers.TryAddWithoutValidation("X-Forwarded-For", clientIP);
-
-        var httpResponse = await context.Client.SendAsync(request);
+        var httpResponse = await context.Client.GetAsync("health");
 
         // Assert
         Assert.Equal(expectedStatus, httpResponse.StatusCode);
