@@ -24,7 +24,14 @@ using ManifestConstants = OrchardCoreContrib.Modules.Manifest.ManifestConstants;
 
 [assembly: Feature(
     Id = "OrchardCoreContrib.HealthCheck.RateLimiting",
-    Name = "Health Check Rate Limiting",
+    Name = "Health Checks Rate Limiting",
     Description = "Limits requests to health check endpoints to prevent DOS attacks.",
     Dependencies = ["OrchardCoreContrib.HealthChecks"]
+)]
+
+[assembly: Feature(
+    Id = "OrchardCore.HealthCheck.BlockingRateLimiting",
+    Name = "Health Checks Blocking Rate Limiting",
+    Description = "Adds blocking behavior to the health check rate limiter. Clients exceeding the limit are temporarily blocked to prevent DoS attacks.",
+    Dependencies = new[] { "OrchardCoreContrib.HealthCheck.RateLimiting" }
 )]

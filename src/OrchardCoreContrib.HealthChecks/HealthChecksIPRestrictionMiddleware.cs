@@ -6,11 +6,11 @@ using OrchardCore.Environment.Shell.Configuration;
 
 namespace OrchardCoreContrib.HealthChecks;
 
-public class HealthCheckIPRestrictionMiddleware(
+public class HealthChecksIPRestrictionMiddleware(
     RequestDelegate next,
     IShellConfiguration shellConfiguration,
     IOptions<HealthChecksOptions> healthChecksOptions,
-    ILogger<HealthCheckIPRestrictionMiddleware> logger)
+    ILogger<HealthChecksIPRestrictionMiddleware> logger)
 {
     private readonly HealthChecksOptions _healthChecksOptions = healthChecksOptions.Value;
     private readonly HashSet<string> _allowedIPs =
