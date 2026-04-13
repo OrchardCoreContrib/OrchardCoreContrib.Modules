@@ -17,7 +17,7 @@ public class OrchardCoreStartup(IConfiguration configuration)
     {
         services.AddOrchardCms(builder => builder
             .AddSetupFeatures("OrchardCore.Tenants")
-            .AddTenantFeatures("OrchardCoreContrib.HealthChecks.IPRestriction", "OrchardCoreContrib.HealthChecks.RateLimiting")
+            .AddTenantFeatures("OrchardCoreContrib.HealthChecks.IPRestriction", "OrchardCoreContrib.HealthChecks.RateLimiting", "OrchardCore.HealthCheck.BlockingRateLimiting")
             .ConfigureServices(serviceCollection =>
             {
                 serviceCollection.AddScoped<IAuthorizationHandler, PermissionContextAuthorizationHandler>(sp =>

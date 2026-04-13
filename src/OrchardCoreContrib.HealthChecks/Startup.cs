@@ -74,13 +74,13 @@ public class IPRestrictionStartup : StartupBase
     public override int Order => 10;
 
     public override void Configure(IApplicationBuilder app, IEndpointRouteBuilder routes, IServiceProvider serviceProvider)
-        => app.UseMiddleware<HealthCheckIPRestrictionMiddleware>();
+        => app.UseMiddleware<HealthChecksIPRestrictionMiddleware>();
 }
 
 [Feature("OrchardCoreContrib.HealthChecks.RateLimiting")]
 public class RateLimitingStartup(IShellConfiguration shellConfiguration) : StartupBase
 {
-    public override int Order => 20;
+    public override int Order => 30;
 
     public override void ConfigureServices(IServiceCollection services)
         => services.Configure<HealthChecksRateLimitingOptions>(shellConfiguration.GetSection($"{Constants.ConfigurationKey}:RateLimiting"));
@@ -88,3 +88,16 @@ public class RateLimitingStartup(IShellConfiguration shellConfiguration) : Start
     public override void Configure(IApplicationBuilder app, IEndpointRouteBuilder routes, IServiceProvider serviceProvider)
         => app.UseMiddleware<HealthChecksRateLimitingMiddleware>();
 }
+
+[Feature("OrchardCoreContrib.HealthChecks.BlockingRateLimiting")]
+public class HealthCheckBlockingRateLimitingStartup(IShellConfiguration shellConfiguration) : StartupBase
+{
+    public override int Order => 20;
+
+    public override void ConfigureServices(IServiceCollection services)
+        => services.Configure<HealthChecksRateLimitingOptions>(shellConfiguration.GetSection($"{Constants.ConfigurationKey}:BlockingRateLimiting"));
+
+    public override void Configure(IApplicationBuilder app, IEndpointRouteBuilder routes, IServiceProvider serviceProvider)
+        => app.UseMiddleware<HealthChecksBlockingRateLimitingMiddleware>();
+}
+
