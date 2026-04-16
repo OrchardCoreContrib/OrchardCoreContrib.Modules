@@ -33,5 +33,5 @@ using ManifestConstants = OrchardCoreContrib.Modules.Manifest.ManifestConstants;
     Id = "OrchardCoreContrib.HealthChecks.BlockingRateLimiting",
     Name = "Health Checks Blocking Rate Limiting",
     Description = "Adds blocking behavior to the health check rate limiter. Clients exceeding the limit are temporarily blocked to prevent DoS attacks.",
-    Dependencies = new[] { "OrchardCoreContrib.HealthCheck.RateLimiting" }
+    Dependencies = new[] { "OrchardCoreContrib.HealthChecks.RateLimiting" }
 )]
