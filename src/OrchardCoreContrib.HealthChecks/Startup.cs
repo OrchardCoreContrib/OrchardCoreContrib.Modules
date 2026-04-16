@@ -8,6 +8,7 @@ using Microsoft.Extensions.Options;
 using OrchardCore.Environment.Shell.Configuration;
 using OrchardCore.Modules;
 using OrchardCoreContrib.HealthChecks.Models;
+using OrchardCoreContrib.HealthChecks.Services;
 using System.Net.Mime;
 using System.Text.Json;
 
@@ -83,19 +84,28 @@ public class RateLimitingStartup(IShellConfiguration shellConfiguration) : Start
     public override int Order => 30;
 
     public override void ConfigureServices(IServiceCollection services)
-        => services.Configure<HealthChecksRateLimitingOptions>(shellConfiguration.GetSection($"{Constants.ConfigurationKey}:RateLimiting"));
+    {
+        services.Configure<HealthChecksRateLimitingOptions>(shellConfiguration.GetSection($"{Constants.ConfigurationKey}:RateLimiting"));
+
+        services.AddSingleton<IHealthCheckRateLimiter, HealthCheckRateLimiter>();
+    }
 
     public override void Configure(IApplicationBuilder app, IEndpointRouteBuilder routes, IServiceProvider serviceProvider)
         => app.UseMiddleware<HealthChecksRateLimitingMiddleware>();
 }
 
 [Feature("OrchardCoreContrib.HealthChecks.BlockingRateLimiting")]
-public class HealthCheckBlockingRateLimitingStartup(IShellConfiguration shellConfiguration) : StartupBase
+public class BlockingRateLimitingStartup(IShellConfiguration shellConfiguration) : StartupBase
 {
     public override int Order => 20;
 
     public override void ConfigureServices(IServiceCollection services)
-        => services.Configure<HealthChecksRateLimitingOptions>(shellConfiguration.GetSection($"{Constants.ConfigurationKey}:BlockingRateLimiting"));
+    {
+        var rateLimitingSection = shellConfiguration.GetSection($"{Constants.ConfigurationKey}:RateLimiting");
+
+        services.Configure<HealthChecksRateLimitingOptions>(rateLimitingSection);
+        services.Configure<HealthChecksBlockingRateLimitingOptions>(rateLimitingSection);
+    }
 
     public override void Configure(IApplicationBuilder app, IEndpointRouteBuilder routes, IServiceProvider serviceProvider)
         => app.UseMiddleware<HealthChecksBlockingRateLimitingMiddleware>();

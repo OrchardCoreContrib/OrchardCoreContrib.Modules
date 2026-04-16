@@ -3,7 +3,8 @@ using System.Net;
 
 namespace OrchardCoreContrib.HealthChecks.Tests;
 
-public class HealthCheckBlockingTests
+[Collection("Sequential")]
+public class HealthCheckBlockingRateLimitingTests
 {
     [Fact]
     public async Task ExceedingLimit_ShouldBlockIP_ForConfiguredDuration()
@@ -57,7 +58,7 @@ public class HealthCheckBlockingTests
         Assert.Equal(HttpStatusCode.Forbidden, response.StatusCode);
 
         // Wait slightly longer than block duration
-        await Task.Delay(TimeSpan.FromSeconds(61));
+        await Task.Delay(TimeSpan.FromSeconds(11));
 
         response = await context.Client.GetAsync("health");
 

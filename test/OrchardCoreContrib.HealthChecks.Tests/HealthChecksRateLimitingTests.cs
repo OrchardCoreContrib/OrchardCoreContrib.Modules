@@ -3,6 +3,7 @@ using System.Net;
 
 namespace OrchardCoreContrib.HealthChecks.Tests;
 
+[Collection("Sequential")]
 public class HealthChecksRateLimitingTests
 {
     [Fact]
