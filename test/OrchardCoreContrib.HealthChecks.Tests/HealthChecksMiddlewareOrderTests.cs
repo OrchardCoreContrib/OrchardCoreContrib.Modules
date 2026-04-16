@@ -1,10 +1,5 @@
-﻿using Microsoft.AspNetCore.Builder;
-using Microsoft.AspNetCore.Http;
-using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Options;
-using Moq;
+﻿using Moq;
 using OrchardCore.Environment.Shell.Configuration;
-using OrchardCoreContrib.HealthChecks.Services;
 using OrchardCoreContrib.HealthChecks.Tests.Tests;
 using System.Net;
 
