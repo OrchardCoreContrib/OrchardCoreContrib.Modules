@@ -8,7 +8,6 @@ using Microsoft.Extensions.Options;
 using OrchardCore.Environment.Shell.Configuration;
 using OrchardCore.Modules;
 using OrchardCoreContrib.HealthChecks.Models;
-using OrchardCoreContrib.HealthChecks.Services;
 using System.Net.Mime;
 using System.Text.Json;
 
@@ -86,8 +85,6 @@ public class RateLimitingStartup(IShellConfiguration shellConfiguration) : Start
     public override void ConfigureServices(IServiceCollection services)
     {
         services.Configure<HealthChecksRateLimitingOptions>(shellConfiguration.GetSection($"{Constants.ConfigurationKey}:RateLimiting"));
-
-        services.AddSingleton<IHealthCheckRateLimiter, HealthCheckRateLimiter>();
     }
 
     public override void Configure(IApplicationBuilder app, IEndpointRouteBuilder routes, IServiceProvider serviceProvider)
