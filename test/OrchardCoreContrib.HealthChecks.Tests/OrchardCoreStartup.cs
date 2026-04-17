@@ -49,8 +49,8 @@ public class OrchardCoreStartup(IConfiguration configuration)
         var newConfiguration = new Dictionary<string, string>
         {
             { $"{Constants.ConfigurationKey}:{nameof(HealthChecksOptions.Url)}", "/health" },
-            { $"{Constants.ConfigurationKey}:AllowedIPs:0", "127.0.0.1" },
-            { $"{Constants.ConfigurationKey}:AllowedIPs:1", "::1" }
+            { $"{Constants.ConfigurationKey}:Access:AllowedIPs:0", "127.0.0.1" },
+            { $"{Constants.ConfigurationKey}:Access:AllowedIPs:1", "::1" }
         };
 
         return new ConfigurationBuilder()
