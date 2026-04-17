@@ -4,7 +4,7 @@ using Microsoft.Extensions.DependencyInjection;
 using OrchardCore.Environment.Shell.Configuration;
 using OrchardCore.Modules;
 
-namespace OrchardCoreContrib.HealthChecks.Startups;
+namespace OrchardCoreContrib.HealthChecks;
 
 /// <summary>
 /// Configures blocking rate limiting for health check endpoints during application startup.
