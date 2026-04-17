@@ -5,6 +5,9 @@ using System.Threading.RateLimiting;
 
 namespace OrchardCoreContrib.HealthChecks;
 
+/// <summary>
+/// Middleware that enforces rate limiting on health check endpoints to prevent excessive requests.
+/// </summary>
 public class HealthChecksRateLimitingMiddleware
 {
     private readonly RequestDelegate _next;
@@ -33,6 +36,7 @@ public class HealthChecksRateLimitingMiddleware
         });
     }
 
+    /// <inheritdoc/>
     public async Task InvokeAsync(HttpContext context)
     {
         if (context.Request.Path.Equals(_healthChecksOptions.Url))

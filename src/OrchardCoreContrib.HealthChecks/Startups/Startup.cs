@@ -13,17 +13,23 @@ using System.Text.Json;
 
 namespace OrchardCoreContrib.HealthChecks;
 
+/// <summary>
+/// Configures health check endpoints during application startup.
+/// </summary>
+/// <param name="shellConfiguration">The <see cref="IShellConfiguration"/>.</param>
 public class Startup(IShellConfiguration shellConfiguration) : StartupBase
 {
     private static readonly JsonSerializerOptions _jsonSerializerOptions = new() { WriteIndented = true };
 
+    /// <inheritdoc/>
     public override void ConfigureServices(IServiceCollection services)
     {
         services.AddHealthChecks();
 
-        services.Configure<HealthChecksOptions>(shellConfiguration.GetSection(Constants.ConfigurationKey));
+        services.Configure<HealthChecksOptions>(shellConfiguration.GetSection(Constants.HealthChecksConfigurationKey));
     }
 
+    /// <inheritdoc/>
     public override void Configure(IApplicationBuilder builder, IEndpointRouteBuilder routes, IServiceProvider serviceProvider)
     {
         var healthChecksOptions = serviceProvider.GetService<IOptions<HealthChecksOptions>>().Value;
@@ -67,45 +73,3 @@ public class Startup(IShellConfiguration shellConfiguration) : StartupBase
         await context.Response.WriteAsync(JsonSerializer.Serialize(response, response.GetType(), options: _jsonSerializerOptions));
     }
 }
-
-[Feature("OrchardCoreContrib.HealthChecks.IPRestriction")]
-public class IPRestrictionStartup(IShellConfiguration shellConfiguration) : StartupBase
-{
-    public override int Order => 10;
-
-    public override void ConfigureServices(IServiceCollection services)
-        => services.Configure<HealthChecksAccessOptions>(shellConfiguration.GetSection($"{Constants.ConfigurationKey}:Access"));
-
-    public override void Configure(IApplicationBuilder app, IEndpointRouteBuilder routes, IServiceProvider serviceProvider)
-        => app.UseMiddleware<HealthChecksIPRestrictionMiddleware>();
-}
-
-[Feature("OrchardCoreContrib.HealthChecks.RateLimiting")]
-public class RateLimitingStartup(IShellConfiguration shellConfiguration) : StartupBase
-{
-    public override int Order => 30;
-
-    public override void ConfigureServices(IServiceCollection services)
-        => services.Configure<HealthChecksRateLimitingOptions>(shellConfiguration.GetSection($"{Constants.ConfigurationKey}:RateLimiting"));
-
-    public override void Configure(IApplicationBuilder app, IEndpointRouteBuilder routes, IServiceProvider serviceProvider)
-        => app.UseMiddleware<HealthChecksRateLimitingMiddleware>();
-}
-
-[Feature("OrchardCoreContrib.HealthChecks.BlockingRateLimiting")]
-public class BlockingRateLimitingStartup(IShellConfiguration shellConfiguration) : StartupBase
-{
-    public override int Order => 20;
-
-    public override void ConfigureServices(IServiceCollection services)
-    {
-        var rateLimitingSection = shellConfiguration.GetSection($"{Constants.ConfigurationKey}:RateLimiting");
-
-        services.Configure<HealthChecksRateLimitingOptions>(rateLimitingSection);
-        services.Configure<HealthChecksBlockingRateLimitingOptions>(rateLimitingSection);
-    }
-
-    public override void Configure(IApplicationBuilder app, IEndpointRouteBuilder routes, IServiceProvider serviceProvider)
-        => app.UseMiddleware<HealthChecksBlockingRateLimitingMiddleware>();
-}
-
