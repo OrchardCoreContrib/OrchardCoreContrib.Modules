@@ -70,22 +70,22 @@ This module has no dependencies.
 2. Go to the admin site
 3. Select **Configuration -> Features** menu.
 
-## Garnet
+#### Garnet
 
 4. Enable the `Garnet` feature.
 
-## Garnet Cache
+#### Garnet Cache
 
 4. Enable the `Garnet Cache` feature.
 
-## Garnet Bus
+#### Garnet Bus
 
 4. Enable the `Garnet Bus` feature.
 
-## Garnet DataProtection
+#### Garnet DataProtection
 
 4. Enable the `Garnet DataProtection` feature.
 
-## Garnet Lock
+#### Garnet Lock
 
 4. Enable the `Garnet Lock` feature.

@@ -6,6 +6,9 @@ using System.Threading.RateLimiting;
 
 namespace OrchardCoreContrib.HealthChecks;
 
+/// <summary>
+/// Middleware that enforces rate limiting and temporary blocking for health check endpoints based on client IP address.
+/// </summary>
 public class HealthChecksBlockingRateLimitingMiddleware
 {
     private static readonly ConcurrentDictionary<string, DateTime> _blockedIPs = new();
@@ -39,6 +42,7 @@ public class HealthChecksBlockingRateLimitingMiddleware
         });
     }
 
+    /// <inheritdoc/>
     public async Task InvokeAsync(HttpContext context)
     {
         if (context.Request.Path.Equals(_healthChecksOptions.Url))
