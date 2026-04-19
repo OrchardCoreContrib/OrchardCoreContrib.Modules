@@ -15,6 +15,7 @@
 		<PackageReference Include="OrchardCore.DisplayManagement" />
 		<PackageReference Include="OrchardCore.ResourceManagement" />
 		<PackageReference Include="OrchardCoreContrib.Abstractions" />
+		<PackageReference Include="OrchardCoreContrib.Navigation.Core" />
 	</ItemGroup>
 
 </Project>
