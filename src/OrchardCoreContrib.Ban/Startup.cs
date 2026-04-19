@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Routing;
 using Microsoft.Extensions.DependencyInjection;
 using OrchardCore.DisplayManagement.Handlers;
 using OrchardCore.Modules;
+using OrchardCore.Navigation;
 using OrchardCore.Security.Permissions;
 using OrchardCoreContrib.Ban.Drivers;
 using OrchardCoreContrib.Ban.Services;
@@ -18,6 +19,7 @@ public sealed class Startup : StartupBase
         services.AddSiteDisplayDriver<BanSettingsDisplayDriver>();
 
         services.AddPermissionProvider<Permissions>();
+        services.AddNavigationProvider<AdminMenu>();
     }
 
     public override void Configure(IApplicationBuilder app, IEndpointRouteBuilder routes, IServiceProvider serviceProvider)
