@@ -7,7 +7,7 @@
 		<Company />
 		<Description>Allows administrators to ban visitors or requests to their site from indivisual IP addresses.</Description>
 		<PackageLicenseExpression>BSD-3-Clause</PackageLicenseExpression>
-		<PackageProjectUrl>https://github.com/OrchardCoreContrib/OrchardCoreContrib.Modules/tree/main/src/OrchardCoreContrib.CloudflareTurnstile/README.md</PackageProjectUrl>
+		<PackageProjectUrl>https://github.com/OrchardCoreContrib/OrchardCoreContrib.Modules/tree/main/src/OrchardCoreContrib.Ban/README.md</PackageProjectUrl>
 		<RepositoryUrl>https://github.com/OrchardCoreContrib/OrchardCoreContrib.Modules</RepositoryUrl>
 		<RepositoryType>git</RepositoryType>
 		<PublishRepositoryUrl>true</PublishRepositoryUrl>
