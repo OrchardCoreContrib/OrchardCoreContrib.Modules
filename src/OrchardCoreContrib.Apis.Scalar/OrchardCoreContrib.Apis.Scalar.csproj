@@ -31,6 +31,7 @@
 
 	<ItemGroup>
 		<PackageReference Include="OrchardCoreContrib.OpenApi.Abstractions" />
+		<PackageReference Include="OrchardCoreContrib.Abstractions" />
 		<PackageReference Include="OrchardCore.Module.Targets" />
 		<PackageReference Include="Scalar.AspNetCore" />
 	</ItemGroup>
