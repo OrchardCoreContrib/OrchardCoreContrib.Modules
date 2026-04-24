@@ -7,6 +7,7 @@ using ManifestConstants = OrchardCoreContrib.Modules.Manifest.ManifestConstants;
     Website = ManifestConstants.Website,
     Version = "1.3.0",
     Category = "Internationalization",
+    Description = "Provides localization for dynamic data.",
     Dependencies = new[] { "OrchardCore.Localization" }
 )]
 
