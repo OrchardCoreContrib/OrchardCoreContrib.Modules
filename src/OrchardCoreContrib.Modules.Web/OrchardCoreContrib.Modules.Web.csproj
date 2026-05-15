@@ -37,7 +37,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<ProjectReference Include="..\..\OrchardCoreContrib\src\OrchardCoreContrib.Data.YesSql\OrchardCoreContrib.Data.YesSql.csproj" />
+		<ProjectReference Include="..\..\..\OrchardCoreContrib\src\OrchardCoreContrib.Data.YesSql\OrchardCoreContrib.Data.YesSql.csproj" />
 	</ItemGroup>
 
 </Project>
