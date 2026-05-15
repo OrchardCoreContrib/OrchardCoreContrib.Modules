@@ -5,7 +5,7 @@ using ManifestConstants = OrchardCoreContrib.Modules.Manifest.ManifestConstants;
     Name = "Content Permissions",
     Author = ManifestConstants.Author,
     Website = ManifestConstants.Website,
-    Version = "1.0.0",
+    Version = "1.1.0",
     Description = "Provides a control to access the contents via permission(s).",
     Category = "Content Management"
 )]

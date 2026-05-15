@@ -1,0 +1,9 @@
+﻿@model UserGroupsViewModel
+
+<h4>@T["User Groups"]</h4>
+<ul class="list-unstyled">
+    @foreach (var userGroup in Model.UserGroups)
+    {
+        <li>@userGroup</li>
+    }
+</ul>

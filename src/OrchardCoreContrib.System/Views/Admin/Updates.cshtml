@@ -25,7 +25,7 @@
                 <td class="w-75">
                     @foreach (var assembly in OrchardCoreAssemblies)
                     {
-                        var packageUrl = String.Join("/", SystemUpdatesConstants.NuGetPackageUrl, assembly.Name, update);
+                        var packageUrl = String.Join("/", Constants.SystemUpdates.NuGetPackageUrl, assembly.Name, update);
                         <a class="d-block" href="@packageUrl">@assembly.Name</a>
                     }
                 </td>

@@ -4,7 +4,7 @@ This module enables content items to have rich content using Grapes JS.
 
 ## Version
 
-1.2.1
+1.4.0
 
 ## Category
 
@@ -28,6 +28,7 @@ Content Management
 
 | Name                                                                                            | Version     |
 |-------------------------------------------------------------------------------------------------|-------------|
+| [`OrchardCoreContrib.Html`](https://www.nuget.org/packages/OrchardCoreContrib.Html/1.4.0)       | 1.4.0       |
 | [`OrchardCoreContrib.Html`](https://www.nuget.org/packages/OrchardCoreContrib.Html/1.3.0)       | 1.3.0       |
 | [`OrchardCoreContrib.Html`](https://www.nuget.org/packages/OrchardCoreContrib.Html/1.2.1)       | 1.2.1       |
 | [`OrchardCoreContrib.Html`](https://www.nuget.org/packages/OrchardCoreContrib.Html/1.2.0)       | 1.2.0       |

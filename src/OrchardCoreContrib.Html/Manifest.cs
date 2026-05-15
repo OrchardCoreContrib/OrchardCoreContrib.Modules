@@ -5,7 +5,7 @@ using ManifestConstants = OrchardCoreContrib.Modules.Manifest.ManifestConstants;
     Name = "Html",
     Author = ManifestConstants.Author,
     Website = ManifestConstants.Website,
-    Version = "1.2.1"
+    Version = "1.4.0"
 )]
 
 [assembly: Feature(

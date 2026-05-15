@@ -1,4 +1,6 @@
-﻿using OrchardCore.DisplayManagement.Handlers;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
+using OrchardCore.DisplayManagement.Handlers;
 using OrchardCore.DisplayManagement.Views;
 using OrchardCore.Modules;
 using OrchardCore.Users.Models;
@@ -7,9 +9,20 @@ using OrchardCore.Users.ViewModels;
 namespace OrchardCoreContrib.Users.Drivers;
 
 [Feature("OrchardCoreContrib.Users.Impersonation")]
-public class ImpersonationDisplayDriver : DisplayDriver<User>
+public class ImpersonationDisplayDriver(
+    IHttpContextAccessor httpContextAccessor,
+    IAuthorizationService authorizationService) : DisplayDriver<User>
 {
-    public override IDisplayResult Display(User user, BuildDisplayContext context)
-        => Initialize<SummaryAdminUserViewModel>("ImpersonationButton", model => model.User = user)
+    private readonly HttpContext _httpContext = httpContextAccessor.HttpContext;
+
+    public async override Task<IDisplayResult> DisplayAsync(User user, BuildDisplayContext context)
+    {
+        if (!await authorizationService.AuthorizeAsync(_httpContext.User, UsersPermissions.ManageImpersonationSettings))
+        {
+            return null;
+        }
+
+        return Initialize<SummaryAdminUserViewModel>("ImpersonationButton", model => model.User = user)
             .Location("SummaryAdmin", "Actions:2");
+    }
 }

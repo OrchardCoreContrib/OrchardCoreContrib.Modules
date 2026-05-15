@@ -4,12 +4,15 @@
 		<PackageReference Include="OrchardCore.Application.Cms.Targets" />
 	</ItemGroup>
 
-
 	<ItemGroup>
+		<ProjectReference Include="..\OrchardCoreContrib.Apis.Scalar\OrchardCoreContrib.Apis.Scalar.csproj" />
 		<ProjectReference Include="..\OrchardCoreContrib.Apis.Swagger\OrchardCoreContrib.Apis.Swagger.csproj" />
-		<!--<ProjectReference Include="..\OrchardCoreContrib.ContentLocalization\OrchardCoreContrib.ContentLocalization.csproj" />-->
+		<ProjectReference Include="..\OrchardCoreContrib.Ban\OrchardCoreContrib.Ban.csproj" />
+		<ProjectReference Include="..\OrchardCoreContrib.CloudflareTurnstile\OrchardCoreContrib.CloudflareTurnstile.csproj" />
+		<ProjectReference Include="..\OrchardCoreContrib.ContentLocalization\OrchardCoreContrib.ContentLocalization.csproj" />
 		<ProjectReference Include="..\OrchardCoreContrib.ContentPermissions\OrchardCoreContrib.ContentPermissions.csproj" />
 		<ProjectReference Include="..\OrchardCoreContrib.ContentPreview\OrchardCoreContrib.ContentPreview.csproj" />
+		<ProjectReference Include="..\OrchardCoreContrib.Contents\OrchardCoreContrib.Contents.csproj" />
 		<ProjectReference Include="..\OrchardCoreContrib.DataLocalization\OrchardCoreContrib.DataLocalization.csproj" />
 		<ProjectReference Include="..\OrchardCoreContrib.Diagnostics.Elm\OrchardCoreContrib.Diagnostics.Elm.csproj" />
 		<ProjectReference Include="..\OrchardCoreContrib.Email.Gmail\OrchardCoreContrib.Email.Gmail.csproj" />
@@ -28,6 +31,7 @@
 		<ProjectReference Include="..\OrchardCoreContrib.System\OrchardCoreContrib.System.csproj" />
 		<ProjectReference Include="..\OrchardCoreContrib.Tenants\OrchardCoreContrib.Tenants.csproj" />
 		<ProjectReference Include="..\OrchardCoreContrib.Themes.Admin\OrchardCoreContrib.Themes.Admin.csproj" />
+		<ProjectReference Include="..\OrchardCoreContrib.UserGroups\OrchardCoreContrib.UserGroups.csproj" />
 		<ProjectReference Include="..\OrchardCoreContrib.Users\OrchardCoreContrib.Users.csproj" />
 		<ProjectReference Include="..\OrchardCoreContrib.ViewCount\OrchardCoreContrib.ViewCount.csproj" />
 	</ItemGroup>

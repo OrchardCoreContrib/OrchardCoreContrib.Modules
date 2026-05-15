@@ -2,14 +2,14 @@
 @using OrchardCore.Entities
 @using OrchardCore.Settings
 @using OrchardCoreContrib.Gdpr
-@inject ISiteService Site
+@inject ISiteService SiteService
 
 @{
     var consentFeature = Context.Features.Get<ITrackingConsentFeature>();
+
     var cookieString = consentFeature?.CreateConsentCookie();
-    var gdprSettings = Site.GetSiteSettingsAsync()
-        .GetAwaiter().GetResult()
-        .As<GdprSettings>();
+
+    var gdprSettings = (await SiteService.GetSiteSettingsAsync()).As<GdprSettings>();
 }
 
 <style>
@@ -28,16 +28,19 @@
 </style>
 
 <div id="cookieConsent" class="alert alert-info alert-dismissible fade show sticky override-font" role="alert">
-    @gdprSettings.Summary <a asp-area="OrchardCoreContrib.Gdpr" asp-page="/Privacy">Learn More</a>.
-    <button type="button" class="accept-policy close override-font" data-dismiss="alert" aria-label="Close" data-cookie-string="@cookieString">
-        <span aria-hidden="true">Accept</span>
-    </button>
+    <i class="fa-solid fa-circle-info"></i>
+    @gdprSettings.Summary
+    <div class="float-end">
+        <a class="btn btn-info" asp-area="OrchardCoreContrib.Gdpr" asp-controller="Home" asp-action="Privacy">Learn More</a>
+        <button type="button" class="btn btn-light" data-bs-dismiss="alert" aria-label="Close" data-cookie-string="@cookieString">Accept</button>
+    </div>
 </div>
 <script>
     (function () {
-        var button = document.querySelector("#cookieConsent button[data-cookie-string]");
-        button.addEventListener("click", function () {
-            document.cookie = button.dataset.cookieString;
+        var acceptButton = document.querySelector("#cookieConsent button[data-cookie-string]");
+
+        acceptButton.addEventListener("click", function () {
+            document.cookie = acceptButton.dataset.cookieString;
         }, false);
     })();
 </script>

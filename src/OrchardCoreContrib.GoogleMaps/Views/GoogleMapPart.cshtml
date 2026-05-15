@@ -1,11 +1,26 @@
-﻿@using OrchardCoreContrib.GoogleMaps
+﻿@using System.Globalization
+@using OrchardCore.Localization
+@using OrchardCoreContrib.GoogleMaps
 @using OrchardCoreContrib.GoogleMaps.ViewModels
 @model GoogleMapPartViewModel
 
 @{
     var queryString = Model.DevelopmentMode
-    ? $"callback=loadMap"
-    : $"key={Model.Settings.ApiKey}&callback=loadMap";
+        ? $"callback=loadMap"
+        : $"key={Model.Settings.ApiKey}&callback=loadMap";
+
+    var defaultLatitude = string.Empty;
+    var defaultLongitude = string.Empty;
+    var latitude = string.Empty;
+    var longitude = string.Empty;
+
+    using (var c = CultureScope.Create("en-US"))
+    {
+        defaultLatitude = GoogleMapsDefaults.Latitude.ToString(CultureInfo.InvariantCulture);
+        defaultLongitude = GoogleMapsDefaults.Longitude.ToString(CultureInfo.InvariantCulture);
+        latitude = Model.Latitude.ToString(CultureInfo.InvariantCulture);
+        longitude = Model.Longitude.ToString(CultureInfo.InvariantCulture);
+    }
 }
 
 <div id="google-map" class="mt-3" style="width: 580px;height:400px"></div>
@@ -13,13 +28,12 @@
 <script at="Head">
     function loadMap() {
         var mapOptions = {
-           center: new google.maps.LatLng(@Model.Latitude, @Model.Longitude),
+           center: new google.maps.LatLng(@Html.Raw(latitude), @Html.Raw(longitude)),
            zoom: 7
         };
         var map = new google.maps.Map(document.getElementById("google-map"), mapOptions);
-                
         var marker = new google.maps.Marker({
-           position: new google.maps.LatLng(@GoogleMapsDefaults.Latitude, @GoogleMapsDefaults.Longitude),
+           position: new google.maps.LatLng(@Html.Raw(defaultLatitude), @Html.Raw(defaultLongitude)),
            map: map,
         });
     }

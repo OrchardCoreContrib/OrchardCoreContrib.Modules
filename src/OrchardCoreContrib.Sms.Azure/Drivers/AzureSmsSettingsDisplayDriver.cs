@@ -22,34 +22,30 @@ public class AzureSmsSettingsDisplayDriver(
 {
     public const string GroupId = "azure-sms";
 
-    private readonly IPhoneNumberValidator _phoneNumberValidator = phoneNumberValidator;
-    private readonly IDataProtectionProvider _dataProtectionProvider = dataProtectionProvider;
-    private readonly IHttpContextAccessor _httpContextAccessor = httpContextAccessor;
-    private readonly IAuthorizationService _authorizationService = authorizationService;
-    private readonly IShellHost _shellHost = shellHost;
-    private readonly ShellSettings _shellSettings = shellSettings;
-
     public override async Task<IDisplayResult> EditAsync(ISite model, AzureSmsSettings settings, BuildEditorContext context)
     {
-        var user = _httpContextAccessor.HttpContext?.User;
+        var user = httpContextAccessor.HttpContext?.User;
 
-        if (!await _authorizationService.AuthorizeAsync(user, AzureSmsPermissions.ManageSettings))
+        if (!await authorizationService.AuthorizeAsync(user, AzureSmsPermissions.ManageAzureSmsSettings))
         {
             return null;
         }
 
         var shapes = new List<IDisplayResult>
+        {
+            Initialize<AzureSmsSettings>("AzureSmsSettings_Edit", model =>
             {
-                Initialize<AzureSmsSettings>("AzureSmsSettings_Edit", model =>
-                {
-                    model.ConnectionString = settings.ConnectionString;
-                    model.SenderPhoneNumber = settings.SenderPhoneNumber;
-                }).Location("Content:5").OnGroup(GroupId)
-            };
+                model.ConnectionString = settings.ConnectionString;
+                model.SenderPhoneNumber = settings.SenderPhoneNumber;
+            }).Location("Content:5")
+            .OnGroup(GroupId)
+        };
 
         if (settings.SenderPhoneNumber is not null)
         {
-            shapes.Add(Dynamic("AzureSmsSettings_TestButton").Location("Actions").OnGroup(GroupId));
+            shapes.Add(Dynamic("AzureSmsSettings_TestButton")
+                .Location("Actions")
+                .OnGroup(GroupId));
         }
 
         return Combine(shapes);
@@ -57,9 +53,9 @@ public class AzureSmsSettingsDisplayDriver(
 
     public override async Task<IDisplayResult> UpdateAsync(ISite model, AzureSmsSettings settings, UpdateEditorContext context)
     {
-        var user = _httpContextAccessor.HttpContext?.User;
+        var user = httpContextAccessor.HttpContext?.User;
 
-        if (!await _authorizationService.AuthorizeAsync(user, AzureSmsPermissions.ManageSettings))
+        if (!await authorizationService.AuthorizeAsync(user, AzureSmsPermissions.ManageAzureSmsSettings))
         {
             return null;
         }
@@ -70,7 +66,7 @@ public class AzureSmsSettingsDisplayDriver(
            
             await context.Updater.TryUpdateModelAsync(settings, Prefix);
 
-            if (!_phoneNumberValidator.IsValid(settings.SenderPhoneNumber))
+            if (!phoneNumberValidator.IsValid(settings.SenderPhoneNumber))
             {
                 context.Updater.ModelState.AddModelError(nameof(AzureSmsSettings.SenderPhoneNumber), H["Invalid Phone Number."].Value);
 
@@ -83,11 +79,11 @@ public class AzureSmsSettingsDisplayDriver(
             }
             else
             {
-                var protector = _dataProtectionProvider.CreateProtector(nameof(AzureSmsSettings));
+                var protector = dataProtectionProvider.CreateProtector(nameof(AzureSmsSettings));
                 settings.ConnectionString = protector.Protect(settings.ConnectionString);
             }
 
-            await _shellHost.ReleaseShellContextAsync(_shellSettings);
+            await shellHost.ReleaseShellContextAsync(shellSettings);
         }
 
         return await EditAsync(model, settings, context);

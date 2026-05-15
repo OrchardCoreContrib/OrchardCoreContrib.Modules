@@ -4,29 +4,28 @@ using Microsoft.Extensions.DependencyInjection;
 using OrchardCore.Environment.Shell;
 using OrchardCore.Modules;
 using OrchardCoreContrib.OpenApi.Abstractions;
-using System;
 
-namespace OrchardCoreContrib.Apis.Swagger
+namespace OrchardCoreContrib.Apis.Swagger;
+
+/// <summary>
+/// Represensts a startup point to register the required services by Swagger UI feature.
+/// </summary>
+[Feature("OrchardCoreContrib.Apis.Swagger.UI")]
+public class SwaggerUIStratup : StartupBase
 {
-    /// <summary>
-    /// Represensts a startup point to register the required services by Swagger UI feature.
-    /// </summary>
-    [Feature("OrchardCoreContrib.Apis.Swagger.UI")]
-    public class SwaggerUIStratup : StartupBase
+    /// <inheritdoc/>
+    public override void Configure(IApplicationBuilder builder, IEndpointRouteBuilder routes, IServiceProvider serviceProvider)
     {
-        /// <inheritdoc/>
-        public override void Configure(IApplicationBuilder builder, IEndpointRouteBuilder routes, IServiceProvider serviceProvider)
+        builder.UseSwaggerUI(options =>
         {
-            builder.UseSwaggerUI(options =>
-            {
-                var swaggerApiDefinition = serviceProvider.GetService<IOpenApiDefinition>();
-                var shellSettings = serviceProvider.GetService<ShellSettings>();
-                var tenantUrlPrefix = String.IsNullOrEmpty(shellSettings.RequestUrlPrefix)
-                    ? shellSettings.RequestUrlPrefix
-                    : shellSettings.RequestUrlPrefix + "/";
+            var swaggerApiDefinition = serviceProvider.GetService<IOpenApiDefinition>();
+            var shellSettings = serviceProvider.GetService<ShellSettings>();
+            var tenantUrlPrefix = string.IsNullOrEmpty(shellSettings.RequestUrlPrefix)
+                ? shellSettings.RequestUrlPrefix
+                : shellSettings.RequestUrlPrefix + "/";
 
-                options.SwaggerEndpoint($"/{tenantUrlPrefix}swagger/{swaggerApiDefinition.Version}/swagger.json", $"{swaggerApiDefinition.Name} {swaggerApiDefinition.Version}");
-            });
-        }
+            options.SwaggerEndpoint($"/{tenantUrlPrefix}swagger/{swaggerApiDefinition.Version}/swagger.json",
+                $"{swaggerApiDefinition.Name} {swaggerApiDefinition.Version}");
+        });
     }
 }

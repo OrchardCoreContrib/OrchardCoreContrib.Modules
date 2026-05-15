@@ -2,17 +2,27 @@
     Layout = null;
 }
 
-<link href="/OrchardCoreContrib.Html/Styles/grapes.min.css" rel="stylesheet" type="text/css" />
-<link href="/OrchardCoreContrib.Html/Styles/grapesjs-preset-webpage.min.css" rel="stylesheet" type="text/css" />
-<link href="/OrchardCoreContrib.Html/Styles/grapes-editor.css" rel="stylesheet" type="text/css" />
-<div>    
-    <div id="editor" class="grapes-editor"></div>
+<!DOCTYPE html>
+<html lang="@Orchard.CultureName()" dir="@Orchard.CultureDir()">
+<head>
 
-    <script src="/OrchardCoreContrib.Html/Scripts/grapes.min.js"></script>
-    <script src="/OrchardCoreContrib.Html/Scripts/grapesjs-preset-webpage.min.js"></script>
-    <script src="/OrchardCoreContrib.Html/Scripts/grapes-editor.js"></script>
+    <style asp-name="grapes" at="Head" version="1.0.0"></style>
+    <style asp-name="grapes-preset" at="Head" version="1.0.0"></style>
+    <style asp-name="grapes-editor" at="Head" version="1.0.0"></style>
+    <script asp-name="grapes" at="Head" version="1.0.0"></script>
+    <script asp-name="grapes-preset" at="Head" version="1.0.0"></script>
+    <script asp-name="grapes-editor" at="Head" version="1.0.0"></script>
+    <resources type="Header" />
+</head>
+<body>
+    <div>
+        <div id="editor" class="grapes-editor"></div>
 
-    <script>
-        initGrapesJs('HtmlBodyPart_Html');
-    </script>
-</div>
+        <script at="Foot">
+            initGrapesJs('HtmlBodyPart_Html');
+        </script>
+    </div>
+
+    <resources type="Footer" />
+</body>
+</html>

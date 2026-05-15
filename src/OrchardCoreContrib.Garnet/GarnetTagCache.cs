@@ -1,5 +1,4 @@
-﻿using Garnet.client;
-using Microsoft.Extensions.Logging;
+﻿using Microsoft.Extensions.Logging;
 using OrchardCore.Environment.Cache;
 using OrchardCore.Environment.Shell;
 using OrchardCore.Modules;

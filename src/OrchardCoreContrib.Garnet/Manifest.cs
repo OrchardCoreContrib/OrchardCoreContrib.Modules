@@ -5,7 +5,7 @@ using ManifestConstants = OrchardCoreContrib.Modules.Manifest.ManifestConstants;
     Name = "Garnet",
     Author = ManifestConstants.Author,
     Website = ManifestConstants.Website,
-    Version = "1.3.0"
+    Version = "1.6.0"
 )]
 
 [assembly: Feature(
@@ -35,6 +35,14 @@ using ManifestConstants = OrchardCoreContrib.Modules.Manifest.ManifestConstants;
     Id = "OrchardCoreContrib.Garnet.DataProtection",
     Name = "Garnet DataProtection",
     Description = "Distributed DataProtection using Garnet.",
+    Dependencies = ["OrchardCoreContrib.Garnet"],
+    Category = "Distributed Caching"
+)]
+
+[assembly: Feature(
+    Id = "OrchardCoreContrib.Garnet.Lock",
+    Name = "Garnet Lock",
+    Description = "Distributed Lock using Garnet.",
     Dependencies = ["OrchardCoreContrib.Garnet"],
     Category = "Distributed Caching"
 )]

@@ -1,4 +1,6 @@
 ﻿@using OrchardCore.ContentLocalization
+@using OrchardCore.ContentManagement
+@using OrchardCore.ContentLocalization.Models
 @using OrchardCoreContrib.ContentLocalization.ViewModels
 
 @model LocalizationMatrixViewModel
@@ -24,15 +26,16 @@
             {
                 var localizedContents = await ContentLocalizationManager.GetItemsForSetAsync(set);
 
-                var cultures = localizedContents.Select(l => l.Content.LocalizationPart.Culture.ToString());
-
-                var contentItem = localizedContents?.First();
-                if (contentItem == null)
+                var contentItem = localizedContents.FirstOrDefault();
+                if (contentItem is null)
                 {
                     continue;
                 }
+
+                var cultures = localizedContents.Select(item => item.As<LocalizationPart>().Culture);
+
                 <tr>
-                    <td>
+                    <td class="w-50">
                         <a edit-for="@contentItem" target="_blank">@(contentItem.Content.TitlePart?.Title ?? contentItem.ContentType)</a> <span class="badge bg-success text-white">@contentItem.ContentType</span>
                     </td>
                     @foreach (var culture in Model.Cultures)

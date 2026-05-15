@@ -7,11 +7,20 @@ using OrchardCoreContrib.ViewCount.Models;
 
 namespace OrchardCoreContrib.ViewCount.Services;
 
+/// <summary>
+/// Provides functionality for tracking and updating view counts on content items.
+/// </summary>
+/// <remarks>The <see cref="ViewCountService"/> enables retrieval and incrementing of view counts for content
+/// items. It coordinates with registered <see cref="IViewCountContentHandler"/> instances to allow custom logic to be
+/// executed before and after a view is recorded. This service is typically used to monitor content popularity or
+/// engagement.
+/// </remarks>
 public class ViewCountService(
     IContentManager contentManager,
     IEnumerable<IViewCountContentHandler> handlers,
     ILogger<ViewCountService> logger) : IViewCountService
 {
+    /// <inheritdoc/>
     public int GetViewsCount(ContentItem contentItem)
     {
         Guard.ArgumentNotNull(contentItem, nameof(contentItem));
@@ -21,6 +30,7 @@ public class ViewCountService(
         return viewCountPart?.Count ?? 0;
     }
 
+    /// <inheritdoc/>
     public async Task ViewAsync(ContentItem contentItem)
     {
         Guard.ArgumentNotNull(contentItem, nameof(contentItem));

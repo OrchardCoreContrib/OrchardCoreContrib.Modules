@@ -13,46 +13,39 @@ using OrchardCore.Settings;
 using OrchardCoreContrib.Email.Gmail.Controllers;
 using OrchardCoreContrib.Email.Gmail.Drivers;
 using OrchardCoreContrib.Email.Gmail.Services;
-using System;
 
-namespace OrchardCoreContrib.Email.Gmail
+namespace OrchardCoreContrib.Email.Gmail;
+
+/// <summary>
+/// Represensts a startup point to register the required services by Gmail mailing module.
+/// </summary>
+/// <remarks>
+/// Initializes a new instance of <see cref="Startup"/>.
+/// </remarks>
+/// <param name="adminOptions">The <see cref="IOptions{AdminOptions}>.</param>
+public class Startup(IOptions<AdminOptions> adminOptions) : StartupBase
 {
-    /// <summary>
-    /// Represensts a startup point to register the required services by Gmail mailing module.
-    /// </summary>
-    public class Startup : StartupBase
+    private readonly AdminOptions _adminOptions = adminOptions.Value;
+
+    /// <inheritdoc/>
+    public override void ConfigureServices(IServiceCollection services)
     {
-        private readonly AdminOptions _adminOptions;
+        services.AddScoped<IPermissionProvider, Permissions>();
+        services.AddScoped<IDisplayDriver<ISite>, GmailSettingsDisplayDriver>();
+        services.AddScoped<INavigationProvider, AdminMenu>();
 
-        /// <summary>
-        /// Initializes a new instance of <see cref="Startup"/>.
-        /// </summary>
-        /// <param name="adminOptions">The <see cref="IOptions{AdminOptions}>.</param>
-        public Startup(IOptions<AdminOptions> adminOptions)
-        {
-            _adminOptions = adminOptions.Value;
-        }
+        services.AddTransient<IConfigureOptions<GmailSettings>, GmailSettingsConfiguration>();
+        services.AddScoped<ISmtpService, GmailService>();
+    }
 
-        /// <inheritdoc/>
-        public override void ConfigureServices(IServiceCollection services)
-        {
-            services.AddScoped<IPermissionProvider, Permissions>();
-            services.AddScoped<IDisplayDriver<ISite>, GmailSettingsDisplayDriver>();
-            services.AddScoped<INavigationProvider, AdminMenu>();
-
-            services.AddTransient<IConfigureOptions<GmailSettings>, GmailSettingsConfiguration>();
-            services.AddScoped<ISmtpService, GmailService>();
-        }
-
-        /// <inheritdoc/>
-        public override void Configure(IApplicationBuilder builder, IEndpointRouteBuilder routes, IServiceProvider serviceProvider)
-        {
-            routes.MapAreaControllerRoute(
-                name: "GmailIndex",
-                areaName: "OrchardCoreContrib.Email.Gmail",
-                pattern: _adminOptions.AdminUrlPrefix + "/Gmail/Index",
-                defaults: new { controller = typeof(AdminController).ControllerName(), action = nameof(AdminController.Index) }
-            );
-        }
+    /// <inheritdoc/>
+    public override void Configure(IApplicationBuilder builder, IEndpointRouteBuilder routes, IServiceProvider serviceProvider)
+    {
+        routes.MapAreaControllerRoute(
+            name: "GmailIndex",
+            areaName: "OrchardCoreContrib.Email.Gmail",
+            pattern: _adminOptions.AdminUrlPrefix + "/Gmail/Index",
+            defaults: new { controller = typeof(AdminController).ControllerName(), action = nameof(AdminController.Index) }
+        );
     }
 }

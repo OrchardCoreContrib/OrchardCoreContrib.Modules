@@ -1,0 +1,25 @@
+﻿@using OrchardCoreContrib.Ban.ViewModels
+@model BanSettingsViewModel
+
+<div class="form-group mb-3">
+    <label asp-for="BannedIPs">@T["Banned IPs"]</label>
+    <input asp-for="BannedIPs" class="form-control" />
+    <span class="hint">@T["Enter IPv4 addresses. Press Tab or Enter after each one."]</span>
+</div>
+
+<style at="Head" href="https://cdn.jsdelivr.net/npm/use-bootstrap-tag@2.2.2/dist/use-bootstrap-tag.min.css" rel="stylesheet" />
+<script at="Foot" src="https://cdn.jsdelivr.net/npm/use-bootstrap-tag@2.2.2/dist/use-bootstrap-tag.min.js"></script>
+<script at="Foot">
+    const input = document.getElementById('@Html.IdFor(m => m.BannedIPs)');
+
+    UseBootstrapTag(input);
+
+    // Hide the original input and its label
+    input.classList.add('d-none');
+
+    document.querySelector('.input-wrapper > span').classList.add('d-none');
+
+    const tagInput = document.querySelector('.input-wrapper > input');
+    tagInput.style.border = 0;
+    tagInput.style.outline = 0;
+</script>

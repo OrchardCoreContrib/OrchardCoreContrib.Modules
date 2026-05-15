@@ -1,43 +1,55 @@
-﻿using OrchardCore.ContentManagement.Metadata.Settings;
+﻿using OrchardCore.ContentManagement.Metadata;
 using OrchardCore.ContentTypes.Services;
 using OrchardCore.Localization;
 using OrchardCoreContrib.Localization.Data;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
-namespace OrchardCoreContrib.DataLocalization.Services
+namespace OrchardCoreContrib.DataLocalization.Services;
+
+/// <summary>
+/// Represents a resource string provider for content fields.
+/// </summary>
+/// <remarks>
+/// Creates a instance of <see cref="ContentTypeResourceStringProvider"/>.
+/// </remarks>
+/// <param name="contentDefinitionService">The <see cref="IContentDefinitionService"/>.</param>
+public class ContentFieldResourceStringProvider(
+    IContentDefinitionService contentDefinitionService,
+    IContentDefinitionManager contentDefinitionManager) : IDataResourceStringProvider
 {
-    /// <summary>
-    /// Represents a resource string provider for content fields.
-    /// </summary>
-    public class ContentFieldResourceStringProvider : IDataResourceStringProvider
+    internal static readonly string Context = "ContentField";
+
+    /// <inheritdoc/>
+    public async Task<IEnumerable<CultureDictionaryRecordKey>> GetAllResourceStringsAsync()
     {
-        internal static readonly string Context = "ContentField";
+        var cultureDictionary = new List<CultureDictionaryRecordKey>();
 
-        private readonly IContentDefinitionService _contentDefinitionService;
+        var typeViewModels = await contentDefinitionService.GetTypesAsync();
 
-        /// <summary>
-        /// Creates a instance of <see cref="ContentTypeResourceStringProvider"/>.
-        /// </summary>
-        /// <param name="contentDefinitionService">The <see cref="IContentDefinitionService"/>.</param>
-        public ContentFieldResourceStringProvider(IContentDefinitionService contentDefinitionService)
+        foreach (var typeViewModel in typeViewModels)
         {
-            _contentDefinitionService = contentDefinitionService;
+            var fields = await GetFieldNamesAsync(typeViewModel.TypeDefinition.Name);
+
+            cultureDictionary.AddRange(fields.Select(field => new CultureDictionaryRecordKey
+            {
+                MessageId = field,
+                Context = $"{typeViewModel.Name}-{Context}"
+            }));
         }
 
-        /// <inheritdoc/>
-        public async Task<IEnumerable<CultureDictionaryRecordKey>> GetAllResourceStringsAsync()
+        return cultureDictionary;
+    }
+
+    private async Task<IEnumerable<string>> GetFieldNamesAsync(string contentType)
+    {
+        var typeDefinition = await contentDefinitionManager.GetTypeDefinitionAsync(contentType);
+        
+        if (typeDefinition is null)
         {
-            var contentTypes = await _contentDefinitionService.GetTypesAsync();
-            
-            return contentTypes
-                .SelectMany(t => t.TypeDefinition.Parts.SelectMany(p => p.PartDefinition.Fields.Select(f => new { ContentType = t.Name, ContentField = f.GetSettings<ContentPartFieldSettings>().DisplayName })))
-                .Select(t => new CultureDictionaryRecordKey
-                {
-                    MessageId = t.ContentField,
-                    Context = $"{t.ContentType}-{Context}"
-                });
+            return [];
         }
+
+        return typeDefinition.Parts
+            .SelectMany(p => p.PartDefinition.Fields)
+            .Select(f => f.Name);
     }
 }

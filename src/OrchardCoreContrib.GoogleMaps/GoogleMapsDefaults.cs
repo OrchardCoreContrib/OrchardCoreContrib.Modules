@@ -1,9 +1,8 @@
-﻿namespace OrchardCoreContrib.GoogleMaps
-{
-    public class GoogleMapsDefaults
-    {
-        public static readonly double Latitude = 15.5539;
+﻿namespace OrchardCoreContrib.GoogleMaps;
 
-        public static readonly double Longitude = 48.1748;
-    }
+public class GoogleMapsDefaults
+{
+    public static readonly double Latitude = 15.5539;
+
+    public static readonly double Longitude = 48.1748;
 }

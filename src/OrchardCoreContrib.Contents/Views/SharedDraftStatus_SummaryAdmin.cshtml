@@ -1,0 +1,15 @@
+﻿@using OrchardCoreContrib.Contents.ViewModels
+@model SharedDraftLinkViewModel
+
+<span class="badge ta-badge font-weight-normal" data-bs-toggle="tooltip" title="@T["Shared Draft Status"]">
+    @if (Model.Link is null)
+    {
+        <i class="fa-solid fa-link text-secondary" aria-hidden="true"></i> 
+        @T["Not Shared"]
+    }
+    else
+    {
+        <i class="fa-solid fa-link text-primary" aria-hidden="true"></i> 
+        <a class="text-primary" href="@Model.GeneratedLink" target="_blank">@T["Shared"]</a>
+    }
+</span>

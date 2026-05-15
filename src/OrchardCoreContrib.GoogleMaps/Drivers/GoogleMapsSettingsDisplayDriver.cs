@@ -6,90 +6,77 @@ using OrchardCore.DisplayManagement.Handlers;
 using OrchardCore.DisplayManagement.Views;
 using OrchardCore.Settings;
 using OrchardCoreContrib.GoogleMaps.ViewModels;
-using System.Threading.Tasks;
 
-namespace OrchardCoreContrib.GoogleMaps.Drivers
+namespace OrchardCoreContrib.GoogleMaps.Drivers;
+
+/// <summary>
+/// Represents a display driver for <see cref="GoogleMapsSettings"/>.
+/// </summary>
+/// <remarks>
+/// Initializes a new instance of <see cref="GoogleMapsSettingsDisplayDriver"/>.
+/// </remarks>
+/// <param name="dataProtectionProvider">The <see cref="IDataProtectionProvider"/>.</param>
+/// <param name="httpContextAccessor">The <see cref="IHttpContextAccessor"/>.</param>
+/// <param name="authorizationService">The <see cref="IAuthorizationService"/>.</param>
+public class GoogleMapsSettingsDisplayDriver(
+    IDataProtectionProvider dataProtectionProvider,
+    IHttpContextAccessor httpContextAccessor,
+    IAuthorizationService authorizationService) : SectionDisplayDriver<ISite, GoogleMapsSettings>
 {
-    /// <summary>
-    /// Represents a display driver for <see cref="GoogleMapsSettings"/>.
-    /// </summary>
-    public class GoogleMapsSettingsDisplayDriver : SectionDisplayDriver<ISite, GoogleMapsSettings>
+    public const string GroupId = "google-maps";
+
+    /// <inheritdoc/>
+    public override async Task<IDisplayResult> EditAsync(ISite model, GoogleMapsSettings section, BuildEditorContext context)
     {
-        public const string GroupId = "google-maps";
+        var user = httpContextAccessor.HttpContext?.User;
 
-        private readonly IDataProtectionProvider _dataProtectionProvider;
-        private readonly IHttpContextAccessor _httpContextAccessor;
-        private readonly IAuthorizationService _authorizationService;
-
-        /// <summary>
-        /// Initializes a new instance of <see cref="GoogleMapsSettingsDisplayDriver"/>.
-        /// </summary>
-        /// <param name="dataProtectionProvider">The <see cref="IDataProtectionProvider"/>.</param>
-        /// <param name="httpContextAccessor">The <see cref="IHttpContextAccessor"/>.</param>
-        /// <param name="authorizationService">The <see cref="IAuthorizationService"/>.</param>
-        public GoogleMapsSettingsDisplayDriver(
-            IDataProtectionProvider dataProtectionProvider,
-            IHttpContextAccessor httpContextAccessor,
-            IAuthorizationService authorizationService)
+        if (!await authorizationService.AuthorizeAsync(user, GoogleMapsPermissions.ManageGoogleMapsSettings))
         {
-            _dataProtectionProvider = dataProtectionProvider;
-            _httpContextAccessor = httpContextAccessor;
-            _authorizationService = authorizationService;
+            return null;
         }
 
-        /// <inheritdoc/>
-        public override async Task<IDisplayResult> EditAsync(ISite model, GoogleMapsSettings section, BuildEditorContext context)
+        return Initialize<GoogleMapsSettingsViewModel>("GoogleMapsSettings_Edit", model =>
         {
-            var user = _httpContextAccessor.HttpContext?.User;
+            model.ApiKey = section.ApiKey;
+            model.Latitude = section.Latitude;
+            model.Longitude = section.Longitude;
+        }).Location("Content").OnGroup(GroupId);
+    }
 
-            if (!await _authorizationService.AuthorizeAsync(user, Permissions.ManageGoogleMapsSettings))
-            {
-                return null;
-            }
+    /// <inheritdoc/>
+    public override async Task<IDisplayResult> UpdateAsync(ISite model, GoogleMapsSettings section, UpdateEditorContext context)
+    {
+        var user = httpContextAccessor.HttpContext?.User;
 
-            return Initialize<GoogleMapsSettingsViewModel>("GoogleMapsSettings_Edit", model =>
-            {
-                model.ApiKey = section.ApiKey;
-                model.Latitude = section.Latitude;
-                model.Longitude = section.Longitude;
-            }).Location("Content").OnGroup(GroupId);
+        if (!await authorizationService.AuthorizeAsync(user, GoogleMapsPermissions.ManageGoogleMapsSettings))
+        {
+            return null;
         }
 
-        /// <inheritdoc/>
-        public override async Task<IDisplayResult> UpdateAsync(ISite model, GoogleMapsSettings section, UpdateEditorContext context)
+        if (context.GroupId == GroupId)
         {
-            var user = _httpContextAccessor.HttpContext?.User;
-
-            if (!await _authorizationService.AuthorizeAsync(user, Permissions.ManageGoogleMapsSettings))
+            var viewModel = new GoogleMapsSettingsViewModel();
+            var previousApiKey = section.ApiKey;
+            
+            if (await context.Updater.TryUpdateModelAsync(viewModel, Prefix, m => m.ApiKey, m => m.Latitude, m => m.Longitude))
             {
-                return null;
+                section.ApiKey = viewModel.ApiKey;
+                section.Latitude = viewModel.Latitude;
+                section.Longitude = viewModel.Longitude;
             }
 
-            if (context.GroupId == GroupId)
+            if (string.IsNullOrWhiteSpace(section.ApiKey))
             {
-                var viewModel = new GoogleMapsSettingsViewModel();
-                var previousApiKey = section.ApiKey;
-                
-                if (await context.Updater.TryUpdateModelAsync(viewModel, Prefix, m => m.ApiKey, m => m.Latitude, m => m.Longitude))
-                {
-                    section.ApiKey = viewModel.ApiKey;
-                    section.Latitude = viewModel.Latitude;
-                    section.Longitude = viewModel.Longitude;
-                }
-
-                if (string.IsNullOrWhiteSpace(section.ApiKey))
-                {
-                    section.ApiKey = previousApiKey;
-                }
-                else
-                {
-                    var protector = _dataProtectionProvider.CreateProtector(GroupId);
-
-                    section.ApiKey = protector.Protect(section.ApiKey);
-                }
+                section.ApiKey = previousApiKey;
             }
+            else
+            {
+                var protector = dataProtectionProvider.CreateProtector(GroupId);
 
-            return await EditAsync(model, section, context);
+                section.ApiKey = protector.Protect(section.ApiKey);
+            }
         }
+
+        return await EditAsync(model, section, context);
     }
 }

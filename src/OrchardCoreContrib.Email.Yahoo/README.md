@@ -4,7 +4,7 @@ This module allows you to send emails using Yahoo.
 
 ## Version
 
-1.4.1
+1.6.0
 
 ## Category
 
@@ -26,6 +26,7 @@ This module has no dependencies.
 
 | Name                                                                                                    | Version |
 |---------------------------------------------------------------------------------------------------------|---------|
+| [`OrchardCoreContrib.Email.Yahoo`](https://www.nuget.org/packages/OrchardCoreContrib.Email.Yahoo/1.6.0) | 1.6.0   |
 | [`OrchardCoreContrib.Email.Yahoo`](https://www.nuget.org/packages/OrchardCoreContrib.Email.Yahoo/1.5.0) | 1.5.0   |
 | [`OrchardCoreContrib.Email.Yahoo`](https://www.nuget.org/packages/OrchardCoreContrib.Email.Yahoo/1.4.1) | 1.4.1   |
 | [`OrchardCoreContrib.Email.Yahoo`](https://www.nuget.org/packages/OrchardCoreContrib.Email.Yahoo/1.4.0) | 1.4.0   |

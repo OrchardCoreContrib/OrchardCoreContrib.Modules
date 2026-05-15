@@ -9,19 +9,12 @@ using OrchardCoreContrib.Navigation;
 /// <summary>
 /// Represents an admin menu for System Updates feature.
 /// </summary>
-public class UpdatesAdminMenu : AdminNavigationProvider
+/// <remarks>
+/// Initializes a new instance of <see cref="AdminMenu"/>.
+/// </remarks>
+/// <param name="S">The <see cref="IStringLocalizer{AdminMenu}"/>.</param>
+public class UpdatesAdminMenu(IStringLocalizer<AdminMenu> S) : AdminNavigationProvider
 {
-    private readonly IStringLocalizer S;
-
-    /// <summary>
-    /// Initializes a new instance of <see cref="AdminMenu"/>.
-    /// </summary>
-    /// <param name="stringLocalizer">The <see cref="IStringLocalizer{AdminMenu}"/>.</param>
-    public UpdatesAdminMenu(IStringLocalizer<AdminMenu> stringLocalizer)
-    {
-        S = stringLocalizer;
-    }
-
     /// <inheritdoc/>
     public override void BuildNavigation(NavigationBuilder builder)
     {

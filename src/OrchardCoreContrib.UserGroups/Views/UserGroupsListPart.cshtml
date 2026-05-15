@@ -1,0 +1,8 @@
+﻿@model UserGroupsListPartViewModel
+
+<ul class="list-unstyled">
+    @foreach (var userGroup in Model.UserGroups)
+    {
+        <li>@userGroup</li>
+    }
+</ul>

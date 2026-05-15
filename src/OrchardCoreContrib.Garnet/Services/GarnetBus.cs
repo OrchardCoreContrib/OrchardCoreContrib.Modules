@@ -3,7 +3,6 @@ using Microsoft.Extensions.Options;
 using OrchardCore.Caching.Distributed;
 using OrchardCore.Environment.Shell;
 using StackExchange.Redis;
-using System.Diagnostics;
 using System.Net;
 
 namespace OrchardCoreContrib.Garnet.Services;
@@ -21,7 +20,7 @@ public class GarnetBus(
     ShellSettings shellSettings,
     ILogger<GarnetBus> logger) : IMessageBus
 {
-    private readonly GarnetOptions _garnetOptions = garnetOptions.Value;
+    private readonly ConfigurationOptions _configurationOptions = GarnetOptionsConverter.ConvertToConfigurationOptions(garnetOptions.Value);
     private readonly string _hostName = Dns.GetHostName() + ':' + Environment.ProcessId;
     private readonly string _channelPrefix = garnetService.InstancePrefix + shellSettings.Name + ':';
 
@@ -40,7 +39,7 @@ public class GarnetBus(
             }
         }
 
-        var connectionMultiplexer = await ConnectionMultiplexer.ConnectAsync(GetConfigurationOptions(_garnetOptions));
+        var connectionMultiplexer = await ConnectionMultiplexer.ConnectAsync(_configurationOptions);
 
         try
         {
@@ -79,7 +78,7 @@ public class GarnetBus(
             }
         }
 
-        var connectionMultiplexer = await ConnectionMultiplexer.ConnectAsync(GetConfigurationOptions(_garnetOptions));
+        var connectionMultiplexer = await ConnectionMultiplexer.ConnectAsync(_configurationOptions);
 
         try
         {
@@ -90,34 +89,5 @@ public class GarnetBus(
         {
             logger.LogError(e, "Unable to publish to the channel '{ChannelName}'.", _channelPrefix + channel);
         }
-    }
-
-    private static ConfigurationOptions GetConfigurationOptions(GarnetOptions garnetOptions)
-    {
-        var endPoints = new EndPointCollection
-        {
-            new DnsEndPoint(garnetOptions.Host, garnetOptions.Port)
-        };      
-        var configOptions = new ConfigurationOptions
-        {
-            EndPoints = endPoints,
-            ConnectTimeout = (int)TimeSpan.FromSeconds(2).TotalMilliseconds,
-            SyncTimeout = (int)TimeSpan.FromSeconds(30).TotalMilliseconds,
-            AsyncTimeout = (int)TimeSpan.FromSeconds(30).TotalMilliseconds,
-            ReconnectRetryPolicy = new LinearRetry((int)TimeSpan.FromSeconds(10).TotalMilliseconds),
-            ConnectRetry = 5,
-            IncludeDetailInExceptions = true,
-            AbortOnConnectFail = true,
-            User = garnetOptions.UserName,
-            Password = garnetOptions.Password
-        };
-
-        if (Debugger.IsAttached)
-        {
-            configOptions.SyncTimeout = (int)TimeSpan.FromHours(2).TotalMilliseconds;
-            configOptions.AsyncTimeout = (int)TimeSpan.FromHours(2).TotalMilliseconds;
-        }
-
-        return configOptions;
     }
 }

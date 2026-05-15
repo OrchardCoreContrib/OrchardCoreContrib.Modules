@@ -5,24 +5,17 @@ using OrchardCoreContrib.Data.Migrations;
 namespace OrchardCoreContrib.GoogleMaps.Migrations;
 
 [Migration(1)]
-public class CreateGoogleMapPart : Migration
+public class CreateGoogleMapPart(IContentDefinitionManager contentDefinitionManager) : Migration
 {
-    private readonly IContentDefinitionManager _contentDefinitionManager;
-
-    public CreateGoogleMapPart(IContentDefinitionManager contentDefinitionManager)
-    {
-        _contentDefinitionManager = contentDefinitionManager;
-    }
-
     public override void Up()
     {
-        _contentDefinitionManager.AlterPartDefinitionAsync("GoogleMapPart", builder => builder
+        contentDefinitionManager.AlterPartDefinitionAsync("GoogleMapPart", builder => builder
             .Attachable()
             .WithDescription("Provides a Google Map that you can use for your content item."));
     }
 
     public override void Down()
     {
-        _contentDefinitionManager.DeletePartDefinitionAsync("GoogleMapPart").GetAwaiter().GetResult();
+        contentDefinitionManager.DeletePartDefinitionAsync("GoogleMapPart").GetAwaiter().GetResult();
     }
 }

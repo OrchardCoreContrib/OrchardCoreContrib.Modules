@@ -5,7 +5,6 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Options;
 using OrchardCore.Modules;
 using OrchardCoreContrib.HealthChecks;
-using System;
 
 namespace OrchardCoreContrib.Email.SendGrid.HealthChecks;
 

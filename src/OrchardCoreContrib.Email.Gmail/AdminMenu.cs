@@ -1,42 +1,40 @@
-﻿using Microsoft.Extensions.Localization;
+﻿using Microsoft.AspNetCore.Routing;
+using Microsoft.Extensions.Localization;
 using OrchardCore.Navigation;
 using OrchardCoreContrib.Email.Gmail.Drivers;
+
+namespace OrchardCoreContrib.Email.Gmail;
+
 using OrchardCoreContrib.Navigation;
 
-namespace OrchardCoreContrib.Email.Gmail
+/// <summary>
+/// Represents an admin menu for Gmaail mailing module.
+/// </summary>
+/// <remarks>
+/// Initializes a new instance of <see cref="AdminMenu"/>.
+/// </remarks>
+/// <param name="stringLocalizer"></param>
+public class AdminMenu(IStringLocalizer<AdminMenu> S) : AdminNavigationProvider
 {
-    using OrchardCoreContrib.Navigation;
-
-    /// <summary>
-    /// Represents an admin menu for Gmaail mailing module.
-    /// </summary>
-    public class AdminMenu : AdminNavigationProvider
+    private static readonly RouteValueDictionary _routeValues = new()
     {
-        private readonly IStringLocalizer S;
+        { "area", "OrchardCore.Settings" },
+        { "groupId", GmailSettingsDisplayDriver.GroupId },
+    };
 
-        /// <summary>
-        /// Initializes a new instance of <see cref="AdminMenu"/>.
-        /// </summary>
-        /// <param name="stringLocalizer"></param>
-        public AdminMenu(IStringLocalizer<AdminMenu> stringLocalizer)
-        {
-            S = stringLocalizer;
-        }
-
-        /// <inheritdoc/>
-        public override void BuildNavigation(NavigationBuilder builder)
-        {
-            builder
-                .Add(S["Configuration"], configuration => configuration
-                    .Add(S["Settings"], settings => settings
-                       .Add(S["Gmail"], S["Gmail"].PrefixPosition(), entry => entry
-                       .AddClass("gmail").Id("gmail")
-                          .Action("Index", "Admin", new { area = "OrchardCore.Settings", groupId = GmailSettingsDisplayDriver.GroupId })
-                          .Permission(Permissions.ManageGmailSettings)
-                          .LocalNav()
-                        )
+    /// <inheritdoc/>
+    public override void BuildNavigation(NavigationBuilder builder)
+    {
+        builder
+            .Add(S["Configuration"], configuration => configuration
+                .Add(S["Settings"], settings => settings
+                   .Add(S["Gmail"], S["Gmail"].PrefixPosition(), entry => entry
+                   .AddClass("gmail").Id("gmail")
+                      .Action("Index", "Admin", _routeValues)
+                      .Permission(GmailPermissions.ManageGmailSettings)
+                      .LocalNav()
                     )
-                );
-        }
+                )
+            );
     }
 }

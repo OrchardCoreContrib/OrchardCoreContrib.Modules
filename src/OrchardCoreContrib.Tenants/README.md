@@ -4,7 +4,7 @@ This module provides features to manage tenants from the Admin UI.
 
 ## Version
 
-1.2.1
+1.4.0
 
 ## Category
 
@@ -28,6 +28,7 @@ Infrastructure
 
 | Name                                                                                            | Version |
 |-------------------------------------------------------------------------------------------------|---------|
+| [`OrchardCoreContrib.Tenants`](https://www.nuget.org/packages/OrchardCoreContrib.Tenants/1.4.0) | 1.4.0   |
 | [`OrchardCoreContrib.Tenants`](https://www.nuget.org/packages/OrchardCoreContrib.Tenants/1.3.0) | 1.3.0   |
 | [`OrchardCoreContrib.Tenants`](https://www.nuget.org/packages/OrchardCoreContrib.Tenants/1.2.1) | 1.2.1   |
 | [`OrchardCoreContrib.Tenants`](https://www.nuget.org/packages/OrchardCoreContrib.Tenants/1.2.0) | 1.2.0   |
