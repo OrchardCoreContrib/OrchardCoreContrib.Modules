@@ -1,4 +1,4 @@
-﻿<Project Sdk="Microsoft.NET.Sdk.Razor">
+<Project Sdk="Microsoft.NET.Sdk.Razor">
 
 	<PropertyGroup>
 		<AddRazorSupportForMvc>true</AddRazorSupportForMvc>
@@ -36,8 +36,11 @@
 		<PackageReference Include="OrchardCore.Module.Targets" />
 		<PackageReference Include="OrchardCore.ResourceManagement" />
 		<PackageReference Include="OrchardCore.Users.Abstractions" />
-		<PackageReference Include="OrchardCoreContrib.Abstractions" />
-		<PackageReference Include="OrchardCoreContrib.Infrastructure.Abstractions" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\..\..\OrchardCoreContrib\src\OrchardCoreContrib.Abstractions\OrchardCoreContrib.Abstractions.csproj" />
+		<ProjectReference Include="..\..\..\OrchardCoreContrib\src\OrchardCoreContrib.Infrastructure.Abstractions\OrchardCoreContrib.Infrastructure.Abstractions.csproj" />
 	</ItemGroup>
 
 </Project>
