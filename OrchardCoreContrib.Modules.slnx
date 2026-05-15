@@ -1,0 +1,49 @@
+<Solution>
+  <Folder Name="/images/">
+    <File Path="images/icon.png" />
+  </Folder>
+  <Folder Name="/Solution Items/">
+    <File Path="Directory.Build.props" />
+    <File Path="Directory.Packages.props" />
+  </Folder>
+  <Folder Name="/src/">
+    <Project Path="src/OrchardCoreContrib.Apis.Scalar/OrchardCoreContrib.Apis.Scalar.csproj" />
+    <Project Path="src/OrchardCoreContrib.Apis.Swagger/OrchardCoreContrib.Apis.Swagger.csproj" />
+    <Project Path="src/OrchardCoreContrib.Ban/OrchardCoreContrib.Ban.csproj" />
+    <Project Path="src/OrchardCoreContrib.CloudflareTurnstile/OrchardCoreContrib.CloudflareTurnstile.csproj" />
+    <Project Path="src/OrchardCoreContrib.ContentLocalization/OrchardCoreContrib.ContentLocalization.csproj" />
+    <Project Path="src/OrchardCoreContrib.ContentPermissions/OrchardCoreContrib.ContentPermissions.csproj" />
+    <Project Path="src/OrchardCoreContrib.ContentPreview/OrchardCoreContrib.ContentPreview.csproj" />
+    <Project Path="src/OrchardCoreContrib.Contents/OrchardCoreContrib.Contents.csproj" />
+    <Project Path="src/OrchardCoreContrib.DataLocalization/OrchardCoreContrib.DataLocalization.csproj" />
+    <Project Path="src/OrchardCoreContrib.Diagnostics.Elm/OrchardCoreContrib.Diagnostics.Elm.csproj" />
+    <Project Path="src/OrchardCoreContrib.Email.Gmail/OrchardCoreContrib.Email.Gmail.csproj" />
+    <Project Path="src/OrchardCoreContrib.Email.Hotmail/OrchardCoreContrib.Email.Hotmail.csproj" />
+    <Project Path="src/OrchardCoreContrib.Email.SendGrid/OrchardCoreContrib.Email.SendGrid.csproj" />
+    <Project Path="src/OrchardCoreContrib.Email.Yahoo/OrchardCoreContrib.Email.Yahoo.csproj" />
+    <Project Path="src/OrchardCoreContrib.Garnet/OrchardCoreContrib.Garnet.csproj" />
+    <Project Path="src/OrchardCoreContrib.Gdpr/OrchardCoreContrib.Gdpr.csproj" />
+    <Project Path="src/OrchardCoreContrib.GoogleMaps/OrchardCoreContrib.GoogleMaps.csproj" />
+    <Project Path="src/OrchardCoreContrib.Gravatar/OrchardCoreContrib.Gravatar.csproj" />
+    <Project Path="src/OrchardCoreContrib.HealthChecks/OrchardCoreContrib.HealthChecks.csproj" />
+    <Project Path="src/OrchardCoreContrib.Html/OrchardCoreContrib.Html.csproj" />
+    <Project Path="src/OrchardCoreContrib.Liquid/OrchardCoreContrib.Liquid.csproj" />
+    <Project Path="src/OrchardCoreContrib.Modules.Web/OrchardCoreContrib.Modules.Web.csproj" />
+    <Project Path="src/OrchardCoreContrib.ReverseProxy.Yarp/OrchardCoreContrib.ReverseProxy.Yarp.csproj" />
+    <Project Path="src/OrchardCoreContrib.Sms.Azure/OrchardCoreContrib.Sms.Azure.csproj" />
+    <Project Path="src/OrchardCoreContrib.System/OrchardCoreContrib.System.csproj" />
+    <Project Path="src/OrchardCoreContrib.Tenants/OrchardCoreContrib.Tenants.csproj" />
+    <Project Path="src/OrchardCoreContrib.Themes.Admin/OrchardCoreContrib.Themes.Admin.csproj" />
+    <Project Path="src/OrchardCoreContrib.UserGroups/OrchardCoreContrib.UserGroups.csproj" />
+    <Project Path="src/OrchardCoreContrib.Users/OrchardCoreContrib.Users.csproj" />
+    <Project Path="src/OrchardCoreContrib.ViewCount/OrchardCoreContrib.ViewCount.csproj" />
+  </Folder>
+  <Folder Name="/test/">
+    <Project Path="test/OrchardCoreContrib.CloudflareTurnstile.Tests/OrchardCoreContrib.CloudflareTurnstile.Tests.csproj" />
+    <Project Path="test/OrchardCoreContrib.ContentPermissions.Tests/OrchardCoreContrib.ContentPermissions.Tests.csproj" />
+    <Project Path="test/OrchardCoreContrib.Garnet.Tests/OrchardCoreContrib.Garnet.Tests.csproj" />
+    <Project Path="test/OrchardCoreContrib.HealthChecks.Tests/OrchardCoreContrib.HealthChecks.Tests.csproj" />
+    <Project Path="test/OrchardCoreContrib.Modules.Tests/OrchardCoreContrib.Modules.Tests.csproj" />
+    <Project Path="test/OrchardCoreContrib.UserGroups.Tests/OrchardCoreContrib.UserGroups.Tests.csproj" />
+  </Folder>
+</Solution>
