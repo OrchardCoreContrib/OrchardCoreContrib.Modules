@@ -1,46 +1,46 @@
 <Project Sdk="Microsoft.NET.Sdk.Razor">
 
-<PropertyGroup>
-<AddRazorSupportForMvc>true</AddRazorSupportForMvc>
-<VersionPrefix>1.5.0</VersionPrefix>
-<Authors>The Orchard Core Contrib Team</Authors>
-<Company />
-<Description>Provides a list of content preview features such as page preview bar.</Description>
-<PackageReadmeFile>README.md</PackageReadmeFile>
-<PackageLicenseExpression>BSD-3-Clause</PackageLicenseExpression>
-<PackageProjectUrl>https://github.com/OrchardCoreContrib/OrchardCoreContrib.Modules/tree/main/src/OrchardCoreContrib.ContentPreview/README.md</PackageProjectUrl>
-<RepositoryUrl>https://github.com/OrchardCoreContrib/OrchardCoreContrib.Modules</RepositoryUrl>
-<RepositoryType>git</RepositoryType>
-<PublishRepositoryUrl>true</PublishRepositoryUrl>
-<PackageTags>Orchard Core, Orchard Core Contrib, Page Preview</PackageTags>
-<PackageReleaseNotes>https://github.com/OrchardCoreContrib/OrchardCoreContrib.Modules/releases</PackageReleaseNotes>
-<PackageId>OrchardCoreContrib.ContentPreview</PackageId>
-<PackageIcon>icon.png</PackageIcon>
-<Product>Orchard Core Contrib Content Preview Module</Product>
-<PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
-<Copyright>2019 Orchard Core Contrib</Copyright>
-</PropertyGroup>
+	<PropertyGroup>
+		<AddRazorSupportForMvc>true</AddRazorSupportForMvc>
+		<VersionPrefix>1.5.0</VersionPrefix>
+		<Authors>The Orchard Core Contrib Team</Authors>
+		<Company />
+		<Description>Provides a list of content preview features such as page preview bar.</Description>
+		<PackageReadmeFile>README.md</PackageReadmeFile>
+		<PackageLicenseExpression>BSD-3-Clause</PackageLicenseExpression>
+		<PackageProjectUrl>https://github.com/OrchardCoreContrib/OrchardCoreContrib.Modules/tree/main/src/OrchardCoreContrib.ContentPreview/README.md</PackageProjectUrl>
+		<RepositoryUrl>https://github.com/OrchardCoreContrib/OrchardCoreContrib.Modules</RepositoryUrl>
+		<RepositoryType>git</RepositoryType>
+		<PublishRepositoryUrl>true</PublishRepositoryUrl>
+		<PackageTags>Orchard Core, Orchard Core Contrib, Page Preview</PackageTags>
+		<PackageReleaseNotes>https://github.com/OrchardCoreContrib/OrchardCoreContrib.Modules/releases</PackageReleaseNotes>
+		<PackageId>OrchardCoreContrib.ContentPreview</PackageId>
+		<PackageIcon>icon.png</PackageIcon>
+		<Product>Orchard Core Contrib Content Preview Module</Product>
+		<PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
+		<Copyright>2019 Orchard Core Contrib</Copyright>
+	</PropertyGroup>
 
-<ItemGroup>
-<FrameworkReference Include="Microsoft.AspNetCore.App" />
-</ItemGroup>
+	<ItemGroup>
+		<FrameworkReference Include="Microsoft.AspNetCore.App" />
+	</ItemGroup>
 
-<ItemGroup>
-<None Include="../../images/icon.png" Pack="true" PackagePath="icon.png" />
-<None Include="README.md" Pack="true" PackagePath="\" />
-</ItemGroup>
+	<ItemGroup>
+		<None Include="../../images/icon.png" Pack="true" PackagePath="icon.png" />
+		<None Include="README.md" Pack="true" PackagePath="\" />
+	</ItemGroup>
 
-<ItemGroup>
-<PackageReference Include="OrchardCore.Admin.Abstractions" />
-<PackageReference Include="OrchardCore.DisplayManagement" />
-<PackageReference Include="OrchardCore.Module.Targets" />
-<PackageReference Include="OrchardCore.ResourceManagement" />
-<PackageReference Include="OrchardCore.Users.Abstractions" />
-</ItemGroup>
+	<ItemGroup>
+		<PackageReference Include="OrchardCore.Admin.Abstractions" />
+		<PackageReference Include="OrchardCore.DisplayManagement" />
+		<PackageReference Include="OrchardCore.Module.Targets" />
+		<PackageReference Include="OrchardCore.ResourceManagement" />
+		<PackageReference Include="OrchardCore.Users.Abstractions" />
+	</ItemGroup>
 
-<ItemGroup>
-<ProjectReference Include="..\..\OrchardCoreContrib\src\OrchardCoreContrib.Abstractions\OrchardCoreContrib.Abstractions.csproj" />
-<ProjectReference Include="..\..\OrchardCoreContrib\src\OrchardCoreContrib.Infrastructure.Abstractions\OrchardCoreContrib.Infrastructure.Abstractions.csproj" />
-</ItemGroup>
+	<ItemGroup>
+		<ProjectReference Include="..\..\OrchardCoreContrib\src\OrchardCoreContrib.Abstractions\OrchardCoreContrib.Abstractions.csproj" />
+		<ProjectReference Include="..\..\OrchardCoreContrib\src\OrchardCoreContrib.Infrastructure.Abstractions\OrchardCoreContrib.Infrastructure.Abstractions.csproj" />
+	</ItemGroup>
 
 </Project>
