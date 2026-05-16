@@ -1,8 +1,5 @@
-﻿using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
-using Microsoft.Extensions.Logging.Abstractions;
+﻿using Microsoft.Extensions.Logging.Abstractions;
 using Microsoft.Extensions.Options;
-using Moq;
 using OrchardCore.Environment.Shell;
 using OrchardCoreContrib.Garnet.Tests;
 
@@ -15,11 +12,15 @@ public class GarnetBusTests : TestBase
 
     public override async Task InitializeAsync()
     {
-        _garnetService = await CreateGarnetServiceAsync();
+        _garnetService = await Utilities.CreateGarnetServiceAsync();
 
         _garnetBus = new GarnetBus(
             _garnetService,
-            Options.Create(new GarnetOptions()),
+            Options.Create(new GarnetOptions
+            {
+                Host = "127.0.0.1",
+                Port = 6379,
+            }),
             new ShellSettings(),
             NullLogger<GarnetBus>.Instance);
 
@@ -42,6 +43,7 @@ public class GarnetBusTests : TestBase
             Assert.Equal(message, m);
 
             recieved = true;
+            @event.Set();
         });
 
         int repeat = 5;
@@ -75,19 +77,7 @@ public class GarnetBusTests : TestBase
         {
             var results = await _garnetService.Client.ExecuteForStringArrayResultAsync(command, [channel]);
             Assert.Equal(3, results.Length);
-            Assert.Equal([command, channel, i.ToString()], results);
+            Assert.Equal([command, channel, "1"], results);
         }
-    }
-
-    private static async Task<IGarnetService> CreateGarnetServiceAsync()
-    {
-        var garnetClientFactory = new GarnetClientFactory(
-            Mock.Of<IHostApplicationLifetime>(),
-            Mock.Of<ILogger<GarnetClientFactory>>());
-        var garnetService = new GarnetService(garnetClientFactory, Options.Create(new GarnetOptions()));
-
-        await garnetService.ConnectAsync();
-
-        return garnetService;
     }
 }

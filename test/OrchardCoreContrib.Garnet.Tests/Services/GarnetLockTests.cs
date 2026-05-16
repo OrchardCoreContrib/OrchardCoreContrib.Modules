@@ -14,7 +14,11 @@ public class GarnetLockTests : TestBase
 
     public override async Task InitializeAsync()
     {
-        _garnetOptions = Options.Create(new GarnetOptions());
+        _garnetOptions = Options.Create(new GarnetOptions
+        {
+            Host = "127.0.0.1",
+            Port = 6379,
+        });
 
         _shellSettings = new ShellSettings
         {
