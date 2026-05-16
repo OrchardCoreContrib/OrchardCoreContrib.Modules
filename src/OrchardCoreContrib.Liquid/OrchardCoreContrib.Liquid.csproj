@@ -31,8 +31,15 @@
 
 	<ItemGroup>
 		<PackageReference Include="OrchardCore.Module.Targets" />
-		<PackageReference Include="OrchardCoreContrib.Abstractions" />
-		<PackageReference Include="OrchardCoreContrib.DisplayManagement.Liquid" />
+		<PackageReference Include="OrchardCoreContrib.Abstractions" Condition="'$(IsLocalProject)' != 'true'" />
+		<PackageReference Include="OrchardCoreContrib.DisplayManagement.Liquid" Condition="'$(IsLocalProject)' != 'true'" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="$(OrchardCoreContribPath)\OrchardCoreContrib.Abstractions\OrchardCoreContrib.Abstractions.csproj"
+						  Condition="'$(IsLocalProject)' == 'true'" />
+		<ProjectReference Include="$(OrchardCoreContribPath)\OrchardCoreContrib.DisplayManagement.Liquid\OrchardCoreContrib.DisplayManagement.Liquid.csproj"
+						  Condition="'$(IsLocalProject)' == 'true'" />
 	</ItemGroup>
 
 </Project>
