@@ -33,7 +33,7 @@
 	<ItemGroup>
 		<PackageReference Include="OrchardCore.Module.Targets" />
 		<PackageReference Include="OrchardCore.Users" />
-		<PackageReference Include="SixLabors.ImageSharp.Drawing" />
+		<!--<PackageReference Include="SixLabors.ImageSharp.Drawing" />-->
 		<PackageReference Include="OrchardCoreContrib.Abstractions" />
 		<PackageReference Include="OrchardCoreContrib.Navigation.Core" />
 	</ItemGroup>

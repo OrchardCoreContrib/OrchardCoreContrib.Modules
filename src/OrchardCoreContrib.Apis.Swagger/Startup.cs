@@ -19,7 +19,7 @@ public class Startup : StartupBase
         services.AddTransient<IOpenApiDefinition>(sp => swaggerApiDefinition);
 
         services.AddSwaggerGen(options =>
-            options.SwaggerDoc(swaggerApiDefinition.Version, swaggerApiDefinition.Info));
+            options.SwaggerDoc(swaggerApiDefinition.Version, null));
     }
 
     /// <inheritdoc/>

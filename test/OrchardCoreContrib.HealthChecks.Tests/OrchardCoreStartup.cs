@@ -37,7 +37,11 @@ public class OrchardCoreStartup(IConfiguration configuration)
             ForwardedHeaders = ForwardedHeaders.XForwardedFor
         };
 
+#if NET10_0
+        forwardedHeadersOptions.KnownIPNetworks.Clear();
+#else
         forwardedHeadersOptions.KnownNetworks.Clear();
+#endif
         forwardedHeadersOptions.KnownProxies.Clear();
 
         app.UseForwardedHeaders(forwardedHeadersOptions);
