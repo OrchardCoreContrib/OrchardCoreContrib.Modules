@@ -26,11 +26,6 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<None Include="../../images/icon.png" Pack="true" PackagePath="\" />
-		<None Include="README.md" Pack="true" PackagePath="\"/>
-	</ItemGroup>
-
-	<ItemGroup>
 		<PackageReference Include="Microsoft.Extensions.Http.Resilience" />
 		<PackageReference Include="OrchardCore.Module.Targets" />
 		<PackageReference Include="OrchardCore.ContentManagement" />
@@ -38,8 +33,20 @@
 		<PackageReference Include="OrchardCore.DisplayManagement" />
 		<PackageReference Include="OrchardCore.ResourceManagement" />
 		<PackageReference Include="OrchardCore.Users.Core" />
-		<PackageReference Include="OrchardCoreContrib.Abstractions" />
-		<PackageReference Include="OrchardCoreContrib.Navigation.Core" />
+		<PackageReference Include="OrchardCoreContrib.Abstractions" Condition="'$(IsLocalProject)' != 'true'" />
+		<PackageReference Include="OrchardCoreContrib.Navigation.Core" Condition="'$(IsLocalProject)' != 'true'" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="$(OrchardCoreContribPath)\OrchardCoreContrib.Abstractions\OrchardCoreContrib.Abstractions.csproj"
+						  Condition="'$(IsLocalProject)' == 'true'" />
+		<ProjectReference Include="$(OrchardCoreContribPath)\OrchardCoreContrib.Navigation.Core\OrchardCoreContrib.Navigation.Core.csproj"
+						  Condition="'$(IsLocalProject)' == 'true'" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<None Include="../../images/icon.png" Pack="true" PackagePath="\" />
+		<None Include="README.md" Pack="true" PackagePath="\"/>
 	</ItemGroup>
 
 </Project>

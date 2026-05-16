@@ -35,7 +35,12 @@
 		<PackageReference Include="OrchardCore.ContentManagement" />
 		<PackageReference Include="OrchardCore.DisplayManagement" />
 		<PackageReference Include="OrchardCore.Html" />
-		<PackageReference Include="OrchardCoreContrib.Abstractions" />
+		<PackageReference Include="OrchardCoreContrib.Abstractions" Condition="'$(IsLocalProject)' != 'true'" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="$(OrchardCoreContribPath)\OrchardCoreContrib.Abstractions\OrchardCoreContrib.Abstractions.csproj"
+						  Condition="'$(IsLocalProject)' == 'true'" />
 	</ItemGroup>
 
 </Project>

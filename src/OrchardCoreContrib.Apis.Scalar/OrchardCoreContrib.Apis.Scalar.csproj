@@ -30,10 +30,17 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<PackageReference Include="OrchardCoreContrib.OpenApi.Abstractions" />
-		<PackageReference Include="OrchardCoreContrib.Abstractions" />
+		<PackageReference Include="OrchardCoreContrib.OpenApi.Abstractions" Condition="'$(IsLocalProject)' != 'true'" />
+		<PackageReference Include="OrchardCoreContrib.Abstractions" Condition="'$(IsLocalProject)' != 'true'" />
 		<PackageReference Include="OrchardCore.Module.Targets" />
 		<PackageReference Include="Scalar.AspNetCore" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="$(OrchardCoreContribPath)\OrchardCoreContrib.OpenApi.Abstractions\OrchardCoreContrib.OpenApi.Abstractions.csproj"
+						  Condition="'$(IsLocalProject)' == 'true'" />
+		<ProjectReference Include="$(OrchardCoreContribPath)\OrchardCoreContrib.Abstractions\OrchardCoreContrib.Abstractions.csproj"
+						  Condition="'$(IsLocalProject)' == 'true'" />
 	</ItemGroup>
 
 </Project>

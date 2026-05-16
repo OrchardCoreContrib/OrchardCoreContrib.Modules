@@ -24,17 +24,25 @@
 		<FrameworkReference Include="Microsoft.AspNetCore.App" />
 	</ItemGroup>
 
-	<ItemGroup>
-		<None Include="../../images/icon.png" Pack="true" PackagePath="icon.png" />
-		<None Include="README.md" Pack="true" PackagePath="\"/>
-	</ItemGroup>
 
 	<ItemGroup>
 		<PackageReference Include="OrchardCore.Module.Targets" />
-		<PackageReference Include="OrchardCoreContrib.Abstractions" />
-		<PackageReference Include="OrchardCoreContrib.OpenApi.Abstractions" />
+		<PackageReference Include="OrchardCoreContrib.Abstractions" Condition="'$(IsLocalProject)' != 'true'" />
+		<PackageReference Include="OrchardCoreContrib.OpenApi.Abstractions" Condition="'$(IsLocalProject)' != 'true'" />
 		<PackageReference Include="Swashbuckle.AspNetCore" />
 		<PackageReference Include="Swashbuckle.AspNetCore.Swagger" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="$(OrchardCoreContribPath)\OrchardCoreContrib.Abstractions\OrchardCoreContrib.Abstractions.csproj"
+						  Condition="'$(IsLocalProject)' == 'true'" />
+		<ProjectReference Include="$(OrchardCoreContribPath)\OrchardCoreContrib.OpenApi.Abstractions\OrchardCoreContrib.OpenApi.Abstractions.csproj"
+						  Condition="'$(IsLocalProject)' == 'true'" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<None Include="../../images/icon.png" Pack="true" PackagePath="icon.png" />
+		<None Include="README.md" Pack="true" PackagePath="\"/>
 	</ItemGroup>
 
 </Project>
