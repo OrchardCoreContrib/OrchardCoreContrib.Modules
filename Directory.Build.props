@@ -3,8 +3,16 @@
 		<TargetFrameworks>net8.0;net10.0</TargetFrameworks>
 		<LangVersion>latest</LangVersion>
 		<ImplicitUsings>enable</ImplicitUsings>
+		<Nullable>disable</Nullable>
+		<!--<TreatWarningsAsErrors>true</TreatWarningsAsErrors>-->
+		<EnforceCodeStyleInBuild>true</EnforceCodeStyleInBuild>
 		<AccelerateBuildsInVisualStudio>true</AccelerateBuildsInVisualStudio>
+		<ManagePackageVersionsCentrally>true</ManagePackageVersionsCentrally>
 		<NoWarn>NU1507</NoWarn>
-		<!--<GeneratePackageOnBuild>true</GeneratePackageOnBuild>-->
+
+		<SolutionParentDir>$([System.IO.Path]::GetFullPath('$(SolutionDir)..\'))</SolutionParentDir>
+		<OrchardCoreVersion>2.2.1</OrchardCoreVersion>
+		<OrchardCoreContribPath>$(SolutionParentDir)OrchardCoreContrib\src</OrchardCoreContribPath>
+		<IsLocalProject>false</IsLocalProject>
 	</PropertyGroup>
 </Project>

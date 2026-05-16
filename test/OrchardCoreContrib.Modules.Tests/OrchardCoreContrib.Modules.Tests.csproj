@@ -1,37 +1,37 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
-  <PropertyGroup>
-    <UserSecretsId>8471ee66-1e1d-4acf-8ea8-5e03556514b0</UserSecretsId>
-  </PropertyGroup>
+	<PropertyGroup>
+		<UserSecretsId>8471ee66-1e1d-4acf-8ea8-5e03556514b0</UserSecretsId>
+	</PropertyGroup>
 
-  <ItemGroup>
-    <PackageReference Include="Microsoft.Extensions.Caching.Memory" />
-    <PackageReference Include="Microsoft.Extensions.Configuration.UserSecrets" />
-    <PackageReference Include="Microsoft.NET.Test.Sdk" />
-    <PackageReference Include="Moq" />
-    <PackageReference Include="xunit" />
-    <PackageReference Include="xunit.runner.visualstudio">
-      <PrivateAssets>all</PrivateAssets>
-      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
-    </PackageReference>
-    <PackageReference Include="coverlet.collector">
-      <PrivateAssets>all</PrivateAssets>
-      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
-    </PackageReference>
-  </ItemGroup>
+	<ItemGroup>
+		<PackageReference Include="Microsoft.Extensions.Caching.Memory" />
+		<PackageReference Include="Microsoft.Extensions.Configuration.UserSecrets" />
+		<PackageReference Include="Microsoft.NET.Test.Sdk" />
+		<PackageReference Include="Moq" />
+		<PackageReference Include="xunit" />
+		<PackageReference Include="xunit.runner.visualstudio">
+			<PrivateAssets>all</PrivateAssets>
+			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+		</PackageReference>
+		<PackageReference Include="coverlet.collector">
+			<PrivateAssets>all</PrivateAssets>
+			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+		</PackageReference>
+	</ItemGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\..\src\OrchardCoreContrib.ContentLocalization\OrchardCoreContrib.ContentLocalization.csproj" />
-    <ProjectReference Include="..\..\src\OrchardCoreContrib.Email.Gmail\OrchardCoreContrib.Email.Gmail.csproj" />
-    <ProjectReference Include="..\..\src\OrchardCoreContrib.Email.Hotmail\OrchardCoreContrib.Email.Hotmail.csproj" />
-    <ProjectReference Include="..\..\src\OrchardCoreContrib.Email.SendGrid\OrchardCoreContrib.Email.SendGrid.csproj" />
-    <ProjectReference Include="..\..\src\OrchardCoreContrib.Email.Yahoo\OrchardCoreContrib.Email.Yahoo.csproj" />
-  </ItemGroup>
+	<ItemGroup>
+		<ProjectReference Include="..\..\src\OrchardCoreContrib.ContentLocalization\OrchardCoreContrib.ContentLocalization.csproj" />
+		<ProjectReference Include="..\..\src\OrchardCoreContrib.Email.Gmail\OrchardCoreContrib.Email.Gmail.csproj" />
+		<ProjectReference Include="..\..\src\OrchardCoreContrib.Email.Hotmail\OrchardCoreContrib.Email.Hotmail.csproj" />
+		<ProjectReference Include="..\..\src\OrchardCoreContrib.Email.SendGrid\OrchardCoreContrib.Email.SendGrid.csproj" />
+		<ProjectReference Include="..\..\src\OrchardCoreContrib.Email.Yahoo\OrchardCoreContrib.Email.Yahoo.csproj" />
+	</ItemGroup>
 
-  <ItemGroup>
-    <None Update="appsettings.json">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-  </ItemGroup>
+	<ItemGroup>
+		<None Update="appsettings.json">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</None>
+	</ItemGroup>
 
 </Project>
