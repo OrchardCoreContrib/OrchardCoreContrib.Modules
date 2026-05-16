@@ -18,7 +18,7 @@ public static class Utilities
             Options.Create(new GarnetOptions
             {
                 Host = "127.0.0.1",
-                Port = 6379,
+                Port = TestBase.Port,
             }));
 
         for (var attempt = 1; attempt <= 10 && garnetService.Client is null; attempt++)
