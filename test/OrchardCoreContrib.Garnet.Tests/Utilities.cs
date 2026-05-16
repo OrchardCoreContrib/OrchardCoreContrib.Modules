@@ -13,9 +13,28 @@ public static class Utilities
         var garnetClientFactory = new GarnetClientFactory(
             Mock.Of<IHostApplicationLifetime>(),
             Mock.Of<ILogger<GarnetClientFactory>>());
-        var garnetService = new GarnetService(garnetClientFactory, Options.Create(new GarnetOptions()));
+        var garnetService = new GarnetService(
+            garnetClientFactory,
+            Options.Create(new GarnetOptions
+            {
+                Host = "127.0.0.1",
+                Port = 6379,
+            }));
 
-        await garnetService.ConnectAsync();
+        for (var attempt = 1; attempt <= 10 && garnetService.Client is null; attempt++)
+        {
+            await garnetService.ConnectAsync();
+
+            if (garnetService.Client is null)
+            {
+                await Task.Delay(TimeSpan.FromMilliseconds(100 * attempt));
+            }
+        }
+
+        if (garnetService.Client is null)
+        {
+            throw new InvalidOperationException("Unable to create a connected Garnet client for tests.");
+        }
 
         return garnetService;
     }

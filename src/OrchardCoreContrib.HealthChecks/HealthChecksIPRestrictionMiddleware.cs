@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
+using System.Net;
 
 namespace OrchardCoreContrib.HealthChecks;
 
@@ -24,8 +25,28 @@ public class HealthChecksIPRestrictionMiddleware(
     {
         if (context.Request.Path.Equals(_healthChecksOptions.Url))
         {
-            var remoteIP = context.Connection.RemoteIpAddress?.ToString();
-            if (!healthChecksAccessOptions.Value.AllowedIPs.Contains(remoteIP))
+            var remoteIPAddress = context.Connection.RemoteIpAddress;
+            var remoteIP = remoteIPAddress?.ToString();
+
+            var isAllowed = healthChecksAccessOptions.Value.AllowedIPs.Any(allowedIp =>
+            {
+                if (!IPAddress.TryParse(allowedIp, out var allowedIPAddress))
+                {
+                    return string.Equals(allowedIp, remoteIP, StringComparison.OrdinalIgnoreCase);
+                }
+
+                var normalizedAllowed = allowedIPAddress.IsIPv4MappedToIPv6
+                    ? allowedIPAddress.MapToIPv4()
+                    : allowedIPAddress;
+
+                var normalizedRemote = remoteIPAddress?.IsIPv4MappedToIPv6 == true
+                    ? remoteIPAddress.MapToIPv4()
+                    : remoteIPAddress;
+
+                return normalizedAllowed.Equals(normalizedRemote);
+            });
+
+            if (!isAllowed)
             {
                 logger.LogWarning("Unauthorized IP {IP} tried to access {HealthCheckEndpoint}.", remoteIP, _healthChecksOptions.Url);
 

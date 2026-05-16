@@ -11,7 +11,7 @@ namespace OrchardCoreContrib.HealthChecks;
 /// </summary>
 public class HealthChecksBlockingRateLimitingMiddleware
 {
-    private static readonly ConcurrentDictionary<string, DateTime> _blockedIPs = new();
+    private readonly ConcurrentDictionary<string, DateTime> _blockedIPs = new();
 
     private readonly RequestDelegate _next;
     private readonly HealthChecksOptions _healthChecksOptions;
