@@ -19,7 +19,7 @@ public class GarnetBusTests : TestBase
             Options.Create(new GarnetOptions
             {
                 Host = "127.0.0.1",
-                Port = 6379,
+                Port = TestBase.Port,
             }),
             new ShellSettings(),
             NullLogger<GarnetBus>.Instance);

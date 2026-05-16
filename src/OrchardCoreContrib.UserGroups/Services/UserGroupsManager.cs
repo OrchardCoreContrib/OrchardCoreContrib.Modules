@@ -13,6 +13,11 @@ namespace OrchardCoreContrib.UserGroups.Services;
 /// <param name="S">The <see cref="IStringLocalizer{UserGroupDocument}"/>.</param>
 public class UserGroupsManager(IDocumentManager<UserGroupDocument> documentManager, IStringLocalizer<UserGroupsManager> S)
 {
+    // Characters that are invalid in group names, supplemented with characters that are
+    // invalid on Windows but valid on Linux (e.g. '|', '?') to ensure cross-platform consistency.
+    private static readonly char[] _invalidNameChars =
+        [.. Path.GetInvalidPathChars().Union(['|', '<', '>', '"', '?', '*', ':'])];
+
     /// <summary>
     /// Creates a new user group.
     /// </summary>
@@ -21,8 +26,7 @@ public class UserGroupsManager(IDocumentManager<UserGroupDocument> documentManag
     {
         Guard.ArgumentNotNull(userGroup, nameof(userGroup));
         
-        var invalidChars = Path.GetInvalidPathChars();
-        if (userGroup.Name.ToArray().Intersect(invalidChars).Any())
+        if (userGroup.Name.ToArray().Intersect(_invalidNameChars).Any())
         {
             return IdentityResult.Failed(new IdentityError
             {
