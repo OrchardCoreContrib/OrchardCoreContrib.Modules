@@ -1,10 +1,10 @@
 ﻿<Project>
 	<PropertyGroup>
-		<TargetFramework>net8.0</TargetFramework>
+		<TargetFrameworks>net8.0;net10.0</TargetFrameworks>
 		<LangVersion>latest</LangVersion>
 		<ImplicitUsings>enable</ImplicitUsings>
-		<Nullable>disable</Nullable>
 		<AccelerateBuildsInVisualStudio>true</AccelerateBuildsInVisualStudio>
 		<NoWarn>NU1507</NoWarn>
+		<!--<GeneratePackageOnBuild>true</GeneratePackageOnBuild>-->
 	</PropertyGroup>
 </Project>

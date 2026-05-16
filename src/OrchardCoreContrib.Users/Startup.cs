@@ -78,8 +78,9 @@ public class UserAvatarStartup(IShellConfiguration shellConfiguration) : Startup
     /// <inheritdoc/>
     public override void ConfigureServices(IServiceCollection services)
     {
-        services.AddScoped<IAvatarService, AvatarService>();
-        
+        // UNCOMMENT the following line once we supply a license for the ImageSharp library. For now, we don't want to add a dependency on it.
+        //services.AddScoped<IAvatarService, AvatarService>();
+
         services.Configure<AvatarOptions>(shellConfiguration.GetSection("OrchardCoreContrib_Users_AvatarOptions"));
     }
 }
