@@ -10,7 +10,7 @@ namespace OrchardCoreContrib.ViewCount.Models;
 public class ViewCountPart : ContentPart
 {
     /// <summary>
-    /// Gets or sets the number of items contained in the collection.
+    /// Gets or sets the number of views recorded for the content item.
     /// </summary>
     public int Count { get; set; }
 }
