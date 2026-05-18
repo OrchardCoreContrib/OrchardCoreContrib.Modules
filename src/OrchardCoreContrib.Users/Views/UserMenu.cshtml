@@ -1,16 +1,16 @@
 @using OrchardCore.Modules
 @using OrchardCore.Users
-@using OrchardCoreContrib.Users.Services;
+@using OrchardCoreContrib.Avatars
 @using Microsoft.AspNetCore.Authorization
 @using System.Security.Claims
 
 @inject IAuthorizationService AuthorizationService
-@inject IAvatarService AvatarService
+@inject IAvatarProvider AvatarProvider
 @attribute [Feature("OrchardCoreContrib.Users.Avatar")]
 @{
     var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
 
-    var avatar = AvatarService.Generate(User.Identity.Name);
+    var avatar = AvatarProvider.GetAvatar(new AvatarContext { DisplayName = User.Identity.Name });
 }
 
 <div class="dropdown">
