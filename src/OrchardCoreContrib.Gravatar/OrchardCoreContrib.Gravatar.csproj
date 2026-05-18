@@ -26,22 +26,25 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<None Include="../../images/icon.png" Pack="true" PackagePath="icon.png" />
-		<None Include="README.md" Pack="true" PackagePath="\"/>
-	</ItemGroup>
-
-	<ItemGroup>
 		<PackageReference Include="OrchardCore.Module.Targets" />
 		<PackageReference Include="OrchardCore.Users" />
 		<PackageReference Include="OrchardCoreContrib.Abstractions" Condition="'$(IsLocalProject)' != 'true'" />
+		<PackageReference Include="OrchardCoreContrib.Avatars.Abstractions" Condition="'$(IsLocalProject)' != 'true'" />
 		<PackageReference Include="OrchardCoreContrib.Infrastructure.Abstractions" Condition="'$(IsLocalProject)' != 'true'" />
 	</ItemGroup>
 
 	<ItemGroup>
 		<ProjectReference Include="$(OrchardCoreContribPath)\OrchardCoreContrib.Abstractions\OrchardCoreContrib.Abstractions.csproj"
 						  Condition="'$(IsLocalProject)' == 'true'" />
+		<ProjectReference Include="$(OrchardCoreContribPath)\OrchardCoreContrib.Avatars.Abstractions\OrchardCoreContrib.Avatars.Abstractions.csproj"
+						  Condition="'$(IsLocalProject)' == 'true'" />
 		<ProjectReference Include="$(OrchardCoreContribPath)\OrchardCoreContrib.Infrastructure.Abstractions\OrchardCoreContrib.Infrastructure.Abstractions.csproj"
 						  Condition="'$(IsLocalProject)' == 'true'" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<None Include="../../images/icon.png" Pack="true" PackagePath="icon.png" />
+		<None Include="README.md" Pack="true" PackagePath="\"/>
 	</ItemGroup>
 
 </Project>

@@ -1,11 +1,11 @@
 ﻿using Fluid;
 using Fluid.Values;
 using OrchardCore.Liquid;
-using OrchardCoreContrib.Gravatar.Services;
+using OrchardCoreContrib.Avatars;
 
 namespace OrchardCoreContrib.Gravatar.Liquid;
 
-public class GravatarFilter(IGravatarService gravatarService) : ILiquidFilter
+public class GravatarFilter(IAvatarService avatarService) : ILiquidFilter
 {
     public ValueTask<FluidValue> ProcessAsync(FluidValue input, FilterArguments arguments, LiquidTemplateContext context)
     {
@@ -23,7 +23,7 @@ public class GravatarFilter(IGravatarService gravatarService) : ILiquidFilter
                 size = (int)arguments["size"].ToNumberValue();
             }
             
-            var gravatarUrl = gravatarService.GetAvatarUrl(email, size);
+            var gravatarUrl = avatarService.GetAvatar(new AvatarContext { Email = email }, size);
 
             return FluidValue.Create(gravatarUrl, context.Options);
         }

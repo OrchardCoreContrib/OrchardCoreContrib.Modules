@@ -1,24 +1,25 @@
 ﻿using Microsoft.Extensions.Options;
+using OrchardCoreContrib.Avatars;
 using OrchardCoreContrib.Infrastructure;
-using System.ComponentModel.DataAnnotations;
 using System.Security.Cryptography;
 using System.Text;
 
 namespace OrchardCoreContrib.Gravatar.Services;
 
-public class GravatarService(IOptions<GravatarOptions> gravatarOptions) : IGravatarService
+public class GravatarService(IOptions<GravatarOptions> gravatarOptions) : IAvatarService
 {
     private const string GravatarUrl = "http://www.gravatar.com/avatar/";
 
     private readonly GravatarOptions _gravatarOptions = gravatarOptions.Value;
 
-    public string GetAvatarUrl(string email, [Range(1, 512)] int size = GravatarConstants.DefaultSize)
+    public string GetAvatar(AvatarContext context, int size = 80)
     {
-        Guard.ArgumentNotNullOrEmpty(email, nameof(email));
+        Guard.ArgumentNotNull(context, nameof(context));
+        Guard.ArgumentNotNullOrEmpty(context.Email, nameof(context.Email));
 
-        var hash = ComputeHash(email);
+        var hash = ComputeHash(context.Email);
 
-        var gravatarImageUrl = $"{GravatarUrl}{hash}?s={size}&r={_gravatarOptions.Rating}";
+        var gravatarImageUrl = $"{GravatarUrl}{hash}?s={size}&r={_gravatarOptions.Rating.ToString().ToLower()}";
 
         if (!String.IsNullOrEmpty(_gravatarOptions.DefaultImage))
         {

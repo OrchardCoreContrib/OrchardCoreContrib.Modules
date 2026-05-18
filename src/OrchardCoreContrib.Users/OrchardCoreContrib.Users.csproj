@@ -26,16 +26,23 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<None Include="../../images/icon.png" Pack="true" PackagePath="icon.png" />
-		<None Include="README.md" Pack="true" PackagePath="\"/>
+		<PackageReference Include="OrchardCore.Module.Targets" />
+		<PackageReference Include="OrchardCore.Users" />
+		<PackageReference Include="OrchardCoreContrib.Abstractions" />
+		<PackageReference Include="OrchardCoreContrib.Avatars.Abstractions" Condition="'$(IsLocalProject)' != 'true'" />
+		<PackageReference Include="OrchardCoreContrib.Infrastructure.Abstractions" />
+		<PackageReference Include="OrchardCoreContrib.Navigation.Core" />
+		<PackageReference Include="SkiaSharp" />
 	</ItemGroup>
 
 	<ItemGroup>
-		<PackageReference Include="OrchardCore.Module.Targets" />
-		<PackageReference Include="OrchardCore.Users" />
-		<!--<PackageReference Include="SixLabors.ImageSharp.Drawing" />-->
-		<PackageReference Include="OrchardCoreContrib.Abstractions" />
-		<PackageReference Include="OrchardCoreContrib.Navigation.Core" />
+		<ProjectReference Include="$(OrchardCoreContribPath)\OrchardCoreContrib.Avatars.Abstractions\OrchardCoreContrib.Avatars.Abstractions.csproj"
+						  Condition="'$(IsLocalProject)' == 'true'" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<None Include="../../images/icon.png" Pack="true" PackagePath="icon.png" />
+		<None Include="README.md" Pack="true" PackagePath="\"/>
 	</ItemGroup>
 
 </Project>
