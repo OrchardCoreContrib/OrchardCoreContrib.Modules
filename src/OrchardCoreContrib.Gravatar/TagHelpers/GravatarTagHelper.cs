@@ -1,11 +1,11 @@
 ﻿using Microsoft.AspNetCore.Razor.TagHelpers;
-using OrchardCoreContrib.Gravatar.Services;
+using OrchardCoreContrib.Avatars;
 using System.ComponentModel.DataAnnotations;
 
 namespace OrchardCoreContrib.Gravatar.TagHelpers;
 
 [HtmlTargetElement("gravatar", TagStructure = TagStructure.NormalOrSelfClosing)]
-public class GravatarTagHelper(IGravatarService gravatarService) : TagHelper
+public class GravatarTagHelper(IAvatarService avatarService) : TagHelper
 {
     public string Email { get; set; }
 
@@ -16,7 +16,7 @@ public class GravatarTagHelper(IGravatarService gravatarService) : TagHelper
     {
         output.TagName = "img";
 
-        var avatarUrl = gravatarService.GetAvatarUrl(Email, Size);
+        var avatarUrl = avatarService.GetAvatar(new AvatarContext { Email = Email }, Size);
 
         output.Attributes.Add("src", avatarUrl);
     }
