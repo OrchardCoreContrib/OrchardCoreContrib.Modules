@@ -2,6 +2,7 @@
 using OrchardCore.Environment.Shell.Configuration;
 using OrchardCore.Liquid;
 using OrchardCore.Modules;
+using OrchardCoreContrib.Avatars;
 using OrchardCoreContrib.Gravatar.Liquid;
 using OrchardCoreContrib.Gravatar.Services;
 using OrchardCoreContrib.Gravatar.TagHelpers;
@@ -16,7 +17,7 @@ public class Startup(IShellConfiguration shellConfiguration) : StartupBase
     /// <inheritdoc/>
     public override void ConfigureServices(IServiceCollection services)
     {
-        services.AddScoped<IGravatarService, GravatarService>();
+        services.AddScoped<IAvatarService, GravatarService>();
 
         services.AddTagHelpers<GravatarTagHelper>();
 
