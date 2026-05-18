@@ -42,6 +42,7 @@
     <Project Path="test/OrchardCoreContrib.CloudflareTurnstile.Tests/OrchardCoreContrib.CloudflareTurnstile.Tests.csproj" />
     <Project Path="test/OrchardCoreContrib.ContentPermissions.Tests/OrchardCoreContrib.ContentPermissions.Tests.csproj" />
     <Project Path="test/OrchardCoreContrib.Garnet.Tests/OrchardCoreContrib.Garnet.Tests.csproj" />
+    <Project Path="test/OrchardCoreContrib.Gravatar.Tests/OrchardCoreContrib.Gravatar.Tests.csproj" Id="816919f8-fb8f-4c70-adcc-0a7f71a5180c" />
     <Project Path="test/OrchardCoreContrib.HealthChecks.Tests/OrchardCoreContrib.HealthChecks.Tests.csproj" />
     <Project Path="test/OrchardCoreContrib.Modules.Tests/OrchardCoreContrib.Modules.Tests.csproj" />
     <Project Path="test/OrchardCoreContrib.UserGroups.Tests/OrchardCoreContrib.UserGroups.Tests.csproj" />
