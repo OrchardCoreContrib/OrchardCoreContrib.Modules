@@ -2,7 +2,7 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Routing;
 using Microsoft.Extensions.DependencyInjection;
 using OrchardCore.Modules;
-using OrchardCoreContrib.OpenApi.Abstractions;
+using OrchardCoreContrib.OpenApi;
 using Scalar.AspNetCore;
 
 namespace OrchardCoreContrib.Apis.Scalar;

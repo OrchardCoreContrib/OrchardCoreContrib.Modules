@@ -23,22 +23,14 @@
 	<ItemGroup>
 		<PackageReference Include="OrchardCore.Infrastructure.Abstractions" />
 		<PackageReference Include="OrchardCore.Module.Targets" />
-		<PackageReference Include="OrchardCoreContrib.Abstractions" Condition="'$(IsLocalProject)' != 'true'" />
-		<PackageReference Include="OrchardCoreContrib.Garnet.Abstractions" Condition="'$(IsLocalProject)' != 'true'" />
-		<PackageReference Include="OrchardCoreContrib.HealthChecks.Abstractions" Condition="'$(IsLocalProject)' != 'true'" />
-		<PackageReference Include="OrchardCoreContrib.Infrastructure.Abstractions" Condition="'$(IsLocalProject)' != 'true'" />
 		<PackageReference Include="StackExchange.Redis" />
 	</ItemGroup>
 
 	<ItemGroup>
-		<ProjectReference Include="$(OrchardCoreContribPath)\OrchardCoreContrib.Abstractions\OrchardCoreContrib.Abstractions.csproj"
-						  Condition="'$(IsLocalProject)' == 'true'" />
-		<ProjectReference Include="$(OrchardCoreContribPath)\OrchardCoreContrib.Garnet.Abstractions\OrchardCoreContrib.Garnet.Abstractions.csproj"
-						  Condition="'$(IsLocalProject)' == 'true'" />
-		<ProjectReference Include="$(OrchardCoreContribPath)\OrchardCoreContrib.HealthChecks.Abstractions\OrchardCoreContrib.HealthChecks.Abstractions.csproj"
-						  Condition="'$(IsLocalProject)' == 'true'" />
-		<ProjectReference Include="$(OrchardCoreContribPath)\OrchardCoreContrib.Infrastructure.Abstractions\OrchardCoreContrib.Infrastructure.Abstractions.csproj"
-						  Condition="'$(IsLocalProject)' == 'true'" />
+		<ProjectReference Include="../../OrchardCoreContrib/src/OrchardCoreContrib.Abstractions\OrchardCoreContrib.Abstractions.csproj" />
+		<ProjectReference Include="../../OrchardCoreContrib/src/OrchardCoreContrib.Garnet.Abstractions\OrchardCoreContrib.Garnet.Abstractions.csproj" />
+		<ProjectReference Include="../../OrchardCoreContrib/src/OrchardCoreContrib.HealthChecks.Abstractions\OrchardCoreContrib.HealthChecks.Abstractions.csproj" />
+		<ProjectReference Include="../../OrchardCoreContrib/src/OrchardCoreContrib.Infrastructure.Abstractions\OrchardCoreContrib.Infrastructure.Abstractions.csproj" />
 	</ItemGroup>
 
 	<ItemGroup>

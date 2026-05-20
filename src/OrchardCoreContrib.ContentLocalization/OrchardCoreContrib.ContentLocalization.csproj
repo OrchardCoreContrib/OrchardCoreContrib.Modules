@@ -29,21 +29,13 @@
 		<PackageReference Include="OrchardCore.Contents.TagHelpers" />
 		<PackageReference Include="OrchardCore.ContentLocalization" />
 		<PackageReference Include="OrchardCore.Module.Targets" />
-		<PackageReference Include="OrchardCoreContrib.Abstractions" Condition="'$(IsLocalProject)' != 'true'" />
-		<PackageReference Include="OrchardCoreContrib.ContentLocalization.Core" Condition="'$(IsLocalProject)' != 'true'" />
-		<PackageReference Include="OrchardCoreContrib.Infrastructure.Abstractions" Condition="'$(IsLocalProject)' != 'true'" />
-		<PackageReference Include="OrchardCoreContrib.Navigation.Core" Condition="'$(IsLocalProject)' != 'true'" />
 	</ItemGroup>
 
 	<ItemGroup>
-		<ProjectReference Include="$(OrchardCoreContribPath)\OrchardCoreContrib.Abstractions\OrchardCoreContrib.Abstractions.csproj"
-						  Condition="'$(IsLocalProject)' == 'true'" />
-		<ProjectReference Include="$(OrchardCoreContribPath)\OrchardCoreContrib.ContentLocalization.Core\OrchardCoreContrib.ContentLocalization.Core.csproj"
-				  Condition="'$(IsLocalProject)' == 'true'" />
-		<ProjectReference Include="$(OrchardCoreContribPath)\OrchardCoreContrib.Infrastructure.Abstractions\OrchardCoreContrib.Infrastructure.Abstractions.csproj"
-						  Condition="'$(IsLocalProject)' == 'true'" />
-		<ProjectReference Include="$(OrchardCoreContribPath)\OrchardCoreContrib.Navigation.Core\OrchardCoreContrib.Navigation.Core.csproj"
-						  Condition="'$(IsLocalProject)' == 'true'" />
+		<ProjectReference Include="..\..\OrchardCoreContrib\src\OrchardCoreContrib.Abstractions\OrchardCoreContrib.Abstractions.csproj" />
+		<ProjectReference Include="..\..\OrchardCoreContrib\src\OrchardCoreContrib.ContentLocalization.Core\OrchardCoreContrib.ContentLocalization.Core.csproj" />
+		<ProjectReference Include="..\..\OrchardCoreContrib\src\OrchardCoreContrib.Infrastructure.Abstractions\OrchardCoreContrib.Infrastructure.Abstractions.csproj" />
+		<ProjectReference Include="..\..\OrchardCoreContrib\src\OrchardCoreContrib.Navigation.Core\OrchardCoreContrib.Navigation.Core.csproj" />
 	</ItemGroup>
 
 	<ItemGroup>

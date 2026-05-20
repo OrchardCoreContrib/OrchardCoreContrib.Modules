@@ -14,12 +14,17 @@ jobs:
     runs-on: windows-latest
     steps:
     - uses: actions/checkout@v6
+      with:
+        submodules: true
+        token: ${{ secrets.OCC_TOKEN }}
     - name: Setup .NET Core
       uses: actions/setup-dotnet@v5
       with:
         dotnet-version: 10.0.*
     - name: Install Dependencies
       run: dotnet restore
+    - name: Build OrchardCoreContrib Submodule
+      run: dotnet build OrchardCoreContrib --configuration Release
     - name: Build
       run: dotnet build --configuration Release --no-restore
     - name: Test
