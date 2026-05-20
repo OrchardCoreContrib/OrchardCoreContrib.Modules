@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Routing;
 using Microsoft.Extensions.DependencyInjection;
 using OrchardCore.Environment.Shell;
 using OrchardCore.Modules;
-using OrchardCoreContrib.OpenApi.Abstractions;
+using OrchardCoreContrib.OpenApi;
 
 namespace OrchardCoreContrib.Apis.Swagger;
 

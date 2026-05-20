@@ -24,20 +24,15 @@
 		<FrameworkReference Include="Microsoft.AspNetCore.App" />
 	</ItemGroup>
 
-
 	<ItemGroup>
 		<PackageReference Include="OrchardCore.Module.Targets" />
-		<PackageReference Include="OrchardCoreContrib.Abstractions" Condition="'$(IsLocalProject)' != 'true'" />
-		<PackageReference Include="OrchardCoreContrib.OpenApi.Abstractions" Condition="'$(IsLocalProject)' != 'true'" />
 		<PackageReference Include="Swashbuckle.AspNetCore" />
 		<PackageReference Include="Swashbuckle.AspNetCore.Swagger" />
 	</ItemGroup>
 
 	<ItemGroup>
-		<ProjectReference Include="$(OrchardCoreContribPath)\OrchardCoreContrib.Abstractions\OrchardCoreContrib.Abstractions.csproj"
-						  Condition="'$(IsLocalProject)' == 'true'" />
-		<ProjectReference Include="$(OrchardCoreContribPath)\OrchardCoreContrib.OpenApi.Abstractions\OrchardCoreContrib.OpenApi.Abstractions.csproj"
-						  Condition="'$(IsLocalProject)' == 'true'" />
+		<ProjectReference Include="..\..\OrchardCoreContrib\src\OrchardCoreContrib.Abstractions\OrchardCoreContrib.Abstractions.csproj" />
+		<ProjectReference Include="..\..\OrchardCoreContrib\src\OrchardCoreContrib.OpenApi.Abstractions\OrchardCoreContrib.OpenApi.Abstractions.csproj" />
 	</ItemGroup>
 
 	<ItemGroup>

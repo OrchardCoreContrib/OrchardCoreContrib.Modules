@@ -8,14 +8,9 @@
 		<PackageReference Include="coverlet.collector" />
 		<PackageReference Include="Microsoft.NET.Test.Sdk" />
 		<PackageReference Include="Moq" />
-		<PackageReference Include="OrchardCoreContrib.Testing" Condition="'$(IsLocalProject)' != 'true'" />
+		<PackageReference Include="OrchardCoreContrib.Testing" />
 		<PackageReference Include="xunit" />
 		<PackageReference Include="xunit.runner.visualstudio" />
-	</ItemGroup>
-
-	<ItemGroup>
-		<ProjectReference Include="$(OrchardCoreContribPath)\OrchardCoreContrib.Testing\OrchardCoreContrib.Testing.csproj"
-						  Condition="'$(IsLocalProject)' == 'true'" />
 	</ItemGroup>
 
 	<ItemGroup>
