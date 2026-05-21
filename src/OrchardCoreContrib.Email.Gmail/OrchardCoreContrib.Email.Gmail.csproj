@@ -33,9 +33,9 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<ProjectReference Include="../../OrchardCoreContrib/src/OrchardCoreContrib.Abstractions\OrchardCoreContrib.Abstractions.csproj" />
-		<ProjectReference Include="../../OrchardCoreContrib/src/OrchardCoreContrib.Email\OrchardCoreContrib.Email.csproj" />
-		<ProjectReference Include="../../OrchardCoreContrib/src/OrchardCoreContrib.Navigation.Core\OrchardCoreContrib.Navigation.Core.csproj" />
+		<ProjectReference Include="$(OrchardCoreContribPath)OrchardCoreContrib.Abstractions\OrchardCoreContrib.Abstractions.csproj" />
+		<ProjectReference Include="$(OrchardCoreContribPath)OrchardCoreContrib.Email\OrchardCoreContrib.Email.csproj" />
+		<ProjectReference Include="$(OrchardCoreContribPath)OrchardCoreContrib.Navigation.Core\OrchardCoreContrib.Navigation.Core.csproj" />
 	</ItemGroup>
 	<ItemGroup>
 		<None Include="../../images/icon.png" Pack="true" PackagePath="icon.png" />

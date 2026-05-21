@@ -34,8 +34,8 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<ProjectReference Include="..\..\OrchardCoreContrib/src/OrchardCoreContrib.Abstractions\OrchardCoreContrib.Abstractions.csproj" />
-		<ProjectReference Include="..\..\OrchardCoreContrib/src/OrchardCoreContrib.DisplayManagement.Liquid\OrchardCoreContrib.DisplayManagement.Liquid.csproj" />
+		<ProjectReference Include="$(OrchardCoreContribPath)OrchardCoreContrib.Abstractions\OrchardCoreContrib.Abstractions.csproj" />
+		<ProjectReference Include="$(OrchardCoreContribPath)OrchardCoreContrib.DisplayManagement.Liquid\OrchardCoreContrib.DisplayManagement.Liquid.csproj" />
 	</ItemGroup>
 
 </Project>

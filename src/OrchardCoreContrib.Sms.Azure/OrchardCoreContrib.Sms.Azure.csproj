@@ -37,9 +37,9 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<ProjectReference Include="..\..\OrchardCoreContrib\src\OrchardCoreContrib.Infrastructure\OrchardCoreContrib.Infrastructure.csproj" />
-		<ProjectReference Include="..\..\OrchardCoreContrib\src\OrchardCoreContrib.Navigation.Core\OrchardCoreContrib.Navigation.Core.csproj" />
-		<ProjectReference Include="..\..\OrchardCoreContrib\src\OrchardCoreContrib.Sms.Abstractions\OrchardCoreContrib.Sms.Abstractions.csproj" />
+		<ProjectReference Include="$(OrchardCoreContribPath)OrchardCoreContrib.Infrastructure\OrchardCoreContrib.Infrastructure.csproj" />
+		<ProjectReference Include="$(OrchardCoreContribPath)OrchardCoreContrib.Navigation.Core\OrchardCoreContrib.Navigation.Core.csproj" />
+		<ProjectReference Include="$(OrchardCoreContribPath)OrchardCoreContrib.Sms.Abstractions\OrchardCoreContrib.Sms.Abstractions.csproj" />
 	</ItemGroup>
 
 
