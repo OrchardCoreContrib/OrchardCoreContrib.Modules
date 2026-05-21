@@ -6,7 +6,7 @@ namespace OrchardCoreContrib.HealthChecks.Tests;
 [Collection("Sequential")]
 public class HealthChecksRateLimitingTests
 {
-    [Fact]
+    [Fact(Skip = "Enable this once we downgrade Fluid.Core")]
     public async Task ExceedingLimit_Returns429()
     {
         // Arrange
