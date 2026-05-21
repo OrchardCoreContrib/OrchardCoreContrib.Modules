@@ -17,7 +17,7 @@ public class Startup(IShellConfiguration shellConfiguration) : StartupBase
     /// <inheritdoc/>
     public override void ConfigureServices(IServiceCollection services)
     {
-        services.AddScoped<IAvatarService, GravatarService>();
+        services.AddScoped<IAvatarProvider, GravatarService>();
 
         services.AddTagHelpers<GravatarTagHelper>();
 
