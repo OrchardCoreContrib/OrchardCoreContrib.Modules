@@ -7,7 +7,7 @@ namespace OrchardCoreContrib.HealthChecks.Tests;
 
 public class HealthChecksMiddlewareOrderTests
 {
-    [Fact(Skip = "Enable this once we downgrade Fluid.Core")]
+    [Fact]
     public async Task CorrectOrder_BlockedIp_ShouldReturn403_WithoutConsumingLimit()
     {
         // Arrange
@@ -33,7 +33,7 @@ public class HealthChecksMiddlewareOrderTests
         }
     }
 
-    [Fact(Skip = "Enable this once we downgrade Fluid.Core")]
+    [Fact]
     public void BlockingRateLimiting_ShouldRunBefore_RateLimiting()
     {
         // Arrange
