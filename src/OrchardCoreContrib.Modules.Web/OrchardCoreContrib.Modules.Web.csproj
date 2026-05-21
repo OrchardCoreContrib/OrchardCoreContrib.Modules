@@ -17,7 +17,7 @@
 		<ProjectReference Include="..\OrchardCoreContrib.ContentPreview\OrchardCoreContrib.ContentPreview.csproj" />
 		<ProjectReference Include="..\OrchardCoreContrib.Contents\OrchardCoreContrib.Contents.csproj" />
 		<ProjectReference Include="..\OrchardCoreContrib.DataLocalization\OrchardCoreContrib.DataLocalization.csproj" />
-		<ProjectReference Include="..\..\OrchardCoreContrib\src\OrchardCoreContrib.Data.YesSql\OrchardCoreContrib.Data.YesSql.csproj" />
+		<ProjectReference Include="$(OrchardCoreContribPath)OrchardCoreContrib.Data.YesSql\OrchardCoreContrib.Data.YesSql.csproj" />
 		<ProjectReference Include="..\OrchardCoreContrib.Diagnostics.Elm\OrchardCoreContrib.Diagnostics.Elm.csproj" />
 		<ProjectReference Include="..\OrchardCoreContrib.Email.Gmail\OrchardCoreContrib.Email.Gmail.csproj" />
 		<ProjectReference Include="..\OrchardCoreContrib.Email.Hotmail\OrchardCoreContrib.Email.Hotmail.csproj" />
