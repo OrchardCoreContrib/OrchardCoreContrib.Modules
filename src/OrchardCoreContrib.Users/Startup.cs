@@ -78,7 +78,7 @@ public class UserAvatarStartup(IShellConfiguration shellConfiguration) : Startup
     /// <inheritdoc/>
     public override void ConfigureServices(IServiceCollection services)
     {
-        services.AddScoped<IAvatarProvider, DefaultAvatarProvider>();
+        services.AddScoped<IAvatarService, DefaultAvatarService>();
 
         services.Configure<AvatarOptions>(shellConfiguration.GetSection("OrchardCoreContrib_Users_AvatarOptions"));
     }

@@ -28,7 +28,6 @@
 	<ItemGroup>
 		<PackageReference Include="OrchardCore.Module.Targets" />
 		<PackageReference Include="OrchardCore.Users" />
-		<!--<PackageReference Include="SixLabors.ImageSharp.Drawing" />-->
 		<PackageReference Include="SkiaSharp" />
 	</ItemGroup>
 
