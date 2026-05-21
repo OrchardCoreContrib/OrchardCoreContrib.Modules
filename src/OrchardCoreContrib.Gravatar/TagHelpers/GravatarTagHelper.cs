@@ -5,7 +5,7 @@ using System.ComponentModel.DataAnnotations;
 namespace OrchardCoreContrib.Gravatar.TagHelpers;
 
 [HtmlTargetElement("gravatar", TagStructure = TagStructure.NormalOrSelfClosing)]
-public class GravatarTagHelper(IAvatarService avatarService) : TagHelper
+public class GravatarTagHelper(IAvatarProvider avatarService) : TagHelper
 {
     public string Email { get; set; }
 

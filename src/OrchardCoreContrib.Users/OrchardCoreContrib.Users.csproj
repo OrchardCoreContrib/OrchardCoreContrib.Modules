@@ -35,6 +35,7 @@
 	<ItemGroup>
 		<ProjectReference Include="$(OrchardCoreContribPath)OrchardCoreContrib.Abstractions\OrchardCoreContrib.Abstractions.csproj" />
 		<ProjectReference Include="$(OrchardCoreContribPath)\OrchardCoreContrib.Avatars.Abstractions\OrchardCoreContrib.Avatars.Abstractions.csproj" />
+		<ProjectReference Include="$(OrchardCoreContribPath)\OrchardCoreContrib.Infrastructure.Abstractions\OrchardCoreContrib.Infrastructure.Abstractions.csproj" />
 		<ProjectReference Include="$(OrchardCoreContribPath)OrchardCoreContrib.Navigation.Core\OrchardCoreContrib.Navigation.Core.csproj" />
 	</ItemGroup>
 

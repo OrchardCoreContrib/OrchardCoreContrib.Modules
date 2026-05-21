@@ -39,7 +39,8 @@
 		<PackageVersion Include="OrchardCore.Users.Abstractions" Version="$(OrchardCoreVersion)" />
 		<PackageVersion Include="OrchardCore.Users.Core" Version="$(OrchardCoreVersion)" />
 		<PackageVersion Include="OrchardCoreContrib.Abstractions" Version="1.6.1" />
-		<!--<PackageVersion Include="OrchardCoreContrib.Avatars.Abstractions" Version="1.0.0" />-->
+		<PackageVersion Include="OrchardCoreContrib.Avatars.Abstractions" Version="1.0.0" />
+		<PackageVersion Include="OrchardCoreContrib.Avatars.Core" Version="1.0.0" />
 		<PackageVersion Include="OrchardCoreContrib.ContentLocalization.Core" Version="1.3.0" />
 		<PackageVersion Include="OrchardCoreContrib.DisplayManagement.Liquid" Version="1.0.0" />
 		<PackageVersion Include="OrchardCoreContrib.Data" Version="1.3.0" />
