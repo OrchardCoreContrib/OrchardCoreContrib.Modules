@@ -1,7 +1,7 @@
-name: Orchard Core Contrib Modules - Build
+name: Orchard Core Contrib Modules - Pull Request
 
 on:
-  push:
+  pull_request:
     branches: [ main ]
     paths-ignore:
     - 'README.md'
