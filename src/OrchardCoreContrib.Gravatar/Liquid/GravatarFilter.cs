@@ -5,7 +5,7 @@ using OrchardCoreContrib.Avatars;
 
 namespace OrchardCoreContrib.Gravatar.Liquid;
 
-public class GravatarFilter(IAvatarProvider avatarService) : ILiquidFilter
+public class GravatarFilter(IAvatarService avatarService) : ILiquidFilter
 {
     public ValueTask<FluidValue> ProcessAsync(FluidValue input, FilterArguments arguments, LiquidTemplateContext context)
     {

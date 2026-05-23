@@ -4,9 +4,9 @@ using SkiaSharp;
 namespace OrchardCoreContrib.Avatars;
 
 /// <summary>
-/// Provides an avatar image of the user's initials on a colored background.
+/// Represents a default implementation of the <see cref="IAvatarService"/> interface that generates a simple avatar using user's initials.
 /// </summary>
-public class DefaultAvatarProvider : IAvatarProvider
+public class DefaultAvatarService : IAvatarService
 {
     /// <inheritdoc/>
     public string GetAvatar(AvatarContext context, int size = 80)

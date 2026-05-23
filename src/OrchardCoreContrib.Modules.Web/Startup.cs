@@ -25,7 +25,7 @@ public class Startup
             });
 
         // Could be add to services.AddOrchardCms().WithOrchardCoreContrib()
-        services.AddScoped<IAvatarProvider, NullAvatarProvider>();
+        services.AddScoped<IAvatarService, NullAvatarService>();
     }
 
     public void Configure(IApplicationBuilder app, IWebHostEnvironment env)

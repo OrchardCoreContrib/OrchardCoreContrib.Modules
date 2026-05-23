@@ -12,6 +12,6 @@
 
 		<OrchardCoreVersion>2.2.1</OrchardCoreVersion>
 		<OrchardCoreContribPath>..\..\OrchardCoreContrib\src\</OrchardCoreContribPath>
-		<OrchardCoreContribTestingPath>$(SolutionParentDir)OrchardCoreContrib.Testing\src</OrchardCoreContribTestingPath>
+		<OrchardCoreContribTestingPath>..\..\OrchardCoreContrib.Testing\src</OrchardCoreContribTestingPath>
 	</PropertyGroup>
 </Project>
