@@ -5,6 +5,7 @@
 		<PackageReference Include="Microsoft.Extensions.Http.Resilience" Condition="'$(TargetFramework)' == 'net10.0'" />
 		<PackageReference Include="Microsoft.Identity.Web" Condition="'$(TargetFramework)' == 'net10.0'" />
 		<PackageReference Include="OrchardCore.Application.Cms.Targets" />
+		<PackageReference Include="OrchardCore.Logging.NLog" />
 	</ItemGroup>
 
 	<ItemGroup>

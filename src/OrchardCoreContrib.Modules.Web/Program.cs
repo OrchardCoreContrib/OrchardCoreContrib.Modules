@@ -1,8 +1,11 @@
 using OrchardCore.Environment.Shell;
+using OrchardCore.Logging;
 using OrchardCoreContrib.Avatars;
 using OrchardCoreContrib.Modules.Web;
 
 var builder = WebApplication.CreateBuilder(args);
+
+builder.Host.UseNLogHost();
 
 builder.Services
     .AddOrchardCms(builder =>
