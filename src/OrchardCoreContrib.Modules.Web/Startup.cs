@@ -1,5 +1,5 @@
 using Microsoft.AspNetCore.Server.Kestrel.Core;
-using OrchardCoreContrib.Users.Services;
+using OrchardCoreContrib.Avatars;
 
 namespace OrchardCoreContrib.Modules.Web;
 
@@ -24,7 +24,7 @@ public class Startup
                 //});
             });
 
-        // Workaround to avoid IOE on UserMenu shape
+        // Could be add to services.AddOrchardCms().WithOrchardCoreContrib()
         services.AddScoped<IAvatarService, NullAvatarService>();
     }
 

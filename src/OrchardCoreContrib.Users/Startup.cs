@@ -10,9 +10,9 @@ using OrchardCore.Modules;
 using OrchardCore.Mvc.Core.Utilities;
 using OrchardCore.Navigation;
 using OrchardCore.Users.Models;
+using OrchardCoreContrib.Avatars;
 using OrchardCoreContrib.Users.Controllers;
 using OrchardCoreContrib.Users.Drivers;
-using OrchardCoreContrib.Users.Services;
 
 namespace OrchardCoreContrib.Users;
 
@@ -78,8 +78,7 @@ public class UserAvatarStartup(IShellConfiguration shellConfiguration) : Startup
     /// <inheritdoc/>
     public override void ConfigureServices(IServiceCollection services)
     {
-        // UNCOMMENT the following line once we supply a license for the ImageSharp library. For now, we don't want to add a dependency on it.
-        //services.AddScoped<IAvatarService, AvatarService>();
+        services.AddScoped<IAvatarService, DefaultAvatarService>();
 
         services.Configure<AvatarOptions>(shellConfiguration.GetSection("OrchardCoreContrib_Users_AvatarOptions"));
     }
