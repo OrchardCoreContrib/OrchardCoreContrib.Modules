@@ -6,9 +6,9 @@
 
 	<ItemGroup>
 		<PackageReference Include="coverlet.collector" />
+		<PackageReference Include="Microsoft.Extensions.Configuration.UserSecrets" />
 		<PackageReference Include="Microsoft.NET.Test.Sdk" />
 		<PackageReference Include="Moq" />
-		<PackageReference Include="OrchardCoreContrib.Testing" />
 		<PackageReference Include="xunit" />
 		<PackageReference Include="xunit.runner.visualstudio" />
 	</ItemGroup>
@@ -16,6 +16,7 @@
 	<ItemGroup>
 		<ProjectReference Include="..\..\src\OrchardCoreContrib.HealthChecks\OrchardCoreContrib.HealthChecks.csproj" />
 		<ProjectReference Include="..\..\src\OrchardCoreContrib.Modules.Web\OrchardCoreContrib.Modules.Web.csproj" />
+		<ProjectReference Include="$(OrchardCoreContribTestingPath)\OrchardCoreContrib.Testing\OrchardCoreContrib.Testing.csproj" />
 	</ItemGroup>
 
 	<ItemGroup>
