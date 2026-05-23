@@ -31,6 +31,9 @@ jobs:
     - name: Build OrchardCoreContrib Submodule
       run: dotnet build OrchardCoreContrib --configuration Release
 
+    - name: Build OrchardCoreContrib.Testing Submodule
+      run: dotnet build OrchardCoreContrib.Testing --configuration Release
+
     - name: Build
       run: dotnet build --configuration Release --no-restore
 
