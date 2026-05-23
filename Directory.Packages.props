@@ -30,6 +30,7 @@
 		<PackageVersion Include="OrchardCore.Html" Version="$(OrchardCoreVersion)" />
 		<PackageVersion Include="OrchardCore.Infrastructure.Abstractions" Version="$(OrchardCoreVersion)" />
 		<PackageVersion Include="OrchardCore.Liquid.Abstractions" Version="$(OrchardCoreVersion)" />
+		<PackageVersion Include="OrchardCore.Logging.NLog" Version="$(OrchardCoreVersion)" />
 		<PackageVersion Include="OrchardCore.Module.Targets" Version="$(OrchardCoreVersion)" />
 		<PackageVersion Include="OrchardCore.Navigation.Core" Version="$(OrchardCoreVersion)" />
 		<PackageVersion Include="OrchardCore.ResourceManagement" Version="$(OrchardCoreVersion)" />
