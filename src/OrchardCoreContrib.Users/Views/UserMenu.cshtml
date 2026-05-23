@@ -5,12 +5,12 @@
 @using System.Security.Claims
 
 @inject IAuthorizationService AuthorizationService
-@inject IAvatarProvider AvatarProvider
+@inject IAvatarService AvatarService
 @attribute [Feature("OrchardCoreContrib.Users.Avatar")]
 @{
     var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
 
-    var avatar = AvatarProvider.GetAvatar(new AvatarContext { DisplayName = User.Identity.Name });
+    var avatar = AvatarService.GetAvatar(new AvatarContext { DisplayName = User.Identity.Name });
 }
 
 <div class="dropdown">

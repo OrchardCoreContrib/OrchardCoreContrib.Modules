@@ -6,7 +6,7 @@ using System.Text;
 
 namespace OrchardCoreContrib.Gravatar.Services;
 
-public class GravatarService(IOptions<GravatarOptions> gravatarOptions) : IAvatarProvider
+public class GravatarService(IOptions<GravatarOptions> gravatarOptions) : IAvatarService
 {
     private const string GravatarUrl = "http://www.gravatar.com/avatar/";
 
