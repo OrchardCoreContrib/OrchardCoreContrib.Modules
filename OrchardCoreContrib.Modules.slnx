@@ -32,6 +32,7 @@
     <Project Path="src/OrchardCoreContrib.ReverseProxy.Yarp/OrchardCoreContrib.ReverseProxy.Yarp.csproj" />
     <Project Path="src/OrchardCoreContrib.Sms.Azure/OrchardCoreContrib.Sms.Azure.csproj" />
     <Project Path="src/OrchardCoreContrib.System/OrchardCoreContrib.System.csproj" />
+    <Project Path="src/OrchardCoreContrib.Templating.Liquid/OrchardCoreContrib.Templating.Liquid.csproj" />
     <Project Path="src/OrchardCoreContrib.Tenants/OrchardCoreContrib.Tenants.csproj" />
     <Project Path="src/OrchardCoreContrib.Themes.Admin/OrchardCoreContrib.Themes.Admin.csproj" />
     <Project Path="src/OrchardCoreContrib.UserGroups/OrchardCoreContrib.UserGroups.csproj" />
@@ -42,9 +43,10 @@
     <Project Path="test/OrchardCoreContrib.CloudflareTurnstile.Tests/OrchardCoreContrib.CloudflareTurnstile.Tests.csproj" />
     <Project Path="test/OrchardCoreContrib.ContentPermissions.Tests/OrchardCoreContrib.ContentPermissions.Tests.csproj" />
     <Project Path="test/OrchardCoreContrib.Garnet.Tests/OrchardCoreContrib.Garnet.Tests.csproj" />
-    <Project Path="test/OrchardCoreContrib.Gravatar.Tests/OrchardCoreContrib.Gravatar.Tests.csproj" Id="816919f8-fb8f-4c70-adcc-0a7f71a5180c" />
+    <Project Path="test/OrchardCoreContrib.Gravatar.Tests/OrchardCoreContrib.Gravatar.Tests.csproj" />
     <Project Path="test/OrchardCoreContrib.HealthChecks.Tests/OrchardCoreContrib.HealthChecks.Tests.csproj" />
     <Project Path="test/OrchardCoreContrib.Modules.Tests/OrchardCoreContrib.Modules.Tests.csproj" />
+    <Project Path="test/OrchardCoreContrib.Templating.Liquid.Tests/OrchardCoreContrib.Templating.Liquid.Tests.csproj" />
     <Project Path="test/OrchardCoreContrib.UserGroups.Tests/OrchardCoreContrib.UserGroups.Tests.csproj" />
   </Folder>
 </Solution>
