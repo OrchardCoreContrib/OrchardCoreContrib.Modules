@@ -1,0 +1,18 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<ItemGroup>
+		<FrameworkReference Include="Microsoft.AspNetCore.App" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<PackageReference Include="OrchardCore.Module.Targets" />
+		<PackageReference Include="RazorLight" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="$(OrchardCoreContribPath)OrchardCoreContrib.Abstractions\OrchardCoreContrib.Abstractions.csproj" />
+		<ProjectReference Include="$(OrchardCoreContribPath)OrchardCoreContrib.Infrastructure.Abstractions\OrchardCoreContrib.Infrastructure.Abstractions.csproj" />
+		<ProjectReference Include="$(OrchardCoreContribPath)OrchardCoreContrib.Templating.Abstractions\OrchardCoreContrib.Templating.Abstractions.csproj" />
+	</ItemGroup>
+
+</Project>
