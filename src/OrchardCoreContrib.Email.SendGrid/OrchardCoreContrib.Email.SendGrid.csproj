@@ -29,13 +29,13 @@
 		<PackageReference Include="SendGrid" />
 		<PackageReference Include="OrchardCore.Admin.Abstractions" />
 		<PackageReference Include="OrchardCore.DisplayManagement" />
-		<PackageReference Include="OrchardCore.Email.Abstractions" />
 		<PackageReference Include="OrchardCore.Infrastructure.Abstractions" />
 		<PackageReference Include="OrchardCore.Module.Targets" />
 	</ItemGroup>
 
 	<ItemGroup>
 		<ProjectReference Include="$(OrchardCoreContribPath)OrchardCoreContrib.Abstractions\OrchardCoreContrib.Abstractions.csproj" />
+		<ProjectReference Include="$(OrchardCoreContribPath)OrchardCoreContrib.Email\OrchardCoreContrib.Email.csproj" />
 		<ProjectReference Include="$(OrchardCoreContribPath)OrchardCoreContrib.HealthChecks.Abstractions\OrchardCoreContrib.HealthChecks.Abstractions.csproj" />
 		<ProjectReference Include="$(OrchardCoreContribPath)OrchardCoreContrib.Navigation.Core\OrchardCoreContrib.Navigation.Core.csproj" />
 	</ItemGroup>

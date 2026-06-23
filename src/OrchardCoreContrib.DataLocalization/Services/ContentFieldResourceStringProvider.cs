@@ -1,5 +1,4 @@
 ﻿using OrchardCore.ContentManagement.Metadata;
-using OrchardCore.ContentTypes.Services;
 using OrchardCore.Localization;
 using OrchardCoreContrib.Localization.Data;
 
@@ -11,9 +10,7 @@ namespace OrchardCoreContrib.DataLocalization.Services;
 /// <remarks>
 /// Creates a instance of <see cref="ContentTypeResourceStringProvider"/>.
 /// </remarks>
-/// <param name="contentDefinitionService">The <see cref="IContentDefinitionService"/>.</param>
 public class ContentFieldResourceStringProvider(
-    IContentDefinitionService contentDefinitionService,
     IContentDefinitionManager contentDefinitionManager) : IDataResourceStringProvider
 {
     internal static readonly string Context = "ContentField";
@@ -23,16 +20,16 @@ public class ContentFieldResourceStringProvider(
     {
         var cultureDictionary = new List<CultureDictionaryRecordKey>();
 
-        var typeViewModels = await contentDefinitionService.GetTypesAsync();
+        var typeDefinitions = await contentDefinitionManager.ListTypeDefinitionsAsync();
 
-        foreach (var typeViewModel in typeViewModels)
+        foreach (var typeDefinition in typeDefinitions)
         {
-            var fields = await GetFieldNamesAsync(typeViewModel.TypeDefinition.Name);
+            var fields = await GetFieldNamesAsync(typeDefinition.Name);
 
             cultureDictionary.AddRange(fields.Select(field => new CultureDictionaryRecordKey
             {
                 MessageId = field,
-                Context = $"{typeViewModel.Name}-{Context}"
+                Context = $"{typeDefinition.Name}-{Context}"
             }));
         }
 

@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Localization;
 using Microsoft.Extensions.Caching.Memory;
-using OrchardCore.ContentTypes.Services;
+using OrchardCore.ContentManagement.Metadata;
 using OrchardCore.DisplayManagement.Notify;
 using OrchardCoreContrib.DataLocalization.Models;
 using OrchardCoreContrib.DataLocalization.Services;
@@ -12,7 +12,7 @@ using OrchardCoreContrib.Localization.Data;
 namespace OrchardCoreContrib.DataLocalization.Controllers;
 
 public class AdminController(
-    IContentDefinitionService contentDefinitionService,
+    IContentDefinitionManager contentDefinitionManager,
     IEnumerable<IDataResourceStringProvider> dataResourceStringProviders,
     TranslationsManager translationsManager,
     IMemoryCache memoryCache,
@@ -62,7 +62,7 @@ public class AdminController(
 
         var viewModel = new ContentFieldResourcesViewModel
         {
-            ContentTypes = (await contentDefinitionService.GetTypesAsync()).Select(t => t.Name),
+            ContentTypes = (await contentDefinitionManager.ListTypeDefinitionsAsync()).Select(t => t.Name),
             ResourcesNames = resourcesNames,
             Translations = [],
             SelectedContentType = contentType,
