@@ -27,7 +27,7 @@ public class OrchardCoreStartup(IConfiguration configuration)
             })
             .Configure(appBuilder => appBuilder.UseAuthorization()));
 
-        services.AddSingleton<IModuleNamesProvider>(new ModuleNamesProvider(typeof(Program).Assembly));
+        services.AddSingleton<IModuleNamesProvider>(new HealthChecksModuleNamesProvider(typeof(Program).Assembly));
     }
 
     public void Configure(IApplicationBuilder app)
