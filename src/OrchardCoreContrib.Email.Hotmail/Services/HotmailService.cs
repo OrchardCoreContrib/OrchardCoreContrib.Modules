@@ -20,7 +20,7 @@ namespace OrchardCoreContrib.Email.Hotmail.Services;
 public class HotmailService(
     IOptions<HotmailSettings> hotmailSetting,
     ILogger<HotmailService> logger,
-    IStringLocalizer<HotmailService> stringLocalizer) : SmtpService(hotmailSetting, logger, stringLocalizer)
+    IStringLocalizer<HotmailService> stringLocalizer) : DefaultEmailService(hotmailSetting, logger, stringLocalizer)
 {
     private readonly HotmailSettings _hotmailSetting = hotmailSetting.Value;
 

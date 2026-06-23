@@ -13,7 +13,7 @@ public class AdminController(
     IHtmlLocalizer<AdminController> H,
     IAuthorizationService authorizationService,
     INotifier notifier,
-    ISmtpService smtpService) : Controller
+    IEmailService emailService) : Controller
 {
     [HttpGet]
     public async Task<IActionResult> Index()
@@ -38,7 +38,7 @@ public class AdminController(
         {
             var message = CreateMessageFromViewModel(model);
 
-            var result = await smtpService.SendAsync(message);
+            var result = await emailService.SendAsync(message);
 
             if (!result.Succeeded)
             {
@@ -80,7 +80,7 @@ public class AdminController(
 
         if (!string.IsNullOrWhiteSpace(testSettings.Body))
         {
-            message.Body = testSettings.Body;
+            message.TextBody = testSettings.Body;
         }
 
         return message;
