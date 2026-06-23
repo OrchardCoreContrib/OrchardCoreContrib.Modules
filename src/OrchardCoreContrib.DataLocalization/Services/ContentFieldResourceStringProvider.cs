@@ -8,7 +8,7 @@ namespace OrchardCoreContrib.DataLocalization.Services;
 /// Represents a resource string provider for content fields.
 /// </summary>
 /// <remarks>
-/// Creates a instance of <see cref="ContentTypeResourceStringProvider"/>.
+/// Creates a instance of <see cref="ContentFieldResourceStringProvider"/>.
 /// </remarks>
 public class ContentFieldResourceStringProvider(
     IContentDefinitionManager contentDefinitionManager) : IDataResourceStringProvider
