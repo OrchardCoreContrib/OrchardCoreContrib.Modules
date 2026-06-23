@@ -20,7 +20,7 @@ namespace OrchardCoreContrib.Email.Yahoo.Services;
 public class YahooService(
     IOptions<YahooSettings> yahooSetting,
     ILogger<YahooService> logger,
-    IStringLocalizer<YahooService> stringLocalizer) : SmtpService(yahooSetting, logger, stringLocalizer)
+    IStringLocalizer<YahooService> stringLocalizer) : DefaultEmailService(yahooSetting, logger, stringLocalizer)
 {
     private readonly YahooSettings _yahooSetting = yahooSetting.Value;
 

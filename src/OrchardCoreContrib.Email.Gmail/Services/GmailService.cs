@@ -20,7 +20,7 @@ namespace OrchardCoreContrib.Email.Gmail.Services;
 public class GmailService(
     IOptions<GmailSettings> gmailSetting,
     ILogger<GmailService> logger,
-    IStringLocalizer<GmailService> stringLocalizer) : SmtpService(gmailSetting, logger, stringLocalizer)
+    IStringLocalizer<GmailService> stringLocalizer) : DefaultEmailService(gmailSetting, logger, stringLocalizer)
 {
     private readonly GmailSettings _gmailSetting = gmailSetting.Value;
 
