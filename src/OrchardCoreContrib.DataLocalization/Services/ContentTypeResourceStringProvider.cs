@@ -1,4 +1,4 @@
-﻿using OrchardCore.ContentTypes.Services;
+using OrchardCore.ContentManagement.Metadata;
 using OrchardCore.Localization;
 using OrchardCoreContrib.Localization.Data;
 
@@ -10,15 +10,15 @@ namespace OrchardCoreContrib.DataLocalization.Services;
 /// <remarks>
 /// Creates a instance of <see cref="ContentTypeResourceStringProvider"/>.
 /// </remarks>
-/// <param name="contentDefinitionService">The <see cref="IContentDefinitionService"/>.</param>
-public class ContentTypeResourceStringProvider(IContentDefinitionService contentDefinitionService) : IDataResourceStringProvider
+/// <param name="contentDefinitionManager">The <see cref="IContentDefinitionManager"/>.</param>
+public class ContentTypeResourceStringProvider(IContentDefinitionManager contentDefinitionManager) : IDataResourceStringProvider
 {
     internal static readonly string Context = "ContentType";
 
     /// <inheritdoc/>
     public async Task<IEnumerable<CultureDictionaryRecordKey>> GetAllResourceStringsAsync()
     {
-        var contentTypes = await contentDefinitionService.GetTypesAsync();
+        var contentTypes = await contentDefinitionManager.ListTypeDefinitionsAsync();
 
         return contentTypes.Select(t => new CultureDictionaryRecordKey
         {
