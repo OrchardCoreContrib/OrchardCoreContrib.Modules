@@ -4,7 +4,6 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Options;
 using OrchardCore.Admin;
 using OrchardCore.DisplayManagement.Handlers;
-using OrchardCore.Email;
 using OrchardCore.Modules;
 using OrchardCore.Mvc.Core.Utilities;
 using OrchardCore.Navigation;
@@ -35,7 +34,7 @@ public class Startup(IOptions<AdminOptions> adminOptions) : StartupBase
         services.AddScoped<INavigationProvider, AdminMenu>();
 
         services.AddTransient<IConfigureOptions<HotmailSettings>, HotmailSettingsConfiguration>();
-        services.AddScoped<ISmtpService, HotmailService>();
+        services.AddScoped<IEmailService, HotmailService>();
     }
 
     /// <inheritdoc/>
