@@ -1,6 +1,7 @@
 ﻿using Microsoft.Extensions.Localization;
 using Microsoft.Extensions.Options;
 using OrchardCore.Email;
+using OrchardCoreContrib.Infrastructure;
 using SendGrid;
 using SendGrid.Helpers.Mail;
 using System.Text.RegularExpressions;
@@ -17,7 +18,7 @@ namespace OrchardCoreContrib.Email.SendGrid.Services;
 /// <param name="stringLocalizer">The <see cref="IStringLocalizer<GmailService>"/>.</param>
 public partial class SendGridService(
     IOptions<SendGridSettings> sendGridSetting,
-    IStringLocalizer<SendGridService> stringLocalizer) : ISmtpService
+    IStringLocalizer<SendGridService> stringLocalizer) : IEmailService
 {
     private static readonly char[] EmailsSeparator = [',', ';', ' '];
 
@@ -25,11 +26,11 @@ public partial class SendGridService(
     private readonly IStringLocalizer S = stringLocalizer;
 
     /// <inheritdoc/>
-    public async Task<SmtpResult> SendAsync(MailMessage message)
+    public async Task<Result> SendAsync(MailMessage message)
     {
         if (_sendGridSetting?.DefaultSender == null)
         {
-            return SmtpResult.Failed(S["SendGrid settings must be configured before an email can be sent."]);
+            return Result.Failed(S["SendGrid settings must be configured before an email can be sent."]);
         }
 
         try
@@ -44,11 +45,11 @@ public partial class SendGridService(
 
             await client.SendEmailAsync(sendGridMessage);
 
-            return SmtpResult.Success;
+            return Result.Success();
         }
         catch (Exception ex)
         {
-            return SmtpResult.Failed(S["An error occurred while sending an email: '{0}'", ex.Message]);
+            return Result.Failed(S["An error occurred while sending an email: '{0}'", ex.Message]);
         }
     }
 
@@ -89,16 +90,10 @@ public partial class SendGridService(
 
         sendGridMessage.Subject = message.Subject;
 
-        if (message.IsHtmlBody)
-        {
-            sendGridMessage.PlainTextContent = HtmlTagRegex().Replace(message.Body, String.Empty);
-            sendGridMessage.HtmlContent = message.Body;
-        }
-        else
-        {
-            sendGridMessage.PlainTextContent = message.Body;
-            sendGridMessage.HtmlContent = String.Empty;
-        }
+        sendGridMessage.PlainTextContent = message.TextBody is null
+            ? string.Empty
+            : HtmlTagRegex().Replace(message.TextBody, string.Empty);
+        sendGridMessage.HtmlContent = message.HtmlBody ?? string.Empty;
 
         return sendGridMessage;
     }
