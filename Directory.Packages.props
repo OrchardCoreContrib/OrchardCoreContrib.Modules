@@ -1,4 +1,4 @@
-﻿<Project>
+<Project>
 	<ItemGroup>
 		<PackageVersion Include="Azure.Communication.Sms" Version="1.1.0-beta.3" />
 		<PackageVersion Include="coverlet.collector" Version="10.0.1" />
@@ -13,6 +13,8 @@
 		<PackageVersion Include="OrchardCore.Admin" Version="$(OrchardCoreVersion)" />
 		<PackageVersion Include="OrchardCore.Admin.Abstractions" Version="$(OrchardCoreVersion)" />
 		<PackageVersion Include="OrchardCore.Application.Cms.Targets" Version="$(OrchardCoreVersion)" />
+		<PackageVersion Include="OrchardCore.Autoroute" Version="$(OrchardCoreVersion)" />
+		<PackageVersion Include="OrchardCore.Autoroute.Core" Version="$(OrchardCoreVersion)" />
 		<PackageVersion Include="OrchardCore.ContentLocalization" Version="$(OrchardCoreVersion)" />
 		<PackageVersion Include="OrchardCore.ContentFields" Version="$(OrchardCoreVersion)" />
 		<PackageVersion Include="OrchardCore.ContentManagement" Version="$(OrchardCoreVersion)" />

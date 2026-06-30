@@ -1,4 +1,4 @@
-﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using OrchardCore.DisplayManagement.Entities;
 using OrchardCore.DisplayManagement.Handlers;
@@ -24,7 +24,11 @@ public class BanSettingsDisplayDriver(IAuthorizationService authorizationService
             return null;
         }
 
-        return Initialize<BanSettingsViewModel>("BanSettings_Edit", model => model.BannedIPs = string.Join(IPSeparator, settings.BannedIPs))
+        return Initialize<BanSettingsViewModel>("BanSettings_Edit", model => 
+            {
+                model.BannedIPs = string.Join(IPSeparator, settings.BannedIPs);
+                model.RedirectUrl = settings.RedirectUrl;
+            })
             .Location("Content:5")
             .OnGroup(GroupId);
     }
@@ -45,6 +49,8 @@ public class BanSettingsDisplayDriver(IAuthorizationService authorizationService
             : [.. model.BannedIPs
                 .Split(IPSeparator, StringSplitOptions.RemoveEmptyEntries)
                 .Where(ip => IPAddress.TryParse(ip, out _))];
+
+        settings.RedirectUrl = model.RedirectUrl?.Trim();
 
         return await EditAsync(site, settings, context);
     }
