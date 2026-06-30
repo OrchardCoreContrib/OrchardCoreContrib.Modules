@@ -1,4 +1,4 @@
-﻿using Microsoft.AspNetCore.Routing;
+using Microsoft.AspNetCore.Routing;
 using Microsoft.Extensions.Localization;
 using OrchardCore.Navigation;
 using OrchardCoreContrib.Ban.Drivers;
@@ -23,7 +23,7 @@ public class AdminMenu(IStringLocalizer<AdminMenu> S) : AdminNavigationProvider
     };
 
     /// <inheritdoc/>
-    public override void BuildNavigation(NavigationBuilder builder)
+    public override Task BuildNavigationAsync(NavigationBuilder builder)
     {
         builder
             .Add(S["Configuration"], configuration => configuration
@@ -36,5 +36,7 @@ public class AdminMenu(IStringLocalizer<AdminMenu> S) : AdminNavigationProvider
                     )
                 )
             );
+            
+        return Task.CompletedTask;
     }
 }
