@@ -7,6 +7,5 @@ using ManifestConstants = OrchardCoreContrib.Modules.Manifest.ManifestConstants;
     Website = ManifestConstants.Website,
     Version = "1.0.0",
     Description = "Blocks requests from configured IP addresses.",
-    Category = "Security",
-    Dependencies = ["OrchardCore.Autoroute"]
+    Category = "Security"
 )]
