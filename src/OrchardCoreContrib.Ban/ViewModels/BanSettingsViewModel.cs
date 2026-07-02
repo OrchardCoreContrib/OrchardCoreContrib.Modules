@@ -4,5 +4,5 @@ public class BanSettingsViewModel
 {
     public string BannedIPs { get; set; }
     
-    public string? RedirectUrl { get; set; }
+    public string RedirectUrl { get; set; }
 }
