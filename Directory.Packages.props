@@ -57,7 +57,7 @@
 		<PackageVersion Include="OrchardCoreContrib.Testing" Version="1.0.0-beta3" />
 		<PackageVersion Include="OrchardCoreContrib.Templating.Abstractions" Version="1.0.0" />
 		<PackageVersion Include="RazorLight" Version="2.3.1" />
-		<PackageVersion Include="Scalar.AspNetCore" Version="2.14.14" />
+		<PackageVersion Include="Scalar.AspNetCore" Version="2.16.6" />
 		<PackageVersion Include="SendGrid" Version="9.29.3" />
 		<PackageVersion Include="SkiaSharp" Version="3.119.2" />
 		<PackageVersion Include="StackExchange.Redis" Version="3.0.2-preview" />
