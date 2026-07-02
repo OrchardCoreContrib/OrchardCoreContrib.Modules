@@ -36,7 +36,7 @@ public class AdminMenu(IStringLocalizer<AdminMenu> S) : AdminNavigationProvider
                     )
                 )
             );
-            
+
         return Task.CompletedTask;
     }
 }
