@@ -14,7 +14,7 @@ public sealed class Startup : StartupBase
 {
     public override void ConfigureServices(IServiceCollection services)
     {
-        services.AddScoped<IIPBanService, IPBanService>();
+        services.AddSingleton<IIPBanService, IPBanService>();
 
         services.AddSiteDisplayDriver<BanSettingsDisplayDriver>();
 
