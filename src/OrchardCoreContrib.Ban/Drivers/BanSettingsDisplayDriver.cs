@@ -51,7 +51,7 @@ public class BanSettingsDisplayDriver(IAuthorizationService authorizationService
                 .Split(IPSeparator, StringSplitOptions.RemoveEmptyEntries)
                 .Where(ip => IPAddress.TryParse(ip, out _))];
 
-        if (string.IsNullOrEmpty(settings.RedirectUrl))
+        if (string.IsNullOrEmpty(model.RedirectUrl))
         {
             return await EditAsync(site, settings, context);
         }
