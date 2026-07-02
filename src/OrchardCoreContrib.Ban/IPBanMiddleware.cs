@@ -44,6 +44,7 @@ public class IPBanMiddleware(
             logger.LogWarning("Blocked request from banned IP: {IP}", ip);
             
             context.Response.StatusCode = StatusCodes.Status403Forbidden;
+
             await context.Response.WriteAsync("Access denied.");
 
             return;
