@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Http.HttpResults;
 using OrchardCore.DisplayManagement.Entities;
 using OrchardCore.DisplayManagement.Handlers;
 using OrchardCore.DisplayManagement.Views;
@@ -50,7 +51,21 @@ public class BanSettingsDisplayDriver(IAuthorizationService authorizationService
                 .Split(IPSeparator, StringSplitOptions.RemoveEmptyEntries)
                 .Where(ip => IPAddress.TryParse(ip, out _))];
 
-        settings.RedirectUrl = model.RedirectUrl?.Trim();
+        if (string.IsNullOrEmpty(settings.RedirectUrl))
+        {
+            return await EditAsync(site, settings, context);
+        }
+
+        var redirectUrl = model.RedirectUrl.Trim();
+        if (RedirectHttpResult.IsLocalUrl(redirectUrl))
+        {
+            settings.RedirectUrl = redirectUrl;
+        }
+        else
+        {
+            // Avoid an external URL to prevent open redirect vulnerabilities
+            context.Updater.ModelState.AddModelError(nameof(model.RedirectUrl), "Redirect URL must be a local URL.");
+        }
 
         return await EditAsync(site, settings, context);
     }
