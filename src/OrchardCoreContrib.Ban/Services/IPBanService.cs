@@ -21,19 +21,6 @@ public class IPBanService(ISiteService siteService) : IIPBanService
     public async Task<string> GetRedirectUrlAsync()
     {
         var settings = await siteService.GetSettingsAsync<BanSettings>();
-        var redirectUrl = settings.RedirectUrl?.Trim();
-
-        if (string.IsNullOrWhiteSpace(redirectUrl))
-        {
-            return null;
-        }
-
-        // Ensure it's a local URL (starts with '/' but not '//' or '/\')
-        if (redirectUrl.StartsWith('/') && !redirectUrl.StartsWith("//") && !redirectUrl.StartsWith("/\\"))
-        {
-            return redirectUrl;
-        }
-
-        return null;
+        return settings.RedirectUrl?.Trim();
     }
 }
