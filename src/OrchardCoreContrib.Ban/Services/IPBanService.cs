@@ -21,6 +21,7 @@ public class IPBanService(ISiteService siteService) : IIPBanService
     public async Task<string> GetRedirectUrlAsync()
     {
         var settings = await siteService.GetSettingsAsync<BanSettings>();
+
         return settings.RedirectUrl?.Trim();
     }
 }
