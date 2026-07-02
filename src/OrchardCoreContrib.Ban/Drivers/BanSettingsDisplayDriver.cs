@@ -51,13 +51,12 @@ public class BanSettingsDisplayDriver(IAuthorizationService authorizationService
                 .Split(IPSeparator, StringSplitOptions.RemoveEmptyEntries)
                 .Where(ip => IPAddress.TryParse(ip, out _))];
 
-        if (string.IsNullOrEmpty(settings.RedirectUrl))
+        var redirectUrl = model.RedirectUrl?.Trim();
+        if (string.IsNullOrEmpty(redirectUrl))
         {
-            return await EditAsync(site, settings, context);
+            settings.RedirectUrl = null;
         }
-
-        var redirectUrl = model.RedirectUrl.Trim();
-        if (RedirectHttpResult.IsLocalUrl(redirectUrl))
+        else if (RedirectHttpResult.IsLocalUrl(redirectUrl))
         {
             settings.RedirectUrl = redirectUrl;
         }
