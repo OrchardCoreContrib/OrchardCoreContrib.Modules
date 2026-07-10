@@ -14,10 +14,11 @@ public class DefaultContentLocalizationManager(
     IHttpContextAccessor httpContentAccessor,
     ILocalizationService localizationService,
     ILogger<DefaultContentLocalizationManager> logger, IEnumerable<IContentLocalizationHandler> handlers, OrchardCore.Entities.IIdGenerator iidGenerator)
-        : OrchardCore.ContentLocalization.DefaultContentLocalizationManager(
-            contentManager, session, httpContentAccessor, localizationService, logger, handlers, iidGenerator),
+        : OrchardCore.ContentLocalization.DefaultContentLocalizationManager(contentManager, session, httpContentAccessor, localizationService, logger, handlers, iidGenerator),
     IContentLocalizationManager
 {
+    private readonly YesSql.ISession session = session;
+
     public async Task<IEnumerable<string>> GetSetsAsync()
     {
         var indexValues = await session

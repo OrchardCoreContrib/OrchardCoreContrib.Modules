@@ -22,10 +22,11 @@ public class GmailSettingsConfiguration(
     /// <inheritdoc/>
     public void Configure(GmailSettings gmailSettings)
     {
-        var settings = site.GetSiteSettingsAsync()
+        var siteSettings = site.GetSiteSettingsAsync()
             .GetAwaiter()
-            .GetResult()
-            .As<GmailSettings>();
+            .GetResult();
+
+        siteSettings.TryGet<GmailSettings>(out var settings);
 
         gmailSettings.DefaultSender = settings.DefaultSender;
         gmailSettings.Host = settings.Host;

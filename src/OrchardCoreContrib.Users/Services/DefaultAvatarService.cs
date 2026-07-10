@@ -44,7 +44,7 @@ public class DefaultAvatarService : IAvatarService
         var x = (size - bounds.Width) / 2f - bounds.Left;
         var y = (size - bounds.Height) / 2f - bounds.Top;
 
-        canvas.DrawText(initials, x, y, font, paint);
+        canvas.DrawText(initials, x, y, SKTextAlign.Center, font, paint);
 
         using var image = SKImage.FromBitmap(bitmap);
         using var data = image.Encode(SKEncodedImageFormat.Png, 100);
