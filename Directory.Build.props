@@ -13,5 +13,8 @@
 		<OrchardCoreVersion>3.0.1</OrchardCoreVersion>
 		<OrchardCoreContribPath>..\..\OrchardCoreContrib\src\</OrchardCoreContribPath>
 		<OrchardCoreContribTestingPath>..\..\OrchardCoreContrib.Testing\src</OrchardCoreContribTestingPath>
+
+		<SignAssembly>true</SignAssembly>
+		<AssemblyOriginatorKeyFile>$(MSBuildThisFileDirectory)OrchardCoreContrib.Modules.snk</AssemblyOriginatorKeyFile>
 	</PropertyGroup>
 </Project>
