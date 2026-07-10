@@ -10,7 +10,7 @@
 		<ManagePackageVersionsCentrally>true</ManagePackageVersionsCentrally>
 		<NoWarn>NU1507</NoWarn>
 
-		<OrchardCoreVersion>3.0.0</OrchardCoreVersion>
+		<OrchardCoreVersion>3.0.1</OrchardCoreVersion>
 		<OrchardCoreContribPath>..\..\OrchardCoreContrib\src\</OrchardCoreContribPath>
 		<OrchardCoreContribTestingPath>..\..\OrchardCoreContrib.Testing\src</OrchardCoreContribTestingPath>
 	</PropertyGroup>
