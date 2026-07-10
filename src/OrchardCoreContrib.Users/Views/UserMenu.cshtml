@@ -24,11 +24,11 @@
             @*
             TODO: Use CommonPermissions.EditOwnUser once 1.6.0 is released
             *@
-            @if (await AuthorizationService.AuthorizeAsync(User, CommonPermissions.ManageUsers))
+            @if (await AuthorizationService.AuthorizeAsync(User, UsersPermissions.ManageUsers))
             {
                 <li><a class="dropdown-item" asp-area="OrchardCore.Users" asp-action="Edit" asp-controller="Admin" asp-route-returnUrl="@FullRequestPath"><span><i class="far fa-address-card" aria-hidden="true"></i></span>&nbsp;<span> @T["Profile"]</span></a></li>
             }
-            else if (await AuthorizationService.AuthorizeAsync(User, CommonPermissions.ViewUsers))
+            else if (await AuthorizationService.AuthorizeAsync(User, UsersPermissions.ViewUsers))
             {
                 <li><a class="dropdown-item" asp-area="OrchardCore.Users" asp-action="Display" asp-controller="Admin" asp-route-id="@userId" asp-route-returnUrl="@FullRequestPath"><span><i class="far fa-address-card" aria-hidden="true"></i></span>&nbsp;<span> @T["Profile"]</span></a></li>
             }

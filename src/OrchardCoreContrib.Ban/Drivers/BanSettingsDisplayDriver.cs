@@ -1,5 +1,6 @@
-﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Http.HttpResults;
 using OrchardCore.DisplayManagement.Entities;
 using OrchardCore.DisplayManagement.Handlers;
 using OrchardCore.DisplayManagement.Views;
@@ -24,7 +25,11 @@ public class BanSettingsDisplayDriver(IAuthorizationService authorizationService
             return null;
         }
 
-        return Initialize<BanSettingsViewModel>("BanSettings_Edit", model => model.BannedIPs = string.Join(IPSeparator, settings.BannedIPs))
+        return Initialize<BanSettingsViewModel>("BanSettings_Edit", model => 
+            {
+                model.BannedIPs = string.Join(IPSeparator, settings.BannedIPs);
+                model.RedirectUrl = settings.RedirectUrl;
+            })
             .Location("Content:5")
             .OnGroup(GroupId);
     }
@@ -45,6 +50,22 @@ public class BanSettingsDisplayDriver(IAuthorizationService authorizationService
             : [.. model.BannedIPs
                 .Split(IPSeparator, StringSplitOptions.RemoveEmptyEntries)
                 .Where(ip => IPAddress.TryParse(ip, out _))];
+
+        if (string.IsNullOrEmpty(model.RedirectUrl))
+        {
+            return await EditAsync(site, settings, context);
+        }
+
+        var redirectUrl = model.RedirectUrl.Trim();
+        if (RedirectHttpResult.IsLocalUrl(redirectUrl))
+        {
+            settings.RedirectUrl = redirectUrl;
+        }
+        else
+        {
+            // Avoid an external URL to prevent open redirect vulnerabilities
+            context.Updater.ModelState.AddModelError(nameof(model.RedirectUrl), "Redirect URL must be a local URL.");
+        }
 
         return await EditAsync(site, settings, context);
     }

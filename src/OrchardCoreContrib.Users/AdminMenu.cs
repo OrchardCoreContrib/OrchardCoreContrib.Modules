@@ -24,7 +24,7 @@ public class AdminMenu(
     private readonly HttpContext _httpContext = httpContextAccessor.HttpContext;
 
     /// <inheritdoc/>
-    public override void BuildNavigation(NavigationBuilder builder)
+    public override Task BuildNavigationAsync(NavigationBuilder builder)
     {
         var isImpersonatingClaim = _httpContext.User.FindFirst(ClaimTypesExtended.IsImpersonating);
         
@@ -40,5 +40,7 @@ public class AdminMenu(
                     )
                 );
         }
+
+        return Task.CompletedTask;
     }
 }

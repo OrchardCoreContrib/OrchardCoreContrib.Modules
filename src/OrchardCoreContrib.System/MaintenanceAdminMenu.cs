@@ -23,11 +23,15 @@ public class MaintenanceAdminMenu(IStringLocalizer<MaintenanceAdminMenu> S) : Ad
     };
 
     /// <inheritdoc/>
-    public override void BuildNavigation(NavigationBuilder builder)
-        => builder.Add(S["System"], "100", system => system.AddClass("system").Id("system")
+    public override Task BuildNavigationAsync(NavigationBuilder builder)
+    {
+        builder.Add(S["System"], "100", system => system.AddClass("system").Id("system")
             .Add(S["Maintenance"], S["Maintenance"].PrefixPosition(), maintenance => maintenance
                 .Action("Index", "Admin", _routeValues)
                 .Permission(SystemPermissions.ManageSystemSettings)
                 .LocalNav())
         );
+
+        return Task.CompletedTask;
+    }
 }

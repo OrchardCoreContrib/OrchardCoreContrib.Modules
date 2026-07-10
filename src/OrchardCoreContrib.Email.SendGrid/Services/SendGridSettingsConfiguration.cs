@@ -22,9 +22,10 @@ public class SendGridSettingsConfiguration(
     /// <inheritdoc/>
     public void Configure(SendGridSettings sendGridSettings)
     {
-        var settings = site.GetSiteSettingsAsync()
-            .GetAwaiter().GetResult()
-            .As<SendGridSettings>();
+        site.GetSiteSettingsAsync()
+            .GetAwaiter()
+            .GetResult()
+            .TryGet<SendGridSettings>(out var settings);
 
         sendGridSettings.DefaultSender = settings.DefaultSender;
 

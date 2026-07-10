@@ -1,10 +1,16 @@
-﻿@using OrchardCoreContrib.Ban.ViewModels
+@using OrchardCoreContrib.Ban.ViewModels
 @model BanSettingsViewModel
 
 <div class="form-group mb-3">
     <label asp-for="BannedIPs">@T["Banned IPs"]</label>
     <input asp-for="BannedIPs" class="form-control" />
     <span class="hint">@T["Enter IPv4 addresses. Press Tab or Enter after each one."]</span>
+</div>
+
+<div class="form-group mb-3">
+    <label asp-for="RedirectUrl">@T["Redirect Url"]</label>
+    <input asp-for="RedirectUrl" class="form-control" />
+    <span class="hint">@T["The URL to redirect banned IPs to (e.g., /page-1). Leave empty to show the default Access denied message."]</span>
 </div>
 
 <style at="Head" href="https://cdn.jsdelivr.net/npm/use-bootstrap-tag@2.2.2/dist/use-bootstrap-tag.min.css" rel="stylesheet" />

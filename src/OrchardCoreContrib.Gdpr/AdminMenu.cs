@@ -23,7 +23,7 @@ public class AdminMenu(IStringLocalizer<AdminMenu> S) : AdminNavigationProvider
     };
 
     /// <inheritdoc/>
-    public override void BuildNavigation(NavigationBuilder builder)
+    public override Task BuildNavigationAsync(NavigationBuilder builder)
     {
         builder
             .Add(S["Configuration"], configuration => configuration
@@ -34,5 +34,7 @@ public class AdminMenu(IStringLocalizer<AdminMenu> S) : AdminNavigationProvider
                       .Permission(GdprPermissions.ManageGdprSettings)
                       .LocalNav()
             )));
+
+        return Task.CompletedTask;
     }
 }

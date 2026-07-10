@@ -1,5 +1,6 @@
-﻿using OrchardCore.Settings;
+using OrchardCore.Settings;
 using OrchardCoreContrib.Ban.Models;
+using OrchardCoreContrib.Infrastructure;
 using System.Net;
 
 namespace OrchardCoreContrib.Ban.Services;
@@ -8,6 +9,8 @@ public class IPBanService(ISiteService siteService) : IIPBanService
 {
     public async Task<bool> IsBannedAsync(IPAddress ipAddress)
     {
+        Guard.ArgumentNotNull(ipAddress, nameof(ipAddress));
+
         var ipBanSettings = await siteService.GetSettingsAsync<BanSettings>();
 
         if (ipBanSettings?.BannedIPs is null)
@@ -16,5 +19,12 @@ public class IPBanService(ISiteService siteService) : IIPBanService
         }
 
         return ipBanSettings.BannedIPs.Any(ip => ip == ipAddress.ToString());
+    }
+
+    public async Task<string> GetRedirectUrlAsync()
+    {
+        var settings = await siteService.GetSettingsAsync<BanSettings>();
+
+        return settings.RedirectUrl;
     }
 }
