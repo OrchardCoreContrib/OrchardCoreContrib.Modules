@@ -26,7 +26,7 @@ public class ContentPermissionsServices(IContentDefinitionManager contentDefinit
         {
             var contentPermissionsPartSettings = await GetContentPermissionsPartSettingsAsync(contentItem);
 
-            var contentPermissionsPart = contentItem.As<ContentPermissionsPart>();
+            contentItem.TryGet<ContentPermissionsPart>(out var contentPermissionsPart);
 
             if (contentPermissionsPartSettings.EnableRoles == false && contentPermissionsPartSettings.EnableUsers == false)
             {

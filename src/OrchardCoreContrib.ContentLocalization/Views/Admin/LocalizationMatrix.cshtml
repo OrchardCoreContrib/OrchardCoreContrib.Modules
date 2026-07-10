@@ -32,7 +32,10 @@
                     continue;
                 }
 
-                var cultures = localizedContents.Select(item => item.As<LocalizationPart>().Culture);
+                var cultures = localizedContents
+                    .Select(item => item.TryGet<LocalizationPart>(out var localizationPart) ? localizationPart.Culture : null)
+                    .Where(culture => culture is not null)
+                    .ToList();
 
                 <tr>
                     <td class="w-50">
