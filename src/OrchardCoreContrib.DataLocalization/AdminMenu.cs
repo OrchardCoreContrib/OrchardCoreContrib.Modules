@@ -21,7 +21,7 @@ public class AdminMenu(IStringLocalizer<AdminMenu> S) : AdminNavigationProvider
     };
 
     ///<inheritdocs />
-    public override void BuildNavigation(NavigationBuilder builder)
+    public override Task BuildNavigationAsync(NavigationBuilder builder)
     {
         builder
             .Add(S["Configuration"], NavigationConstants.AdminMenuConfigurationPosition, localization => localization
@@ -42,5 +42,7 @@ public class AdminMenu(IStringLocalizer<AdminMenu> S) : AdminNavigationProvider
                     )
                 )
             );
+
+        return Task.CompletedTask;
     }
 }

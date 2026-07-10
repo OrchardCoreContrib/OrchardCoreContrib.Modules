@@ -9,7 +9,7 @@ using OrchardCoreContrib.Navigation;
 
 public class AdminMenu(IStringLocalizer<AdminMenu> S) : AdminNavigationProvider
 {
-    public override void BuildNavigation(NavigationBuilder builder)
+    public override Task BuildNavigationAsync(NavigationBuilder builder)
     {
         builder
             .Add(S["Security"], NavigationConstants.AdminMenuConfigurationPosition, builder => builder
@@ -17,5 +17,7 @@ public class AdminMenu(IStringLocalizer<AdminMenu> S) : AdminNavigationProvider
                     .Id("usergroups")
                     .Action(nameof(AdminController.Index), typeof(AdminController).ControllerName(), "OrchardCoreContrib.UserGroups")
                     .LocalNav()));
+
+        return Task.CompletedTask;
     }
 }

@@ -15,7 +15,7 @@ public sealed class AdminMenu(IStringLocalizer<AdminMenu> S) : AdminNavigationPr
         { "groupId", TurnstileSettingsDisplayDriver.GroupId },
     };
 
-    public override void BuildNavigation(NavigationBuilder builder)
+    public override Task BuildNavigationAsync(NavigationBuilder builder)
     {
         builder
             .Add(S["Configuration"], configuration => configuration
@@ -30,5 +30,7 @@ public sealed class AdminMenu(IStringLocalizer<AdminMenu> S) : AdminNavigationPr
                     )
                 )
             );
+
+        return Task.CompletedTask;
     }
 }

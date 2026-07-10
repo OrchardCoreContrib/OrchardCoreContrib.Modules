@@ -15,7 +15,7 @@ using OrchardCoreContrib.Navigation;
 public class AdminMenu(IStringLocalizer<AdminMenu> S) : AdminNavigationProvider
 {
     /// <inheritdoc/>
-    public override void BuildNavigation(NavigationBuilder builder)
+    public override Task BuildNavigationAsync(NavigationBuilder builder)
     {
         builder.Add(S["System"], "100", info => info
             .AddClass("system").Id("system")
@@ -24,5 +24,7 @@ public class AdminMenu(IStringLocalizer<AdminMenu> S) : AdminNavigationProvider
                 .Action("About", "Admin", "OrchardCoreContrib.System")
                 .LocalNav())
             );
+
+        return Task.CompletedTask;
     }
 }
