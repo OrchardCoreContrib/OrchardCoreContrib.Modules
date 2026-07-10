@@ -34,7 +34,7 @@ namespace OrchardCoreContrib.Modules.Email.Gmail.Tests
             {
                 To = config["Email:To"],
                 Subject = "Test",
-                Body = "Test message."
+                TextBody = "Test message."
             };
 
             // Act
