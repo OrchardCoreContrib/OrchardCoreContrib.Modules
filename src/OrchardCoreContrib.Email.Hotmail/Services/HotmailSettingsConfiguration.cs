@@ -23,9 +23,10 @@ public class HotmailSettingsConfiguration(
     /// <inheritdoc/>
     public void Configure(HotmailSettings hotmailSettings)
     {
-        var settings = site.GetSiteSettingsAsync()
-            .GetAwaiter().GetResult()
-            .As<HotmailSettings>();
+        site.GetSiteSettingsAsync()
+            .GetAwaiter()
+            .GetResult()
+            .TryGet<HotmailSettings>(out var settings);
 
         hotmailSettings.DefaultSender = settings.DefaultSender;
         hotmailSettings.Host = settings.Host;

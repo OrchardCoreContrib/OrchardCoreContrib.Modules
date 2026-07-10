@@ -22,9 +22,10 @@ public class YahooSettingsConfiguration(
     /// <inheritdoc/>
     public void Configure(YahooSettings yahooSettings)
     {
-        var settings = site.GetSiteSettingsAsync()
-            .GetAwaiter().GetResult()
-            .As<YahooSettings>();
+        site.GetSiteSettingsAsync()
+            .GetAwaiter()
+            .GetResult()
+            .TryGet<YahooSettings>(out var settings);
 
         yahooSettings.DefaultSender = settings.DefaultSender;
         yahooSettings.Host = settings.Host;

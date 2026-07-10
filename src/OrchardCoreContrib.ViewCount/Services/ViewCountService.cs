@@ -25,8 +25,8 @@ public class ViewCountService(
     {
         Guard.ArgumentNotNull(contentItem, nameof(contentItem));
 
-        var viewCountPart = contentItem.As<ViewCountPart>();
-        
+        contentItem.TryGet<ViewCountPart>(out var viewCountPart);
+
         return viewCountPart?.Count ?? 0;
     }
 
@@ -35,8 +35,13 @@ public class ViewCountService(
     {
         Guard.ArgumentNotNull(contentItem, nameof(contentItem));
 
-        var viewCountPart = contentItem.As<ViewCountPart>()
-            ?? throw new InvalidOperationException($"The content item doesn't have a `{nameof(ViewCountPart)}`.");
+        contentItem.TryGet<ViewCountPart>(out var viewCountPart);
+
+        if (viewCountPart is null)
+        {
+            throw new InvalidOperationException($"The content item doesn't have a `{nameof(ViewCountPart)}`.");
+        }
+
         var count = viewCountPart.Count;
         var context = new ViewCountContentContext(contentItem, count);
 
