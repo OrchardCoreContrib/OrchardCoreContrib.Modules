@@ -8,7 +8,9 @@ public class HomeController(ISiteService site) : Controller
     [HttpGet]
     public async Task<IActionResult> Privacy()
     {
-        var gdprSettings = (await site.GetSiteSettingsAsync()).As<GdprSettings>();
+        var siteSettings = await site.GetSiteSettingsAsync();
+
+        siteSettings.TryGet<GdprSettings>(out var gdprSettings);
 
         return View(gdprSettings);
     }

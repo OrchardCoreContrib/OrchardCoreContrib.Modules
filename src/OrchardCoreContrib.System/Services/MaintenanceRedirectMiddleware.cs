@@ -45,7 +45,9 @@ public class MaintenanceRedirectMiddleware(
             return;
         }
 
-        var systemSettings = (await siteService.GetSiteSettingsAsync()).As<SystemSettings>();
+        var siteSettings = await siteService.GetSiteSettingsAsync();
+
+        siteSettings.TryGet<SystemSettings>(out var systemSettings);
 
         if (systemSettings.AllowMaintenanceMode)
         {

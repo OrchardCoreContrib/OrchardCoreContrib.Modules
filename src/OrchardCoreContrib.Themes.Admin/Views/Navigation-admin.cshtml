@@ -1,8 +1,10 @@
 @inject OrchardCore.Settings.ISiteService siteService
-@using OrchardCore.Entities
 @using OrchardCore.Admin.Models
 @{
-    var adminSettings = (await siteService.GetSiteSettingsAsync()).As<AdminSettings>();
+    var siteSettings = await siteService.GetSiteSettingsAsync();
+
+    siteSettings.TryGet<AdminSettings>(out var adminSettings);
+
     TagBuilder tag = Tag(Model, "ul");
     tag.Attributes["Id"] = "adminMenu";
 

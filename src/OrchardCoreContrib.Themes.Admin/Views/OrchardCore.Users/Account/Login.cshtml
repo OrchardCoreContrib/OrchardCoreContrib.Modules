@@ -1,8 +1,6 @@
 @using Microsoft.AspNetCore.Identity
 @using OrchardCore.DisplayManagement
 @using OrchardCore.DisplayManagement.ModelBinding
-@using OrchardCore.Entities
-@using OrchardCore.Settings
 @using OrchardCore.Users
 @using OrchardCore.Users.Models
 
@@ -15,7 +13,10 @@
     ViewLayout = "Layout__Login";
 
     var loginProviders = (await SignInManager.GetExternalAuthenticationSchemesAsync()).ToList();
-    var disableLocalLogin = Site.As<LoginSettings>().DisableLocalLogin;
+
+    Site.TryGet<LoginSettings>(out var loginSettings);
+
+    var disableLocalLogin = loginSettings?.DisableLocalLogin ?? false;
 }
 
 <script asp-name="font-awesome" at="Foot" version="6"></script>
