@@ -15,7 +15,7 @@ public class AdminMenu(IStringLocalizer<AdminMenu> S) : AdminNavigationProvider
         { "area", "OrchardCoreContrib.ContentLocalization" }
     };
 
-    public override void BuildNavigation(NavigationBuilder builder)
+    public override Task BuildNavigationAsync(NavigationBuilder builder)
     {
         builder
             .Add(S["Configuration"], config => config
@@ -29,5 +29,7 @@ public class AdminMenu(IStringLocalizer<AdminMenu> S) : AdminNavigationProvider
                     )
                 )
             );
+
+        return Task.CompletedTask;
     }
 }
