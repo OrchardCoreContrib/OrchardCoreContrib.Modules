@@ -21,8 +21,7 @@ public class IPBanMiddleware(
             return;
         }
 
-
-        var ip = context.Connection.RemoteIpAddress;
+        var ip = context.Connection.RemoteIpAddress.MapToIPv4();
         if (await ipBanService.IsBannedAsync(ip))
         {
             var redirectUrl = await ipBanService.GetRedirectUrlAsync();
