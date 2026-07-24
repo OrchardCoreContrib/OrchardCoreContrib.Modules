@@ -61,7 +61,7 @@
 		<PackageVersion Include="Scalar.AspNetCore" Version="2.16.11" />
 		<PackageVersion Include="SendGrid" Version="9.29.3" />
 		<PackageVersion Include="SkiaSharp" Version="4.150.0" />
-		<PackageVersion Include="StackExchange.Redis" Version="3.0.2-preview" />
+		<PackageVersion Include="StackExchange.Redis" Version="3.0.17" />
 		<PackageVersion Include="Swashbuckle.AspNetCore" Version="10.2.1" />
 		<PackageVersion Include="Swashbuckle.AspNetCore.Swagger" Version="10.2.1" />
 		<PackageVersion Include="Testcontainers.Redis" Version="4.12.0" />
