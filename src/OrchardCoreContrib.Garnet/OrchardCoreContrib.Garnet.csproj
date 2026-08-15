@@ -24,6 +24,7 @@
 		<PackageReference Include="OrchardCore.Infrastructure.Abstractions" />
 		<PackageReference Include="OrchardCore.Module.Targets" />
 		<PackageReference Include="StackExchange.Redis" />
+		<PackageReference Include="SSH.NET" />
 	</ItemGroup>
 
 	<ItemGroup>
