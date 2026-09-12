@@ -26,6 +26,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
+		<PackageReference Include="Fluid.Core" />
 		<PackageReference Include="OrchardCore.Module.Targets" />
 		<PackageReference Include="OrchardCore.ContentManagement" />
 		<PackageReference Include="OrchardCore.ContentTypes.Abstractions" />

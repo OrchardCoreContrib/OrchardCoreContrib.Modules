@@ -9,6 +9,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
+		<PackageReference Include="Fluid.Core" />
 		<PackageReference Include="Microsoft.Extensions.Http.Resilience" />
 		<PackageReference Include="OrchardCore.Admin" />
 		<PackageReference Include="OrchardCore.DisplayManagement" />

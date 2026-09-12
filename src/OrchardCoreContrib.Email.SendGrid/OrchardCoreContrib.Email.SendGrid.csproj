@@ -26,6 +26,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
+		<PackageReference Include="Fluid.Core" />
 		<PackageReference Include="SendGrid" />
 		<PackageReference Include="OrchardCore.Admin.Abstractions" />
 		<PackageReference Include="OrchardCore.DisplayManagement" />
