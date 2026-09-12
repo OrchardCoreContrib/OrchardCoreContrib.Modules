@@ -31,6 +31,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
+		<PackageReference Include="Fluid.Core" />
 		<PackageReference Include="OrchardCore.Admin.Abstractions" />
 		<PackageReference Include="OrchardCore.DisplayManagement" />
 		<PackageReference Include="OrchardCore.Infrastructure.Abstractions" />

@@ -32,6 +32,7 @@
 
 	<ItemGroup>
 		<PackageReference Include="Azure.Communication.Sms" />
+		<PackageReference Include="Fluid.Core" />
 		<PackageReference Include="OrchardCore.DisplayManagement" />
 		<PackageReference Include="OrchardCore.Module.Targets" />
 	</ItemGroup>

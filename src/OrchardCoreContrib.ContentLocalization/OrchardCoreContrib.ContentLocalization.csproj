@@ -26,6 +26,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
+		<PackageReference Include="Fluid.Core" />
 		<PackageReference Include="OrchardCore.Contents.TagHelpers" />
 		<PackageReference Include="OrchardCore.ContentLocalization" />
 		<PackageReference Include="OrchardCore.Module.Targets" />
