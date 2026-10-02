@@ -2,21 +2,68 @@
 @using OrchardCore.Users
 @using OrchardCoreContrib.Avatars
 @using Microsoft.AspNetCore.Authorization
+@using Microsoft.Extensions.DependencyInjection
 @using System.Security.Claims
 
 @inject IAuthorizationService AuthorizationService
-@inject IAvatarService AvatarService
 @attribute [Feature("OrchardCoreContrib.Users.Avatar")]
+
+@* Same as the stock OrchardCore.Users UserMenu.cshtml for anonymous visitors. *@
+@if (!User.Identity.IsAuthenticated)
+{
+    @if (Model.AnonymousContent?.Items != null && Model.AnonymousContent.Items.Count > 0)
+    {
+        <li class="nav-item dropdown text-end">
+            <a class="dropdown-toggle nav-link" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" role="button">
+                @if (Model.AnonymousHeader?.Items != null && Model.AnonymousHeader.Items.Count > 0)
+                {
+                    @await DisplayAsync(Model.AnonymousHeader)
+                }
+                else
+                {
+                    <span>@T["Users"]</span>
+                }
+            </a>
+
+            <ul class="dropdown-menu dropdown-menu-end">
+                @await DisplayAsync(Model.AnonymousContent)
+            </ul>
+        </li>
+
+        return;
+    }
+
+    <li class="nav-item text-end">
+        <a class="nav-link" asp-route-area="@UserConstants.Features.Users" asp-controller="Account" asp-action="Login">
+            <i class="fa-solid fa-right-to-bracket fa-width-auto" aria-hidden="true"></i> @T["Log in"]
+        </a>
+    </li>
+
+    return;
+}
+
 @{
     var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
 
-    var avatar = AvatarService.GetAvatar(new AvatarContext { DisplayName = User.Identity.Name });
+    // Orchard Core binds a module's shape templates to every enabled feature of the module, so this
+    // view is active whenever any OrchardCoreContrib.Users feature is (e.g. only Impersonation), not
+    // just Avatar. IAvatarService comes from the Avatar feature (or another avatar provider, or the
+    // NullAvatarService fallback of AddOrchardCoreContrib()), so resolve it optionally.
+    var avatarService = Context.RequestServices.GetService<IAvatarService>();
+    var avatar = avatarService?.GetAvatar(new AvatarContext { DisplayName = User.Identity.Name });
 }
 
 <div class="dropdown">
     <form asp-route-area="OrchardCore.Users" asp-controller="Account" asp-action="LogOff" method="post" class="no-multisubmit">
         <a class="dropdown-toggle" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" role="button">
-            <img src="@avatar" />
+            @if (!string.IsNullOrEmpty(avatar))
+            {
+                <img src="@avatar" />
+            }
+            else
+            {
+                <i class="fa-solid fa-circle-user" aria-hidden="true"></i>
+            }
         </a>
         <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
             <li><h6 class="dropdown-header">@T["Signed in as"]<span class="ms-1 font-weight-bold">@User.Identity.Name</span></h6></li>
